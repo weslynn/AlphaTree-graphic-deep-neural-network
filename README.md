@@ -17,6 +17,7 @@
 从模型的发展过程中，我们可以看到网络结构不断的进行改进，包括不断增加的网络深度，不断变换的卷积核上，多种多样的网络模块等。
 
 * LeNet
+![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet.png)
 
 * AlexNet
 
