@@ -18,7 +18,8 @@
 
 * LeNet
 
-![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet.png)
+
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet.png" width="305">
 
 
 * AlexNet
