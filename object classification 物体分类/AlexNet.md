@@ -4,6 +4,8 @@
 
 paper ：Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012. [pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
+slides: http://www.image-net.org/challenges/LSVRC/2012/supervision.pdf
+
 AlexNet原始结构如图
 
 ![alexnet org model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-org.jpg)
@@ -53,8 +55,17 @@ AlexNet原始结构如图
 ![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-short.png)
 
 源码：
-
 tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/alexnet.py
 
 caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/train_val.prototxt
 
+
+作者源码
+
+code: https://code.google.com/p/cuda-convnet/
+
+github: https://github.com/dnouri/cuda-convnet
+
+code: https://code.google.com/p/cuda-convnet2/
+
+github: https://github.com/akrizhevsky/cuda-convnet2
