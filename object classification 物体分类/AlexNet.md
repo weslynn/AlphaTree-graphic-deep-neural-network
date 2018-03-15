@@ -9,8 +9,9 @@ AlexNet原始结构如图
 ![alexnet org model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-org.jpg)
 
 可以将模型结构表示如图：
-![alexnet other model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-org.png)
+![alexnet other model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet2.png)
 
+模型结构如下
 
 一层卷积层： 11×11的卷积核，96个，步长位4 （stride = 4）
 
@@ -34,12 +35,20 @@ AlexNet原始结构如图
 
 最后通过softmax分类输出1000类
 
+
 模型下方的柱状图，表示一张图片的尺寸，因为图片输入目前绝大部分都是正方形，因此简化成柱状图，表示图片的边长，可以看到对应网络结构中，图片大小的变化。
+
 ![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet.png)
 
 
-将卷积层和maxpooling层画在一起，则表示为
-![equal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/equal.png)
+
+将卷积层和maxpooling层画在一起
+
+  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/equal.png" width="305">
+
+
+简化成
+
 ![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-short.png)
 
 源码：
