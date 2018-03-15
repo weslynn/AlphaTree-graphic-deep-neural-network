@@ -29,11 +29,16 @@ Lenet5 原始结构如，包括卷积层，降采样，卷积层，降采样，�
 模型下方的柱状图，表示一张图片的尺寸，因为图片输入目前绝大部分都是正方形，因此简化成柱状图，表示图片的边长，可以看到对应网络结构中，图片大小的变化。
 ![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet.png)
 
+将卷积层和maxpooling层画在一起，则表示为
+![equal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/equal.png)
+![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet-short.png)
+
 源码：
 
 tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/lenet.py
 
 tensorflow的输入 改成了28×28，因此少了一层卷积层，最后使用softmax输出
 
-pytorch 源码 https://github.com/kuangliu/pytorch-cifar/blob/master/models/lenet.py
+pytorch 源码 https://github.com/pytorch/examples/blob/master/mnist/main.py
 
+caffe https://github.com/BVLC/caffe/blob/master/examples/mnist/lenet.prototxt
