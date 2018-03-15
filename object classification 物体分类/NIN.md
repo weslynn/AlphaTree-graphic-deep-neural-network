@@ -1,4 +1,4 @@
-#Network In Network
+# Network In Network
 
 ![NIN model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/nin.png)
 
@@ -17,6 +17,6 @@ tensorflow： https://github.com/tflearn/tflearn/blob/master/examples/images/net
 
 
 
-#Batch-normalized Maxout Network in Network
+# Batch-normalized Maxout Network in Network
 
 arxiv: http://arxiv.org/abs/1511.02583
