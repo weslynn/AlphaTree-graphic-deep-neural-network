@@ -44,13 +44,13 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 2012年，Alex Krizhevsky用AlexNet 在当年的ImageNet图像分类竞赛中(ILSVRC 2012)，以top-5错误率15.3%拿下第一。 他的top-5错误率比上一年的冠军下降了十个百分点，而且远远超过当年的第二名。
 
-    <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet.png" width="505">
+   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet.png" width="505">
 
-    [2] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012. [pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+   [2] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012. [pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
-	tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/alexnet.py
+   tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/alexnet.py
 
-	caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/train_val.prototxt
+   caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/train_val.prototxt
 
 * GoogLeNet
 
