@@ -24,8 +24,8 @@
     [1] LeCun, Yann; Léon Bottou; Yoshua Bengio; Patrick Haffner (1998). "Gradient-based learning applied to document recognition" [pdf](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
 
 	tf code  https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/lenet.py
-	pytorch code  https://github.com/pytorch/examples/blob/master/mnist/main.py)  
-	caffe code  https://github.com/BVLC/caffe/blob/master/examples/mnist/lenet.prototxt)
+	pytorch code  https://github.com/pytorch/examples/blob/master/mnist/main.py
+	caffe code  https://github.com/BVLC/caffe/blob/master/examples/mnist/lenet.prototxt
 
 
 * AlexNet
