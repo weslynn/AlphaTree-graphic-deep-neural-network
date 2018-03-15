@@ -9,6 +9,7 @@ AlexNet原始结构如图
 ![alexnet org model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-org.jpg)
 
 可以将模型结构表示如图：
+
 ![alexnet other model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet2.png)
 
 模型结构如下
