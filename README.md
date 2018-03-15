@@ -17,13 +17,15 @@
 从模型的发展过程中，我们可以看到网络结构不断的进行改进，包括不断增加的网络深度，不断变换的卷积核上，多种多样的网络模块等。
 
 * [LeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)
-[1] LeCun, Yann; Léon Bottou; Yoshua Bengio; Patrick Haffner (1998). "Gradient-based learning applied to document recognition" [pdf](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
 
-[tf code](https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/lenet.py)  
-[pytorch code](https://github.com/pytorch/examples/blob/master/mnist/main.py)  
-[caffe code](https://github.com/BVLC/caffe/blob/master/examples/mnist/lenet.prototxt)
+    <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet.png" width="405">
 
-     <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet.png" width="405">
+
+    [1] LeCun, Yann; Léon Bottou; Yoshua Bengio; Patrick Haffner (1998). "Gradient-based learning applied to document recognition" [pdf](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
+
+	[tf code](https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/lenet.py)  
+	[pytorch code](https://github.com/pytorch/examples/blob/master/mnist/main.py)  
+	[caffe code](https://github.com/BVLC/caffe/blob/master/examples/mnist/lenet.prototxt)
 
 
 * AlexNet
