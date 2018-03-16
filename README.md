@@ -3,11 +3,11 @@
 
 
 模型中用到的图标规定如下：
-![图标](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/cellsreadme.png)
+![图标](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/cellsreadme.png)
 
 当大家描述网络结构时，常常会将卷积层和maxpooling层画在一起，我们也提供了这样的简化方法
 
-  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/equal.png" width="205">
+  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/equal.png" width="205">
 
 一个具体的问题是否能用人工智能，或者更进一步说用深度学习某个算法解决，首先需要人对问题进行分解，提炼成可以用机器解决的问题，譬如说分类问题，回归问题，聚类问题等。
 
