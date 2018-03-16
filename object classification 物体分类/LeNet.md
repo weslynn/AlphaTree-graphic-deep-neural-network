@@ -30,16 +30,16 @@ Lenet5 原始结构如，包括卷积层，降采样，卷积层，降采样，�
 
 模型下方的柱状图，表示一张图片的尺寸，因为图片输入目前绝大部分都是正方形，因此简化成柱状图，表示图片的边长，可以看到对应网络结构中，图片大小的变化。
 
-![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet.png)
+![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet.png)
 
 
 将卷积层和maxpooling层画在一起
 
-  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/equal.png" width="305">
+  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/equal.png" width="305">
 
 简化成
 
-![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet-short.png)
+![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet-short.png)
 
 源码：
 

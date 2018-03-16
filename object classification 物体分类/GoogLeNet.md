@@ -26,7 +26,7 @@ GoogLeNet的网络结构设计很大程度上借鉴了2014年 ICLR 的paper：Ne
 用不同节点表示如图：
 
 
-![googlenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet.png)
+![googlenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/googlenet.png)
 
 
 

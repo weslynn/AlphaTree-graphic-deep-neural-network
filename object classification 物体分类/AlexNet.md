@@ -41,18 +41,18 @@ AlexNet原始结构如图
 
 模型下方的柱状图，表示一张图片的尺寸，因为图片输入目前绝大部分都是正方形，因此简化成柱状图，表示图片的边长，可以看到对应网络结构中，图片大小的变化。
 
-![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet.png)
+![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png)
 
 
 
 将卷积层和maxpooling层画在一起
 
-  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/equal.png" width="305">
+  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/equal.png" width="305">
 
 
 简化成
 
-![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-short.png)
+![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet-short.png)
 
 源码：
 tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/alexnet.py

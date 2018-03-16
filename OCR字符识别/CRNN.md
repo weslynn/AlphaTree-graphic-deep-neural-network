@@ -1,9 +1,7 @@
 
-#LeNet
-![lenet](http://yann.lecun.com/exdb/lenet/gifs/a35.gif)
+# CRNN
 
-LeNet-5(http://yann.lecun.com/exdb/lenet/a35.tml), 一个手写体数字识别模型，是一个广为人知的商用的卷积神经网络，
-当年美国大多数银行用它来识别支票上面的手写数字。
+
 
 paper ：LeCun, Yann; Léon Bottou; Yoshua Bengio; Patrick Haffner (1998). "Gradient-based learning applied to document recognition"
 http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf
