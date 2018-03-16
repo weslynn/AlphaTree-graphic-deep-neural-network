@@ -77,8 +77,19 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
 
 
+## OCR：Optical Character Recognition 字符识别
 
+传统的文本文字检测，主要实现了在文档上的文字检测，并且有了很好的商用。但是场景文字检测一直没有很好的被解决。随着深度学习的发展，近年来相应工作了有了较好的进展。
 
+场景文字检测与传统的文本文字检测的重要区别是需要将照片或视频中的文字识别出来。
+
+其主要分为两个步骤：
+
+对照片中存在文字的区域进行定位（Text Detection），即找到单词或文本行（word/linelevel）的边界框（bounding box）；
+
+然后对定位后的文字进行识别（Text Recognition）。
+
+将这两个步骤合在一起就能得到文字的端到端检测（End-to-end Recognition）
 
 # 贡献力量
 
