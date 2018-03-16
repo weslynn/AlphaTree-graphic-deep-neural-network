@@ -6,6 +6,7 @@ GoogLeNet,采用InceptionModule和全局平均池化层，构建了一个22层�
 
 GoogLeNet这个名字也是挺有意思的，将L大写，为了向开山鼻祖的LeNet网络致敬
 
+paper：Szegedy, Christian, et al. "Going deeper with convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2015.[pdf](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf)
 
 GoogLeNet 原始结构如图
 
