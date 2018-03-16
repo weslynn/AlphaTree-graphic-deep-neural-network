@@ -23,7 +23,9 @@ GoogLeNet的网络结构设计很大程度上借鉴了2014年 ICLR 的paper：Ne
 
 ![googlenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet_th.jpeg)
 
-用不同节点表示如图：
+用不同节点表示如图，在这里，我们将重复的结构进行了合并，而将不同的参数列在每个inception module下面。
+
+另外在GoogLeNet inception v1中的结构，除了最终输出分类结果之外，层中间的地方还有两个地方输出了分类结果，而在后来发展的inception v3中发现这个在新结构中对结果提升作用不大。由于模型示意图只为了帮助大家快速理解，为此就在这里省去中间结果的节点。
 
 
 ![googlenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/googlenet.png)
