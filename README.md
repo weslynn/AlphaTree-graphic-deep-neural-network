@@ -53,8 +53,20 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
    caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/train_val.prototxt
 
-* GoogLeNet
+* GoogLeNet[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)
+GoogLeNet,采用InceptionModule和全局平均池化层，构建了一个22层的深度网络,使得很好地控制计算量和参数量的同时（ AlexNet 参数量的1/12），获得了非常好的分类性能.
+它获得2014年ILSVRC挑战赛冠军，将Top5 的错误率降低到6.67%.
+GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet.png" width="605">
+
+   [2] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012. [pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+
+   tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/inception_v1.py
+
+   caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_googlenet/train_val.prototxt
+
+   
 * Inception V3
 
 * VGG

@@ -4,14 +4,14 @@
 GoogLeNet,采用InceptionModule和全局平均池化层，构建了一个22层的深度网络,使得很好地控制计算量和参数量的同时（ AlexNet 参数量的1/12），获得了非常好的分类性能.
 它获得2014年ILSVRC挑战赛冠军，将Top5 的错误率降低到6.67%.
 
-GoogLeNet这个名字也是挺有意思的，为了像开山鼻祖的LeNet网络致敬，他们选择了这样的名字。
+GoogLeNet这个名字也是挺有意思的，将L大写，为了向开山鼻祖的LeNet网络致敬
 
 
 GoogLeNet 原始结构如图
 
 ![googlenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet_org.png)
 
-大图参见[link]((https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet-nologo.png))
+大图参见[link](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet-nologo.png)
 
 GoogLeNet的网络结构设计很大程度上借鉴了2014年 ICLR 的paper：Network In Network([NIN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/NIN.md))。
 
