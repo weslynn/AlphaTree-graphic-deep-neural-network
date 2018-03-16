@@ -19,9 +19,8 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 从模型的发展过程中，我们可以看到网络结构不断的进行改进，包括不断增加的网络深度，不断变换的卷积核上，多种多样的网络模块等。
 
-### LeNet 
-* LeNet [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)
-最经典的CNN网络
+### LeNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)
+* LeNet  最经典的CNN网络
 
     <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet.png" width="405">
 
@@ -42,9 +41,8 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 		SqueezeNet: SqueezeNet 1.0, and SqueezeNet 1.1
      其中ImageNet比赛中相关的网络，可参见 https://github.com/pytorch/examples/tree/master/imagenet 
      另外也可以参考https://github.com/aaron-xichen/pytorch-playground.git 里面各种网络结构写法 （非官方）
-### AlexNet
-* AlexNet   [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)
-2012年，Alex Krizhevsky用AlexNet 在当年的ImageNet图像分类竞赛中(ILSVRC 2012)，以top-5错误率15.3%拿下第一。 他的top-5错误率比上一年的冠军下降了十个百分点，而且远远超过当年的第二名。
+### AlexNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)
+* AlexNet  2012年，Alex Krizhevsky用AlexNet 在当年的ImageNet图像分类竞赛中(ILSVRC 2012)，以top-5错误率15.3%拿下第一。 他的top-5错误率比上一年的冠军下降了十个百分点，而且远远超过当年的第二名。
 
    <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png" width="505">
 
@@ -55,9 +53,8 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
    caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/train_val.prototxt
 
 
-### GoogLeNet
-* GoogLeNet   [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)
-GoogLeNet,采用InceptionModule和全局平均池化层，构建了一个22层的深度网络,使得很好地控制计算量和参数量的同时（ AlexNet 参数量的1/12），获得了非常好的分类性能.
+### GoogLeNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)
+* GoogLeNet  采用InceptionModule和全局平均池化层，构建了一个22层的深度网络,使得很好地控制计算量和参数量的同时（ AlexNet 参数量的1/12），获得了非常好的分类性能.
 它获得2014年ILSVRC挑战赛冠军，将Top5 的错误率降低到6.67%.
 GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
