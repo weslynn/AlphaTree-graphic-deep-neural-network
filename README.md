@@ -85,11 +85,11 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
 其主要分为两个步骤：
 
-对照片中存在文字的区域进行定位（Text Detection），即找到单词或文本行（word/linelevel）的边界框（bounding box）；
+对照片中存在文字的区域进行定位（Text Detection)，即找到单词或文本行（word/linelevel）的边界框（bounding box)；
 
-然后对定位后的文字进行识别（Text Recognition）。
+然后对定位后的文字进行识别（Text Recognition)
 
-将这两个步骤合在一起就能得到文字的端到端检测（End-to-end Recognition）
+将这两个步骤合在一起就能得到文字的端到端检测（End-to-end Recognition)
 
 # 贡献力量
 
