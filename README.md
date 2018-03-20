@@ -74,6 +74,34 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
 * ResNet
 
+## OCR：Optical Character Recognition 字符识别
+
+传统的文本文字检测，主要实现了在文档上的文字检测，并且有了很好的商用。但是场景文字检测一直没有很好的被解决。随着深度学习的发展，近年来相应工作了有了较好的进展。
+
+场景文字检测与传统的文本文字检测的重要区别是需要将照片或视频中的文字识别出来。
+
+其主要分为两个步骤：
+
+对照片中存在文字的区域进行定位（Text Detection)，即找到单词或文本行（word/linelevel）的边界框（bounding box)；
+
+然后对定位后的文字进行识别（Text Recognition)
+
+将这两个步骤合在一起就能得到文字的端到端检测（End-to-end Recognition)
+
+
+### CRNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/CRNN.md) 白翔 Xiang Bai/Media and Communication Lab, HUST
+* CRNN 将特征提取CNN，序列建模 RNN 和转录 CTC 整合到统一框架，完成端对端的识别任务.
+
+   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/crnn.png" width="805">
+
+   [1] [2015-CoRR] An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition  [pdf](http://arxiv.org/pdf/1507.05717v1.pdf) 
+
+
+   code： http://mclab.eic.hust.edu.cn/~xbai/CRNN/crnn_code.zip 
+
+   Torch 源码：https://github.com/bgshih/crnn Torch7 官方
+
+
 ## Object Detection 物体检测
 
 物体分类（物体识别）解决的是这个东西是什么的问题（What）。而物体检测则是要解决这个东西是什么，具体位置在哪里（What and Where）。
@@ -84,8 +112,7 @@ Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 
 不过真正取得巨大突破，引发基于深度学习目标检测的热潮的还是RCNN
 
-### RCNN  Ross B. Girshick(RBG) [link](https://people.eecs.berkeley.edu/~rbg/index.html
-) / UC-Berkeley
+### RCNN  Ross B. Girshick(RBG) [link](https://people.eecs.berkeley.edu/~rbg/index.html) / UC-Berkeley
 
 * RCNN R-CNN框架，取代传统目标检测使用的滑动窗口+手工设计特征，而使用CNN来进行特征提取。
 
@@ -108,6 +135,11 @@ R-CNN在PASCAL VOC2007上的检测结果提升到66%(mAP)
 
 ### Faster RCNN 何凯明 He Kaiming
 * Faster RCNN
+将Region Proposal Network和特征提取、目标分类和边框回归统一到了一个框架中。
+
+Faster R-CNN = Region Proposal Network +Fast R-CNN
+
+
    [5] Ren, Shaoqing, et al. "Faster R-CNN: Towards real-time object detection with region proposal networks." Advances in neural information processing systems. 2015.
 
 ### Yolo
@@ -144,32 +176,6 @@ R-CNN在PASCAL VOC2007上的检测结果提升到66%(mAP)
 
 ### BlitzNet
 
-## OCR：Optical Character Recognition 字符识别
-
-传统的文本文字检测，主要实现了在文档上的文字检测，并且有了很好的商用。但是场景文字检测一直没有很好的被解决。随着深度学习的发展，近年来相应工作了有了较好的进展。
-
-场景文字检测与传统的文本文字检测的重要区别是需要将照片或视频中的文字识别出来。
-
-其主要分为两个步骤：
-
-对照片中存在文字的区域进行定位（Text Detection)，即找到单词或文本行（word/linelevel）的边界框（bounding box)；
-
-然后对定位后的文字进行识别（Text Recognition)
-
-将这两个步骤合在一起就能得到文字的端到端检测（End-to-end Recognition)
-
-
-### CRNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/CRNN.md) 白翔 Xiang Bai/Media and Communication Lab, HUST
-* CRNN 将特征提取CNN，序列建模 RNN 和转录 CTC 整合到统一框架，完成端对端的识别任务.
-
-   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/crnn.png" width="805">
-
-   [1] [2015-CoRR] An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition  [pdf](http://arxiv.org/pdf/1507.05717v1.pdf) 
-
-
-   code： http://mclab.eic.hust.edu.cn/~xbai/CRNN/crnn_code.zip 
-
-   Torch 源码：https://github.com/bgshih/crnn Torch7 官方
 
 
 # 贡献力量
