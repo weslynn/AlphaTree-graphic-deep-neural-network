@@ -70,7 +70,29 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
 * Inception V3
 
-* VGG
+
+### VGG [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md) Karen Simonyan , Andrew Zisserman  /  visual geometry group（VGG）Oxford (http://www.robots.ox.ac.uk/~vgg/research/very_deep/)
+* VGG   
+VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC localization 第一名。VGG-Net的所有 convolutional layer 使用同样大小的 convolutional filter，大小为 3 x 3
+
+   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/vgg.png" width="805">
+
+单独看VGG19的模型：
+
+   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/vgg19.png" width="805">
+
+
+   [4] Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks for large-scale image recognition." arXiv preprint arXiv:1409.1556 (2014). [pdf](https://arxiv.org/pdf/1409.1556.pdf)
+
+   tensorflow 源码: https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/vgg.py
+
+
+   caffe ：
+
+      vgg16 https://gist.githubusercontent.com/ksimonyan/211839e770f7b538e2d8/raw/0067c9b32f60362c74f4c445a080beed06b07eb3/VGG_ILSVRC_16_layers_deploy.prototxt
+
+      vgg19 https://gist.githubusercontent.com/ksimonyan/3785162f95cd2d5fee77/raw/f02f8769e64494bcd3d7e97d5d747ac275825721/VGG_ILSVRC_19_layers_deploy.prototxt
+
 
 * ResNet
 
@@ -89,7 +111,7 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 将这两个步骤合在一起就能得到文字的端到端检测（End-to-end Recognition)
 
 
-### CRNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/CRNN.md) 白翔 Xiang Bai/Media and Communication Lab, HUST
+### CRNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CRNN.md) 白翔 Xiang Bai/Media and Communication Lab, HUST
 * CRNN 将特征提取CNN，序列建模 RNN 和转录 CTC 整合到统一框架，完成端对端的识别任务.
 
    <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/crnn.png" width="805">
