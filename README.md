@@ -74,8 +74,75 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
 * ResNet
 
+## Object Detection 物体检测
+
+物体分类（物体识别）解决的是这个东西是什么的问题（What）。而物体检测则是要解决这个东西是什么，具体位置在哪里（What and Where）。
+
+Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
+
+   [1] Szegedy, Christian, Alexander Toshev, and Dumitru Erhan. "Deep neural networks for object detection." Advances in Neural Information Processing Systems. 2013.  [pdf](http://papers.nips.cc/paper/5207-deep-neural-networks-for-object-detection.pdf)
+
+不过真正取得巨大突破，引发基于深度学习目标检测的热潮的还是RCNN
+
+### RCNN  Ross B. Girshick(RBG)[link](https://people.eecs.berkeley.edu/~rbg/index.html
+) / UC-Berkeley
+
+* RCNN R-CNN框架，取代传统目标检测使用的滑动窗口+手工设计特征，而使用CNN来进行特征提取。
+
+Traditional region proposal methods + CNN classifier
+
+创新点：将CNN用在物体检测上，提高了检测率。
+缺点：每个proposal都卷积一次，重复计算，速度慢。
+
+R-CNN在PASCAL VOC2007上的检测结果提升到66%(mAP)
+
+   [2] SGirshick, Ross, et al. "Rich feature hierarchies for accurate object detection and semantic segmentation." Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. [pdf](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf)
+
+### SPPNet 何凯明 He Kaiming /MSRA
+* SPPNet
+   [3] He, Kaiming, et al. "Spatial pyramid pooling in deep convolutional networks for visual recognition." European Conference on Computer Vision. Springer International Publishing, 2014. [pdf](http://arxiv.org/pdf/1406.4729)
+
+### Fast RCNN Ross B. Girshick
+* Fast RCNN
+   [4] Girshick, Ross. "Fast r-cnn." Proceedings of the IEEE International Conference on Computer Vision. 2015.
+
+### Faster RCNN 何凯明 He Kaiming
+* Faster RCNN
+   [5] Ren, Shaoqing, et al. "Faster R-CNN: Towards real-time object detection with region proposal networks." Advances in neural information processing systems. 2015.
+
+### Yolo
+* Yolo
+   [6] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." arXiv preprint arXiv:1506.02640 (2015). [pdf] (YOLO,Oustanding Work, really practical)
+
+### SSD
+* SSD
+   [7] Liu, Wei, et al. "SSD: Single Shot MultiBox Detector." arXiv preprint arXiv:1512.02325 (2015). [pdf] ⭐️⭐️⭐️
+
+### R-FCN
+* R-FCN
+   [8] Dai, Jifeng, et al. "R-FCN: Object Detection via Region-based Fully Convolutional Networks." arXiv preprint arXiv:1605.06409 (2016). [pdf] 
+
+### Mask R-CNN
+* Mask R-CNN
+   [9] He, Gkioxari, et al. "Mask R-CNN" arXiv preprint arXiv:1703.06870 (2017). [pdf] 
+
+## Object Segmentation 物体分割
+
+### FCN
+[1] J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation.” in CVPR, 2015. [pdf]
+
+### U-NET
 
 
+### SegNet
+
+### DeconvNet
+
+### Deeplab 
+
+### RefineNet
+
+### BlitzNet
 
 ## OCR：Optical Character Recognition 字符识别
 
@@ -97,8 +164,7 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
    <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/crnn.png" width="805">
 
-   [1] [2015-CoRR] An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition [pdf]
-(http://arxiv.org/pdf/1507.05717v1.pdf) 
+   [1] [2015-CoRR] An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition  [pdf](http://arxiv.org/pdf/1507.05717v1.pdf) 
 
 
    code： http://mclab.eic.hust.edu.cn/~xbai/CRNN/crnn_code.zip 
