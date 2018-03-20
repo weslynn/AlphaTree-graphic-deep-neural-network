@@ -14,7 +14,9 @@ VGG-Net 原始结构如图
 
 ![link](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/vgg.png)
 
+将卷积层和maxpooling层画在一起
 
+  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/equal.png" width="305">
 
 VGG-Net 有五个stage，VGG-11 VGG-13 VGG-16 VGG-19 主要就是每个stage中的卷积层数目不同。现在将网络结构用不同节点表示如下：
 
