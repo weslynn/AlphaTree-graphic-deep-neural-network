@@ -84,7 +84,7 @@ Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 
 不过真正取得巨大突破，引发基于深度学习目标检测的热潮的还是RCNN
 
-### RCNN  Ross B. Girshick(RBG)[link](https://people.eecs.berkeley.edu/~rbg/index.html
+### RCNN  Ross B. Girshick(RBG) [link](https://people.eecs.berkeley.edu/~rbg/index.html
 ) / UC-Berkeley
 
 * RCNN R-CNN框架，取代传统目标检测使用的滑动窗口+手工设计特征，而使用CNN来进行特征提取。
