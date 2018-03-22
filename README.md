@@ -93,8 +93,23 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
 
    vgg19 https://gist.githubusercontent.com/ksimonyan/3785162f95cd2d5fee77/raw/f02f8769e64494bcd3d7e97d5d747ac275825721/VGG_ILSVRC_19_layers_deploy.prototxt
 
+### ResNet 何凯明 [He Kaiming](http://kaiminghe.com/) 
+* ResNet 
 
-* ResNet
+[7] He, Kaiming, et al. "Deep residual learning for image recognition." arXiv preprint arXiv:1512.03385 (2015). [pdf] (ResNet,Very very deep networks, CVPR best paper) 
+
+## Face Detection and Recognition 人脸检测与识别
+人脸检测与识别是一个研究很久的课题。传统方法之前也有了很多稳定可行的方法。而深度学习的出现，无论对检测还是识别又有了很大的提升。随着算法和代码的开源，现在很多公司都可以自己搭建一套自己的人脸检测识别系统。那么下面几篇经典论文，都是会需要接触到的。
+
+### MTCNN  乔宇 SIAT
+
+### facenet 
+
+
+
+### arcface
+
+
 
 ## OCR：Optical Character Recognition 字符识别
 
@@ -110,6 +125,21 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
 
 将这两个步骤合在一起就能得到文字的端到端检测（End-to-end Recognition)
 
+### Text Detection (文字定位)
+
+### CTPN (Connectionist Text Proposal Network)  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md)  [Zhi Tian](http://www.ece.mtu.edu/faculty/ztian/),  乔宇 [Qiao Yu](http://mmlab.siat.ac.cn/yuqiao/) / CUHK & SIAT
+
+
+   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ctpn.png" width="805">
+
+   [1] [ECCV2016] Detecting Text in Natural Image with Connectionist Text Proposal Network [pdf](https://arxiv.org/pdf/1609.03605.pdf) 
+
+
+   Caffe 源码：https://github.com/tianzhi0549/CTPN 官方
+   
+
+
+### Text Recognition (文字识别)
 
 ### CRNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CRNN.md) 白翔 Xiang Bai/Media and Communication Lab, HUST
 * CRNN 将特征提取CNN，序列建模 RNN 和转录 CTC 整合到统一框架，完成端对端的识别任务.
@@ -119,10 +149,11 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
    [1] [2015-CoRR] An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition  [pdf](http://arxiv.org/pdf/1507.05717v1.pdf) 
 
 
+
    code： http://mclab.eic.hust.edu.cn/~xbai/CRNN/crnn_code.zip 
 
    Torch 源码：https://github.com/bgshih/crnn Torch7 官方
-
+   pytorch https://github.com/meijieru/crnn.pytorch
 
 ## Object Detection 物体检测
 
@@ -147,7 +178,7 @@ R-CNN在PASCAL VOC2007上的检测结果提升到66%(mAP)
 
    [2] SGirshick, Ross, et al. "Rich feature hierarchies for accurate object detection and semantic segmentation." Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. [pdf](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf)
 
-### SPPNet 何凯明 He Kaiming /MSRA
+### SPPNet 何凯明 [He Kaiming](http://kaiminghe.com/) /MSRA
 * SPPNet
    [3] He, Kaiming, et al. "Spatial pyramid pooling in deep convolutional networks for visual recognition." European Conference on Computer Vision. Springer International Publishing, 2014. [pdf](http://arxiv.org/pdf/1406.4729)
 
@@ -155,7 +186,7 @@ R-CNN在PASCAL VOC2007上的检测结果提升到66%(mAP)
 * Fast RCNN
    [4] Girshick, Ross. "Fast r-cnn." Proceedings of the IEEE International Conference on Computer Vision. 2015.
 
-### Faster RCNN 何凯明 He Kaiming
+### Faster RCNN 何凯明 [He Kaiming](http://kaiminghe.com/)
 * Faster RCNN
 将Region Proposal Network和特征提取、目标分类和边框回归统一到了一个框架中。
 
