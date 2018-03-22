@@ -21,12 +21,12 @@ CTPN 原始结构如图
 
 用不同节点表示如图：
 
-![cptn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/cptn.png)
+![cptn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ctpn.png)
 
 
 作者给出的caffe代码模型结构有一点改变，包括输出：
 
-![cptncaffe](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/cptn_caffe.png)
+![cptncaffe](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ctpn_caffe.png)
 
 
 Caffe 源码：https://github.com/tianzhi0549/CTPN 官方
