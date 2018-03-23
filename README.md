@@ -13,6 +13,8 @@
 
 PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
+
+---------------------------------------------------------------------------------------------------
 ## object classification 物体分类
 
 深度学习在解决分类问题上非常厉害。让它声名大噪的也是对于图像分类问题的解决。也产生了很多很经典的模型。因此我们首先了解一下它们。
@@ -98,6 +100,9 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
 
 [7] He, Kaiming, et al. "Deep residual learning for image recognition." arXiv preprint arXiv:1512.03385 (2015). [pdf] (ResNet,Very very deep networks, CVPR best paper) 
 
+
+-----------------------------------------------------------------------------------------------------------
+
 ## Face Detection and Recognition 人脸检测与识别
 人脸检测与识别是一个研究很久的课题。传统方法之前也有了很多稳定可行的方法。而深度学习的出现，无论对检测还是识别又有了很大的提升。随着算法和代码的开源，现在很多公司都可以自己搭建一套自己的人脸检测识别系统。那么下面几篇经典论文，都是会需要接触到的。
 
@@ -117,6 +122,7 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
    tensorflow 源码 : https://github.com/davidsandberg/facenet/tree/master/src/align 
 
 
+
 ### facenet 
 
 
@@ -124,6 +130,7 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
 ### arcface
 
 
+-------------------------------------------------------------------------------
 
 ## OCR：Optical Character Recognition 字符识别
 
@@ -139,11 +146,104 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
 
 将这两个步骤合在一起就能得到文字的端到端检测（End-to-end Recognition)
 
+近些年的难点主要针对场景内的倾斜文字检测。
+
+传统常用的方法有：
+
+MSER(Maximally Stable Extremal Regions)最大稳定极值区域
+
+Chen H, Tsai S S, Schroth G, et al. Robust text detection in natural images with edge-enhanced maximally stable extremal regions[C]//Image Processing (ICIP), 2011 18th IEEE International Conference on. IEEE, 2011: 2609-2612.
+
+通过MSER得到文本候选区域，再通过几何和笔划宽度信息滤掉非文本区域， 剩余的文本信息形成文本直线，最终可被切分为单个文字。
+
+Matlab code：http://cn.mathworks.com/help/vision/examples/automatically-detect-and-recognize-text-in-natural-images.html
+
+### 文字校正
+
+## STN(Spatial Transformer Networks)  Google DeepMind
+
+STN可以被安装在任意CNN的任意一层中，相当于在传统Convolution中间，装了一个“插件”，可以使得传统的卷积带有了[裁剪]、[平移]、[缩放]、[旋转]等特性。
+
+   [1] Jaderberg M, Simonyan K, Zisserman A. Spatial transformer networks[C]//Advances in Neural Information Processing Systems. 2015: 2017-2025.
+
+   https://github.com/skaae/recurrent-spatial-transformer-code
+
 ### Text Detection (文字定位)
+
+
+
+### Part-based method:
+对于多方向文字检测的问题，回归或直接逼近bounding box的方法难度都比较大，所以我们考虑使用 part-based model 对多方向文字进行处理。
+
+在我们CVPR2017上的另一个工作中，我们将文字视为小块单元。对文字小块同时进行旋转和回归。并且通过对文字小块之间的方向性进行计算来学习文字之间的联系，最后通过简单的后处理就能得到任意形状甚至具有形变的文字检测结果。
+
+例如，对于那些很长的文本行，其卷积核的尺寸难以控制，但是如果将其分解为局部的文字单元之后就能较好地解决。
+
+我们将其与识别模型进行结合之后在ICDAR 2015上得到了当时最好的端到端识别效果。
+
+### SegLink
+B. Shi et al. Detecting Oriented Text in Natural Images by Linking Segments. IEEE CVPR, 2017.
+
+Code: https://github.com/bgshih/seglink
+
+
+
+
+### Proposal-based method
+
+Reading Text in the Wild with Convolutional Neural Networks
+较早的端到端识别研究是VGG 组发表在 IJCV2016中的一篇文章，其识别效果很好，并且在两年内一直保持领先地位。这篇文章针对文字检测问题对R-CNN进行了改造：
+
+通过edge box或其他的handcraft feature来计算proposal；
+
+然后使用分类器对文本框进行分类，去掉非文本区域；
+
+再使用 CNN对文本框进行回归来得到更为精确的边界框（bounding box regression）；
+
+最后使用一个文字识别算法进一步滤除非文本区域。
+
+
+
+VGG组在CVPR2016上又提出了一个很有趣的工作。文章提出文本数据非常难以标注，所以他们通过合成的方法生成了很多含有文本信息的样本。虽然图像中存在合成的文字，但是依然能得到很好的效果。
+
+
+
+DeepText 
+华南理工大学金连文老师研究组提出了一个基于Faster R-CNN的方法，针对文字形状和一般物体形状的区别，对其进行了完善。
+
+
+Deep Matching Prior Network
+金连文教授发表在 CVPR2017 上的工作提出了一个重要观点：在生成 proposal 时回归矩形框不如回归一个任意多边形。
+
+理由：这是因为文本在图像中更多的是具有不规则多边形的轮廓。他们在SSD（Single ShotMultiBox Detector）的检测框架基础上，将回归边界框的过程和匹配的过程都加入到网络结构中，取得了较好的识别效果并且兼顾了速度。
+
+
+
+
+现在的方法越来越倾向于从整体上自动处理文本行或者边界框，如 arXiv上的一篇文章就将 Faster R-CNN中的RoI pooling替换为可以快速计算任意方向的操作来对文本进行自动处理。
+
+Arbitrary Oriented Scene Text Detection via Rotation Proposals
+
+
+
+TextProposals: a Text-specific Selective Search Algorithm for Word Spotting in the Wild.
+
+这篇文章针对文本的特殊属性，将object proposal 的方法用在了文本检测中，形成了text-proposal。
+
+text-proposal也是基于联通区域的组合，但又与之前的方法有所不同：初始化的区域并不对应单个字符，也不需要知道里面的字符数。
+
+代码见：https://github.com/lluisgomez/TextProposals
+
+
+
+
+Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 2016.
+
 
 ### CTPN (Connectionist Text Proposal Network)  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md)  [Zhi Tian](http://www.ece.mtu.edu/faculty/ztian/),  乔宇 [Qiao Yu](http://mmlab.siat.ac.cn/yuqiao/) / CUHK & SIAT
 
-* CTPN 使用CNN + RNN 进行文本检测与定位。采用Top-down的方式，先找到文本区域，然后找出文本线。
+
+* CTPN 使用CNN + RNN 进行文本检测与定位。
 
    <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ctpn.png" width="905">
 
@@ -155,10 +255,114 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
 
 
    Caffe 源码：https://github.com/tianzhi0549/CTPN 官方
-   
+
+
+### TextBoxes
+水平文字检测
+
+
+
+基于SSD来做，用long default boxes ，long conv kernels 3×3 -> 1×5
+
+
+我在做相关的研究工作时考虑更多的是实用性。我们AAAI2017的一个工作对SSD框架进行改进，之所以选择 SSD 作为基础框架是因为SSD是全卷积的形式，不需要全连接层，并且可以快速地计算文字在每个区域存在的可能性。
+
+我们针对文字的形状做了一些改进：
+
+首先在设计默认框（default box）时包含较长的形状；
+
+另外我们发现长条形的卷积核比常用的1*1或3*3卷积核更适合文字检测；
+
+最后我们使用识别模型对文字进行过滤和判断，提出了一个实用的 “检测+识别”的框架。
+
+从实验结果中可以发现与传统的SSD相比，我们方法的定位性能有明显的提升。
+
+
+
+[1] M. Liao et al. TextBoxes: A Fast Text Detector with a Single Deep Neural Network. AAAI, 2017.
+
+
+Code: https://github.com/MhLiao/TextBoxes
+
+
+### TextBoxes++
+TextBoxes++: Multi-oriented text detection
+
+
+
+###Segmantation-based method:
+
+### FCN_Text
+基于分割的方法，使用FCN来做，
+将文本行视为一个需要分割的目标，通过分割得到文字的显著性图像（salience map），这样就能得到文字的大概位置、整体方向及排列方式，再结合其他的特征进行高效的文字检测。
+
+[CVPR2016]Zhang Z, et al.Multi-Oriented Text Detection with Fully Convolutional Networks,CVPR, 2016. [pdf](http://mc.eistar.net/UpLoadFiles/Papers/TextDectionFCN_CVPR16.pdf)
+
+caffe torch code :https://github.com/stupidZZ/FCN_Text 
+
+
+这篇文章将局部和全局信息结合，使用了一种coarse-to-fine的方法来定位自然场景中的文本。首先，使用了全卷积的神经网络来训练和预测文字区域的显著图；然后，结合显著图和文字元素来估计文字所在的直线；最后，另一个全卷积模型的分类器用来估计每个字符的中心，从而去掉误检区域。这个系统能够处理不同方向、语言、字体的文本检测，在MSRA-TD500, ICDAR2015和ICDAR2013的评测集上都取得了state-of-the-art的结果。
+
+
+
+### Scene Text Detection Via Holistic multi-channel Prediction
+我们发现在卷积神经网络中可以同时预测字符的位置及字符之间的连接关系，这些特征对定位文字具有很好的帮助。其过程如下：
+
+得到文字文本行的分割结果；
+
+得到字符中心的预测结果；
+
+得到文字的连接方向。
+
+通过得到的这三种特征构造连通图(graph)，然后对图进行逐边裁剪来得到文字位置。
+
+
+
+### Multi-Oriented Scene Text Detection via Corner Localization and Region Segmentation
+
+
+
+
+
+### Hybrid method
+最近有些方法同时使用分割（segmentation）和边界框回归（bounding box regression）的方式对场景文字进行检测。
+
+如 CVPR2017 上的一篇文章使用PVANet对网络进行优化、加速，并输出三种不同的结果：
+
+边缘部分分割的得分（score）结果；
+
+可旋转的边界框（rotated bounding boxes）的回归结果；
+
+多边形bounding boxes（quadrangle bounding boxes）的结果。
+
+同时对非极大值抑制（NMS）进行改进，得到了很好的效果。
+
+
+He W, et al. Deep Direct Regression for Multi-Oriented Scene Text Detection. ICCV, 2017
+
+arXiv上的一篇文章使用了相似的思想：一个分支对图像分割进行预测，另一个分支对边界框（bounding box）进行预测，最后利用经过改进的非极大抑制（Refined NMS）进行融合。
+
+
+
+
+
 
 
 ### Text Recognition (文字识别)
+
+
+###Word/Char Lever
+通过多类分类器，如word 分类器，char 分类器 来判断。每一类都是一个word 或者char。
+
+
+M. Jaderberg et al. Reading text in the wild with convolutional neural networks. IJCV, 2016.
+
+
+### Sequence Level
+从图片获取Sequence feature，然后通过RNN + CTC 
+B. Su et al. Accurate scene text recognition based on recurrent neural network. ACCV, 2014.
+
+He et al. Reading Scene Text in Deep Convolutional Sequences. AAAI, 2016.
 
 ### CRNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CRNN.md) 白翔 Xiang Bai/Media and Communication Lab, HUST
 * CRNN 将特征提取CNN，序列建模 RNN 和转录 CTC 整合到统一框架，完成端对端的识别任务.
@@ -173,6 +377,22 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
 
    Torch 源码：https://github.com/bgshih/crnn Torch7 官方
    pytorch https://github.com/meijieru/crnn.pytorch
+
+### RARE 白翔 Xiang Bai/Media and Communication Lab, HUST
+
+用STN 加上 SRN 解决弯曲形变的文字识别问题
+
+SRN: an attention-based encoder-decoder framework
+
+Encoder: ConvNet + Bi-LSTM
+
+Decoder: Attention-based character generator
+
+   [2]Shi B, Wang X, Lv P, et al. Robust Scene Text Recognition with Automatic Rectification[J]. arXiv preprint arXiv:1603.03915, 2016. [paper](https://arxiv.org/pdf/1603.03915v2.pdf)
+
+
+
+-----------------------------------------------------------------------------
 
 ## Object Detection 物体检测
 
@@ -249,6 +469,46 @@ Faster R-CNN = Region Proposal Network +Fast R-CNN
 ### BlitzNet
 
 
+----------------------------------------------------------------------------------
+
+## Datasets 数据库
+
+ Incidental Scene Text dataset
+
+ Incidental Scene Text dataset 是 ICDAR2015竞赛中使用的数据集，是很常用的英文文字检测数据集。
+
+它涵盖1000张训练图片（约包含4500个单词）和500张测试图片；
+
+它重点采集了一些随机场景，在这些场景中文字具有方向任意、字体小、低像素的特性。
+
+
+MSRA-TD500
+
+我们在2012年发布了MSRA-TD500这个数据集，虽然数据量比较小，但是含有英文和中文两种语言。
+
+包含了500张自然图片（涵盖室内、室外采集）；
+
+包含中文、英文及中英混合形式，具有不同的字体、大小、颜色、方向；
+
+文本边框标注；
+
+Ref. Detecting texts of arbitrary orientations in natural images,CVPR2012
+
+RCTW-17
+
+今年我们组织了ICDAR 2017中文场景文字检测的比赛，比赛中使用的数据集是我们组标注的中文数据集RCTW-17，并且数据量有了很大的提升。
+
+包含中文文本的图片共12034张（其中8034张训练图片，4000张测试图片）；
+
+图片涵盖汉字、数字、英文单词，其中汉字占最大比例；
+
+ICDAR2017的中文场景文字检测比赛用的是这个数据集。
+
+链接：http://mclab.eic.hust.edu.cn/icdar2017chinese/
+
+
+ICDAR2017 Competition on Reading Chinese Text in the Wild ( RCTW-17). ICDAR’17
+Dataset : http://mclab.eic.hust.edu.cn/icdar2017chinese
 
 # 贡献力量
 
