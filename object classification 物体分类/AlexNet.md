@@ -69,3 +69,10 @@ github: https://github.com/dnouri/cuda-convnet
 code: https://code.google.com/p/cuda-convnet2/
 
 github: https://github.com/akrizhevsky/cuda-convnet2
+
+
+
+
+
+
+# [返回首页](https://github.com/weslynn/graphic-deep-neural-network/)
