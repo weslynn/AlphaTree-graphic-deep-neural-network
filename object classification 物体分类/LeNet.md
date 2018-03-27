@@ -50,3 +50,6 @@ tensorflow的输入 改成了28×28，因此少了一层卷积层，最后使用
 pytorch 源码 https://github.com/pytorch/examples/blob/master/mnist/main.py
 
 caffe https://github.com/BVLC/caffe/blob/master/examples/mnist/lenet.prototxt
+
+
+# [返回首页](https://github.com/weslynn/graphic-deep-neural-network/)

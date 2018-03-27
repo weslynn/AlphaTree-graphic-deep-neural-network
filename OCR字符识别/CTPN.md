@@ -31,3 +31,6 @@ paper中的模型是可以应用到各种水平文本检测。
 
 
 Caffe 源码：https://github.com/tianzhi0549/CTPN 官方
+
+
+# [返回首页](https://github.com/weslynn/graphic-deep-neural-network/)

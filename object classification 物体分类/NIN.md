@@ -20,3 +20,7 @@ tensorflow： https://github.com/tflearn/tflearn/blob/master/examples/images/net
 # Batch-normalized Maxout Network in Network
 
 arxiv: http://arxiv.org/abs/1511.02583
+
+
+
+# [返回首页](https://github.com/weslynn/graphic-deep-neural-network/)

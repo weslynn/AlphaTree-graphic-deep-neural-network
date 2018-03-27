@@ -49,3 +49,6 @@ github：https://github.com/bgshih/crnn Torch7 官方
 
 https://github.com/meijieru/crnn.pytorch pytorch 
 
+
+
+# [返回首页](https://github.com/weslynn/graphic-deep-neural-network/)

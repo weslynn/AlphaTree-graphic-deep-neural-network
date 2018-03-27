@@ -44,3 +44,7 @@ MTCNN 详细网络结构如图：
  Caffe 源码：https://github.com/kpzhang93/MTCNN_face_detection_alignment 官方
 
  tensorflow 源码 : https://github.com/davidsandberg/facenet/tree/master/src/align 
+
+
+
+# [返回首页](https://github.com/weslynn/graphic-deep-neural-network/)
