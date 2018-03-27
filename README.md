@@ -74,7 +74,7 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 ### Inception V3  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md) Christian Szegedy / Google
 * Inception V3，GoogLeNet的改进版本,采用InceptionModule和全局平均池化层，v3一个最重要的改进是分解（Factorization），将7x7分解成两个一维的卷积（1x7,7x1），3x3也是一样（1x3,3x1），ILSVRC 2012 Top-5错误率降到3.58% test error 
 
-   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic//modelpic/v3-tf.png" width="805">
+   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/modelpic/v3-tf.png" width="805">
 
    [4] Szegedy, Christian, et al. “Rethinking the inception architecture for computer vision.” arXiv preprint arXiv:1512.00567 (2015). [pdf](http://arxiv.org/abs/1512.00567)
 
