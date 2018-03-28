@@ -22,6 +22,9 @@ SSD 结构如图：
 
 
 [大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/ssd.png)
+
+
+
 预测的类别 和偏移值 计算如图
 
 ![ssdcal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ssd_cal.png)
