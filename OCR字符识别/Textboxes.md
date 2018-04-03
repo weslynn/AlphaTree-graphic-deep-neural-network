@@ -17,7 +17,7 @@ TextBoxes从SSD修改而来，但是SSD中每一个支线上3×3的卷积都被�
 ![textboxes](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes.png)
 <p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/textboxes.png)</p>
 
-对应网络中图像尺寸变化如图（以score输出为例 输出2）：
+对应Text_box层如图（以score输出为例 输出2）：
 
 ![textboxes_cal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes_cal.png)
 
@@ -30,7 +30,7 @@ TextBoxes从SSD修改而来，但是SSD中每一个支线上3×3的卷积都被�
 <p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/textboxes_caffe.png)</p>
 
 
-对应网络中图像尺寸变化如图（score 2维， bounding box offset 4维 ）：
+对应Text_box层如图（score 2维， bounding box offset 4维 ）：
 
 ![textboxes_caffecal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes_caffecal.png)
 
