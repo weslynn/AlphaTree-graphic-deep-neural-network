@@ -30,6 +30,9 @@ GoogLeNet的网络结构设计很大程度上借鉴了2014年 ICLR 的paper：Ne
 
 ![googlenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/googlenet.png)
 
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/googlenet.png)</p>
+
+
 
 
 源码：

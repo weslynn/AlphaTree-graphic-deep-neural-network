@@ -21,7 +21,7 @@ SSD 结构如图：
 
 
 
-[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/ssd.png)
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/ssd.png)</p>
 
 
 

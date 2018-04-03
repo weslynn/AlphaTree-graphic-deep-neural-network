@@ -235,30 +235,41 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
    Caffe 源码：https://github.com/tianzhi0549/CTPN 官方
 
 
-### TextBoxes
-水平文字检测
+### TextBoxes  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes.md) 白翔 Xiang Bai/Media and Communication Lab, HUST
+
+
+* TextBoxes，一个端到端的场景文本检测模型。这个算法是基于SSD来实现的,解决水平文字检测问题，将原来3×3的kernel改成了更适应文字的long conv kernels 3×3 -> 1×5。default boxes 也做了修改。
+   
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes.png" width="905"> </a>
+
+
+作者caffe中模型结构如图：
+
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes_caffe.png" width="905"> </a>
+
+
+   [2]  M. Liao et al. TextBoxes: A Fast Text Detector with a Single Deep Neural Network. AAAI, 2017. [pdf](https://arxiv.org/pdf/1611.06779.pdf) 
+
+
+   Caffe 源码：https://github.com/MhLiao/TextBoxes 官方
 
 
 
-基于SSD来做，用long default boxes ，long conv kernels 3×3 -> 1×5
+
+### TextBoxes++ [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes++.md) 白翔 Xiang Bai/Media and Communication Lab, HUST
 
 
-之所以选择 SSD 作为基础框架是因为SSD是全卷积的形式，不需要全连接层，并且可以快速地计算文字在每个区域存在的可能性。
-
-使用识别模型对文字进行过滤和判断，提出了一个实用的 “检测+识别”的框架。
-
-
+* TextBoxes++ 这个算法也是基于SSD来实现的，实现了对多方向文字的检测。boundingbox的输出从4维的水平的boundingbox扩展到4+8=12维的输出。long conv kernels 从 1×5 改成了 3×5。default boxes 也做了修改。
+   
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes++.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes++.png" width="905"> </a>
 
 
-[1] M. Liao et al. TextBoxes: A Fast Text Detector with a Single Deep Neural Network. AAAI, 2017.
+
+   [3]  M. Liao et al. TextBoxes++: Multi-oriented text detection [pdf](https://arxiv.org/pdf/1801.02765.pdf)
 
 
-Code: https://github.com/MhLiao/TextBoxes
 
-
-### TextBoxes++
-TextBoxes++: Multi-oriented text detection [pdf](https://arxiv.org/pdf/1801.02765.pdf)
-
+   Caffe 源码：https://github.com/MhLiao/TextBoxes_plusplus 官方
 
 
 ### Segmantation-based method:
@@ -511,25 +522,19 @@ Faster R-CNN = Region Proposal Network +Fast R-CNN
 
 MSRA-TD500
 
-我们在2012年发布了MSRA-TD500这个数据集，虽然数据量比较小，但是含有英文和中文两种语言。
-
-包含了500张自然图片（涵盖室内、室外采集）；
+MSRA-TD500数据集含有英文和中文两种语言。包含了500张自然图片（涵盖室内、室外采集）；
 
 包含中文、英文及中英混合形式，具有不同的字体、大小、颜色、方向；
-
 文本边框标注；
+
 
 Ref. Detecting texts of arbitrary orientations in natural images,CVPR2012
 
 RCTW-17
 
-今年我们组织了ICDAR 2017中文场景文字检测的比赛，比赛中使用的数据集是我们组标注的中文数据集RCTW-17，并且数据量有了很大的提升。
-
-包含中文文本的图片共12034张（其中8034张训练图片，4000张测试图片）；
+ICDAR 2017中文场景文字检测比赛使用了中文数据集RCTW-17，包含中文文本的图片共12034张（其中8034张训练图片，4000张测试图片）；
 
 图片涵盖汉字、数字、英文单词，其中汉字占最大比例；
-
-ICDAR2017的中文场景文字检测比赛用的是这个数据集。
 
 链接：http://mclab.eic.hust.edu.cn/icdar2017chinese/
 

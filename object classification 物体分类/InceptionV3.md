@@ -27,6 +27,7 @@ Inception V3 原始结构如图:
 
 
 ![inceptionv3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/v3-tf.png)
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/v3-tf.png)</p>
 
 
 
