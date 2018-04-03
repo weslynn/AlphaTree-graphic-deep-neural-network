@@ -23,7 +23,7 @@ TextBoxes++将TextBoxes的水平文字检测拓展到多方向，修改了输出
 
 
 
-Caffe 源码：https://github.com/MhLiao/TextBoxes 官方
+Caffe 源码：https://github.com/MhLiao/TextBoxes_plusplus  官方
 
 
 # [返回首页](https://github.com/weslynn/graphic-deep-neural-network/)
