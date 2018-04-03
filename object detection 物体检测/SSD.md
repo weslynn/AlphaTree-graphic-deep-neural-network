@@ -30,10 +30,24 @@ SSD 结构如图：
 ![ssdcal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ssd_cal.png)
 
 
+整个SSD完整对应如图
+
+
+![ssd_total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ssd_total.png)
+
+
+
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/ssd_total.png)</p>
+
+
+
+
 源码：
 
 tensorflow 源码 https://github.com/balancap/SSD-Tensorflow/blob/master/nets/ssd_vgg_300.py
 
 caffe ：https://github.com/weiliu89/caffe/tree/ssd
+
+可参考的ppt : https://docs.google.com/presentation/d/1rtfeV_VmdGdZD5ObVVpPDPIODSDxKnFSU0bsN_rgZXc/edit#slide=id.g179f601b72_0_51
 
 # [返回首页](https://github.com/weslynn/graphic-deep-neural-network/)
