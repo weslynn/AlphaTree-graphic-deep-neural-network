@@ -48,6 +48,8 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 ### AlexNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)  Alex Krizhevsky,  Geoffrey Hinton
 * AlexNet  2012年，Alex Krizhevsky用AlexNet 在当年的ImageNet图像分类竞赛中(ILSVRC 2012)，以top-5错误率15.3%拿下第一。 他的top-5错误率比上一年的冠军下降了十个百分点，而且远远超过当年的第二名。
 
+
+
   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png" width="505"></a>
 
    [2] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012. [pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
@@ -113,8 +115,45 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
 
 [7] He, Kaiming, et al. "Deep residual learning for image recognition." arXiv preprint arXiv:1512.03385 (2015). [pdf] (ResNet,Very very deep networks, CVPR best paper) 
 
+### ResNeXt：
+
+github地址：https://github.com/facebook/fb.resnet.torch
+
+
+WRN（wide residual network）：
+
+github地址：https://github.com/szagoruyko/wide-residual-networks
+
+
+### DenseNet
+
+github链接：https://github.com/liuzhuang13/DenseNet
+
+### DPN
+github地址：https://github.com/cypw/DPNs
+
+
+
 
 -----------------------------------------------------------------------------------------------------------
+## 轻量级模型 & 剪枝
+
+### MobileNet
+
+TensorFlow实现：https://github.com/Zehaos/MobileNet 
+caffe实现：https://github.com/pby5/MobileNet_Caffe
+
+
+### ShuffleNet
+
+手机端caffe实现：https://github.com/HolmesShuan/ShuffleNet-An-Extremely-Efficient-CNN-for-Mobile-Devices-Caffe-Reimplementation 
+caffe实现：https://github.com/camel007/Caffe-ShuffleNet
+
+
+
+
+
+
 
 ## Face Detection and Recognition 人脸检测与识别
 人脸检测与识别是一个研究很久的课题。传统方法之前也有了很多稳定可行的方法。而深度学习的出现，无论对检测还是识别又有了很大的提升。随着算法和代码的开源，现在很多公司都可以自己搭建一套自己的人脸检测识别系统。那么下面几篇经典论文，都是会需要接触到的。
