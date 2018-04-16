@@ -20,9 +20,13 @@ AlexNet原始结构如图
 
 一层maxpooling
 
+一层LRN
+
 一层卷积层：5×5的卷积核，256个，pad=2
 
 一层maxpooling
+
+一层LRN
 
 一层卷积层：3×3的卷积核，384个，pad=1
 
@@ -39,11 +43,16 @@ AlexNet原始结构如图
 最后通过softmax分类输出1000类
 
 
+
 模型下方的柱状图，表示一张图片的尺寸，因为图片输入目前绝大部分都是正方形，因此简化成柱状图，表示图片的边长，可以看到对应网络结构中，图片大小的变化。
 
 ![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png)
 
 
+但是tf官方后来给出的代码，进行了修改，将初始化选择用xavier_initializer的方法，将LRN层移除了。
+
+
+![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnettf.png)
 
 将卷积层和maxpooling层画在一起
 
@@ -80,3 +89,4 @@ github: https://github.com/akrizhevsky/cuda-convnet2
 # [AlexNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)                  
 # [GoogLeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)
 # [Inception V3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md)
+# [VGG](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md)

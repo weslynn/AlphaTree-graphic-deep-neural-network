@@ -32,6 +32,8 @@ Refine Network (R-Net)：该网络结构还是通过边界框回归和NMS来去�
 
 Output Network (O-Net)：该层比R-Net层又多了一层卷基层，所以处理的结果会更加精细。作用和R-Net层作用一样。但是该层对人脸区域进行了更多的监督，同时还会输出5个landmark。
 
+返回值：人脸的10个点，以caffe代码为例是[left_eye_x,right_eye_x,nose_x,left_mouth_x,right_mouth_x,left_eye_y,right_eye_y,nose_y,left_mouth_y,right_mouth_y]
+
 MTCNN 详细网络结构如图：
 
 ![MTCNNS](https://github.com/weslynn/graphic-deep-neural-network/blob/master/facepic/mtcnn_struct.png)
