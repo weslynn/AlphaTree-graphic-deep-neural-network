@@ -55,7 +55,29 @@ https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991
 
 caffe https://github.com/KaimingHe/deep-residual-networks
 
+torch https://github.com/facebook/fb.resnet.torch
 
+
+
+
+
+
+改进：
+
+## Identity Mappings in Deep Residual Networks
+
+2016发表了“Identity Mappings in Deep Residual Networks”[pdf](https://arxiv.org/pdf/1603.05027.pdf)中表明，通过使用identity mapping来更新残差模块，可以获得更高的准确性。
+
+![resnetmodule_new](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnet_new.png)
+
+
+## WRN（wide residual network）：
+
+github地址：https://github.com/szagoruyko/wide-residual-networks
+
+
+
+## ResNext
 
 
 

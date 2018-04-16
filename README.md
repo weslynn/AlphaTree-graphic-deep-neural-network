@@ -113,23 +113,26 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
 
    vgg19 https://gist.githubusercontent.com/ksimonyan/3785162f95cd2d5fee77/raw/f02f8769e64494bcd3d7e97d5d747ac275825721/VGG_ILSVRC_19_layers_deploy.prototxt
 
-### ResNet and ResNeXt 何凯明 [He Kaiming](http://kaiminghe.com/) 
+### ResNet and ResNeXt[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md) 何凯明 [He Kaiming](http://kaiminghe.com/) 
 * ResNet 
 ResNet,深度残差网络，通过shortcut( skip connection )的设计，打破了深度神经网络深度的限制，使得网络深度可以多达到1001层。
 它构建的152层深的神经网络，在ILSVRC2015获得在ImageNet的classification、detection、localization以及COCO的detection和segmentation上均斩获了第一名的成绩，其中classificaiton 取得3.57%的top-5错误率，
 
+
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/resnet.png" width="805"></a>
 	[6] He, Kaiming, et al. "Deep residual learning for image recognition." arXiv preprint arXiv:1512.03385 (2015). [pdf](https://arxiv.org/pdf/1512.03385.pdf) (ResNet,Very very deep networks, CVPR best paper) 
 
-### 
 
-github地址：https://github.com/facebook/fb.resnet.torch
+	tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/resnet_v1.py
+
+	https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/resnet_v2.py
+
+	caffe https://github.com/KaimingHe/deep-residual-networks
+
+	torch https://github.com/facebook/fb.resnet.torch
 
 
-### Identity Mappings in Deep Residual Networks
 
-### WRN（wide residual network）：
-
-github地址：https://github.com/szagoruyko/wide-residual-networks
 
 
 ### DenseNet
@@ -139,7 +142,7 @@ github链接：https://github.com/liuzhuang13/DenseNet
 ### DPN
 github地址：https://github.com/cypw/DPNs
 
-
+### Inception resnet-v2
 
 
 -----------------------------------------------------------------------------------------------------------
