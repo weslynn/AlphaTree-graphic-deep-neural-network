@@ -89,15 +89,22 @@ Saining Xie, Ross Girshick, Piotr Dollár, Zhuowen Tu, Kaiming He
 
 提出 ResNeXt是因为：传统方法要提高模型的准确率，都是加深或加宽网络，但是随着超参数数量的增加（比如channels数，filter size等等），网络设计的难度和计算开销也会增加。
 
-ResNeXt 结构采用grouped
- convolutions，减少了超参数的数量（子模块的拓扑结构一样），不增加参数复杂度，提高准确率。
+ResNeXt 结构采用grouped  convolutions，减少了超参数的数量（子模块的拓扑结构一样），不增加参数复杂度，提高准确率。
 
 
 ![resnextmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnextmodule.png)
 
 ResNeXt和ResNet-50/101的区别仅仅在于其中的block，其他都不变
 
-![resnext](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnext.png)
+![resnextstruct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnext.png)
+
+
+
+![resnext](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/resnext.png)
+
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/resnext.png)</p>
+
+
 
 torch: https://github.com/facebookresearch/ResNeXt
 
