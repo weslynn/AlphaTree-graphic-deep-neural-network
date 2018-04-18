@@ -6,9 +6,7 @@
 名人数据的：CelebA MSRA-CFW CASIA-WebFace IMDB-WIKI CACD2000
 
 
-# 小数据集
-
-0-10000
+## 小数据集 0-10000
 
 
 * ORL Database of Faces  (AT&T Dataset)由剑桥大学AT&T实验室创建,包含400张面部图像,(http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html)
@@ -52,8 +50,7 @@ MIT-CBCL Face Databases 2,429 faces, 4,548 non-faces (http://cbcl.mit.edu/softwa
 
   IMM人脸数据库包括了240张人脸图片和240个asf格式文件，共40个人（7女33男），每人6张人脸图片，每张人脸图片被标记了58个特征点。所有人都未戴眼镜,下载链接为http://www2.imm.dtu.dk/~aam/datasets/datasets.html
 
-# 中型数据集 
-10000-100000
+## 中型数据集  10000-100000
 
 * LFW：Labeled Faces in the Wild LFW（Labeled Faces in the Wild）
 
@@ -84,7 +81,7 @@ FERET, FERET Color Database https://www.nist.gov/itl/iad/image-group/color-feret
 
 * KFDB人脸数据库 ，包含了1,000人,共52,000幅多姿态,多光照,多表情的面部图像,其中姿态和光照变化的图像，是在严格控制的条件下采集的.志愿者以韩国人为主.
 
-# 大型数据集
+## 大型数据集 
 
 目前人脸识别领域常用的人脸数据库主要有:
 
@@ -128,7 +125,7 @@ MegaFace资料集包含一百万张图片，代表690000个独特的人。所有
 
 
 
-# 视频数据库
+## 视频数据库
 
 YouTube Face   1,595个人 3,425段视频非限制场景 
 该数据集主要用于非约束条件下的视频中人脸识别，姿势判定等。该数据集包含1595个不同人的3425个视频，平均每个人的类别包含了2.15个视频，每个类别最少包含48帧，最多包含6070帧，平均包含181.3帧。
@@ -143,7 +140,7 @@ Path: /v/data9/cslab/wolftau/
 
 filezilla模式设置为"Transfer mode"
 
-#　AR人脸数据
+##　AR人脸数据
 
 * AR人脸数据库
 由西班牙巴塞罗那计算机视觉中心建立,包含116人的3,288幅图像.采集环境中的摄像机参数,光照环境,摄像机距离等都是严格控制的.
@@ -160,7 +157,7 @@ filezilla模式设置为"Transfer mode"
 
 
 
-# 人群密度估计数据库
+## 人群密度估计数据库
 
 * UCSD 
 
@@ -196,7 +193,7 @@ http://crcv.ucf.edu/data/crowd_counting.php
 
 
 
-# 人头检测数据库
+## 人头检测数据库
 
 HollywoodHeads dataset
 
@@ -206,7 +203,7 @@ HollywoodHeads dataset
 
 
 
-# 表情识别常用数据库　　
+## 表情识别常用数据库　　
 
 CK+，JAFFE，KDEF和Pain expressions form PICS）建立了一个面部表情数据库含有七个基本情绪状态和2062个不平衡样本。
 
@@ -277,7 +274,7 @@ GunesH, Piccardi M. A bimodal face and body gesture database for automatic analy
 
     2 EmotiW 2016
 
-# 行人检测数据库
+## 行人检测数据库
 
 INRIA Person Dataset
 
@@ -295,45 +292,62 @@ MIT cbcl (center for biological and computational learning)Pedestrian Data
  该数据集主要包含2个部分，一部分为128*64的包含924个图片的ppm格式的图片，另一部分为从打图中分别切割而出的小图，主要包含胳膊，脑袋，脚，腿，头肩，身体等。下载链接为http://cbcl.mit.edu/software-datasets/PedestrianData.html，需要翻墙才可以。
 
 
-■Annotated Database (Hand, Meat, LV Cardiac, IMM face) (http://www2.imm.dtu.dk/~aam/)
 
-■BioID Face Database (http://www.bioid.com/downloads/facedb/index.php)
-■Caltech Computational Vision Group Archive (Cars, Motorcycles, Airplanes, Faces, Leaves, Background) (http://www.vision.caltech.edu/html-files/archive.html)
-■Carnegie Mellon Image Database (motion, stereo, face, car, ...) (http://vasc.ri.cmu.edu/idb/)
 
-■CMU Cohn-Kanade AU-Coded Facial Expression Database (http://www.ri.cmu.edu/projects/project_421.html
-■CMU Face Detection Databases (http://www.ri.cmu.edu/projects/project_419.html)
-■CMU Face Expression Database (http://amp.ece.cmu.edu/projects/FaceAuthentication/download.htm)
-■
-■CMU VASC Image Database (motion, road sequences, stereo, CIL’s stereo data with ground truth, JISCT, face, face expressions, car) (http://www.ius.cs.cmu.edu/idb/)
-■Content-based Image Retrieval Database (http://www.cs.washington.edu/research/imagedatabase/groundtruth/)
-■Face Video Database of the Max Planck Institute for Biological Cybernetics (http://vdb.kyb.tuebingen.mpg.de/)
+参考：
+https://blog.csdn.net/qq_14845119/article/details/51913171
 
-■Georgia Tech Face Database (http://www.anefian.com/face_reco.htm)
-■German Fingerspelling Database (http://www.anefian.com/face_reco.htm )
-■Indian Face Database (http:// www.cs.umass.edu/~vidit/IndianFaceDatabase)
-■MIT-CBCL Car Database (http://cbcl.mit.edu/software-datasets/CarData.html)
-■
-■MIT-CBCL Pedestrian Database (http://cbcl.mit.edu/software-datasets/PedestrianData.html)
-■MIT-CBCL Street Scenes Database (http://cbcl.mit.edu/software-datasets/streetscenes/)
-■NIST/Equinox Visible and Infrared Face Image Database (http://www.equinoxsensors.com/products/HID.html)
-■NIST Fingerprint Data at Columbia (Link)
-■ 
-■Rutgers Skin Texture Database (http://www.caip.rutgers.edu/rutgers_texture/)
-■The Japanese Female Facial expression_r(JAFFE) Database (http://www.kasrl.org/jaffe.html
-■The Ohio State University SAMPL Image Database (3D, still, motion) (http://sampl.ece.ohio-state.edu/database.htm)
-■The University of Oulu Physics-Based Face Database (http://www.ee.oulu.fi/research/imag/color/pbfd.html)
-■UMIST Face Database (http://images.ee.umist.ac.uk/danny/database.html)
-■USF Range Image Data (with ground truth) (http://marathon.csee.usf.edu/range/DataBase.html)
-■Usenix Face Database (hundreds of images, several formats) (Link)
-■UCI Machine Learning Repository (http://www1.ics.uci.edu/~mlearn/MLSummary.html)
-■USC-SIPI Image Database (collection of digitized images) (http://sipi.usc.edu/services/database/Database.html)
-■UCD VALID Database (multimodal for still face, audio, and video) (http://ee.ucd.ie/validdb/)
-■UCD Color Face Image (UCFI) Database for Face Detection (http://ee.ucd.ie/~prag/)
-■UCL M2VTS Multimodal Face Database (http://www.tele.ucl.ac.be/PROJECTS/M2VTS/m2fdb.html)
-■Vision Image Archive at UMass (sequences, stereo, medical, indoor, outlook, road, underwater, aerial, satellite, space and more) (http://sipi.usc.edu/database/)
-■Where can I find Lenna and other images? (http://www.faqs.org/faqs/compression-faq/part1/section-30.html)
-■(http://cvc.yale.edu/projects/yalefaces/yalefaces.html)
+
+
+
+
+
+
+
+
+
+
+other info：
+
+* Annotated Database (Hand, Meat, LV Cardiac, IMM face) (http://www2.imm.dtu.dk/~aam/)
+
+* BioID Face Database (http://www.bioid.com/downloads/facedb/index.php)
+* Caltech Computational Vision Group Archive (Cars, Motorcycles, Airplanes, Faces, Leaves, Background) (http://www.vision.caltech.edu/html-files/archive.html)
+* Carnegie Mellon Image Database (motion, stereo, face, car, ...) (http://vasc.ri.cmu.edu/idb/)
+
+* CMU Cohn-Kanade AU-Coded Facial Expression Database (http://www.ri.cmu.edu/projects/project_421.html
+* CMU Face Detection Databases (http://www.ri.cmu.edu/projects/project_419.html)
+* CMU Face Expression Database (http://amp.ece.cmu.edu/projects/FaceAuthentication/download.htm)
+* 
+* CMU VASC Image Database (motion, road sequences, stereo, CIL’s stereo data with ground truth, JISCT, face, face expressions, car) (http://www.ius.cs.cmu.edu/idb/)
+* Content-based Image Retrieval Database (http://www.cs.washington.edu/research/imagedatabase/groundtruth/)
+* Face Video Database of the Max Planck Institute for Biological Cybernetics (http://vdb.kyb.tuebingen.mpg.de/)
+
+* Georgia Tech Face Database (http://www.anefian.com/face_reco.htm)
+* German Fingerspelling Database (http://www.anefian.com/face_reco.htm )
+* Indian Face Database (http:// www.cs.umass.edu/~vidit/IndianFaceDatabase)
+* MIT-CBCL Car Database (http://cbcl.mit.edu/software-datasets/CarData.html)
+* 
+* MIT-CBCL Pedestrian Database (http://cbcl.mit.edu/software-datasets/PedestrianData.html)
+* MIT-CBCL Street Scenes Database (http://cbcl.mit.edu/software-datasets/streetscenes/)
+* NIST/Equinox Visible and Infrared Face Image Database (http://www.equinoxsensors.com/products/HID.html)
+* NIST Fingerprint Data at Columbia (Link)
+*  
+* Rutgers Skin Texture Database (http://www.caip.rutgers.edu/rutgers_texture/)
+* The Japanese Female Facial expression_r(JAFFE) Database (http://www.kasrl.org/jaffe.html
+* The Ohio State University SAMPL Image Database (3D, still, motion) (http://sampl.ece.ohio-state.edu/database.htm)
+* The University of Oulu Physics-Based Face Database (http://www.ee.oulu.fi/research/imag/color/pbfd.html)
+* UMIST Face Database (http://images.ee.umist.ac.uk/danny/database.html)
+* USF Range Image Data (with ground truth) (http://marathon.csee.usf.edu/range/DataBase.html)
+* Usenix Face Database (hundreds of images, several formats) (Link)
+* UCI Machine Learning Repository (http://www1.ics.uci.edu/~mlearn/MLSummary.html)
+* USC-SIPI Image Database (collection of digitized images) (http://sipi.usc.edu/services/database/Database.html)
+* UCD VALID Database (multimodal for still face, audio, and video) (http://ee.ucd.ie/validdb/)
+* UCD Color Face Image (UCFI) Database for Face Detection (http://ee.ucd.ie/~prag/)
+* UCL M2VTS Multimodal Face Database (http://www.tele.ucl.ac.be/PROJECTS/M2VTS/m2fdb.html)
+* Vision Image Archive at UMass (sequences, stereo, medical, indoor, outlook, road, underwater, aerial, satellite, space and more) (http://sipi.usc.edu/database/)
+* Where can I find Lenna and other images? (http://www.faqs.org/faqs/compression-faq/part1/section-30.html)
+* (http://cvc.yale.edu/projects/yalefaces/yalefaces.html)
 Bao Face 人脸数据
 DC-IGN 论文人脸数据
 300 Face in Wild 图像数据
@@ -341,8 +355,3 @@ DC-IGN 论文人脸数据
 CMU Frontal Face Images
 
 NIST Mugshot Identification Database Faces in the Wild 人脸数据
-
-
-
-参考：
-https://blog.csdn.net/qq_14845119/article/details/51913171
