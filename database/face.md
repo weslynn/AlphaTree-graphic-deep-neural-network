@@ -4,6 +4,8 @@
 
 
 名人数据的：CelebA MSRA-CFW CASIA-WebFace IMDB-WIKI CACD2000
+ 
+人脸姿态： FERET CAS-PEAL UMIST CMU-PIE
 
 
 ## 小数据集 0-10000
@@ -61,7 +63,7 @@ FERET, FERET Color Database https://www.nist.gov/itl/iad/image-group/color-feret
 
 * CAS-PEAL 1040个人的30k+张人脸图像，主要包含姿态、表情、光照变化 (http://www.jdl.ac.cn/peal/index.html)
 
-* PIE CMU Face Pose, Illumination, and expression_r(PIE) Database (http://www.ri.cmu.edu/projects/project_418.html)
+* CMU-PIE CMU Face Pose, Illumination, and expression_r(PIE) Database (http://www.ri.cmu.edu/projects/project_418.html)
 由美国卡耐基梅隆大学创建,包含68位志愿者的41,368张多姿态,光照和表情的面部图像.其中的姿态和光照变化图像也是在严格控制的条件下采集的,
 
 * Adience 包含2k+个人的26k+张人脸图像人脸性别，人脸年龄段(8组) 
