@@ -144,6 +144,10 @@ ResNet,深度残差网络，通过shortcut( skip connection )的设计，打破�
 	torch https://github.com/facebookresearch/ResNeXt
 
 ### DenseNet
+《Densely Connected Convolutional Networks》 
+论文链接：https://arxiv.org/abs/1608.06993 
+
+CVPR2017的best paper
 
 github链接：https://github.com/liuzhuang13/DenseNet
 
@@ -568,6 +572,44 @@ Faster R-CNN = Region Proposal Network +Fast R-CNN
 ----------------------------------------------------------------------------------
 
 ## Datasets 数据库
+
+
+### 人脸数据库 [详解 detail](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/database/face.md)
+目前人脸识别领域常用的人脸数据库主要有:
+
+* WebFaces,Caltech， 10k+人，约500K张图片，非限制场景， http://www.vision.caltech.edu/Image_Datasets/Caltech_10K_WebFaces/#Download
+
+* CelebA，Multimedia Laboratory The Chinese University of Hong Kong 汤晓鸥，10K 名人，202K 脸部图像，每个图像40余标注属性 http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
+该数据集为香港中文大学汤晓鸥老师组开源的数据集，主要包含了5个关键点，40个属性值等，包含了202599张图片，图片都是高清的名人图片，可以用于人脸检测，5点训练，人脸头部姿势的训练等。
+
+
+* MSRA-CFW,MSRA,202792 张, 1583人 Data Set of Celebrity Faces on the Web http://research.microsoft.com/en-us/projects/msra-cfw/CASIA 
+
+* CASIA-WebFace,李子青 Center for Biometrics and Security Research， 500k图片，10k个人 http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.html
+该数据集为中科院自动化所，李子青老师组开源的数据集，包含了10575个人，一共494414张图片，其中有3个人和lfw中的一样。该数据集主要用于人脸识别。图像都是著名电影中crop而出的，每个图片的大小都是250×250，每个类下面都有3张以上的图片，非常适合做人脸识别的训练。需要邮箱申请 
+
+
+* MegaFace，华盛顿大学百万人脸MegaFace数据集 
+MegaFace资料集包含一百万张图片，代表690000个独特的人。所有数据都是华盛顿大学从Flickr（雅虎旗下图片分享网站）组织收集的。这是第一个在一百万规模级别的面部识别算法测试基准。 现有脸部识别系统仍难以准确识别超过百万的数据量。为了比较现有公开脸部识别算法的准确度，华盛顿大学在去年年底开展了一个名为“MegaFace Challenge”的公开竞赛。这个项目旨在研究当数据库规模提升数个量级时，现有的脸部识别系统能否维持可靠的准确率。需要邮箱申请才可以下载，下载链接为http://megaface.cs.washington.edu/dataset/download.html
+
+* IMDB-WIKI 20k+个名人的460k+张图片 和维基百科62k+张图片, 总共： 523k+张图片，名人年龄、性别 https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/
+
+* CACD2000 2k名人160k张人脸图片 http://bcsiriuschen.github.io/CARC/
+
+* AFLW（Annotated Facial Landmarks in the Wild）
+
+  AFLW人脸数据库是一个包括多姿态、多视角的大规模人脸数据库，而且每个人脸都被标注了21个特征点。此数据库信息量非常大，包括了各种姿态、表情、光照、种族等因素影响的图片。AFLW人脸数据库大约包括25000万已手工标注的人脸图片，其中59%为女性，41%为男性，大部分的图片都是彩色，只有少部分是灰色图片。该数据库非常适合用于人脸识别、人脸检测、人脸对齐等方面的研究，具有很高的研究价值。图像如下图所示，需要申请帐号才可以下载，下载链接为http://lrs.icg.tugraz.at/research/aflw/
+
+
+* WIDER FACE
+   WIDER FACE是香港中文大学的一个提供更广泛人脸数据的人脸检测基准数据集，由YangShuo， Luo Ping ，Loy ，Chen Change ，Tang Xiaoou收集。它包含32203个图像和393703个人脸图像，在尺度，姿势，闭塞，表达，装扮，关照等方面表现出了大的变化。WIDER FACE是基于61个事件类别组织的，对于每一个事件类别，选取其中的40%作为训练集，10%用于交叉验证（cross validation），50%作为测试集。和PASCAL VOC数据集一样，该数据集也采用相同的指标。和MALF和Caltech数据集一样，对于测试图像并没有提供相应的背景边界框。图像如下图所示，下载链接为http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/
+
+* 300W
+
+  300W数据集是由AFLW，AFW，Helen，IBUG，LFPW，LFW等数据集组成的数据库。需要邮箱申请才可以下载，下载链接为http://ibug.doc.ic.ac.uk/resources/300-W/
+
+* VGG Face dataset
+该数据集包含了2622个不同的人，每个人包含1000张图片，是一个训练人脸识别的大的数据集，官网提供了每个图片的URL，需要自己解析下载，当然有些链接是需要翻墙的。下载链接：http://www.robots.ox.ac.uk/~vgg/data/vgg_face/
 
 
 
