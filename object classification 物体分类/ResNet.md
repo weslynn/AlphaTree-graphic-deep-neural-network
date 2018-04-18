@@ -45,7 +45,7 @@ resnet网络结构对比图如图：
 <p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/resnet.png)</p>
 
 
-
+从图像尺寸，我们可以看到整个过程中有多次降采样。在conv3_1 conv4_1 conv5_1，都会有stride = 2 的降采样. 降采样前后的尺寸不同，因此不能直接相加，可以采用zero_padding:补0，或者projection：用1×1卷积变换尺寸，来处理。
 
 源码：
 
@@ -73,14 +73,33 @@ torch https://github.com/facebook/fb.resnet.torch
 
 ## WRN（wide residual network）：
 
+验证了宽度给模型性能带来的提升
+
+![wrn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/wrn.png)
+
 github地址：https://github.com/szagoruyko/wide-residual-networks
 
 
 
-## ResNext
+## ResNeXt
+
+paper：Aggregated Residual Transformations for Deep Neural Networks
+Saining Xie, Ross Girshick, Piotr Dollár, Zhuowen Tu, Kaiming He
+ [pdf](https://arxiv.org/pdf/1611.05431.pdf) 
+
+提出 ResNeXt是因为：传统方法要提高模型的准确率，都是加深或加宽网络，但是随着超参数数量的增加（比如channels数，filter size等等），网络设计的难度和计算开销也会增加。
+
+ResNeXt 结构采用grouped
+ convolutions，减少了超参数的数量（子模块的拓扑结构一样），不增加参数复杂度，提高准确率。
 
 
+![resnextmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnextmodule.png)
 
+ResNeXt和ResNet-50/101的区别仅仅在于其中的block，其他都不变
+
+![resnext](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnext.png)
+
+torch: https://github.com/facebookresearch/ResNeXt
 
 
 
@@ -90,3 +109,4 @@ github地址：https://github.com/szagoruyko/wide-residual-networks
 # [GoogLeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)
 # [Inception V3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md)
 # [VGG](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md)
+# [ResNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md)

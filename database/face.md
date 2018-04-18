@@ -7,23 +7,21 @@
 ■CMU Cohn-Kanade AU-Coded Facial Expression Database (http://www.ri.cmu.edu/projects/project_421.html
 ■CMU Face Detection Databases (http://www.ri.cmu.edu/projects/project_419.html)
 ■CMU Face Expression Database (http://amp.ece.cmu.edu/projects/FaceAuthentication/download.htm)
-■CMU Face Pose, Illumination, and expression_r(PIE) Database (http://www.ri.cmu.edu/projects/project_418.html)
+■
 ■CMU VASC Image Database (motion, road sequences, stereo, CIL’s stereo data with ground truth, JISCT, face, face expressions, car) (http://www.ius.cs.cmu.edu/idb/)
 ■Content-based Image Retrieval Database (http://www.cs.washington.edu/research/imagedatabase/groundtruth/)
 ■Face Video Database of the Max Planck Institute for Biological Cybernetics (http://vdb.kyb.tuebingen.mpg.de/)
-■FERET Database (http://www.frvt.org/)
-■FERET Color Database (http://www.itl.nist.gov/iad/humanid/colorferet/home.htmlhttp://face.nist.gov/colorferet/ )
+
 ■Georgia Tech Face Database (http://www.anefian.com/face_reco.htm)
 ■German Fingerspelling Database (http://www.anefian.com/face_reco.htm )
 ■Indian Face Database (http:// www.cs.umass.edu/~vidit/IndianFaceDatabase)
 ■MIT-CBCL Car Database (http://cbcl.mit.edu/software-datasets/CarData.html)
-■MIT-CBCL Face Recognition Database (http://cbcl.mit.edu/software-datasets/heisele/facerecognition-database.html)
-■MIT-CBCL Face Databases (http://cbcl.mit.edu/software-datasets/FaceData2.html)
+■
 ■MIT-CBCL Pedestrian Database (http://cbcl.mit.edu/software-datasets/PedestrianData.html)
 ■MIT-CBCL Street Scenes Database (http://cbcl.mit.edu/software-datasets/streetscenes/)
 ■NIST/Equinox Visible and Infrared Face Image Database (http://www.equinoxsensors.com/products/HID.html)
 ■NIST Fingerprint Data at Columbia (Link)
-■ORL Database of Faces (http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html)
+■ 
 ■Rutgers Skin Texture Database (http://www.caip.rutgers.edu/rutgers_texture/)
 ■The Japanese Female Facial expression_r(JAFFE) Database (http://www.kasrl.org/jaffe.html
 ■The Ohio State University SAMPL Image Database (3D, still, motion) (http://sampl.ece.ohio-state.edu/database.htm)
@@ -38,41 +36,51 @@
 ■UCL M2VTS Multimodal Face Database (http://www.tele.ucl.ac.be/PROJECTS/M2VTS/m2fdb.html)
 ■Vision Image Archive at UMass (sequences, stereo, medical, indoor, outlook, road, underwater, aerial, satellite, space and more) (http://sipi.usc.edu/database/)
 ■Where can I find Lenna and other images? (http://www.faqs.org/faqs/compression-faq/part1/section-30.html)
-■Yale Face Database (http://cvc.yale.edu/projects/yalefaces/yalefaces.html)
-■Yale Face Database B (http://cvc.yale.edu/projects/yalefaces/yalefaces.html)
+■(http://cvc.yale.edu/projects/yalefaces/yalefaces.html)
+
+小数据集
+FERET, FERET Database,14,051张多姿态,光照的灰度人脸图像 https://www.nist.gov/programs-projects/face-recognition-technology-feret
+FERET, FERET Color Database https://www.nist.gov/itl/iad/image-group/color-feret-database
+MIT人脸数据库
+MIT-CBCL Face Recognition Database， 10 subjects. (http://cbcl.mit.edu/software-datasets/heisele/facerecognition-database.html)
+MIT-CBCL Face Databases 2,429 faces, 4,548 non-faces (http://cbcl.mit.edu/software-datasets/FaceData2.html)
+
+Yale Face Database 15位志愿者的165张图片,包含光照,表情和姿态的变化. http://vision.ucsd.edu/content/yale-face-database
+Yale Face Database B  包含了10个人的5,850幅多姿态,多光照的图像.其中的姿态和光照变化的图像都是在严格控制的条件下采集的,主要用于光照和姿态问题的建模与分析.由于采集人数较少,该数据库的进一步应用受到了比较大的限制. http://vision.ucsd.edu/content/extended-yale-face-database-b-b
+
+ORL Database of Faces 由剑桥大学AT&T实验室创建,包含40人共400张面部图像,(http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html)
+PIE CMU Face Pose, Illumination, and expression_r(PIE) Database (http://www.ri.cmu.edu/projects/project_418.html)
+由美国卡耐基梅隆大学创建,包含68位志愿者的41,368张多姿态,光照和表情的面部图像.其中的姿态和光照变化图像也是在严格控制的条件下采集的,
+
+
+PF01 由韩国浦项科技大学创建,包含103人的1,751张不同光照,姿态,表情的面部图像,志愿者以
+韩国人为主
+KFDB人脸数据库 ，包含了1,000人,共52,000幅多姿态,多光照,多表情的面部图像,其中姿态和光照变化的图像，是在严格控制的条件下采集的.志愿者以韩国人为主.
+
+# 人脸识别
 
 目前人脸识别领域常用的人脸数据库主要有:
-1. FERET人脸数据库[2]
-由FERET项目创建,包含14,051张多姿态,光照的灰度人脸图像,是人脸识别领域应用最广泛
-的人脸数据库之一.其中的多数人是西方人,每个人所包含的人脸图像的变化比较单一.
-2. MIT人脸数据库[4]
-由麻省理工大学媒体实验室创建,包含16位志愿者的2,592张不同姿态,光照和大小的面部图像.
-3. Yale人脸数据库[5]
-由耶鲁大学计算视觉与控制中心创建,包含15位志愿者的165张图片,包含光照,表情和姿态
-的变化.
-4. Yale人脸数据库B[6]
-包含了10个人的5,850幅多姿态,多光照的图像.其中的姿态和光照变化的图像都是在严格控制
-的条件下采集的,主要用于光照和姿态问题的建模与分析.由于采集人数较少,该数据库的进一步应
-用受到了比较大的限制.
-5. PIE人脸数据库[7]
-由美国卡耐基梅隆大学创建,包含68位志愿者的41,368张多姿态,光照和表情的面部图像.其
-中的姿态和光照变化图像也是在严格控制的条件下采集的,目前已经逐渐成为人脸识别领域的一个重
-要的测试集合.
-6. ORL人脸数据库[8]
-由剑桥大学AT&T实验室创建,包含40人共400张面部图像,部分志愿者的图像包括了姿态,
-表情和面部饰物的变化.该人脸库在人脸识别研究的早期经常被人们采用,但由于变化模式较少,多
-数系统的识别率均可以达到90%以上,因此进一步利用的价值已经不大.
-7. PF01人脸数据库[9]
-由韩国浦项科技大学创建,包含103人的1,751张不同光照,姿态,表情的面部图像,志愿者以
-韩国人为主.
+
+WebFaces,Caltech， 10k+人，约500K张图片，非限制场景， http://www.vision.caltech.edu/Image_Datasets/Caltech_10K_WebFaces/#Download
+CelebA，Multimedia Laboratory The Chinese University of Hong Kong 汤晓鸥，10K 名人，202K 脸部图像，每个图像40余标注属性
+MSRA-CFW,MSRA,202792 张, 1583人 Data Set of Celebrity Faces on the Web http://research.microsoft.com/en-us/projects/msra-cfw/CASIA 
+WebFace Database：http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.html
+CASIA-WebFace,李子青Center for Biometrics and Security Research， 500k图片，10k个人 http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.html
+MegaFace，华盛顿大学百万人脸MegaFace数据集 690k人，1000k张图片
+WLFDB : Weakly Labeled Faces Database ， 南洋理工 . (70万+,6,025).
+FaceScrub. 非限制场景，提供图片下载链接（100,100张，530人）. vintage - resources
+IMDB-WIKI 500k+ 人脸图像、年龄性别数据
+Labeled Faces in the Wild 人脸数据
+
+
+
+
 8. AR人脸数据库[10]
 由西班牙巴塞罗那计算机视觉中心建立,包含116人的3,288幅图像.采集环境中的摄像机参数,
 光照环境,摄像机距离等都是严格控制的.
 9. BANCA人脸数据库[11]
 该数据库是欧洲BANCA计划的一部分,包含了208人,每人12幅不同时间段的面部图像.
-10. KFDB人脸数据库[12]
-包含了1,000人,共52,000幅多姿态,多光照,多表情的面部图像,其中姿态和光照变化的图像
-是在严格控制的条件下采集的.志愿者以韩国人为主.
+10.
 11. MPI人脸数据库[13]
 该人脸数据库包含了200人的头部3维结构数据和1,400幅多姿态的人脸图像.
 12. XM2VTS人脸数据库[14]
@@ -81,9 +89,8 @@
 
 
 人脸图像
-IMDB-WIKI 500k+ 人脸图像、年龄性别数据
-Labeled Faces in the Wild 人脸数据
-Extended Yale Face Database B 人脸数据
+
+
 Bao Face 人脸数据
 DC-IGN 论文人脸数据
 300 Face in Wild 图像数据
@@ -91,12 +98,18 @@ BioID Face 人脸数据
 CMU Frontal Face Images
 FDDB_Face Detection Data Set and Benchmark
 NIST Mugshot Identification Database Faces in the Wild 人脸数据
-CelebA 名人人脸图像数据
 VGG Face 人脸图像数据
-Caltech 10k WebFaces 人脸图像数据
 
 
-人脸识别数据库描述用途获取方法WebFace10k+人，约500K张图片非限制场景链接FaceScrub530人，约100k张图片非限制场景链接YouTube Face1,595个人 3,425段视频非限制场景、视频链接LFW5k+人脸，超过10K张图片标准的人脸识别数据集链接MultiPIE337个人的不同姿态、表情、光照的人脸图像，共750k+人脸图像限制场景人脸识别链接 需购买MegaFace690k不同的人的1000k人脸图像新的人脸识别评测集合链接IJB-A 人脸识别，人脸检测链接CAS-PEAL1040个人的30k+张人脸图像，主要包含姿态、表情、光照变化限制场景下人脸识别链接Pubfig200个人的58k+人脸图像非限制场景下的人脸识别链接人脸检测数据库描述用途获取方法FDDB2845张图片中的5171张脸标准人脸检测评测集链接IJB-A 人脸识别，人脸检测链接Caltech10k Web Faces10k+人脸，提供双眼和嘴巴的坐标位置人脸点检测链接人脸表情数据库描述用途获取方法CK+137个人的不同人脸表情视频帧正面人脸表情识别链接人脸年龄数据库描述用途获取方法IMDB-WIKI包含：IMDb中20k+个名人的460k+张图片 和维基百科62k+张图片, 总共： 523k+张图片名人年龄、性别链接Adience包含2k+个人的26k+张人脸图像人脸性别，人脸年龄段(8组)链接CACD20002k名人160k张人脸图片人脸年龄链接人脸性别数据库描述用途获取方法IMDB-WIKI包含：IMDb中20k+个名人的460k+张图片 和维基百科62k+张图片, 总共： 523k+张图片名人年龄、性别链接Adience包含2k+个人的26k+张人脸图像人脸性别，人脸年龄段(8组)链接人脸关键点检测数据库描述用途获取方法数据库描述用途获取方法人脸其它数据库描述用途获取方法CeleBrayA200k张人脸图像40多种人脸属性人脸属性识别获取方法GitHub：DeepFacehttp://mmlab.ie.cuhk.edu.hk/projects/CelebA.html（更新部分）MSRA-CFW: Data Set of Celebrity Faces on the Webhttp://research.microsoft.com/en-us/projects/msra-cfw/CASIA WebFace Database：http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.htmlhttps://pan.baidu.com/s/1kVplrF5#list/path=%2FDeepLearning%E6%95%B0%E6%8D%AE%E9%9B%86%2FFace%20dataset&parentPath=%2FDeepLearning%E6%95%B0%E6%8D%AE%E9%9B%86https://pan.baidu.com/s/1eR2O1Nk https://pan.baidu.com/s/1kVJj67d人脸表情库1： The Japanese Female Facial Expression (JAFFE) Databasehttp://www.kasrl.org/jaffe.html这个数据库比较小，而且是一个比较老的数据库了，早在1998年就发布了。该数据库是由10位日本女性在实验环境下根据指示做出各种表情，再由照相机拍摄获取的人脸表情图像。整个数据库一共有213张图像，10个人，全部都是女性，每个人做出7种表情，这7种表情分别是： sad, happy, angry, disgust, surprise, fear, neutral. 每个人为一组，每一组都含有7种表情，每种表情大概有3,4张样图。这样每组大概20张样图，目前在这个数据库上的识别率已经很高了，不管是person independent 或者是person dependent。识别率都很高。这个数据库可以用来熟悉人脸表情识别的一些基础知识，包括特征提取，分类等。2： The Extended Cohn-Kanade Dataset (CK+)http://www.pitt.edu/~emotion/ck-spread.htm这个数据库是在 Cohn-Kanade Dataset 的基础上扩展来的，发布于2010年。这个数据库比起JAFFE 要大的多。而且也可以免费获取，包含表情的label和Action Units 的label。这个数据库包括123个subjects, 593 个 image sequence， 每个image sequence的最后一张 Frame 都有action units 的label， 而在这593个image sequence中，有327个sequence 有 emotion的 label。 这个数据库是人脸表情识别中比较流行的一个数据库，很多文章都会用到这个数据做测试。具体介绍可以参考如下文献：P. Lucey, J. F. Cohn, T.Kanade, J. Saragih, Z. Ambadar, and I. Matthews, "The Extended Cohn-KanadeDataset (CK+)_ A complete dataset for action unit and emotion-specifiedexpression," inComputer Vision andPattern Recognition Workshops (CVPRW), 2010 IEEE Computer Society Conference on,2010, pp. 94-101.3： GEMEP-FERA 2011http://gemep-db.sspnet.eu/这个数据是2011年，IEEE 的 Automatic Face & Gesture Recognition and Workshops (FG 2011), 2011 IEEE International Conference on 上提供的一个数据库，如果要获取这个数据库，需要签署一个assignment， 而且只有学术界可以免费使用。这个数据库拥有的表情图很多，但是subjects 很少。具体介绍可以参考如下文献：M. F. Valstar, M. Mehu, B.Jiang, M. Pantic, and K. Scherer, "Meta-Analysis of the First FacialExpression Recognition Challenge,"Systems,Man, and Cybernetics, Part B: Cybernetics, IEEE Transactions on, vol. 42,pp. 966-979, 2012.4： AFEW_4_0_EmotiW_2014http://cs.anu.edu.au/few/emotiw2014.html这个数据库用作ACM 2014 ICMI The Second Emotion Recognition In The Wild Challenge and Workshop。 去年已经进行了第一届的竞赛，这个数据库提供原始的video clips, 都截取自一些电影，这些clips 都有明显的表情，这个数据库与前面的数据库的不同之处在于，这些表情图像是 in the wild, not in the lab. 所以一个比较困难的地方在于人脸的检测与提取。详细信息可以参考如下文献：A. Dhall, R. Goecke, J. Joshi,M. Wagner, and T. Gedeon, "Emotion Recognition In The Wild Challenge2013," inProceedings of the 15thACM on International conference on multimodal interaction, 2013, pp.509-516.
+
+YouTube Face1,595个人 3,425段视频非限制场景、视频链接
+LFW5k+人脸，超过10K张图片标准的人脸识别数据集链接
+MultiPIE337个人的不同姿态、表情、光照的人脸图像，共750k+人脸图像限制场景人脸识别链接 需购买
+
+IJB-A 人脸识别，人脸检测链接CAS-PEAL1040个人的30k+张人脸图像，主要包含姿态、表情、光照变化限制场景下人脸识别链接Pubfig200个人的58k+人脸图像非限制场景下的人脸识别链接人脸检测数据库描述用途获取方法FDDB2845张图片中的5171张脸标准人脸检测评测集链接IJB-A 人脸识别，人脸检测链接Caltech10k Web Faces10k+人脸，提供双眼和嘴巴的坐标位置人脸点检测链接人脸表情数据库描述用途获取方法CK+137个人的不同人脸表情视频帧正面人脸表情识别链接人脸年龄数据库描述用途获取方法IMDB-WIKI包含：IMDb中20k+个名人的460k+张图片 和维基百科62k+张图片, 总共： 523k+张图片名人年龄、性别链接Adience包含2k+个人的26k+张人脸图像人脸性别，人脸年龄段(8组)链接CACD20002k名人160k张人脸图片人脸年龄链接人脸性别数据库描述用途获取方法IMDB-WIKI包含：IMDb中20k+个名人的460k+张图片 和维基百科62k+张图片, 总共： 523k+张图片名人年龄、性别链接Adience包含2k+个人的26k+张人脸图像人脸性别，人脸年龄段(8组)链接人脸关键点检测数据库描述用途获取方法数据库描述用途获取方法人脸其它数据库描述用途获取方法CeleBrayA200k张人脸图像40多种人脸属性人脸属性识别获取方法GitHub：
+
+
+人脸表情库1： The Japanese Female Facial Expression (JAFFE) Databasehttp://www.kasrl.org/jaffe.html这个数据库比较小，而且是一个比较老的数据库了，早在1998年就发布了。该数据库是由10位日本女性在实验环境下根据指示做出各种表情，再由照相机拍摄获取的人脸表情图像。整个数据库一共有213张图像，10个人，全部都是女性，每个人做出7种表情，这7种表情分别是： sad, happy, angry, disgust, surprise, fear, neutral. 每个人为一组，每一组都含有7种表情，每种表情大概有3,4张样图。这样每组大概20张样图，目前在这个数据库上的识别率已经很高了，不管是person independent 或者是person dependent。识别率都很高。这个数据库可以用来熟悉人脸表情识别的一些基础知识，包括特征提取，分类等。2： The Extended Cohn-Kanade Dataset (CK+)http://www.pitt.edu/~emotion/ck-spread.htm这个数据库是在 Cohn-Kanade Dataset 的基础上扩展来的，发布于2010年。这个数据库比起JAFFE 要大的多。而且也可以免费获取，包含表情的label和Action Units 的label。这个数据库包括123个subjects, 593 个 image sequence， 每个image sequence的最后一张 Frame 都有action units 的label， 而在这593个image sequence中，有327个sequence 有 emotion的 label。 这个数据库是人脸表情识别中比较流行的一个数据库，很多文章都会用到这个数据做测试。具体介绍可以参考如下文献：P. Lucey, J. F. Cohn, T.Kanade, J. Saragih, Z. Ambadar, and I. Matthews, "The Extended Cohn-KanadeDataset (CK+)_ A complete dataset for action unit and emotion-specifiedexpression," inComputer Vision andPattern Recognition Workshops (CVPRW), 2010 IEEE Computer Society Conference on,2010, pp. 94-101.3： GEMEP-FERA 2011http://gemep-db.sspnet.eu/这个数据是2011年，IEEE 的 Automatic Face & Gesture Recognition and Workshops (FG 2011), 2011 IEEE International Conference on 上提供的一个数据库，如果要获取这个数据库，需要签署一个assignment， 而且只有学术界可以免费使用。这个数据库拥有的表情图很多，但是subjects 很少。具体介绍可以参考如下文献：M. F. Valstar, M. Mehu, B.Jiang, M. Pantic, and K. Scherer, "Meta-Analysis of the First FacialExpression Recognition Challenge,"Systems,Man, and Cybernetics, Part B: Cybernetics, IEEE Transactions on, vol. 42,pp. 966-979, 2012.4： AFEW_4_0_EmotiW_2014http://cs.anu.edu.au/few/emotiw2014.html这个数据库用作ACM 2014 ICMI The Second Emotion Recognition In The Wild Challenge and Workshop。 去年已经进行了第一届的竞赛，这个数据库提供原始的video clips, 都截取自一些电影，这些clips 都有明显的表情，这个数据库与前面的数据库的不同之处在于，这些表情图像是 in the wild, not in the lab. 所以一个比较困难的地方在于人脸的检测与提取。详细信息可以参考如下文献：A. Dhall, R. Goecke, J. Joshi,M. Wagner, and T. Gedeon, "Emotion Recognition In The Wild Challenge2013," inProceedings of the 15thACM on International conference on multimodal interaction, 2013, pp.509-516.
 
 
 
