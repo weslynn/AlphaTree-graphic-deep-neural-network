@@ -71,6 +71,8 @@ torch https://github.com/facebook/fb.resnet.torch
 ![resnetmodule_new](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnet_new.png)
 
 
+torch :  https://github.com/KaimingHe/resnet-1k-layers
+
 ## WRN（wide residual network）：
 
 验证了宽度给模型性能带来的提升
@@ -87,6 +89,7 @@ paper：Aggregated Residual Transformations for Deep Neural Networks
 Saining Xie, Ross Girshick, Piotr Dollár, Zhuowen Tu, Kaiming He
  [pdf](https://arxiv.org/pdf/1611.05431.pdf) 
 
+2016的ImageNet第二
 提出 ResNeXt是因为：传统方法要提高模型的准确率，都是加深或加宽网络，但是随着超参数数量的增加（比如channels数，filter size等等），网络设计的难度和计算开销也会增加。
 
 ResNeXt 结构采用grouped  convolutions，减少了超参数的数量（子模块的拓扑结构一样），不增加参数复杂度，提高准确率。
