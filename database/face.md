@@ -119,11 +119,12 @@ MegaFace资料集包含一百万张图片，代表690000个独特的人。所有
   300W数据集是由AFLW，AFW，Helen，IBUG，LFPW，LFW等数据集组成的数据库。需要邮箱申请才可以下载，下载链接为http://ibug.doc.ic.ac.uk/resources/300-W/
 
 * VGG Face dataset
-该数据集包含了2622个不同的人，每个人包含1000张图片，是一个训练人脸识别的大的数据集，官网提供了每个图片的URL，需要自己解析下载，当然有些链接是需要翻墙的。下载链接：http://www.robots.ox.ac.uk/~vgg/data/vgg_face/
+该数据集包含了2622个不同的人，官网提供了每个图片的URL，下载链接：http://www.robots.ox.ac.uk/~vgg/data/vgg_face/
 
+VGGFace2 Dataset
+拓展到了331万图片,9131个人。3.31 million images of 9131 subjects (identities), with an average of 362.6 images for each subject
 
-
-
+http://www.robots.ox.ac.uk/~vgg/data/vgg_face2/
 
 
 
@@ -141,6 +142,9 @@ server:agas.openu.ac.il
 Path: /v/data9/cslab/wolftau/
 
 filezilla模式设置为"Transfer mode"
+
+
+
 
 ##　AR人脸数据
 
@@ -275,25 +279,6 @@ GunesH, Piccardi M. A bimodal face and body gesture database for automatic analy
 
 
     2 EmotiW 2016
-
-## 行人检测数据库
-
-INRIA Person Dataset
-
- Inria数据集是最常使用的行人检测数据集。其中正样本（行人）为png格式，负样本为jpg格式。里面的图片分为只有车，只有人，有车有人，无车无人四个类别。图片像素为70*134，96*160，64*128等。下载链接为http://pascal.inrialpes.fr/data/human/
-
-
-CaltechPedestrian Detection Benchmark
-
-加州理工学院的步行数据集包含大约包含10个小时640x480 30Hz的视频。其主要是在一个在行驶在乡村街道的小车上拍摄。视频大约250000帧（在137个约分钟的长段），共有350000个边界框和2300个独特的行人进行了注释。注释包括包围盒和详细的闭塞标签之间的时间对应关系。更多信息可在其PAMI 2012 CVPR 2009标杆的论文获得。下载链接为http://www.vision.caltech.edu/Image_Datasets/CaltechPedestrians/
-
-
-
-MIT cbcl (center for biological and computational learning)Pedestrian Data 
-
- 该数据集主要包含2个部分，一部分为128*64的包含924个图片的ppm格式的图片，另一部分为从打图中分别切割而出的小图，主要包含胳膊，脑袋，脚，腿，头肩，身体等。下载链接为http://cbcl.mit.edu/software-datasets/PedestrianData.html，需要翻墙才可以。
-
-
 
 
 参考：

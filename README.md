@@ -196,6 +196,13 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
    tensorflow 源码 : https://github.com/davidsandberg/facenet/tree/master/src/align 
 
 
+### FaceBoxes
+
+
+文章链接： 《FaceBoxes: A CPU Real-time Face Detector with High Accuracy》
+
+非官方实现 https://github.com/zeusees/FaceBoxes
+
 
 ### facenet 
 
@@ -332,6 +339,9 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
    Caffe 源码：https://github.com/MhLiao/TextBoxes_plusplus 官方
 
+
+
+### East: An Efficient and Accurate Scene Text Detector
 
 ### Segmantation-based method:
 
