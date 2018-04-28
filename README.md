@@ -204,13 +204,47 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
 非官方实现 https://github.com/zeusees/FaceBoxes
 
 
+### PCN 
+
+
+https://arxiv.org/pdf/1804.06039.pdf.
+
+
+
+https://github.com/Jack-CV/PCN
+
+
 ### facenet 
 
 
 
 ### arcface
 
+## 3d face
 
+Face Alignment Across Large Poses: A 3D Solution
+http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm
+
+dense face alignment /Pose-Invariant Face Alignment (PIFA)
+http://cvlab.cse.msu.edu/project-pifa.html
+
+face-alignment
+2D-and-3D-face-alignment
+两个github项目，在做同一件事，2d和3d的人脸对齐问题，区别在于前者是Pytorch 的代码，后者是Torch7的。 
+论文有个很霸道的名字：《How far are we from solving the 2D & 3D Face Alignment problem? (and a dataset of 230,000 3D facial landmarks) 》ICCV2017
+
+github：https://github.com/1adrianb/face-alignment 
+github: https://github.com/1adrianb/2D-and-3D-face-alignment
+
+
+Regressing Robust and Discriminative 3D Morphable Models with a very Deep Neural Network
+https://github.com/anhttran/3dmm_cnn
+
+vrn
+用CNN Regression的方法解决大姿态下的三维人脸重建问题。 
+ICCV论文：《Large Pose 3D Face Reconstruction from a Single Image via Direct Volumetric CNN Regression》
+
+github：https://github.com/AaronJackson/vrn
 -------------------------------------------------------------------------------
 
 ## OCR：Optical Character Recognition 字符识别 / STR, Scene Text Recognition 场景文字识别
@@ -579,6 +613,23 @@ Faster R-CNN = Region Proposal Network +Fast R-CNN
 ### BlitzNet
 
 
+## Art
+
+
+
+## 强化学习
+
+
+
+
+SAC-X
+
+
+## GAN
+
+https://github.com/wiseodd/generative-models
+### iGan
+https://github.com/junyanz/iGAN#igan-interactive-image-generation-via-generative-adversarial-networks
 ----------------------------------------------------------------------------------
 
 ## Datasets 数据库
