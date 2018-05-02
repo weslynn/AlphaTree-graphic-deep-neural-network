@@ -225,6 +225,9 @@ https://github.com/Jack-CV/PCN
 Face Alignment Across Large Poses: A 3D Solution
 http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm
 
+
+HPEN High-Fidelity Pose and Expression Normalization for Face Recognition in the Wild
+
 dense face alignment /Pose-Invariant Face Alignment (PIFA)
 http://cvlab.cse.msu.edu/project-pifa.html
 
@@ -232,10 +235,19 @@ face-alignment
 2D-and-3D-face-alignment
 两个github项目，在做同一件事，2d和3d的人脸对齐问题，区别在于前者是Pytorch 的代码，后者是Torch7的。 
 论文有个很霸道的名字：《How far are we from solving the 2D & 3D Face Alignment problem? (and a dataset of 230,000 3D facial landmarks) 》ICCV2017
-
 github：https://github.com/1adrianb/face-alignment 
 github: https://github.com/1adrianb/2D-and-3D-face-alignment
 
+
+
+
+2D-FAN：https://www.adrianbulat.com/downloads/FaceAlignment/2D-FAN-300W.t7
+
+3D-FAN：https://www.adrianbulat.com/downloads/FaceAlignment/3D-FAN.t7
+
+2D-to-3D FAN：https://www.adrianbulat.com/downloads/FaceAlignment/2D-to-3D-FAN.tar.gz
+
+3D-FAN-depth：https://www.adrianbulat.com/downloads/FaceAlignment/3D-FAN-depth
 
 Regressing Robust and Discriminative 3D Morphable Models with a very Deep Neural Network
 https://github.com/anhttran/3dmm_cnn
@@ -245,6 +257,21 @@ vrn
 ICCV论文：《Large Pose 3D Face Reconstruction from a Single Image via Direct Volumetric CNN Regression》
 
 github：https://github.com/AaronJackson/vrn
+
+
+
+
+
+
+Regressing Robust and Discriminative 3D Morphable Models with a very Deep Neural Network
+
+https://github.com/anhttran/3dmm_cnn
+
+Expression-Net
+https://github.com/fengju514/Expression-Net
+Estimate 3D face pose by a Convolutional Neural Network
+FACE POSE NET
+https://github.com/fengju514/Face-Pose-Net
 -------------------------------------------------------------------------------
 
 ## OCR：Optical Character Recognition 字符识别 / STR, Scene Text Recognition 场景文字识别
@@ -627,9 +654,135 @@ SAC-X
 
 ## GAN
 
+
 https://github.com/wiseodd/generative-models
+
+GAN - Ian Goodfellow, arXiv:1406.2661v1
+
+DCGAN - Alec Radford & Luke Metz, arxiv:1511.06434
+
+CGAN - Mehdi Mirza, arXiv:1411.1784v1
+
+LAPGAN - Emily Denton & Soumith Chintala, arxiv: 1506.05751
+
+InfoGAN - Xi Chen, arxiv: 1606.03657
+
+PPGAN - Anh Nguyen, arXiv:1612.00005v1
+
+WGAN - Martin Arjovsky, arXiv:1701.07875v1
+
+LS-GAN - Guo-Jun Qi, arxiv: 1701.06264
+
+SeqGAN - Lantao Yu, arxiv: 1609.05473
+
+EBGAN - Junbo Zhao, arXiv:1609.03126v2
+
+VAEGAN - Anders Boesen Lindbo Larsen, arxiv: 1512.09300
+
+......
+
+特定任务中提出来的模型，如GAN-CLS、GAN-INT、SRGAN、iGAN、IAN 等
+LS-GAN
+
+Torch 版本：https://github.com/guojunq/lsgan
+
+SRGAN
+
+TensorFlow 版本：https://github.com/buriburisuri/SRGAN
+
+Torch 版本：https://github.com/leehomyc/Photo-Realistic-Super-Resoluton
+
+Keras 版本：https://github.com/titu1994/Super-Resolution-using-Generative-Adversarial-Networks
+
+iGAN
+
+Theano 版本：https://github.com/junyanz/iGAN
+
+IAN
+
+Theano 版本：https://github.com/ajbrock/Neural-Photo-Editor
+
+Pix2pix
+
+Torch 版本：https://github.com/phillipi/pix2pix
+
+TensorFlow 版本：https://github.com/yenchenlin/pix2pix-tensorflow
+
+GAN for Neural dialogue generation
+
+Torch 版本：https://github.com/jiweil/Neural-Dialogue-Generation
+
+Text2image
+
+Torch 版本：https://github.com/reedscot/icml2016
+
+TensorFlow+Theano 版本：https://github.com/paarthneekhara/text-to-image
+
+GAN for Imitation Learning
+
+Theano 版本：https://github.com/openai/imitation
+
+SeqGAN
+
+TensorFlow 版本：https://github.com/LantaoYu/SeqGAN
+
+
+Qi G J. Loss-Sensitive Generative Adversarial Networks onLipschitz Densities[J]. arXiv preprint arXiv:1701.06264, 2017.
+
+Li J, Monroe W, Shi T, et al. Adversarial Learning for NeuralDialogue Generation[J]. arXiv preprint arXiv:1701.06547, 2017.
+
+Sønderby C K, Caballero J, Theis L, et al. Amortised MAPInference for Image Super-resolution[J]. arXiv preprint arXiv:1610.04490, 2016.
+
+Ravanbakhsh S, Lanusse F, Mandelbaum R, et al. Enabling DarkEnergy Science with Deep Generative Models of Galaxy Images[J]. arXiv preprintarXiv:1609.05796, 2016.
+
+Ho J, Ermon S. Generative adversarial imitationlearning[C]//Advances in Neural Information Processing Systems. 2016:4565-4573.
+
+Zhu J Y, Krähenbühl P, Shechtman E, et al. Generative visualmanipulation on the natural image manifold[C]//European Conference on ComputerVision. Springer International Publishing, 2016: 597-613.
+
+Isola P, Zhu J Y, Zhou T, et al. Image-to-image translationwith conditional adversarial networks[J]. arXiv preprint arXiv:1611.07004,2016.
+
+Shrivastava A, Pfister T, Tuzel O, et al. Learning fromSimulated and Unsupervised Images through Adversarial Training[J]. arXivpreprint arXiv:1612.07828, 2016.
+
+Ledig C, Theis L, Huszár F, et al. Photo-realistic singleimage super-resolution using a generative adversarial network[J]. arXivpreprint arXiv:1609.04802, 2016.
+
+Nguyen A, Yosinski J, Bengio Y, et al. Plug & playgenerative networks: Conditional iterative generation of images in latentspace[J]. arXiv preprint arXiv:1612.00005, 2016.
+
+Yu L, Zhang W, Wang J, et al. Seqgan: sequence generativeadversarial nets with policy gradient[J]. arXiv preprint arXiv:1609.05473,2016.
+
+Lotter W, Kreiman G, Cox D. Unsupervised learning of visualstructure using predictive generative networks[J]. arXiv preprintarXiv:1511.06380, 2015.
+
+Reed S, Akata Z, Yan X, et al. Generative adversarial textto image synthesis[C]//Proceedings of The 33rd International Conference onMachine Learning. 2016, 3.
+
+Brock A, Lim T, Ritchie J M, et al. Neural photo editingwith introspective adversarial networks[J]. arXiv preprint arXiv:1609.07093,2016.
+
+Pfau D, Vinyals O. Connecting generative adversarialnetworks and actor-critic methods[J]. arXiv preprint arXiv:1610.01945, 2016.
+
+
+
 ### iGan
 https://github.com/junyanz/iGAN#igan-interactive-image-generation-via-generative-adversarial-networks
+
+
+
+
+
+
+
+
+
+
+Neural Dialogue Generation
+https://github.com/jiweil/Neural-Dialogue-Generation
+
+
+
+
+
+
+
+
+
+
 ----------------------------------------------------------------------------------
 
 ## Datasets 数据库
