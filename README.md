@@ -8,7 +8,8 @@
 在了解这个计划之前，我们先了解一下各个方向的发展情况，用地铁图的形式绘制了第一个版本。里面包含十二个方向，里面列的模型，除了商业化的部分外，其他基本都有开源代码，并且是应用方向使用较多的模型。也许还有遗漏与不完善的地方，大家一起来更新吧。
 
 
-![map](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.0.png)
+
+<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.0.png" width="800"> </a>
 
 <p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png)</p>
 
