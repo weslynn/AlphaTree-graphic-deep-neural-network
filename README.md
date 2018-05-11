@@ -53,7 +53,7 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 深度学习在解决分类问题上非常厉害。让它声名大噪的也是对于图像分类问题的解决。也产生了很多很经典的模型。因此我们首先了解一下它们。
 
 
-![object classification](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Object Classification.png)
+![object classification](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectClassification.png)
 
 
 从模型的发展过程中，我们可以看到网络结构不断的进行改进，包括不断增加的网络深度，不断变换的卷积核上，多种多样的网络模块等。
