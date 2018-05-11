@@ -635,6 +635,7 @@ Faster R-CNN = Region Proposal Network +Fast R-CNN
    caffe ：https://github.com/weiliu89/caffe/tree/ssd
 
 
+ParseNet
 
 ### R-FCN
 * R-FCN
@@ -665,6 +666,21 @@ Faster R-CNN = Region Proposal Network +Fast R-CNN
 
 ## Art
 
+### Interactive Deep Colorization
+https://github.com/junyanz/interactive-deep-colorization
+
+
+### pix2pix
+Edges2cats：
+
+http://affinelayer.com/pixsrv/index.html
+
+Github：
+
+https://github.com/phillipi/pix2pix
+
+
+http://paintschainer.preferred.tech/index_zh.html
 
 
 ## 强化学习
@@ -679,6 +695,9 @@ SAC-X
 
 
 https://github.com/wiseodd/generative-models
+
+### info gan
+https://github.com/openai/InfoGAN
 
 GAN - Ian Goodfellow, arXiv:1406.2661v1
 
