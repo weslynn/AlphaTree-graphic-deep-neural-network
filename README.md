@@ -5,6 +5,15 @@
 从AI研究的角度来说，AI的学习和跟进是有偏向性的，更多的精英是擅长相关的一到两个领域，在这个领域做到更好。而从AI应用工程师的角度来说，每一个工程都可能涉及很多个AI的方向，而他们需要了解掌握不同的方向才能更好的开发和设计。但是AI中每一个领域都在日新月异的成长。而每一位研究人员写paper的风格都不一样，相似的模型，为了突出不同的改进点，他们对模型的描述和图示都可能大不相同。为了帮助更多的人在不同领域能够快速跟进前沿技术，我们构建了“AlphaTree计划”，每一篇文章都会对应文章，代码，然后进行图示输出。
 
 
+在了解这个计划之前，我们先了解一下各个方向的发展情况，用地铁图的形式绘制了第一个版本。里面包含十二个方向，里面列的模型，除了商业化的部分外，其他基本都有开源代码，并且是应用方向使用较多的模型。也许还有遗漏与不完善的地方，大家一起来更新吧。
+
+
+![map](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.0.png)
+
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png)</p>
+
+
+
 模型中用到的图标规定如下：
 ![图标](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/cellsreadme.png)
 
