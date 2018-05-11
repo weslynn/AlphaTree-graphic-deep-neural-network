@@ -12,6 +12,9 @@
 <a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.0.png" width="1200"> </a>
 
 
+[大图链接](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png)
+
+
 现在主要有如下方向
 
 ![方向](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/directions.png)
@@ -21,13 +24,14 @@
 
 一个常用的神经网络结构可以进行如下的等价变换。每个圆圈上的数字代表这一层有多少个神经元。
 
-![简化](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/simplelize.png)
+
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/simplelize.png" width="600">
 
 图像的深度卷积网络 每一层的卷积核大小也是大家感兴趣的，因此会在简化结构中，加上卷积核大小。这个可以写在圆圈中，也可以写在圆圈下方。
 
 如 [LeNet网络](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md) 
 
-[!Lenet_short](https://github.com/weslynn/graphic-deep-neural-network/raw/master/modelpic/lenet-short.png)
+![Lenet_short](https://github.com/weslynn/graphic-deep-neural-network/raw/master/modelpic/lenet-short.png)
 
 
 
