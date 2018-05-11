@@ -161,7 +161,9 @@ filezilla模式设置为"Transfer mode"
 包含了295人在4个不同时间段的图像和语音视频片断.在每个时间段,每人被记录了2个头部
 旋转的视频片断和6个语音视频片断.此外,其中的293人的3维模型也可得到.
 
-
+## 其他
+闭眼数据集 Closed Eyes In The Wild (CEW)
+http://parnec.nuaa.edu.cn/xtan/data/ClosedEyeDatabases.html
 
 ## 人群密度估计数据库
 
@@ -204,6 +206,7 @@ http://crcv.ucf.edu/data/crowd_counting.php
 HollywoodHeads dataset
 
 该数据集为从视频中截取的图片，包含224740张jpeg格式图片，还有xml格式的标注，和VOC的标注方式一样。下载链接为:http://www.di.ens.fr/willow/research/headdetection/release/HollywoodHeads.zip
+
 
 
 
