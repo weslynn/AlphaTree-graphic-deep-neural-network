@@ -66,6 +66,8 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 之后网络设计发展主要有两条主线，一条是Inception系列，从GoogLeNet 到Inception V2 V3 V4，Inception ResNet。 Inception module模块在不断变化，一条是VGG系列，用简单的结构，尽可能的使得网络变得更深。从VGG 发展到ResNet ，再到DenseNet ，DPN等。 最终Google Brain用500块GPU训练出了比人类设计的网络结构更优的网络NASNet。
 
+此外，应用方面更注重的是，如何将模型设计得更小。这条路线则包括 SqueezeNet，MobileNet V1 V2 Xception shuffleNet等。ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
+
 ### LeNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)  Yann LeCun
 
 * LeNet  最经典的CNN网络
