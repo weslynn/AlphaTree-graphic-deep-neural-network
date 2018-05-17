@@ -79,7 +79,7 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
    [1] LeCun, Yann; Léon Bottou; Yoshua Bengio; Patrick Haffner (1998). "Gradient-based learning applied to document recognition" [pdf](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
 
-   tf code  https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/lenet.py
+   tf code  https://github.com/tensorflow/models/blob/master/research/slim/nets/lenet.py
 
    pytorch code  https://github.com/pytorch/examples/blob/master/mnist/main.py
 
@@ -104,7 +104,7 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
    [2] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012. [pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
-   tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/alexnet.py
+   tensorflow 源码 https://github.com/tensorflow/models/blob/master/research/slim/nets/alexnet.py
 
    caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/train_val.prototxt
 
@@ -119,7 +119,7 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
    [3] Szegedy, Christian, et al. "Going deeper with convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2015.[pdf](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf)
 
 
-   tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/inception_v1.py
+   tensorflow 源码 https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v1.py
 
    caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_googlenet/train_val.prototxt
 
@@ -133,7 +133,9 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
    [4] Szegedy, Christian, et al. “Rethinking the inception architecture for computer vision.” arXiv preprint arXiv:1512.00567 (2015). [pdf](http://arxiv.org/abs/1512.00567)
 
 
-   tensorflow 源码 https://github.com/tensorflow/tensorflow/blob/fc1567c78b3746b44aa50373489a767afbb95d2b/tensorflow/contrib/slim/python/slim/nets/inception_v3.py
+   tensorflow 源码 https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v3.py
+
+   https://github.com/tensorflow/models/blob/master/research/inception/inception/slim/inception_model.py
 
 
 
@@ -151,7 +153,7 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
 
    [5] Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks for large-scale image recognition." arXiv preprint arXiv:1409.1556 (2014). [pdf](https://arxiv.org/pdf/1409.1556.pdf)
 
-   tensorflow 源码: https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/vgg.py
+   tensorflow 源码: https://github.com/tensorflow/models/blob/master/research/slim/nets/vgg.py
 
 
    caffe ：
@@ -216,13 +218,23 @@ github地址：https://github.com/cypw/DPNs
 
 ### Inception resnet-v2
 
+https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_resnet_v2.py
 
+
+### NASNet
+
+https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py
 -----------------------------------------------------------------------------------------------------------
 ## 轻量级模型 & 剪枝
 
 ### MobileNet
 
 TensorFlow实现：https://github.com/Zehaos/MobileNet 
+
+https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py
+
+https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mobilenet_v2.py
+
 caffe实现：https://github.com/pby5/MobileNet_Caffe
 
 
