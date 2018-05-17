@@ -6,7 +6,7 @@ paper ：[ECCV2016] Zhi Tian, Weilin Huang, Tong He, Pan He, Yu Qiao，Detecting
 
 CTPN 原始结构如图
 
-![CTPN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ocrpic/ctpn.png)
+![CTPN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/ctpn.png)
 
 分为如下几个部分：
 
@@ -22,12 +22,12 @@ paper中的模型是可以应用到各种水平文本检测。
 
 用不同节点表示如图：
 
-![cptn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ctpn.png)
+![cptn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/ctpn.png)
 
 
 作者给出的caffe代码模型结构有一点改变，包括输出：
 
-![cptncaffe](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ctpn_caffe.png)
+![cptncaffe](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/ctpn_caffe.png)
 
 
 Caffe 源码：https://github.com/tianzhi0549/CTPN 官方

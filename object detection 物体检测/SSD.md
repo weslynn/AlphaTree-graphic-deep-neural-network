@@ -9,7 +9,7 @@ paper： Wei Liu, et al. “SSD: Single Shot MultiBox Detector.” . [pdf](https
 
 SSD 结构如图：
 
-![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/detectpic/ssd.jpg)
+![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/ssd.jpg)
 
 
 
@@ -17,27 +17,27 @@ SSD 结构如图：
 用不同节点表示如图，
 
 
-![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ssd.png)
+![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/objdetection/ssd.png)
 
 
 
-<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/ssd.png)</p>
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/objdetection/ssd.png)</p>
 
 
 
 预测的类别 和偏移值 计算如图
 
-![ssdcal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ssd_cal.png)
+![ssdcal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/objdetection/ssd_cal.png)
 
 
 整个SSD完整对应如图
 
 
-![ssd_total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ssd_total.png)
+![ssd_total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/objdetection/ssd_total.png)
 
 
 
-<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/ssd_total.png)</p>
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/objdetection/ssd_total.png)</p>
 
 
 

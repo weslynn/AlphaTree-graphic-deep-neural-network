@@ -7,25 +7,25 @@ paper ：M. Liao et al. TextBoxes: A Fast Text Detector with a Single Deep Neura
 
 
 TextBoxes的原始结构如图：
-![TextBoxes](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ocrpic/textboxes.png)
+![TextBoxes](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/textboxes.png)
 
 TextBoxes从SSD修改而来，但是SSD中每一个支线上3×3的卷积都被换成了1×5的卷积。在每一个特征位置，有12个default box（12个default box 为1 2 3 5 7 10 不同比率的6个box ，以及增加0.5个vertical offset后的6个box），通过text-box预测72维向量，这是文本出现的得分（text presence scores）（2维）和default box的位置偏移（offsets）（4维） 72 = 12×（2+4）。7×7的图像就预测7×7×12个得分(2)和bounding box (4)。 最后所有的输出通过一个Non-maximum suppression（NMS）得到最终的输出。
  
 
 用不同节点表示如图：
 
-![textboxes](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes.png)
-<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/textboxes.png)</p>
+![textboxes](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes.png)
+<p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/ocr/textboxes.png)</p>
 
 对应Text_box层如图（以score输出为例 输出2）：
 
-![textboxes_cal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes_cal.png)
+![textboxes_cal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes_cal.png)
 
 
 作者caffe中模型结构做了一点小小的修改，如图：
 
 
-![textboxes_caffe](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes_caffe.png)
+![textboxes_caffe](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes_caffe.png)
 
 <p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/textboxes_caffe.png)</p>
 

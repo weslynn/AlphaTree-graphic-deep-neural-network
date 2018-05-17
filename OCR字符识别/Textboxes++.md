@@ -7,19 +7,19 @@ paper ：M. Liao et al. TextBoxes++: Multi-oriented text detection [pdf](https:/
 
 
 TextBoxes的原始结构如图：
-![TextBoxes++](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ocrpic/textboxes++.png)
+![TextBoxes++](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/textboxes++.png)
 
 TextBoxes++将TextBoxes的水平文字检测拓展到多方向，修改了输出的维度，offset从4维，拓展到4+8=12维（也可以是4+5，不过caffe源码中为4+8，5是rotated rectangele bounding box offsets，8是quadrilateral bounding box offsets），caffe源码中输出的12个default boxes拓展到20个，因此输出也从TextBoxes的72维向量拓展到20×（2+12）=280。最后所有的输出通过一个级联的Non-maximum suppression（先选0.5的高阈值，然后选0.2的低阈值）得到最终的输出。
  
 
 用不同节点表示如图（按照作者caffe代码绘制）：
 
-![textboxes++](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes++.png)
-<p align="right"> [大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/textboxes++.png) </p>
+![textboxes++](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes++.png)
+<p align="right"> [大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/ocr/textboxes++.png) </p>
 
 对应Text_box层如图（score 2维， bounding box offset 12维）：
 
-![textboxes_cal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes++_cal.png)
+![textboxes_cal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes++_cal.png)
 
 
 

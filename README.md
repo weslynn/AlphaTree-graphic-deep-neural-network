@@ -277,7 +277,7 @@ caffe实现：https://github.com/camel007/Caffe-ShuffleNet
 * MTCNN 
 MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务分解后让三个子网络来完成。每个网络都很浅，使用多个小网络级联，较好的完成任务。
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mtcnn.png" width="400"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/mtcnn.png" width="400"></a>
 
 
    [1] [ECCV2016] Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks [pdf](https://kpzhang93.github.io/MTCNN_face_detection_alignment/paper/spl.pdf)
@@ -465,7 +465,7 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 * CTPN 使用CNN + RNN 进行文本检测与定位。
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ctpn.png" width="905"> </a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/ctpn.png" width="905"> </a>
 
 
 作者caffe中模型结构如图：
@@ -484,12 +484,12 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 * TextBoxes，一个端到端的场景文本检测模型。这个算法是基于SSD来实现的,解决水平文字检测问题，将原来3×3的kernel改成了更适应文字的long conv kernels 3×3 -> 1×5。default boxes 也做了修改。
    
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes.png" width="905"> </a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes.png" width="905"> </a>
 
 
 作者caffe中模型结构如图：
 
-  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes_caffe.png" width="905"> </a>
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes_caffe.png" width="905"> </a>
 
 
    [2]  M. Liao et al. TextBoxes: A Fast Text Detector with a Single Deep Neural Network. AAAI, 2017. [pdf](https://arxiv.org/pdf/1611.06779.pdf) 
@@ -505,7 +505,7 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 * TextBoxes++ 这个算法也是基于SSD来实现的，实现了对多方向文字的检测。boundingbox的输出从4维的水平的boundingbox扩展到4+8=12维的输出。long conv kernels 从 1×5 改成了 3×5。default boxes 也做了修改。
    
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes++.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/textboxes++.png" width="905"> </a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes++.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes++.png" width="905"> </a>
 
 
 

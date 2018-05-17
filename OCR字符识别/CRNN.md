@@ -8,11 +8,11 @@ paper：[2015-CoRR] An End-to-End Trainable Neural Network for Image-based Seque
 
 CRNN 原始结构如图
 
-![CRNN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ocrpic/crnn.jpg)
+![CRNN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/crnn.jpg)
 
 细节如图：
 
-![CRNND](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ocrpic/crnn-detail.png)
+![CRNND](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/crnn-detail.png)
 
 
 分为三个部分：
@@ -25,7 +25,7 @@ CRNN 原始结构如图
 
 通过feature sequence extraction 将一张图像的特征转换成特征序列，传给两层双向lstm。
 
-![CRNNFS](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ocrpic/featuresequence.png)
+![CRNNFS](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/featuresequence.png)
 
 第三部分为transcription，通过CTC(Connectionist Temporal Classification)层得到label序列的概率
 
@@ -37,10 +37,10 @@ CRNN 原始结构如图
 
 结果如图
 
-![CRNNR](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ocrpic/crnn-result.png)
+![CRNNR](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/crnn-result.png)
 
 用不同节点表示如图：
-![crnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/crnn.png)
+![crnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/crnn.png)
 
 
 code： http://mclab.eic.hust.edu.cn/~xbai/CRNN/crnn_code.zip
