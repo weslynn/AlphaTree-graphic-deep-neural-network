@@ -43,7 +43,7 @@ Lenet5 原始结构如，包括卷积层，降采样，卷积层，降采样，�
 
 源码：
 
-tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/lenet.py
+tensorflow 源码 https://github.com/tensorflow/models/tree/master/research/slim/nets/lenet.py
 
 tensorflow的输入 改成了28×28，因此少了一层卷积层，最后使用softmax输出
 

@@ -37,7 +37,7 @@ GoogLeNet的网络结构设计很大程度上借鉴了2014年 ICLR 的paper：Ne
 
 源码：
 
-tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/inception_v1.py
+tensorflow 源码 https://github.com/tensorflow/models/tree/master/research/slim/nets/inception_v1.py
 
 caffe https://github.com/BVLC/caffe/blob/master/models/bvlc_googlenet/train_val.prototxt
 

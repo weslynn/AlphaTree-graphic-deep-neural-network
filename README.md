@@ -175,9 +175,9 @@ ResNet,深度残差网络，通过shortcut( skip connection )的设计，打破�
 	[6] He, Kaiming, et al. "Deep residual learning for image recognition." arXiv preprint arXiv:1512.03385 (2015). [pdf](https://arxiv.org/pdf/1512.03385.pdf) (ResNet,Very very deep networks, CVPR best paper) 
 
 
-	tensorflow 源码 https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/resnet_v1.py
+	tensorflow 源码 https://github.com/tensorflow/models/tree/master/research/slim/nets/resnet_v1.py
 
-	https://github.com/tensorflow/models/blob/57014e4c7a8a5cd8bdcb836587a094c082c991fc/research/slim/nets/resnet_v2.py
+	https://github.com/tensorflow/models/tree/master/research/slim/nets/resnet_v2.py
 
 	caffe https://github.com/KaimingHe/deep-residual-networks
 
@@ -192,6 +192,21 @@ ResNet,深度残差网络，通过shortcut( skip connection )的设计，打破�
 
 	torch https://github.com/facebookresearch/ResNeXt
 
+
+### Inception-Resnet-V2[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionResnetV2.md) Christian Szegedy / Google
+
+Inception Resnet V2是基于Inception V3 和 ResNet结构发展而来的一个网络。在这篇paper中，还同期给出了Inception V4. 
+
+
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionResnetV2.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/inceptionresnet_v2_tf.png" width="805"></a>
+
+  [8] Christian Szegedy, et al. “Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning” arXiv preprint arXiv:1602.07261 (2015). [pdf](http://arxiv.org/abs/1602.07261)
+
+
+github链接：
+https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_resnet_v2.py
+
+
 ### DenseNet[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md) 黄高Gao Huang, 刘壮Zhuang Liu
 
 作者发现（Deep networks with stochastic depth）通过类似Dropout的方法随机扔掉一些层，能够提高ResNet的泛化能力。于是设计了DenseNet。
@@ -200,8 +215,8 @@ DenseNet 将ResNet的residual connection 发挥到了极致，它做了两个重
 DenseNet很容易训练,但是它有很多数据需要重复使用，因此显存占用很大。不过现在的更新版本，已经通过用时间换空间的方法，将DenseLayer(Contact-BN-Relu_Conv)中部分数据使用完就释放，而在需要的时候重新计算。这样增加少部分计算量，节约大量内存空间。
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/densenet.png" width="805"></a>
-  [8] Gao Huang,Zhuang Liu, et al. DenseNet：2016，Densely Connected Convolutional Networks arXiv preprint arXiv:1608.06993 . [pdf](https://arxiv.org/pdf/1608.06993.pdf)  CVPR 2017 Best Paper
-  [9]Geoff Pleiss, Danlu Chen, Gao Huang, et al.Memory-Efficient Implementation of DenseNets. [pdf](https://arxiv.org/pdf/1707.06990.pdf)
+  [9] Gao Huang,Zhuang Liu, et al. DenseNet：2016，Densely Connected Convolutional Networks arXiv preprint arXiv:1608.06993 . [pdf](https://arxiv.org/pdf/1608.06993.pdf)  CVPR 2017 Best Paper
+  [10]Geoff Pleiss, Danlu Chen, Gao Huang, et al.Memory-Efficient Implementation of DenseNets. [pdf](https://arxiv.org/pdf/1707.06990.pdf)
 
 github链接：
   torch https://github.com/liuzhuang13/DenseNet
@@ -216,9 +231,6 @@ github链接：
 ### DPN
 github地址：https://github.com/cypw/DPNs
 
-### Inception resnet-v2
-
-https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_resnet_v2.py
 
 
 ### NASNet
@@ -228,6 +240,14 @@ https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasne
 ## 轻量级模型 & 剪枝
 
 ### MobileNet
+MobileNet v1：2017，MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
+
+和 Xception 类似，通过 depthwise separable convolution 来减少计算量，设计了一个适用于移动端的，取得性能和效率间很好平衡的一个网络。
+
+MobileNet v2：2018，Inverted Residuals and Linear Bottlenecks: Mobile Networks for Classification, Detection and Segmentation
+
+使用了 ReLU6（即对 ReLU 输出的结果进行 Clip，使得输出的最大值为 6）适配移动设备更好量化，然后提出了一种新的 Inverted Residuals and Linear Bottleneck，即 ResNet 基本结构中间使用了 depthwise 卷积，一个通道一个卷积核，减少计算量，中间的通道数比两头还多，并且全去掉了最后输出的 ReLU。
+
 
 TensorFlow实现：https://github.com/Zehaos/MobileNet 
 
