@@ -470,7 +470,7 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 作者caffe中模型结构如图：
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md"><img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ctpn_caffe.png" width="905"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md"><img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/ctpn_caffe.png" width="905"></a>
 
 
    [1] [ECCV2016] Detecting Text in Natural Image with Connectionist Text Proposal Network [pdf](https://arxiv.org/pdf/1609.03605.pdf) 
