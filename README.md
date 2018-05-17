@@ -68,6 +68,9 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 此外，应用方面更注重的是，如何将模型设计得更小。这条路线则包括 SqueezeNet，MobileNet V1 V2 Xception shuffleNet等。ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
 
+
+![allmodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/allmodel.png)
+
 ### LeNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)  Yann LeCun
 
 * LeNet  最经典的CNN网络
@@ -187,13 +190,26 @@ ResNet,深度残差网络，通过shortcut( skip connection )的设计，打破�
 
 	torch https://github.com/facebookresearch/ResNeXt
 
-### DenseNet
-《Densely Connected Convolutional Networks》 
-论文链接：https://arxiv.org/abs/1608.06993 
+### DenseNet[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md) 黄高Gao Huang, 刘壮Zhuang Liu
 
-CVPR2017的best paper
+作者发现（Deep networks with stochastic depth）通过类似Dropout的方法随机扔掉一些层，能够提高ResNet的泛化能力。于是设计了DenseNet。
+DenseNet 将ResNet的residual connection 发挥到了极致，它做了两个重要的设计，一是网络的每一层都直接与其前面层相连，实现特征的重复利用，第二是网络的每一层都很窄，达到降低冗余性的目的。
 
-github链接：https://github.com/liuzhuang13/DenseNet
+DenseNet很容易训练,但是它有很多数据需要重复使用，因此显存占用很大。不过现在的更新版本，已经通过用时间换空间的方法，将DenseLayer(Contact-BN-Relu_Conv)中部分数据使用完就释放，而在需要的时候重新计算。这样增加少部分计算量，节约大量内存空间。
+
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/densenet.png" width="805"></a>
+  [8] Gao Huang,Zhuang Liu, et al. DenseNet：2016，Densely Connected Convolutional Networks arXiv preprint arXiv:1608.06993 . [pdf](https://arxiv.org/pdf/1608.06993.pdf)  CVPR 2017 Best Paper
+  [9]Geoff Pleiss, Danlu Chen, Gao Huang, et al.Memory-Efficient Implementation of DenseNets. [pdf](https://arxiv.org/pdf/1707.06990.pdf)
+
+github链接：
+  torch https://github.com/liuzhuang13/DenseNet
+
+  pytorch https://github.com/gpleiss/efficient_densenet_pytorch
+
+  caffe https://github.com/liuzhuang13/DenseNetCaffe
+
+
+
 
 ### DPN
 github地址：https://github.com/cypw/DPNs
