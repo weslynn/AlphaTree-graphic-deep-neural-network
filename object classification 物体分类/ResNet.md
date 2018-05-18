@@ -14,6 +14,10 @@ ResNet 原始结构如图
 
 ResNet最根本的动机就是所谓的“退化”问题，即当模型的层次加深时，错误率却提高了。 但是模型的深度加深，学习能力增强，因此更深的模型不应当产生比它更浅的模型更高的错误率。
 
+ResNet公式：
+这里的l表示层，xl表示l层的输出，Hl表示一个非线性变换。所以对于ResNet而言，l层的输出是l-1层的输出加上对l-1层输出的非线性变换。
+![resnet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnet.jpg)
+
 
 ResNet的基本模块如图，通过增加shortcut，增加一个identity mapping（恒等映射），将原始所需要学的函数H(x)转换成F(x)+x，而这两种表达的效果相同，但是优化的难度却并不相同，这一想法也是源于图像处理中的残差向量编码，通过一个reformulation，将一个问题分解成多个尺度直接的残差问题，能够很好的起到优化训练的效果。此外当模型的层数加深时，这个简单的结构能够很好的解决退化问题。
 

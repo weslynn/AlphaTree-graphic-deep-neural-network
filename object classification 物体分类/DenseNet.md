@@ -13,8 +13,14 @@ paper： Gao Huang,Zhuang Liu, et al. DenseNet：2016，Densely Connected Convol
 DenseNet 网络如图：
 
 ![densenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/densenet.png)
-
+上图是dense block ，下图是DenseNet结构图，其中包含了3个dense block。每个dense block内的feature map的size是一致的。
 ![densenet1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/densenet1.png)
+
+DenseNet的公式。[x0,x1,…,xl-1]表示将0到l-1层的输出feature map做concatenation。Hl包括BN-ReLU-Conv。
+
+![densenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/densenet.jpg)
+
+
 
 
 densenet网络结构如下表：

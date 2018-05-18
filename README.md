@@ -228,8 +228,10 @@ github链接：
 
 
 
-### DPN
-github地址：https://github.com/cypw/DPNs
+### DPN[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md) 
+论文：Dual Path Networks 
+论文链接：https://arxiv.org/abs/1707.01629 
+代码：https://github.com/cypw/DPNs 
 
 
 
