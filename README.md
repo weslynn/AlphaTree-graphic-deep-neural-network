@@ -64,9 +64,13 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 到了2012年，Alex Krizhevsky 设计了一个使用ReLu做激活函数的AlexNet 在当年的ImageNet图像分类竞赛中(ILSVRC 2012)，以top-5错误率15.3%拿下第一。 他的top-5错误率比上一年的冠军下降了十个百分点，而且远远超过当年的第二名。而且网络针对多GPU训练进行了优化设计。从此开始了深度学习的黄金时代。
 
-之后网络设计发展主要有两条主线，一条是Inception系列，从GoogLeNet 到Inception V2 V3 V4，Inception ResNet。 Inception module模块在不断变化，一条是VGG系列，用简单的结构，尽可能的使得网络变得更深。从VGG 发展到ResNet ，再到DenseNet ，DPN等。 最终Google Brain用500块GPU训练出了比人类设计的网络结构更优的网络NASNet。
+大家发表的paper一般可以分为两大类，一类是网络结构的改进，一类是训练过程的改进，如droppath，loss改进等。
 
-此外，应用方面更注重的是，如何将模型设计得更小。这条路线则包括 SqueezeNet，MobileNet V1 V2 Xception shuffleNet等。ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
+之后网络结构设计发展主要有两条主线，一条是Inception系列（即上面说的复杂度），从GoogLeNet 到Inception V2 V3 V4，Inception ResNet。 Inception module模块在不断变化，一条是VGG系列（即深度），用简单的结构，尽可能的使得网络变得更深。从VGG 发展到ResNet ，再到DenseNet ，DPN等。 
+
+最终Google Brain用500块GPU训练出了比人类设计的网络结构更优的网络NASNet。
+
+此外，应用方面更注重的是，如何将模型设计得更小，这中间就涉及到很多卷积核的变换。这条路线则包括 SqueezeNet，MobileNet V1 V2 Xception shuffleNet等。ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
 
 
 ![allmodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/allmodel.png)
@@ -228,12 +232,29 @@ github链接：
 
 
 
-### DPN[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md) 
-论文：Dual Path Networks 
-论文链接：https://arxiv.org/abs/1707.01629 
+### DPN[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md)  颜水成
+
+
+  [11]Dual Path Networks  [pdf](https://arxiv.org/pdf/1707.01629.pdf)
+
 代码：https://github.com/cypw/DPNs 
 
 
+### PolyNet [Xingcheng Zhang] 林达华[Dahua Lin]  / CUHK-MMLAB & 商汤科技
+
+这个模型在Inception_ResNet_v2 的基础上，替换了之前的Inception module，改用 PolyInception module 作为基础模块，然后通过数学多项式来组合设计每一层网络结构。因此结构非常复杂。
+
+
+PolyNet在ImageNet大规模图像分类测试集上获得了single-crop错误率4.25%和multi-crop错误率3.45%。在ImageNet2016的比赛中商汤科技与香港中大-商汤科技联合实验室在多项比赛中选用了这种网络结构并取得了三个单项第一的优异成绩。
+
+提供了caffe的proto 和模型。
+caffe：https://github.com/CUHK-MMLAB/polynet
+
+模型结构图  （官方）
+http://ethereon.github.io/netscope/#/gist/b22923712859813a051c796b19ce5944
+https://raw.githubusercontent.com/CUHK-MMLAB/polynet/master/polynet.png
+
+  [12] Xingcheng Zhang, Zhizhong Li, ChenChange Loy, Dahua Lin，PolyNet: A Pursuit of Structural Diversity in Very Deep Networks.2017 [pdf](https://arxiv.org/pdf/1611.05725v2.pdf)
 
 ### NASNet
 
@@ -274,7 +295,7 @@ caffe实现：https://github.com/camel007/Caffe-ShuffleNet
 ## Face Detection and Face Alignment 人脸检测与识别
 人脸检测与识别是一个研究很久的课题。传统方法之前也有了很多稳定可行的方法。而深度学习的出现，无论对检测还是识别又有了很大的提升。随着算法和代码的开源，现在很多公司都可以自己搭建一套自己的人脸检测识别系统。那么下面几篇经典论文，都是会需要接触到的。
 
-### MTCNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md) [zhang kaipeng](https://kpzhang93.github.io/) 乔宇 [Qiao Yu](http://mmlab.siat.ac.cn/yuqiao/) / CUHK & SIAT
+### MTCNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md) [zhang kaipeng](https://kpzhang93.github.io/) 乔宇 [Qiao Yu](http://mmlab.siat.ac.cn/yuqiao/) / CUHK-MMLAB & SIAT
 
 * MTCNN 
 MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务分解后让三个子网络来完成。每个网络都很浅，使用多个小网络级联，较好的完成任务。
@@ -462,7 +483,7 @@ text-proposal也是基于联通区域的组合，但又与之前的方法有所�
 Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 2016.
 
 
-### CTPN (Connectionist Text Proposal Network)  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md)  [Zhi Tian](http://www.ece.mtu.edu/faculty/ztian/),  乔宇 [Qiao Yu](http://mmlab.siat.ac.cn/yuqiao/) / CUHK & SIAT
+### CTPN (Connectionist Text Proposal Network)  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md)  [Zhi Tian](http://www.ece.mtu.edu/faculty/ztian/),  乔宇 [Qiao Yu](http://mmlab.siat.ac.cn/yuqiao/) / CUHK-MMLAB & SIAT
 
 
 * CTPN 使用CNN + RNN 进行文本检测与定位。
