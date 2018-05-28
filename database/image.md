@@ -18,7 +18,7 @@ Oxford Paris，The Paris Dataset，oxford的VGG组从Flickr搜集了6412张巴�
 	* 
 Stanford Mobile Visual Search，Stanford Mobile Visual Search Dataset，2011.2，stanford提供，包括8种场景，如CD封面、油画等，每组相关图片都是采自不同相机（手机），所有场景共500张图，链接；随后又发布了一个patch数据集，Compact Descriptors for Visual Search Patches Dataset，校对了相同patch。
 	* 
-UKBench，UKBench database，2006.7，Henrik Stewénius在他CVPR06文章中提供的数据集，图像都为640*480，每个group有4张图，文件接近2GB，提供visual words，链接。
+UKBench，UKBench database，2006.7，Henrik Stewénius在他CVPR06文章中提供的数据集，图像都为640 ×480，每个group有4张图，文件接近2GB，提供visual words，链接。
 	* 
 MIR-FLICKR，MIR-FLICKR-1M，2010，1M张Flickr上的图片，也提供25K子集下载，链接。
 此外，还有COREL，NUS-WIDE等。一般做图像检索验证算法，前面给出的四个数据库应该是足够了的。
@@ -32,6 +32,20 @@ VOC2007 与 VOC2012   此数据集可以用于图像分类,目标检测,图像�
 80 million tiny images dataset这个数据集包含了79,302,017张32x32的RGB图像,下载时包含了5个文件,网站上也提供了示例代码教你如何加载这些数据!1. Image binary (227GB)2. Metadata binary (57GB)3. Gist binary (114GB)4. Index data (7MB)5. Matlab Tiny Images toolbox (150kB)Caltech_101(用作101类图像分类)这个数据集包含了101类的图像,每类大约有40~800张图像,大部分是50张/类,在2003年由lifeifei收集,每张图像的大小大约是300x200.数据集下载: 101_ObjectCategories.tar.gz(131MB)Caltech_256(用作256类图像分类)此数据集和Caltech_101相似,包含了30,607张图像,数据集下载: 256_ObjectCategroies.tar(1.2GB)ImagenetIMAGENET Large Scale Visual Recognition Challenge(ILSVRC)
 
 
+
+YouTube-8M：标注为 4716 个不同类别的七百万个 YouTube 视频
+
+YouTube-Bounding Boxes：含有 5 百万个边界框的 21 万个 YouTube 视频
+
+Speech Commands Dataset：数千个人说的简短控制词汇
+
+AudioSet：2 百万个 10 秒长的 YouTube 视频，标注为了 527 个不同的声音事件
+
+AVA：5.7 万个短视频中标注了一共 32 万个动作标签
+
+Open Images：标记为 6000 个分类的 9 百万张带有创意共享许可的图像
+
+Open Images with Bounding Boxes：600 个不同类别的图像中带有 120 万个边界框
 
 
 图像数据

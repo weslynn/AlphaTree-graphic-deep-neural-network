@@ -48,6 +48,9 @@
 
 PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
+
+
+
 版权申明：CC-BY-NC-SA 知识共享-署名-非商业性-相同方式共享
 ---------------------------------------------------------------------------------------------------
 ## object classification 物体分类
@@ -233,11 +236,22 @@ github链接：
 
 
 ### DPN[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md)  颜水成
+之前我们已经了解了ResNet 和 DenseNet，ResNet使用的是相加(element-wise adding),DenseNet则使用的是拼接(concatenate)。
 
+DPN把DenseNet和ResNet联系到了一起，该神经网络结合ResNet和DenseNet的长处，共享公共特征，并且通过双路径架构保留灵活性以探索新的特征。在设计上，采用了和ResNeXt一样的group操作。
 
-  [11]Dual Path Networks  [pdf](https://arxiv.org/pdf/1707.01629.pdf)
+ 它在在图像分类、目标检测还是语义分割领域都有极大的优势，可以去看2017 ImageNet NUS-Qihoo_DPNs 的表现。
 
-代码：https://github.com/cypw/DPNs 
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/dpn.png" width="805"></a>
+  [11]Yunpeng Chen, Jianan Li, Huaxin Xiao, Xiaojie Jin, Shuicheng Yan, Jiashi Feng.Dual Path Networks  [pdf](https://arxiv.org/pdf/1707.01629.pdf)
+
+github链接：
+
+MxNet https://github.com/cypw/DPNs  (官方)
+
+caffe:https://github.com/soeaver/caffe-model
+
+ 
 
 
 ### PolyNet [Xingcheng Zhang] 林达华[Dahua Lin]  / CUHK-MMLAB & 商汤科技
@@ -256,7 +270,12 @@ https://raw.githubusercontent.com/CUHK-MMLAB/polynet/master/polynet.png
 
   [12] Xingcheng Zhang, Zhizhong Li, ChenChange Loy, Dahua Lin，PolyNet: A Pursuit of Structural Diversity in Very Deep Networks.2017 [pdf](https://arxiv.org/pdf/1611.05725v2.pdf)
 
-### NASNet
+### NASNet Google
+
+这是谷歌用AutoML(Auto Machine Learning)在500块GPU上自行堆砌convolution cell（有两种cell
+）设计的网络。性能各种战胜人类设计。
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/NasNet_cell.jpeg">
+  [13]Learning Transferable Architectures for Scalable Image Recognition[pdf](https://arxiv.org/pdf/1707.07012.pdf)
 
 https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py
 -----------------------------------------------------------------------------------------------------------
@@ -288,6 +307,11 @@ caffe实现：https://github.com/camel007/Caffe-ShuffleNet
 
 
 
+
+
+### other
+
+pytorch pretrained-model https://github.com/Cadene/pretrained-models.pytorch
 
 
 
