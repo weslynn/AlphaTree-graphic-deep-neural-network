@@ -822,6 +822,9 @@ https://github.com/phillipi/pix2pix
 http://paintschainer.preferred.tech/index_zh.html
 
 
+
+### Deep Painterly Harmonization
+https://github.com/luanfujun/deep-painterly-harmonization
 ## 强化学习
 
 
