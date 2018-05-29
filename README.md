@@ -274,10 +274,19 @@ https://raw.githubusercontent.com/CUHK-MMLAB/polynet/master/polynet.png
 
 这是谷歌用AutoML(Auto Machine Learning)在500块GPU上自行堆砌convolution cell（有两种cell
 ）设计的网络。性能各种战胜人类设计。
+
+
 <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/NasNet_cell.jpeg">
+
+
   [13]Learning Transferable Architectures for Scalable Image Recognition[pdf](https://arxiv.org/pdf/1707.07012.pdf)
 
-https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py
+
+github链接：
+  https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py
+
+
+
 -----------------------------------------------------------------------------------------------------------
 ## 轻量级模型 & 剪枝
 
@@ -315,8 +324,9 @@ pytorch pretrained-model https://github.com/Cadene/pretrained-models.pytorch
 
 
 
+![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/FaceDetection.png)
 
-## Face Detection and Face Alignment 人脸检测与识别
+## Face Detection and Face Alignment 人脸检测与矫正
 人脸检测与识别是一个研究很久的课题。传统方法之前也有了很多稳定可行的方法。而深度学习的出现，无论对检测还是识别又有了很大的提升。随着算法和代码的开源，现在很多公司都可以自己搭建一套自己的人脸检测识别系统。那么下面几篇经典论文，都是会需要接触到的。
 
 ### MTCNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md) [zhang kaipeng](https://kpzhang93.github.io/) 乔宇 [Qiao Yu](http://mmlab.siat.ac.cn/yuqiao/) / CUHK-MMLAB & SIAT
@@ -373,6 +383,7 @@ VanillaCNN
 
 https://github.com/MarekKowalski/DeepAlignmentNetwork
 
+![FaceRecognition](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/FaceRecognition.png)
 
 ## face Recognition
 
@@ -381,6 +392,8 @@ https://github.com/MarekKowalski/DeepAlignmentNetwork
 
 
 ### arcface
+
+
 
 ## 3d face
 
@@ -435,6 +448,7 @@ Estimate 3D face pose by a Convolutional Neural Network
 FACE POSE NET
 https://github.com/fengju514/Face-Pose-Net
 -------------------------------------------------------------------------------
+![OCR](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/OCR.png)
 
 ## OCR：Optical Character Recognition 字符识别 / STR, Scene Text Recognition 场景文字识别
 
@@ -715,6 +729,7 @@ https://github.com/MichalBusta/DeepTextSpotter
 该方法将文字检测和识别整合到一个端到端的网络中。检测使用YOLOv2+RPN，并利用双线性采样将文字区域统一为高度一致的变长特征序列，再使用RNN+CTC进行识别。
 
 -----------------------------------------------------------------------------
+![ObjectDetection&Seg](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectDetection&Seg.png)
 
 ## Object Detection 物体检测
 
@@ -802,6 +817,7 @@ ParseNet
 
 ### BlitzNet
 
+![Art&Gan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
 
 ## Art
 
