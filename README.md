@@ -364,6 +364,19 @@ https://arxiv.org/pdf/1804.06039.pdf.
 
 https://github.com/Jack-CV/PCN
 
+
+此外我们可以了解一下商用的一些算法：
+
+
+
+### DenseBox Baidu
+
+DenseBox: Unifying Landmark Localization with End to End Object Detection
+
+arxiv: http://arxiv.org/abs/1509.04874
+demo: http://pan.baidu.com/s/1mgoWWsS
+KITTI result: http://www.cvlibs.net/datasets/kitti/eval_object.php
+
 -------------------------------------------------------------
 ### Landmark Localization 68 points
 -------------------------------------------------------------
@@ -390,10 +403,24 @@ https://github.com/MarekKowalski/DeepAlignmentNetwork
 ### facenet 
 
 
+Model name          LFW accuracy  Training dataset  Architecture
+20170511-185253(https://drive.google.com/file/d/0B5MzpY9kBtDVOTVnU3NIaUdySFE)        0.987      CASIA-WebFace    Inception ResNet v1
+20170512-110547(https://drive.google.com/file/d/0B5MzpY9kBtDVZ2RpVDYwWmxoSUk)        0.992       MS-Celeb-1M     Inception ResNet v1
 
-### arcface
 
 
+
+https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py
+
+
+### ArcFace deepinsight
+
+
+ArcFace: Additive Angular Margin Loss for Deep Face Recognition
+InsightFace: 2D and 3D Face Analysis Project
+
+https://arxiv.org/abs/1801.07698
+https://github.com/deepinsight/insightface
 
 ## 3d face
 
@@ -816,6 +843,14 @@ ParseNet
 ### RefineNet
 
 ### BlitzNet
+
+
+
+### DeepMask
+
+https://github.com/facebookresearch/deepmask
+
+
 
 ![Art&Gan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
 
