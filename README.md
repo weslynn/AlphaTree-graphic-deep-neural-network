@@ -1,5 +1,4 @@
 
-
 # AlphaTree : Graphic Deep Neural Network 神经网络模型图示
 
 在AI学习的漫漫长路上，理解不同文章中的模型与方法是每个人的必经之路，偶尔见到Fjodor van Veen所作的[A mostly complete chart of Neural Networks](http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png) 和 FeiFei Li AI课程中对模型的[画法](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/feifei.png)，大为触动。决定将深度神经网络中的一些模型 进行统一的图示，便于大家对模型的理解。
@@ -9,7 +8,7 @@
 
 在了解这个计划之前，我们先了解一下各个方向的发展情况，用地铁图的形式绘制了第一个版本。第一个版本主要包括了图像方向的十二个子方向，里面列的模型，除了商业化的部分外，其他则选择了一些应用方向使用较多的开源模型。也许还有遗漏与不完善的地方，大家一起来更新吧。
 
-
+目前object classification 基本完成。
 
 <a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.0.png" width="1200"> </a>
 
@@ -53,7 +52,7 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 版权申明：CC-BY-NC-SA 知识共享-署名-非商业性-相同方式共享
 ---------------------------------------------------------------------------------------------------
-## object classification 物体分类
+## Object Classification 物体分类
 
 深度学习在解决分类问题上非常厉害。让它声名大噪的也是对于图像分类问题的解决。也产生了很多很经典的模型。其他方向的模型发展很多都是源于这各部分，它是很多模型的基础工作。因此我们首先了解一下它们。
 
@@ -400,8 +399,11 @@ https://github.com/MarekKowalski/DeepAlignmentNetwork
 
 ## face Recognition
 
-### facenet 
+### Deep Face
 
+### Facenet 
+
+ Florian Schroff, Dmitry Kalenichenko, James Philbin,"FaceNet: A Unified Embedding for Face Recognition and Clustering",Jun,2015
 
 Model name          LFW accuracy  Training dataset  Architecture
 
@@ -423,6 +425,25 @@ InsightFace: 2D and 3D Face Analysis Project
 
 https://arxiv.org/abs/1801.07698
 https://github.com/deepinsight/insightface
+
+### SeetaFace 
+
+Detection: Funnel-Structured Cascade for Multi-View Face Detection with Alignment-Awareness
+
+2016 
+
+
+### OpenFace
+
+B. Amos, B. Ludwiczuk, M. Satyanarayanan,
+"Openface: A general-purpose face recognition library with mobile applications,"
+CMU-CS-16-118, CMU School of Computer Science, Tech. Rep., 2016.
+
+https://github.com/cmusatyalab/openface/
+
+
+
+
 
 ## 3d face
 

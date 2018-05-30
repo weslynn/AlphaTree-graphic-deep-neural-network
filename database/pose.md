@@ -79,6 +79,34 @@ SBU Kinect Interaction 肢体动作视频数据
 
 8. TRECVID视频库
 
+1.HMDB51
+
+来源为YouTube视频，共计51类动作，约7000段视频。数据库主页为：HMDB: a large human motion database
+
+2. KTH人体行为数据库
+
+该数据库包括6类行为（walking,jogging, running, boxing, hand waving, hand clapping）,是由25个不同的人执行的，分别在四个场景下，一共有599段视频。背景相对静止。正确率需要达到95.5%以上才能够发文章。下载地址：http://www.nada.kth.se/cvap/actions/
+
+3. INRIA XMAX多视角视频库
+
+该数据库从五个视角获得，一共11个人执行14种行为。室内四个方向和头顶一共安装5个摄像头。另外背景和光照基本不变。下载地址：http://4drepository.inrialpes.fr/public/viewgroup/6
+
+4. UCF Sports 数据库
+
+该视频包括150段关于体育的视频，一共有13个动作。实验室采用留一交叉验证法。2011年cvpr有几篇都用这个数据库，正确率要达到87%才能发文章。下载地址：http://vision.eecs.ucf.edu/data.html
+
+5. Hollywood 人体行为库
+
+该数据库包括8类行为。这些都是电影中的片段。 下载地址：http://www.di.ens.fr/~laptev/actions/hollywood2/
+
+6. Olympic sports dataset
+
+该数据库有16种行为，783段视频。现在的正确率大约在75%左右。下载地址：http://vision.stanford.edu/Datasets/OlympicSports/
+
+7. 谷歌AVA dataset
+
+是YouTube上提取的被标注的80个原子动作。共5.8万个片段，包含握手、踢腿、拥抱、接吻、喝酒、玩乐器、散步等日常活动。下载地址：https://research.google.com/ava/
+
 
 .1    Weizmann
 　　Weizmann[27]数据库包含了10个动作分别是走，跑，跳，飞跳，向一侧移动，单只手挥动，2只手挥动，单跳，2只手臂挥动起跳,每个动作有10个人执行。在这个视频集中，其背景是静止的，且前景提供了剪影信息。该数据集较为简单。
