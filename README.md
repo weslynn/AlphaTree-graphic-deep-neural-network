@@ -5,10 +5,14 @@
 
 从AI研究的角度来说，AI的学习和跟进是有偏向性的，更多的精英是擅长相关的一到两个领域，在这个领域做到更好。而从AI应用工程师的角度来说，每一个工程都可能涉及很多个AI的方向，而他们需要了解掌握不同的方向才能更好的开发和设计。但是AI中每一个领域都在日新月异的成长。而每一位研究人员写paper的风格都不一样，相似的模型，为了突出不同的改进点，他们对模型的描述和图示都可能大不相同。为了帮助更多的人在不同领域能够快速跟进前沿技术，我们构建了“AlphaTree计划”，每一篇文章都会对应文章，代码，然后进行图示输出。
 
+进度：
+
+2018/05/30 目前object classification 基本完成。
+
 
 在了解这个计划之前，我们先了解一下各个方向的发展情况，用地铁图的形式绘制了第一个版本。第一个版本主要包括了图像方向的十二个子方向，里面列的模型，除了商业化的部分外，其他则选择了一些应用方向使用较多的开源模型。也许还有遗漏与不完善的地方，大家一起来更新吧。
 
-目前object classification 基本完成。
+
 
 <a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.0.png" width="1200"> </a>
 
@@ -288,11 +292,29 @@ github链接：
 
 -----------------------------------------------------------------------------------------------------------
 ## 轻量级模型 & 剪枝
+随着模型结构的发展，在很多机器智能领域，深度神经网络都展现出了超人的能力。但是，随着准确率的提升，这些网络也需要更多的计算资源和运行时的内存，这些需求使得高精度的大型网络无法在移动设备或者嵌入式系统上运行。
+
+于是从应用角度发展了另外一条支线，着重在于轻量化模型的设计与发展。它的主要思想在于从卷积层的设计来构建更高效的网络计算方式，从而使网络参数减少的同时，不损失网络性能。
+
+|网络名称|最早公开日期|发表情况|作者团队|
+|:---:|:---:|:---:|:---:|
+|SqueezeNet|2016.02|ICLR2017|Berkeley&Stanford|
+|MobileNet|2016.04|CVPR2017|Google|
+|ShuffleNet|2016.06|CVPR2017|Face++|
+|Xception|2016.10|----|Google|
+|MobileNetV2|2018.01|----|Google|
+
+
+### SqueezeNet
+SqueezeNet：AlexNet-level accuracy with 50x fewer parameters and <0.5MB
+
+SqueezeNet 的核心在于 Fire module，Fire module 由两层构成，分别是 squeeze 层+expand 层，squeeze 层是一个 1×1 卷积核的卷积层，expand 层是 1×1 和 3×3 卷积核的卷积层，expand 层中，把 1×1 和 3×3 得到的 feature map 进行 concat。
+
 
 ### MobileNet
 MobileNet v1：2017，MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
 
-和 Xception 类似，通过 depthwise separable convolution 来减少计算量，设计了一个适用于移动端的，取得性能和效率间很好平衡的一个网络。
+通过 depthwise separable convolution 来减少参数和提升计算速度，设计了一个适用于移动端的，取得性能和效率间很好平衡的一个网络。
 
 MobileNet v2：2018，Inverted Residuals and Linear Bottlenecks: Mobile Networks for Classification, Detection and Segmentation
 
@@ -307,6 +329,8 @@ https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mo
 
 caffe实现：https://github.com/pby5/MobileNet_Caffe
 
+
+### Xception
 
 ### ShuffleNet
 
@@ -1095,6 +1119,13 @@ MegaFace资料集包含一百万张图片，代表690000个独特的人。所有
 
 提出修改建议
 
+
+
+一树一获者，谷也；一树十获者，木也；一树百获者；人也。 希望我们每一个人的努力，能够建立一片森林，为后人投下一片树荫。
+
+每一位加入的作者，都可以选取植物的名称来表示自己，然后logo和名字将会作为自己的署名。
+
+我希望，这终将成为一片森林。
 
 
 
