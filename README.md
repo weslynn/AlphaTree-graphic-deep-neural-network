@@ -318,10 +318,12 @@ SqueezeNet 的核心在于 Fire module，Fire module 由两层构成，分别是
 MobileNet 顾名思义，可以用在移动设备上的网络，性能和效率取得了很好平衡。它发展了两个版本，第一个版本基本结构和VGG类似，主要通过 depthwise separable convolution 来减少参数和提升计算速度。 第二代结合了ResNet的特性，提出了一种新的 Inverted Residuals and Linear Bottleneck。性能优于对应的NasNet。
 
 MobileNet v1：2017，MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
-
+  
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilenet.png" width="805"></a>
 
 MobileNet v2：2018，Inverted Residuals and Linear Bottlenecks: Mobile Networks for Classification, Detection and Segmentation
 
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilenetv2.png" width="805"></a>
 
 
 
