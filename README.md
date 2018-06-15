@@ -7,7 +7,18 @@
 
 进度：
 
-2018/05/30 目前object classification 基本完成。
+2018/05/30 目前object classification 主干部分基本完成 包括 LeNet, AlexNet, GoogLeNet, Inception V3,Inception-Resnet-V2, VGG, ResNet ,ResNext, DenseNet ,DPN等。
+
+2018/06/15 完成 MobileNet 与 MobileNet V2.
+
+其他：
+Face ： mtcnn
+
+OCR ： CRNN CTPN Textboxes Textboxes++
+
+Object Detection：ssd
+
+
 
 
 在了解这个计划之前，我们先了解一下各个方向的发展情况，用地铁图的形式绘制了第一个版本。第一个版本主要包括了图像方向的十二个子方向，里面列的模型，除了商业化的部分外，其他则选择了一些应用方向使用较多的开源模型。也许还有遗漏与不完善的地方，大家一起来更新吧。
