@@ -44,12 +44,23 @@ MobileNet 的根本思想是使用deep-wise方式的卷积在不减少精度的�
 
 
 
+MobileNet 结构如图：
+
+![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv1.jpg)
+
+
 MobileNet用不同节点表示如图：
 
 
 ![MobileNetpic](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilenet.png)
 
 <p align="right">[大图](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/modelpic/mobilenet.png)</p>
+
+
+
+MobileNet V2 结构如图：
+
+![mobilenetv2_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2.jpg)
 
 
 
