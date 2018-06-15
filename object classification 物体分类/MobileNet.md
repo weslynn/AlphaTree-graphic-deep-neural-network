@@ -27,18 +27,18 @@ MobileNet 的根本思想是使用deep-wise方式的卷积在不减少精度的�
 
 如果使用deep-wise方式，将会把卷积过程拆成两个步骤，第一步使用一组M个3×3的depth卷积，每次只处理一个输入通道的，之后第二步使用1×1×M×N的卷积核进行计算。
 
-![mobilenetcal1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_cal1.jpg)
+![mobilenetcal2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_cal2.jpg)
 
 从数学上看 矩阵乘法拆解后计算量大大减小。
 
-![mobilenetcal2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_cal2.jpg)
+![mobilenetcal3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_cal3.jpg)
 
 
 
 而MobileNet v2结合ResNet的基础结构进行改进，设计了Inverted Residuals and Linear Bottleneck，即 ResNet 基本结构中间使用了 depthwise 卷积，一个通道一个卷积核，减少计算量，中间的通道数比两头还多，并且全去掉了最后输出的 ReLU。
 
 
-Michael Yuan [zhihu](https://zhuanlan.zhihu.com/p/33075914) 绘制图如下：
+在Michael Yuan [zhihu](https://zhuanlan.zhihu.com/p/33075914) 绘制的图中加上节点表示如下：
 
 ![mobilenet_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_compare.png)
 
