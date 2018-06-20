@@ -43,6 +43,15 @@ MobileNet 的根本思想是使用deep-wise方式的卷积在不减少精度的�
 ![mobilenet_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_compare.png)
 
 
+两两对比微结构：
+MobileNet V1 是基于VGG的结构， 而Mobilenet V2 是基于ResNet的结构
+
+![MobileNetcomparepic](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilentv1_v2.png)
+
+ResNet 是没有用depthwise separable convolution 的结构， 而Mobilenet V2 使用depthwise separable convolution ，还加入Inverted Residuals and Linear Bottleneck的设计
+
+![MobileNetcomparepic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilentresent.png)
+
 
 MobileNet 结构如图：
 

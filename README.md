@@ -937,9 +937,28 @@ https://github.com/phillipi/pix2pix
 http://paintschainer.preferred.tech/index_zh.html
 
 
+### Neural Doodle
 
+使用深度神经网络把你的二流涂鸦变成艺术品。
+
+Champandard（2016） “Semantic Style Transfer and Turning Two-Bit Doodles into Fine Artworks”
+
+基于 Chuan Li 和 Michael Wand（2016）在论文“Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis”中提出的 Neural Patches 算法。这篇文章中深入解释了这个项目的动机和灵感来源：https://nucl.ai/blog/neural-doodles/
+
+doodle.py 脚本通过使用1个，2个，3个或4个图像作为输入来生成新的图像，输入的图像数量取决于你希望生成怎样的图像：原始风格及它的注释（annotation），以及带有注释（即你的涂鸦）的目标内容图像（可选）。该算法从带风格图像中提取 annotated patches，然后根据它们匹配的紧密程度用这些 annotated patches 渐进地改变目标图像的风格。
+
+Github 地址：https://github.com/alexjc/neural-doodle
 ### Deep Painterly Harmonization
 https://github.com/luanfujun/deep-painterly-harmonization
+
+
+### 
+
+### Colornet
+
+
+
+Github 地址：https://github.com/pavelgonchar/colornet
 ## 强化学习
 
 
