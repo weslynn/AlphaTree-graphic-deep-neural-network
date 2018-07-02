@@ -766,7 +766,7 @@ He et al. Reading Scene Text in Deep Convolutional Sequences. AAAI, 2016.
 * CRNN 将特征提取CNN，序列建模 RNN 和转录 CTC 整合到统一框架，完成端对端的识别任务.
    
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CRNN.md">
-   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/crnn.png" width="805"></a>
+   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/crnn.png" width="805"></a>
 
    [1] [2015-CoRR] An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition  [pdf](http://arxiv.org/pdf/1507.05717v1.pdf) 
 
