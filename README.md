@@ -12,6 +12,7 @@
 2018/06/15 完成 MobileNet 与 MobileNet V2.
 
 2018/07/04 完成FaceNet系列
+
 其他：
 Face ： mtcnn 
 
@@ -439,6 +440,9 @@ https://github.com/MarekKowalski/DeepAlignmentNetwork
 
 ![FaceRecognition](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/FaceRecognition.png)
 
+
+
+
 ## face Recognition
 DeepFace是FaceBook提出来的，后续有DeepID和FaceNet出现。DeepFace是第一个真正将大数据和深度神经网络应用于人脸识别和验证的方法，人脸识别精度接近人类水平，可以谓之CNN在人脸识别的奠基之作
 
@@ -447,6 +451,8 @@ DeepFace是FaceBook提出来的，后续有DeepID和FaceNet出现。DeepFace是�
 ### Deep Face
 
 DeepFace: Closing the Gap to Human-Level Performance in Face Verification 
+
+
 
 ### Facenet [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md) 
 
@@ -460,7 +466,7 @@ Model name          LFW accuracy  Training dataset  Architecture
 
 [20170512-110547](https://drive.google.com/file/d/0B5MzpY9kBtDVZ2RpVDYwWmxoSUk)        0.992       MS-Celeb-1M     Inception ResNet v1
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facenet_struct.png" width="400"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facenet_struct.png"></a>
 
 它使用现有的模型结构，然后将卷积神经网络去掉sofmax后，经过L2的归一化，然后得到特征表示，之后基于这个特征表示计算Loss。文章中使用的结构是[ZFNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)，[GoogLeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)，tf代码是改用了Inception_resnet_v1。
 
