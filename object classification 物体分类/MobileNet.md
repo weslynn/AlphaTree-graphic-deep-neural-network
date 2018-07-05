@@ -1,15 +1,18 @@
 
 # MobileNet
 
-MobileNet 顾名思义，可以用在移动设备上的网络，性能和效率取得了很好平衡。它发展了两个版本，第一个版本基本结构和VGG类似，主要通过 depthwise separable convolution 来减少参数和提升计算速度。 
+MobileNet 顾名思义，可以用在移动设备上的网络，性能和效率取得了很好平衡。它发展了两个版本，第一个版本基本结构和VGG类似，主要通过 depthwise separable convolution 来减少参数和提升计算速度。第二个版本则是基于ResNet的结构进行改进。
 
-paper：MobileNet v1：2017，MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications[pdf](https://arxiv.org/pdf/1704.04861.pdf) 
+MobileNet v2使用了 ReLU6（即对 ReLU 输出的结果进行 Clip，使得输出的最大值为 6）适配移动设备更好量化，然后提出了一种新的 Inverted Residuals and Linear Bottleneck，即 ResNet 基本结构中间使用了 depthwise 卷积，一个通道一个卷积核，减少计算量，中间的通道数比两头还多，并且全去掉了最后输出的 ReLU。
+
+paper：
+
+MobileNet v1：2017，MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications[pdf](https://arxiv.org/pdf/1704.04861.pdf) 
 
 
 MobileNet v2：2018，Inverted Residuals and Linear Bottlenecks: Mobile Networks for Classification, Detection and Segmentation[pdf](
 https://arxiv.org/pdf/1801.04381.pdf)
 
-MobileNet v2使用了 ReLU6（即对 ReLU 输出的结果进行 Clip，使得输出的最大值为 6）适配移动设备更好量化，然后提出了一种新的 Inverted Residuals and Linear Bottleneck，即 ResNet 基本结构中间使用了 depthwise 卷积，一个通道一个卷积核，减少计算量，中间的通道数比两头还多，并且全去掉了最后输出的 ReLU。
 
 
 MobileNet 微结构对比：
@@ -45,12 +48,30 @@ MobileNet 的根本思想是使用deep-wise方式的卷积在不减少精度的�
 
 两两对比微结构：
 MobileNet V1 是基于VGG的结构， 而Mobilenet V2 是基于ResNet的结构
+Q：为啥Mobilenet V2 一个有add 一个没有add 
+
+A : 看官方代码 Mobilenet V2选取的是红色框住那一部分，第一步是stride =2 ，没有add操作， 第二次循环是stride =1 有add操作。  如果前后通道数不一致，无论stride 为多少是没有add操作的。（当然 ，如果你就是想要add，那么可以 自己加个1×1卷积，把通道数变成一致后进行add）
+    if callable(residual):  # custom residual
+      net = residual(input_tensor=input_tensor, output_tensor=net)
+    elif (residual and
+          # stride check enforces that we don't add residuals when spatial
+          # dimensions are None
+          stride == 1 and
+          # Depth matches
+          net.get_shape().as_list()[3] ==
+          input_tensor.get_shape().as_list()[3]):
+      net += input_tensor
+
+
+![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2_tip.jpg)
 
 ![MobileNetcomparepic](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilentv1_v2.png)
 
 ResNet 是没有用depthwise separable convolution 的结构， 而Mobilenet V2 使用depthwise separable convolution ，还加入Inverted Residuals and Linear Bottleneck的设计
 
 ![MobileNetcomparepic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilentresent.png)
+
+
 
 
 MobileNet 结构如图：

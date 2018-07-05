@@ -14,9 +14,21 @@ AlexNet原始结构如图
 
 ![alexnet org model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-org.jpg)
 
+
+ZF Net(2013)
+
+Visualizing and Understanding Convolutional Neural Networks http://arxiv.org/pdf/1311.2901v3.pdf
+
+AlexNet在2012年大出风头之后，2013年随即出现了大量的CNN模型。当年的的ILSVRC比赛胜者是来自纽约大学NYU的Matthew Zeiler以及Rob Fergus设计的模型，叫做ZF Net。它达到了11.2%的错误率。本文的主要贡献是一个改进型AlexNet的细节及其可视化特征图层feature map的表现方式。这种卷积网络可视化技术命名为“解卷积网络”deconvnet是因为它把特征投影为可见的像素点，有助于检查不同激活特征以及它们与输入空间的关系。这跟卷积层把像素投影为特征的过程是刚好相反的。
+
+![zfnet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/zfnet.png)
+
+
+
 可以将模型结构表示如图：
 
 ![alexnet other model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet2.png)
+
 
 模型结构如下
 
