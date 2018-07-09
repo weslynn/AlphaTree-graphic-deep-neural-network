@@ -94,6 +94,25 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 ![allmodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/allmodel.png)
 
+
+
+
+|模型名 |AlexNet |VGG |GoogLeNet |ResNet|
+|:---:|:---:|:---:|:---:|:---:|
+|初入江湖  |2012  |2014  |2014  |2015|
+|层数  |8 |19 |22  |152|
+|Top-5错误 |16.4% |7.3%  |6.7%  |3.57%|
+|Data Augmentation |+ |+ |+ |+|
+|Inception(NIN)  |– |– |+ |–|
+|卷积层数  |5 |16  |21  |151|
+|卷积核大小 |11,5,3  |3 |7,1,3,5 |7,1,3,5|
+|全连接层数 |3 |3 |1 |1|
+|全连接层大小  |4096,4096,1000  |4096,4096,1000  |1000  |1000|
+|Dropout |+ |+ |+ |+|
+|Local Response Normalization  |+ |– |+ |–|
+|Batch Normalization |– |– |– |+|
+
+
 ### LeNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)  Yann LeCun
 
 * LeNet  最经典的CNN网络
