@@ -100,8 +100,8 @@ AM-Softmax：Additive Margin Softmax for Face Verification
 
 https://arxiv.org/abs/1801.05599
 
-
-
+coco loss
+Rethinking Feature Discrimination and Polymerization for Large-scale Recognition
 
 ## code
  tensorflow 源码 :https://github.com/davidsandberg/facenet
@@ -113,7 +113,9 @@ https://arxiv.org/abs/1801.05599
 
  deepinsight： https://github.com/deepinsight/insightface
  AMSoftmax ：https://github.com/happynear/AMSoftmax
+             https://github.com/Joker316701882/Additive-Margin-Softmax
 
+ coco loss ：https://github.com/sciencefans/coco_loss
 
 参考文献 https://blog.csdn.net/cdknight_happy/article/details/79268613
 
