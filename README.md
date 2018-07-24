@@ -386,14 +386,13 @@ pytorch pretrained-model https://github.com/Cadene/pretrained-models.pytorch
 
 
 --------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------
+
 
 人脸识别概述：
 
 https://arxiv.org/pdf/1804.06655.pdf
 
-![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facerecognition.png)
+![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facerecognition.png)
 
 
 ![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/FaceDetection.png)
@@ -475,7 +474,7 @@ https://github.com/MarekKowalski/DeepAlignmentNetwork
 
 -----------------------------------------------------------------------------------------------------------
 
-![FaceDetection1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facerecognition1.png)
+![FaceDetection1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facerecognition1.png)
 
 
 
@@ -499,7 +498,7 @@ DeepFace: Closing the Gap to Human-Level Performance in Face Verification
 
 DeepFace 还是将人脸作为一个分类问题来解决，而从facenet开始，则是通过设计不同的loss，端对端去学习一个人脸的特征。这个特征 在欧式空间 或者高维空间，能够用距离来代表人脸的相似性。
 
-![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/faceloss.png)
+![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/faceloss.png)
 
 
 ### Facenet [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md) 
