@@ -385,7 +385,21 @@ pytorch pretrained-model https://github.com/Cadene/pretrained-models.pytorch
 
 
 
+--------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+
+人脸识别概述：
+
+https://arxiv.org/pdf/1804.06655.pdf
+
+![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facerecognition.png)
+
+
 ![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/FaceDetection.png)
+
+
+
 
 ## Face Detection and Face Alignment 人脸检测与矫正
 人脸检测与识别是一个研究很久的课题。传统方法之前也有了很多稳定可行的方法。而深度学习的出现，无论对检测还是识别又有了很大的提升。随着算法和代码的开源，现在很多公司都可以自己搭建一套自己的人脸检测识别系统。那么下面几篇经典论文，都是会需要接触到的。
@@ -457,6 +471,15 @@ VanillaCNN
 
 https://github.com/MarekKowalski/DeepAlignmentNetwork
 
+
+
+-----------------------------------------------------------------------------------------------------------
+
+![FaceDetection1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facerecognition1.png)
+
+
+
+
 ![FaceRecognition](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/FaceRecognition.png)
 
 
@@ -471,6 +494,12 @@ DeepFace是FaceBook提出来的，后续有DeepID和FaceNet出现。DeepFace是�
 
 DeepFace: Closing the Gap to Human-Level Performance in Face Verification 
 
+
+
+
+DeepFace 还是将人脸作为一个分类问题来解决，而从facenet开始，则是通过设计不同的loss，端对端去学习一个人脸的特征。这个特征 在欧式空间 或者高维空间，能够用距离来代表人脸的相似性。
+
+![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/faceloss.png)
 
 
 ### Facenet [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md) 
