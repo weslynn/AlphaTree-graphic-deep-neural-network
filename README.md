@@ -27,10 +27,10 @@ Object Detection：ssd
 
 
 
-<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.0.png" width="1200"> </a>
+<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.1.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.1.png" width="1200"> </a>
 
 
-[大图链接](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.0.png)
+[大图链接](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.1.png)
 
 
 现在主要有如下方向
@@ -473,6 +473,14 @@ https://github.com/MarekKowalski/DeepAlignmentNetwork
 
 
 -----------------------------------------------------------------------------------------------------------
+
+过去二十年来，人脸识别要解决的关键问题还是如何寻找合适特征的算法，主要经过了四个阶段。第一个阶段Holistci Learning，通过对图片进行空间转换，得到满足假设的一定分布的低维表示
+，如线性子空间，稀疏表示等等。这个想法在20世纪90年代占据了FR的主导地位
+2000年。然而，一个众所周知的问题是这些理论上合理的算法无法解决很多异常的问题，当人脸变化偏离了先前的假设，算法就失效了。
+在21世纪初，这个问题引起了以Local handcraft算子为主的研讨。 出现了Gabor 算子和LBP算子，及它们的多层和高维扩展。局部算子的一些不变属性表现出了强大的性能。不幸的是，手工设计的算子缺乏独特性和紧凑性，在海量数据处理表现出局限性。
+在2010年初，基于浅层学习的算法被引入，尝试用两层网络来学习，之后，出现了深度学习的方法，使用多层神经网络来进行特征提取和转换。2014年，DeepFace 和DeepID第一次在不受约束的情景超越了人类的表现。从那时起，研究
+重点已转向基于深度学习的方法。 
+
 
 ![FaceDetection1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facerecognition1.png)
 
