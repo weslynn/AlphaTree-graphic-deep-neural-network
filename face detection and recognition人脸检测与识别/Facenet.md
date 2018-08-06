@@ -45,7 +45,7 @@ A Discriminative Feature Learning Approach for Deep Face Recognition  ECCV:2016
 ![centerloss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/centerloss1.png)
 
 
-## SphereFace
+## SphereFace:A-softmax
 SphereFace: Deep Hypersphere Embedding for Face Recognition 2017cvpr
 [pdf](https://arxiv.org/pdf/1704.08063.pdf)
 
@@ -71,6 +71,22 @@ SphereFace: Deep Hypersphere Embedding for Face Recognition 2017cvpr
 
 ![sphereface2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/sphereface2.png)
 
+
+## CosFace :AM-softmax
+
+关于 margin 刚刚只讲了一个，就是 Asoftmax ，其实还有其他的几种形式，第一个是AMSoftmax，还有一个叫 CosFace，这两个是同样的想法，内容也基本是一模一样的。Margin 是指的类似于 SVM 里面的那种分类面之间要有一个间隔，通过最大化这个间隔把两个类分得更开。在 AMSoftmax 里面本来 xi 和类中心的距离是 cosθ，不管是 ASoftmax 还是 AMSoftmax，都是想把这个数字变小一点，它本来相似度已经 0.99 了，我希望让它更小一点，使得它不要那么快达到我想要的值，对它做更强的限制，对它有更高的要求，所以它减 m 就相当于这个东西变得更小了，xi 属于应该在那个类的概率就更难达到 99% 或者 1，这个 θ 角必须要更小，这个概率才能更接近 1，才能达到我们想要的标准。右边也是一样的，这两个公式几乎完全一模一样，同时大家都在要求 W 的 norm 要是固定的，x 的 Norm 要是固定的，我们只关心 cos 距离
+
+
+CosFace: Large Margin Cosine Loss for Deep Face Recognition
+
+[pdf](https://arxiv.org/pdf/1801.09414.pdf)
+
+AM-Softmax：Additive Margin Softmax for Face Verification
+
+[pdf](https://arxiv.org/pdf/1801.05599.pdf)
+
+![cosface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/cosface.png)
+
 ## ArcFace deepinsight
 
 
@@ -84,6 +100,9 @@ ArcFace在AMSoftmax的基础上进行了改进：
 
 ![insightface1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface1.png)
 
+![insightface0](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/arcface.png)
+
+
 不同loss对比：
 
 ![insightface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface.png)
@@ -91,14 +110,6 @@ ArcFace在AMSoftmax的基础上进行了改进：
 ![insightface2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface2.png)
 
 ## 其他loss
-
-CosFace: Large Margin Cosine Loss for Deep Face Recognition
-
-https://arxiv.org/abs/1801.09414
-
-AM-Softmax：Additive Margin Softmax for Face Verification
-
-https://arxiv.org/abs/1801.05599
 
 coco loss
 Rethinking Feature Discrimination and Polymerization for Large-scale Recognition
