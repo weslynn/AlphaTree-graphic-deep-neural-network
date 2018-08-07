@@ -403,6 +403,21 @@ https://arxiv.org/pdf/1804.06655.pdf
 ## Face Detection and Face Alignment 人脸检测与矫正
 人脸检测与识别是一个研究很久的课题。传统方法之前也有了很多稳定可行的方法。而深度学习的出现，无论对检测还是识别又有了很大的提升。随着算法和代码的开源，现在很多公司都可以自己搭建一套自己的人脸检测识别系统。那么下面几篇经典论文，都是会需要接触到的。
 
+
+在了解深度学习算法之前，也要了解一下传统的方法：如 harr特征（ 2004 Viola和Jones的《Robust Real-Time Face Detection》），LAP（Locally Assembled Binary）等。LAP是结合haar特征和LBP(local binary pattern)特征，把不同块的haar特征按照lbp的编码方法形成一个编码。
+
+常见的人脸检测开源算法可以使用 opencv dlib seetaface等。seetafce采用了多种特征（LAB、SURF、SIFT）和多种分类器（boosted、MLP）的结合。
+
+
+深度学习最早的代表作之一是2015年CVPR的 CascadeCNN 。
+
+### CascadeCNN
+H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork cascade for face detection,” in IEEE Conference on ComputerVision and Pattern Recognition, 2015, pp. 5325-5334.
+这篇文章保留了传统人脸检测方法中Cascade的概念，级联了6个CNN，使用3种输入大小分别为12、24、48的浅层网络，一类为分类网络(12-net,24...)：2分类，判断是不是人脸，同时产生候选框，一类是矫正网络(12-Calibration-net,24...)它们是45分类（当时训练的时候将每一个正样本进行scale、x轴、y轴变换（共45种变换），生成45张图片）对候选框进行位置矫正。在每个分类网络之后接一个矫正网络用于回归人脸框的位置。
+
+
+
+
 ### MTCNN [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md) [zhang kaipeng](https://kpzhang93.github.io/) 乔宇 [Qiao Yu](http://mmlab.siat.ac.cn/yuqiao/) / CUHK-MMLAB & SIAT
 
 * MTCNN 
@@ -474,11 +489,24 @@ https://github.com/MarekKowalski/DeepAlignmentNetwork
 
 -----------------------------------------------------------------------------------------------------------
 
-过去二十年来，人脸识别要解决的关键问题还是如何寻找合适特征的算法，主要经过了四个阶段。第一个阶段Holistci Learning，通过对图片进行空间转换，得到满足假设的一定分布的低维表示
+过去二十年来，人脸识别要解决的关键问题还是如何寻找合适特征的算法，主要经过了四个阶段。
+
+第一个阶段Holistci Learning，通过对图片进行空间转换，得到满足假设的一定分布的低维表示
 ，如线性子空间，稀疏表示等等。这个想法在20世纪90年代占据了FR的主导地位
-2000年。然而，一个众所周知的问题是这些理论上合理的算法无法解决很多异常的问题，当人脸变化偏离了先前的假设，算法就失效了。
-在21世纪初，这个问题引起了以Local handcraft算子为主的研讨。 出现了Gabor 算子和LBP算子，及它们的多层和高维扩展。局部算子的一些不变属性表现出了强大的性能。不幸的是，手工设计的算子缺乏独特性和紧凑性，在海量数据处理表现出局限性。
-在2010年初，基于浅层学习的算法被引入，尝试用两层网络来学习，之后，出现了深度学习的方法，使用多层神经网络来进行特征提取和转换。2014年，DeepFace 和DeepID第一次在不受约束的情景超越了人类的表现。从那时起，研究
+2000年。
+
+然而，一个众所周知的问题是这些理论上合理的算法无法解决很多异常的问题，当人脸变化偏离了先前的假设，算法就失效了。
+在21世纪初，这个问题引起了以Local handcraft算子为主的研讨。 出现了Gabor 算子和LBP算子，及它们的多层和高维扩展。局部算子的一些不变属性表现出了强大的性能。
+
+不幸的是，手工设计的算子缺乏独特性和紧凑性，在海量数据处理表现出局限性。
+在2010年初，基于浅层学习的算法被引入，尝试用两层网络来学习，之后，出现了深度学习的方法，使用多层神经网络来进行特征提取和转换。
+
+Osadchy, Margarita, Yann Le Cun, and Matthew L. Miller. "Synergistic face detection and pose
+estimation with energy-based models." The Journal of Machine Learning Research 8 (2007): 1197-
+1215.
+
+
+2014年，DeepFace 和DeepID第一次在不受约束的情景超越了人类的表现。从那时起，研究
 重点已转向基于深度学习的方法。 
 
 
@@ -505,6 +533,8 @@ DeepFace: Closing the Gap to Human-Level Performance in Face Verification
 
 
 DeepFace 还是将人脸作为一个分类问题来解决，而从facenet开始，则是通过设计不同的loss，端对端去学习一个人脸的特征。这个特征 在欧式空间 或者高维空间，能够用距离来代表人脸的相似性。
+
+
 
 ![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/faceloss.png)
 
