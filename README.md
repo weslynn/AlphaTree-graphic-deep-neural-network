@@ -11,7 +11,9 @@
 
 2018/06/15 完成 MobileNet 与 MobileNet V2.
 
-2018/07/04 完成FaceNet系列
+2018/07/04 完成FaceNet系列，修正地图上facenet loss部分，将二维距离（center loss） 到 球面角度距离SphereFace之后的发展 区分开
+
+2018/08/10 图上加入mNasNet ，人脸部分加入 mobilefacenet mobileID
 
 其他：
 Face ： mtcnn 
@@ -87,9 +89,11 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 之后网络结构设计发展主要有两条主线，一条是Inception系列（即上面说的复杂度），从GoogLeNet 到Inception V2 V3 V4，Inception ResNet。 Inception module模块在不断变化，一条是VGG系列（即深度），用简单的结构，尽可能的使得网络变得更深。从VGG 发展到ResNet ，再到DenseNet ，DPN等。 
 
-最终Google Brain用500块GPU训练出了比人类设计的网络结构更优的网络NASNet。
+最终Google Brain用500块GPU训练出了比人类设计的网络结构更优的网络NASNet,最近训出了mNasNet。
 
-此外，应用方面更注重的是，如何将模型设计得更小，这中间就涉及到很多卷积核的变换。这条路线则包括 SqueezeNet，MobileNet V1 V2 Xception shuffleNet等。ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
+此外，应用方面更注重的是，如何将模型设计得更小，这中间就涉及到很多卷积核的变换。这条路线则包括 SqueezeNet，MobileNet V1 V2 Xception shuffleNet等。
+
+ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
 
 
 ![allmodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/allmodel.png)
@@ -269,7 +273,6 @@ github链接：
 
 
 
-
 ### DPN[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md)  颜水成
 之前我们已经了解了ResNet 和 DenseNet，ResNet使用的是相加(element-wise adding),DenseNet则使用的是拼接(concatenate)。
 
@@ -305,6 +308,14 @@ https://raw.githubusercontent.com/CUHK-MMLAB/polynet/master/polynet.png
 
   [12] Xingcheng Zhang, Zhizhong Li, ChenChange Loy, Dahua Lin，PolyNet: A Pursuit of Structural Diversity in Very Deep Networks.2017 [pdf](https://arxiv.org/pdf/1611.05725v2.pdf)
 
+
+### SENet
+
+  [13] Squeeze-and-Excitation Networks  [pdf](https://arxiv.org/pdf/1709.01507.pdf)
+
+  caffe:https://github.com/hujie-frank/SENet
+
+
 ### NASNet Google
 
 这是谷歌用AutoML(Auto Machine Learning)在500块GPU上自行堆砌convolution cell（有两种cell
@@ -314,13 +325,15 @@ https://raw.githubusercontent.com/CUHK-MMLAB/polynet/master/polynet.png
 <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/NasNet_cell.jpeg">
 
 
-  [13]Learning Transferable Architectures for Scalable Image Recognition[pdf](https://arxiv.org/pdf/1707.07012.pdf)
+  [14]Learning Transferable Architectures for Scalable Image Recognition[pdf](https://arxiv.org/pdf/1707.07012.pdf)
 
 
 github链接：
   https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py
 
+mNasNet
 
+  [15]MnasNet: Platform-Aware Neural Architecture Search for Mobile[pdf](https://arxiv.org/pdf/1807.11626.pdf)
 
 -----------------------------------------------------------------------------------------------------------
 ## 轻量级模型 & 剪枝
@@ -329,6 +342,10 @@ github链接：
 于是从应用角度发展了另外一条支线，着重在于轻量化模型的设计与发展。它的主要思想在于从卷积层的设计来构建更高效的网络计算方式，从而使网络参数减少的同时，不损失网络性能。
 
 除了模型的设计，还有Deep Compression ，剪枝等多种方法将模型小型化。
+
+
+SqueezeNet使用bottleneck方法设计一个非常小的网络，使用不到1/50的参数（125w --- 1.25million）在ImageNet上实现AlexNet级别的准确度。 MobileNetV1使用深度可分离卷积来构建轻量级深度神经网络，其中MobileNet-160（0.5x），和SqueezeNet大小差不多，但是在ImageNet上的精度提高4％。 ShuffleNet利用pointwise group卷积和channel shuffle来减少计算成本并实现比MobileNetV1更高的准确率。 MobileNetV2基于inverted residual structure with linear bottleneck，改善了移动模型在多个任务和基准测试中的最新性能。mNASNet是和NASNet一样强化学习的构造结果，准确性略优于MobileNetV2,在移动设备上具有比MobileNetV1，ShuffleNet和MobileNetV2更复杂的结构和更多的实际推理时间。(总结出自MobileFaceNets) 
+
 
 |网络名称|最早公开日期|发表情况|作者团队|
 |:---:|:---:|:---:|:---:|
@@ -588,9 +605,12 @@ CMU-CS-16-118, CMU School of Computer Science, Tech. Rep., 2016.
 
 https://github.com/cmusatyalab/openface/
 
+--------------------------------------
 
+轻量级人脸识别模型
 
-
+这个研究得比较少，主要是分两个方面，一种是设计一个小型网络，从头开始训。这种包括LmobileNetE（112M），lightCNN (A light cnn for deep face representation with noisy labels. arXiv preprint)， ShiftFaceNet（性能能有点差 LFW 96%）,最新的MobileFaceNet，用类似MobileNet V2的结构，加上ArcFace的loss。
+一种是从大模型进行knowledge distillation 知识蒸馏得到小模型。包括从DeepID2 进行teacher-student训练得到MobileID，从FaceNet预训练模型继续训MobileNetV1等。
 
 ## 3d face
 
