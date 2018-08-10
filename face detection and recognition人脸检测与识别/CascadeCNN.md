@@ -22,9 +22,9 @@ H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork 
 作者先从AFLW数据集中的图片中进行裁剪获得人脸图片作为正样本，再从背景中裁剪获得负样本；
 
 
-![cascadestruct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadestruct.png)
+![cascadestruct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/cascadestruct.png)
 
-
+![cascadestruct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadeCNN.png)
 
 CascadeCNN 训练网络结构如图：
 
