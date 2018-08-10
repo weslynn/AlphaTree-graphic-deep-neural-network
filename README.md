@@ -353,7 +353,7 @@ https://ai.googleblog.com/2018/08/mnasnet-towards-automating-design-of.html
 
 
 
-<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mallmodel.jpeg" width="800">
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mallmodel.jpeg" width="700">
 
 |网络名称|最早公开日期|发表情况|作者团队|
 |:---:|:---:|:---:|:---:|
