@@ -13,7 +13,7 @@
 
 2018/07/04 完成FaceNet系列，修正地图上facenet loss部分，将二维距离（center loss） 到 球面角度距离SphereFace之后的发展 区分开
 
-2018/08/10 图上加入mNasNet ，人脸部分加入 mobilefacenet mobileID
+2018/08/10 图上加入MnasNet ，人脸部分加入 mobilefacenet mobileID
 
 其他：
 Face ： mtcnn 
@@ -331,9 +331,7 @@ https://raw.githubusercontent.com/CUHK-MMLAB/polynet/master/polynet.png
 github链接：
   https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py
 
-mNasNet
 
-  [15]MnasNet: Platform-Aware Neural Architecture Search for Mobile[pdf](https://arxiv.org/pdf/1807.11626.pdf)
 
 -----------------------------------------------------------------------------------------------------------
 ## 轻量级模型 & 剪枝
@@ -347,6 +345,17 @@ mNasNet
 SqueezeNet使用bottleneck方法设计一个非常小的网络，使用不到1/50的参数（125w --- 1.25million）在ImageNet上实现AlexNet级别的准确度。 MobileNetV1使用深度可分离卷积来构建轻量级深度神经网络，其中MobileNet-160（0.5x），和SqueezeNet大小差不多，但是在ImageNet上的精度提高4％。 ShuffleNet利用pointwise group卷积和channel shuffle来减少计算成本并实现比MobileNetV1更高的准确率。 MobileNetV2基于inverted residual structure with linear bottleneck，改善了移动模型在多个任务和基准测试中的最新性能。mNASNet是和NASNet一样强化学习的构造结果，准确性略优于MobileNetV2,在移动设备上具有比MobileNetV1，ShuffleNet和MobileNetV2更复杂的结构和更多的实际推理时间。(总结出自MobileFaceNets) 
 
 
+“
+With the same accuracy, our MnasNet model runs 1.5x faster than the hand-crafted state-of-the-art MobileNetV2, and 2.4x faster than NASNet, which also used architecture search. After applying the squeeze-and-excitation optimization, our MnasNet+SE models achieve ResNet-50 level top-1 accuracy at 76.1%, with 19x fewer parameters and 10x fewer multiply-adds operations. On COCO object detection, our model family achieve both higher accuracy and higher speed over MobileNet, and achieves comparable accuracy to the SSD300 model with 35x less computation cost.
+
+在相同的准确率下，MnasNet 模型的速度比手工调参得到的当前最佳模型 MobileNet V2 快 1.5 倍，并且比 NASNet 快 2.4 倍，它也是使用架构搜索的算法。在应用压缩和激活（squeeze-and-excitation）优化方法后，MnasNet+SE 模型获得了 76.1% 的 ResNet 级别的 top-1 准确率，其中参数数量是 ResNet 的 1/19，且乘法-加法运算量是它的 1/10。在 COCO 目标检测任务上，我们的MnasNet模型系列获得了比 MobileNet 更快的速度和更高的准确率，并在 1/35 的计算成本下获得了和 SSD300 相当的准确率。”
+https://ai.googleblog.com/2018/08/mnasnet-towards-automating-design-of.html
+
+
+![mallmodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mallmodel.jpeg)
+
+
+
 |网络名称|最早公开日期|发表情况|作者团队|
 |:---:|:---:|:---:|:---:|
 |SqueezeNet|2016.02|ICLR2017|Berkeley&Stanford|
@@ -354,7 +363,7 @@ SqueezeNet使用bottleneck方法设计一个非常小的网络，使用不到1/5
 |ShuffleNet|2016.06|CVPR2017|Face++|
 |Xception|2016.10|----|Google|
 |MobileNetV2|2018.01|----|Google|
-
+|MnasNet|2018.07|----|Google|
 
 ### SqueezeNet
 SqueezeNet：AlexNet-level accuracy with 50x fewer parameters and <0.5MB
@@ -394,7 +403,9 @@ caffe实现：https://github.com/camel007/Caffe-ShuffleNet
 
 
 
+### MnasNet
 
+  [5]MnasNet: Platform-Aware Neural Architecture Search for Mobile[pdf](https://arxiv.org/pdf/1807.11626.pdf)
 
 ### other
 
@@ -547,11 +558,12 @@ DeepFace是FaceBook提出来的，后续有DeepID和FaceNet出现。DeepFace是�
 DeepFace: Closing the Gap to Human-Level Performance in Face Verification 
 
 
-
+### DeepID
 
 DeepFace 还是将人脸作为一个分类问题来解决，而从facenet开始，则是通过设计不同的loss，端对端去学习一个人脸的特征。这个特征 在欧式空间 或者高维空间，能够用距离来代表人脸的相似性。
 
 
+### VGGFace
 
 ![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/faceloss.png)
 
@@ -609,8 +621,13 @@ https://github.com/cmusatyalab/openface/
 
 轻量级人脸识别模型
 
-这个研究得比较少，主要是分两个方面，一种是设计一个小型网络，从头开始训。这种包括LmobileNetE（112M），lightCNN (A light cnn for deep face representation with noisy labels. arXiv preprint)， ShiftFaceNet（性能能有点差 LFW 96%）,最新的MobileFaceNet，用类似MobileNet V2的结构，加上ArcFace的loss。
+这个研究得比较少，主要是分两个方面，一种是设计一个小型网络，从头开始训。这种包括LmobileNetE（112M），lightCNN (A light cnn for deep face representation with noisy labels. arXiv preprint)， ShiftFaceNet（性能能有点差 LFW 96%）,MobileFaceNet等
 一种是从大模型进行knowledge distillation 知识蒸馏得到小模型。包括从DeepID2 进行teacher-student训练得到MobileID，从FaceNet预训练模型继续训MobileNetV1等。
+
+
+### MobileFaceNet
+这个模型主要就是用类MobileNet V2的结构，加上ArcFace的loss进行训练。
+
 
 ## 3d face
 
