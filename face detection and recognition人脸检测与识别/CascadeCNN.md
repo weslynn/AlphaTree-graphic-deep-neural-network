@@ -24,14 +24,17 @@ H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork 
 
 ![cascadestruct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/cascadestruct.png)
 
-![cascadestruct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadeCNN.png)
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadeCNN.png" width="500">
+
 
 CascadeCNN 训练网络结构如图：
 
 ![cascadestruct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/cascadetrain.jpeg)
 
 
-![cascadestruct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadeCNNtrain.png)
+
+
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadeCNNtrain.png" width="500">
 
 
 https://github.com/anson0910/CNN_face_detection
