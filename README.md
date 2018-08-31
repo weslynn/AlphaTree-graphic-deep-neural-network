@@ -436,6 +436,7 @@ https://arxiv.org/pdf/1804.06655.pdf
 常见的人脸检测开源算法可以使用 opencv dlib seetaface等。seetafce采用了多种特征（LAB、SURF、SIFT）和多种分类器（boosted、MLP）的结合。
 
 
+
 深度学习最早的代表作之一是2015年CVPR的 CascadeCNN 。
 
 ### CascadeCNN[详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/CascadeCNN.md)
@@ -500,11 +501,36 @@ KITTI result: http://www.cvlibs.net/datasets/kitti/eval_object.php
 -------------------------------------------------------------
 ### Landmark Localization 68 points
 -------------------------------------------------------------
+从技术实现上可将人脸关键点检测分为2大类：生成式方法（Generative methods） 和 判别式方法（Discriminative methods）。
+Generative methods 构建人脸shape和appearance的生成模型。这类方法将人脸对齐看作是一个优化问题，来寻找最优的shape和appearance参数，使得appearance模型能够最好拟合输入的人脸。这类方法包括：
 
-### dlib and CLM-framework
-dlib：【ERT算法】One Millisecond Face Alignment with an Ensemble of Regression Trees.
+ASM(Active Shape Model) 1995
+AAM (Active Appearnce Model) 1998
+
+Discriminative methods直接从appearance推断目标位置。这类方法通常通过学习独立的局部检测器或回归器来定位每个面部关键点，然后用一个全局的形状模型对预测结果进行调整，使其规范化。或者直接学习一个向量回归函数来推断整个脸部的形状。这类方法包括传统的方法以及最新的深度学习方法：
+
+Constrained local models (CLMs) 2006 https://github.com/TadasBaltrusaitis/CLM-framework
+Deformable part models (DPMs)
+基于级联形状回归的方法(Cascaded regression) 2010 
+     CPR(Cascaded Pose Regression) 
+     ESR https://github.com/soundsilence/FaceAlignment
+     ERT(Ensemble of Regression Trees)  dlib： One Millisecond Face Alignment with an Ensemble of Regression Trees. 
+     https://github.com/davisking/dlib
+     Face Alignment at 3000 FPS cvpr2013, https://github.com/yulequan/face-alignment-in-3000fps
+
+![FacePoint](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facepoint.png)
+
+
+深度学习：
+
 
 ## face++  DCNN
+2013 香港中文大学汤晓欧，SunYi等人作品，首次将CNN用于人脸关键点检测。总体思想是由粗到细，实现5个人脸关键点的精确定位。网络结构分为3层：level 1、level 2、level 3。每层都包含多个独立的CNN模型，负责预测部分或全部关键点位置，在此基础上平均来得到该层最终的预测结果。
+
+
+
+
+
 
 
 
@@ -518,6 +544,9 @@ VanillaCNN
 
 https://github.com/MarekKowalski/DeepAlignmentNetwork
 
+
+##LAB (LAB-Look at Boundary A Boundary-Aware Face Alignment Algorithm )
+2018cvpr 清华&商汤作品。借鉴人体姿态估计，将边界信息引入关键点回归上。网络包含3个部分：边界热度图估计模块（Boundary heatmap estimator），基于边界的关键点定位模块（ Boundary-aware landmarks regressor ）和边界有效性判别模块（Boundary effectiveness discriminator）
 
 
 -----------------------------------------------------------------------------------------------------------
@@ -635,23 +664,121 @@ https://github.com/cmusatyalab/openface/
 
 
 ## 3d face
+由于Blanz和Vetter在1999年提出3D Morphable Model（3DMM）（Blanz, V., Vetter, T.: A morphable model for the synthesis of 3d faces. international
+conference on computer graphics and interactive techniques (1999)），成为最受欢迎的单图3D面部重建方法。早期是针对特殊点的对应关系（可以是关键点 也可以是局部特征点）来解非线性优化函数，得到3DMM系数。然而，这些方法严重依赖于高精度手工标记或者特征。
 
-Face Alignment Across Large Poses: A 3D Solution
+
+用级联CNN结构来回归准确3DMM系数，解决大姿态下面部特征点定位问题，但迭代会花费大量时间
+
+
+
+### 3DDFA: Face Alignment Across Large Poses- A 3D Solution CVPR2016
+
 http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm
+
+
+自动化所作品， 解决极端姿态下（如侧脸），一些特征点变了不可见，不同姿态下的人脸表观也存在巨大差异使得关键点定位困难等问题，本文提出一种基于3D人脸形状的定位方法3DDFA，算法框架为：
+(1) 输入为100x100的RGB图像和PNCC （Projected Normalized Coordinate Code） 特征，PNCC特征的计算与当前形状相关，可以反映当前形状的信息；算法的输出为3D人脸形状模型参数
+(2) 使用卷积神经网络拟合从输入到输出的映射函数，网络包含4个卷积层，3个pooling层和2个全连接层
+通过级联多个卷积神经网络直至在训练集上收敛，PNCC特征会根据当前预测的人脸形状更新，并作为下一级卷积神经网络的输入。
+(3) 此外，卷积神经网络的损失函数也做了精心的设计，通过引入权重，让网络优先拟合重要的形状参数，如尺度、旋转和平移；当人脸形状接近ground truth时，再考虑拟合其他形状参数
+实验证明该损失函数可以提升定位模型的精度。由于参数化形状模型会限制人脸形状变形的能力，作者在使用3DDFA拟合之后，抽取HOG特征作为输入，使用线性回归来进一步提升2D特征点的定位精度。
+
+训练3DDFA模型，需要大量的多姿态人脸样本。为此，作者基于已有的数据集如300W，利用3D信息虚拟生成不同姿态下的人脸图像，核心思想为：先预测人脸图像的深度信息，通过3D旋转来生成不同姿态下的人脸图像
+链接(含源码)
+
+### Large-Pose Face Alignment via CNN-Based Dense 3D Model Fitting PAWF
+
+这篇文章是来自密西根州立大学的Amin Jourabloo和Xiaoming Liu的工作。 
+2D的人脸形状U可以看成是3D人脸形状A通过投影变化m得到，如下图所示： 3D人脸形状模型可以表示为平均3D人脸形状 A 0 与若干表征身份、表情的基向量 A id 和 A exp 通过p参数组合而成
+面部特征点定位问题（预测U）可以转变为同时预测投影矩阵m和3D人脸形状模型参数p
+
+算法的整体框架通过级联6个卷积神经网络来完成这一任务：
+(1) 首先以整张人脸图像作为输入，来预测投影矩阵的更新
+(2) 使用更新后的投影矩阵计算当前的2D人脸形状，基于当前的2D人脸形状抽取块特征作为下一级卷积神经网络的输入，下一级卷积神经网络用于更新3D人脸形状
+(3) 基于更新后的3D人脸形状，计算可得当前2D人脸形状的预测
+(4) 根据新的2D人脸形状预测，抽取块特征输入到卷积神经网络中来更新投影矩阵，交替迭代优化求解投影矩阵m和3D人脸形状模型参数p，直到在训练集收敛
+
+值得一提的是，该方法在预测3D人脸形状和投影矩阵的同时也考虑到计算每一个特征点是否可见。如果特征点不可见，则不使用该特征点上的块特征作为输入，这是普通2D人脸对齐方法难以实现的
+此外，作者提出两种pose-invariant的特征Piecewise Affine-Warpped Feature (PAWF)和Direct 3D Projected Feature (D3PF)，可以进一步提升特征点定位的精度
+
+
+Regressing Robust and Discriminative 3D Morphable Models with a very Deep Neural Network 2016
+https://github.com/anhttran/3dmm_cnn
+
+End to end 的方法 获得3dmm参数
+
+
+
+ 密集人脸对齐 用cnn学习2d图像与3d图像之间的密集对应关系 然后使用预测的密集约束计算3DMM参数。
+
+### Dense Face Alignment
+
+密西根州立大学的Amin Jourabloo和Xiaoming Liu等人的工作，该组其他人脸对齐的工作可参见其项目主页。
+ ICCV 2017
+摘要： 在人脸对齐方法中，以前的算法主要集中在特定数量的人脸特征点检测，比如5、34或者68个特征点，这些方法都属于稀疏的人脸对齐算法。在本文中，我们提出了一种针对大角度人脸图像的一种3D密集人脸对齐算法。在该模型中，我们通过训练CNN模型利用人脸图像来估计3D人脸shape，利用该shape来fitting相应的3D人脸模型，不仅能够检测到人脸特征点，还能匹配人脸轮廓和SIFT特征点。此外还解决了不同数据库中由于包含不同数量的特征点（5、34或68）而不能交叉验证的问题。可以实时运行
+
+
+###  DenseReg: Fully Convolutional Dense Shape Regression In-the-Wild
+
+原文： CVPR 2017 https://github.com/ralpguler/DenseReg
+摘要： 在本文中，我们提出通过完全卷积网络学习从图像像素到密集模板网格的映射。我们将此任务作为一个回归问题，并利用手动注释的面部标注来训练我们的网络。我们使用这样的标注，在三维对象模板和输入图像之间，建立密集的对应领域，然后作为训练我们的回归系统的基础。我们表明，我们可以将来自语义分割的想法与回归网络相结合，产生高精度的“量化回归”架构。我们的系统叫DenseReg，可以让我们以全卷积的方式估计密集的图像到模板的对应关系。因此，我们的网络可以提供有用的对应信息，而当用作统计可变形模型的初始化时，我们获得了标志性的本地化结果，远远超过当前最具挑战性的300W基准的最新技术。我们对大量面部分析任务的方法进行了全面评估，并且还展示了其用于其他估计任务的用途，如人耳建模。
+
+### Learning Dense Facial Correspondences in Unconstrained Images
+
+原文： ICCV2017
+
+
+### dense face alignment /Pose-Invariant Face Alignment (PIFA)  ICCVW2017 
+http://cvlab.cse.msu.edu/project-pifa.html
+
+
+
+### vrn
+用CNN Regression的方法解决大姿态下的三维人脸重建问题。 
+ICCV论文：《Large Pose 3D Face Reconstruction from a Single Image via Direct Volumetric CNN Regression》
+
+github：https://github.com/AaronJackson/vrn
+
+### PRNet Joint 3D Face Reconstruction and Dense Alignment with Position Map Regression Network
+
+原文： CVPR 2017
+摘要： 本文提出了一个强有力的方法来同时实现3D人脸重构和密集人脸对齐。为实现该目标，我们设计了一个UV位置图，来达到用2D图表示UV 空间内完整人脸的3D形状特征。然后训练了一个简单的CNN来通过单张2D图像回归得到UV图。我们的方法不需要任何先验人脸模型，就可以重构出完整的面部结构。速度9.8ms/帧。
+
+
 
 
 HPEN High-Fidelity Pose and Expression Normalization for Face Recognition in the Wild
 
-dense face alignment /Pose-Invariant Face Alignment (PIFA)
-http://cvlab.cse.msu.edu/project-pifa.html
 
-face-alignment
+
+
+
+
+
+
+Expression-Net
+https://github.com/fengju514/Expression-Net
+Estimate 3D face pose by a Convolutional Neural Network
+FACE POSE NET
+https://github.com/fengju514/Face-Pose-Net
+
+
+数据集
+
+UMDFace
+
+MTFL(TCDCN所用)
+
+[300W-3D]: The fitted 3D Morphable Model (3DMM) parameters of 300W samples.
+
+[300W-3D-Face]: The fitted 3D mesh, which is needed if you do not have Basel Face Model (BFM)
+
 2D-and-3D-face-alignment
 两个github项目，在做同一件事，2d和3d的人脸对齐问题，区别在于前者是Pytorch 的代码，后者是Torch7的。 
 论文有个很霸道的名字：《How far are we from solving the 2D & 3D Face Alignment problem? (and a dataset of 230,000 3D facial landmarks) 》ICCV2017
 github：https://github.com/1adrianb/face-alignment 
 github: https://github.com/1adrianb/2D-and-3D-face-alignment
-
 
 
 
@@ -663,29 +790,7 @@ github: https://github.com/1adrianb/2D-and-3D-face-alignment
 
 3D-FAN-depth：https://www.adrianbulat.com/downloads/FaceAlignment/3D-FAN-depth
 
-Regressing Robust and Discriminative 3D Morphable Models with a very Deep Neural Network
-https://github.com/anhttran/3dmm_cnn
 
-vrn
-用CNN Regression的方法解决大姿态下的三维人脸重建问题。 
-ICCV论文：《Large Pose 3D Face Reconstruction from a Single Image via Direct Volumetric CNN Regression》
-
-github：https://github.com/AaronJackson/vrn
-
-
-
-
-
-
-Regressing Robust and Discriminative 3D Morphable Models with a very Deep Neural Network
-
-https://github.com/anhttran/3dmm_cnn
-
-Expression-Net
-https://github.com/fengju514/Expression-Net
-Estimate 3D face pose by a Convolutional Neural Network
-FACE POSE NET
-https://github.com/fengju514/Face-Pose-Net
 -------------------------------------------------------------------------------
 ![OCR](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/OCR.png)
 
