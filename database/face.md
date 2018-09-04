@@ -129,6 +129,25 @@ http://www.robots.ox.ac.uk/~vgg/data/vgg_face2/
 
 
 
+## 3D数据库
+
+
+UMDFace
+
+MTFL(TCDCN所用)
+
+[300W-3D]: The fitted 3D Morphable Model (3DMM) parameters of 300W samples.
+
+[300W-3D-Face]: The fitted 3D mesh, which is needed if you do not have Basel Face Model (BFM)
+
+
+[300W-LP]: The synthesized large-pose face images from 300W. 300W standardises multiple alignment
+databases with 68 landmarks, including AFW, LFPW, HELEN, IBUG and XM2VTS.
+
+[AFLW2000-3D]: The fitted 3D faces of the first 2000 AFLW samples, which can be used for 3D face alignment evaluation.
+
+
+
 ## 视频数据库
 
 YouTube Face   1,595个人 3,425段视频非限制场景 

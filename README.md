@@ -15,6 +15,7 @@
 
 2018/08/10 图上加入MnasNet ，人脸部分加入 mobilefacenet mobileID
 
+2018/09/04 修正3D人脸部分，整理16 17年的部分知名开源成果 将加入密集人脸对齐部分的算法 和 之前的cnn获取3dmm参数算法分开  。18年开始 主要研究在gan对侧脸部分的正脸生成，暂未整理 可看后续发展。 
 其他：
 Face ： mtcnn 
 
@@ -628,13 +629,20 @@ https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet
  tensorflow 源码 :https://github.com/davidsandberg/facenet
 
  caffe center loss:https://github.com/kpzhang93/caffe-face
+
  mxnet center loss :https://github.com/pangyupo/mxnet_center_loss
  
  caffe sphereface:  https://github.com/wy1iu/sphereface
 
  deepinsight： https://github.com/deepinsight/insightface
+
  AMSoftmax ：https://github.com/happynear/AMSoftmax
 
+github：https://github.com/cmusatyalab/openface
+基于谷歌的文章《FaceNet: A Unified Embedding for Face Recognition and Clustering》。openface是卡内基梅隆大学的 Brandon Amos主导的。
+B. Amos, B. Ludwiczuk, M. Satyanarayanan,
+"Openface: A general-purpose face recognition library with mobile applications,"
+CMU-CS-16-118, CMU School of Computer Science, Tech. Rep., 2016.
 
 ### SeetaFace 
 
@@ -642,34 +650,44 @@ Detection: Funnel-Structured Cascade for Multi-View Face Detection with Alignmen
 
 2016 
 
+中科院山世光老师开源的人脸识别引擎—SeetafaceEngine，主要实现下面三个功能： 
+SeetaFace Detection 
+SeetaFace Alignment 
+SeetaFace Identification 
+
+github：https://github.com/seetaface/SeetaFaceEngine
 
 ### OpenFace
 
-B. Amos, B. Ludwiczuk, M. Satyanarayanan,
-"Openface: A general-purpose face recognition library with mobile applications,"
-CMU-CS-16-118, CMU School of Computer Science, Tech. Rep., 2016.
 
-https://github.com/cmusatyalab/openface/
+主要在Landmark Detection，Landmark and head pose tracking，Facial Action Unit Recognition等，其中Facial Action Unit Recognition是个比较有意思的点，该项目给出一个脸部的每个AU的回归分数和分类结果。
+
+github：https://github.com/TadasBaltrusaitis/OpenFace
 
 --------------------------------------
 
 轻量级人脸识别模型
 
-这个研究得比较少，主要是分两个方面，一种是设计一个小型网络，从头开始训。这种包括LmobileNetE（112M），lightCNN (A light cnn for deep face representation with noisy labels. arXiv preprint)， ShiftFaceNet（性能能有点差 LFW 96%）,MobileFaceNet等
+这个研究得比较少，主要是分两个方面：
+
+一种是设计一个小型网络，从头开始训。这种包括LmobileNetE（112M），lightCNN (A light cnn for deep face representation with noisy labels. arXiv preprint)， ShiftFaceNet（性能能有点差 LFW 96%）,MobileFaceNet等
+
 一种是从大模型进行knowledge distillation 知识蒸馏得到小模型。包括从DeepID2 进行teacher-student训练得到MobileID，从FaceNet预训练模型继续训MobileNetV1等。
 
 
 ### MobileFaceNet
 这个模型主要就是用类MobileNet V2的结构，加上ArcFace的loss进行训练。
 
-
+--------------------------------------
 ## 3d face
+3D人脸重建主要有两种方式，一种是通过多摄像头或者多帧图像的关键点匹配(Stereo matching)，重建人脸的深度信息，或者深度相机，从而得到模型,另一种是通过预先训练好的人脸模型(3d morphable model)，拟合单帧或多帧RGB图像或深度图像，从而得到3d人脸模型的个性化参数。
+
+深度学习在3d face的研究着重在第二个。
+
 由于Blanz和Vetter在1999年提出3D Morphable Model（3DMM）（Blanz, V., Vetter, T.: A morphable model for the synthesis of 3d faces. international
 conference on computer graphics and interactive techniques (1999)），成为最受欢迎的单图3D面部重建方法。早期是针对特殊点的对应关系（可以是关键点 也可以是局部特征点）来解非线性优化函数，得到3DMM系数。然而，这些方法严重依赖于高精度手工标记或者特征。
 
-
-用级联CNN结构来回归准确3DMM系数，解决大姿态下面部特征点定位问题，但迭代会花费大量时间
-
+首先，2016年左右，CNN的尝试主要是用级联CNN结构来回归准确3DMM系数，解决大姿态下面部特征点定位问题。但迭代会花费大量时间
 
 
 ### 3DDFA: Face Alignment Across Large Poses- A 3D Solution CVPR2016
@@ -677,7 +695,9 @@ conference on computer graphics and interactive techniques (1999)），成为最
 http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm
 
 
-自动化所作品， 解决极端姿态下（如侧脸），一些特征点变了不可见，不同姿态下的人脸表观也存在巨大差异使得关键点定位困难等问题，本文提出一种基于3D人脸形状的定位方法3DDFA，算法框架为：
+自动化所作品， 解决极端姿态下（如侧脸），一些特征点变了不可见，不同姿态下的人脸表观也存在巨大差异使得关键点定位困难等问题
+
+本文提出一种基于3D人脸形状的定位方法3DDFA，算法框架为：
 (1) 输入为100x100的RGB图像和PNCC （Projected Normalized Coordinate Code） 特征，PNCC特征的计算与当前形状相关，可以反映当前形状的信息；算法的输出为3D人脸形状模型参数
 (2) 使用卷积神经网络拟合从输入到输出的映射函数，网络包含4个卷积层，3个pooling层和2个全连接层
 通过级联多个卷积神经网络直至在训练集上收敛，PNCC特征会根据当前预测的人脸形状更新，并作为下一级卷积神经网络的输入。
@@ -685,7 +705,7 @@ http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm
 实验证明该损失函数可以提升定位模型的精度。由于参数化形状模型会限制人脸形状变形的能力，作者在使用3DDFA拟合之后，抽取HOG特征作为输入，使用线性回归来进一步提升2D特征点的定位精度。
 
 训练3DDFA模型，需要大量的多姿态人脸样本。为此，作者基于已有的数据集如300W，利用3D信息虚拟生成不同姿态下的人脸图像，核心思想为：先预测人脸图像的深度信息，通过3D旋转来生成不同姿态下的人脸图像
-链接(含源码)
+
 
 ### Large-Pose Face Alignment via CNN-Based Dense 3D Model Fitting PAWF
 
@@ -703,19 +723,22 @@ http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm
 此外，作者提出两种pose-invariant的特征Piecewise Affine-Warpped Feature (PAWF)和Direct 3D Projected Feature (D3PF)，可以进一步提升特征点定位的精度
 
 
+End to end 的方法，将输入图片转换为3DMM参数
+### 3dmm_cnn 
+
 Regressing Robust and Discriminative 3D Morphable Models with a very Deep Neural Network 2016
 https://github.com/anhttran/3dmm_cnn
 
-End to end 的方法 获得3dmm参数
 
 
 
  密集人脸对齐 用cnn学习2d图像与3d图像之间的密集对应关系 然后使用预测的密集约束计算3DMM参数。
 
-### Dense Face Alignment
+### DeFA： Dense Face Alignment /Pose-Invariant Face Alignment (PIFA) ICCV 2017 
+http://cvlab.cse.msu.edu/project-pifa.html 
 
 密西根州立大学的Amin Jourabloo和Xiaoming Liu等人的工作，该组其他人脸对齐的工作可参见其项目主页。
- ICCV 2017
+
 摘要： 在人脸对齐方法中，以前的算法主要集中在特定数量的人脸特征点检测，比如5、34或者68个特征点，这些方法都属于稀疏的人脸对齐算法。在本文中，我们提出了一种针对大角度人脸图像的一种3D密集人脸对齐算法。在该模型中，我们通过训练CNN模型利用人脸图像来估计3D人脸shape，利用该shape来fitting相应的3D人脸模型，不仅能够检测到人脸特征点，还能匹配人脸轮廓和SIFT特征点。此外还解决了不同数据库中由于包含不同数量的特征点（5、34或68）而不能交叉验证的问题。可以实时运行
 
 
@@ -724,29 +747,27 @@ End to end 的方法 获得3dmm参数
 原文： CVPR 2017 https://github.com/ralpguler/DenseReg
 摘要： 在本文中，我们提出通过完全卷积网络学习从图像像素到密集模板网格的映射。我们将此任务作为一个回归问题，并利用手动注释的面部标注来训练我们的网络。我们使用这样的标注，在三维对象模板和输入图像之间，建立密集的对应领域，然后作为训练我们的回归系统的基础。我们表明，我们可以将来自语义分割的想法与回归网络相结合，产生高精度的“量化回归”架构。我们的系统叫DenseReg，可以让我们以全卷积的方式估计密集的图像到模板的对应关系。因此，我们的网络可以提供有用的对应信息，而当用作统计可变形模型的初始化时，我们获得了标志性的本地化结果，远远超过当前最具挑战性的300W基准的最新技术。我们对大量面部分析任务的方法进行了全面评估，并且还展示了其用于其他估计任务的用途，如人耳建模。
 
-### Learning Dense Facial Correspondences in Unconstrained Images
-
-原文： ICCV2017
-
-
-### dense face alignment /Pose-Invariant Face Alignment (PIFA)  ICCVW2017 
-http://cvlab.cse.msu.edu/project-pifa.html
-
 
 
 ### vrn
-用CNN Regression的方法解决大姿态下的三维人脸重建问题。 
+诺丁汉大学和金斯顿大学 用CNN Regression的方法解决大姿态下的三维人脸重建问题。 
 ICCV论文：《Large Pose 3D Face Reconstruction from a Single Image via Direct Volumetric CNN Regression》
+
+Volumetric Regression Network(VRN) 本文作者使用的模型，由多个沙漏模型组合在一起形成。 
+- VRN模型使用两个沙漏模块堆积而成，并且没有使用hourglass的间接监督结构。 
+- VRN-guided 模型是使用了Stacked Hourglass Networks for Human Pose Estimation 的工作作为基础，在前半部分使用两个沙漏模块用来获取68个标记点，后半部分使用两个沙漏模块，以一张RGB图片和68个通道（每个通道一个标记点）的标记点作为输入数据。 
+- VRN-Multitask 模型，用了三个沙漏模块，第一个模块后分支两个沙漏模块，一个生成三维模型，一个生成68个标记点。 
 
 github：https://github.com/AaronJackson/vrn
 
-### PRNet Joint 3D Face Reconstruction and Dense Alignment with Position Map Regression Network
+
+### PRNet：Joint 3D Face Reconstruction and Dense Alignment with Position Map Regression Network
 
 原文： CVPR 2017
 摘要： 本文提出了一个强有力的方法来同时实现3D人脸重构和密集人脸对齐。为实现该目标，我们设计了一个UV位置图，来达到用2D图表示UV 空间内完整人脸的3D形状特征。然后训练了一个简单的CNN来通过单张2D图像回归得到UV图。我们的方法不需要任何先验人脸模型，就可以重构出完整的面部结构。速度9.8ms/帧。
 
 
-
+https://github.com/YadiraF/PRNet
 
 HPEN High-Fidelity Pose and Expression Normalization for Face Recognition in the Wild
 
@@ -754,14 +775,12 @@ HPEN High-Fidelity Pose and Expression Normalization for Face Recognition in the
 
 
 
-
-
+表情相关
+ExpNet: Landmark-Free, Deep, 3D Facial Expressions
 
 Expression-Net
 https://github.com/fengju514/Expression-Net
-Estimate 3D face pose by a Convolutional Neural Network
-FACE POSE NET
-https://github.com/fengju514/Face-Pose-Net
+
 
 
 数据集
@@ -774,13 +793,14 @@ MTFL(TCDCN所用)
 
 [300W-3D-Face]: The fitted 3D mesh, which is needed if you do not have Basel Face Model (BFM)
 
-2D-and-3D-face-alignment
+### 3D-FAN ：2D-and-3D-face-alignment
+
+How far are we from solving the 2D & 3D Face Alignment problem? (and a dataset of 230,000 3D facial landmarks) ICCV2017
+直接使用CNN预测heatmap以获得3D face landmark
+
 两个github项目，在做同一件事，2d和3d的人脸对齐问题，区别在于前者是Pytorch 的代码，后者是Torch7的。 
-论文有个很霸道的名字：《How far are we from solving the 2D & 3D Face Alignment problem? (and a dataset of 230,000 3D facial landmarks) 》ICCV2017
 github：https://github.com/1adrianb/face-alignment 
 github: https://github.com/1adrianb/2D-and-3D-face-alignment
-
-
 
 2D-FAN：https://www.adrianbulat.com/downloads/FaceAlignment/2D-FAN-300W.t7
 
@@ -789,6 +809,13 @@ github: https://github.com/1adrianb/2D-and-3D-face-alignment
 2D-to-3D FAN：https://www.adrianbulat.com/downloads/FaceAlignment/2D-to-3D-FAN.tar.gz
 
 3D-FAN-depth：https://www.adrianbulat.com/downloads/FaceAlignment/3D-FAN-depth
+
+
+other
+
+
+
+
 
 
 -------------------------------------------------------------------------------
@@ -1072,6 +1099,14 @@ https://github.com/MichalBusta/DeepTextSpotter
 
 该方法将文字检测和识别整合到一个端到端的网络中。检测使用YOLOv2+RPN，并利用双线性采样将文字区域统一为高度一致的变长特征序列，再使用RNN+CTC进行识别。
 
+
+
+
+文档矫正 
+
+DocUNet: Document Image Unwarping via A Stacked U-Net  face++
+
+https://zhuanlan.zhihu.com/p/37306349
 -----------------------------------------------------------------------------
 ![ObjectDetection&Seg](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectDetection&Seg.png)
 
@@ -1205,6 +1240,8 @@ Github 地址：https://github.com/alexjc/neural-doodle
 https://github.com/luanfujun/deep-painterly-harmonization
 
 
+### Visual Attribute Transfer through Deep Image Analogy SIGGRAPH 2017 paper
+https://github.com/msracver/Deep-Image-Analogy
 ### 
 
 ### Colornet
