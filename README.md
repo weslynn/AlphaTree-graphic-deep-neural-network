@@ -16,6 +16,8 @@
 2018/08/10 图上加入MnasNet ，人脸部分加入 mobilefacenet mobileID
 
 2018/09/04 修正3D人脸部分，整理16 17年的部分知名开源成果 将加入密集人脸对齐部分的算法 和 之前的cnn获取3dmm参数算法分开  。18年开始 主要研究在gan对侧脸部分的正脸生成，暂未整理 可看后续发展。 
+
+
 其他：
 Face ： mtcnn 
 
@@ -30,10 +32,10 @@ Object Detection：ssd
 
 
 
-<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.2.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.2.png" width="1200"> </a>
+<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.3.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.3.png" width="1200"> </a>
 
 
-[大图链接](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.2.png)
+[大图链接](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.3.png)
 
 
 现在主要有如下方向
