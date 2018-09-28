@@ -3,10 +3,11 @@
 有年龄数据的有： Adience  CACD2000  IMDB-WIKI 
 
 
-名人数据的：CelebA MSRA-CFW CASIA-WebFace IMDB-WIKI CACD2000
+名人数据的：CelebA MSRA-CFW CASIA-WebFace IMDB-WIKI CACD2000 MsCelebV1
  
 人脸姿态： FERET CAS-PEAL UMIST CMU-PIE
 
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/databasepic/face.png">
 
 ## 小数据集 0-10000
 
@@ -96,6 +97,14 @@ FERET, FERET Color Database https://www.nist.gov/itl/iad/image-group/color-feret
 
 * MSRA-CFW,MSRA,202792 张, 1583人 Data Set of Celebrity Faces on the Web http://research.microsoft.com/en-us/projects/msra-cfw/CASIA 
 
+* MsCelebV1 　MSR IRC是目前世界上规模最大、水平最高的图像识别赛事之一，由MSRA（微软亚洲研究院）图像分析、大数据挖掘研究组组长张磊发起，ms_celeb_1m就是这个比赛的数据集 10M images for 100K celebrities 
+
+https://www.microsoft.com/en-us/research/wp-content/uploads/2016/08/MSCeleb-1M-a.pdf
+
+https://www.msceleb.org/
+
+https://www.microsoft.com/en-us/research/project/ms-celeb-1m-challenge-recognizing-one-million-celebrities-real-world/
+
 * CASIA-WebFace,李子青 Center for Biometrics and Security Research， 500k图片，10k个人 http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.html
 该数据集为中科院自动化所，李子青老师组开源的数据集，包含了10575个人，一共494414张图片，其中有3个人和lfw中的一样。该数据集主要用于人脸识别。图像都是著名电影中crop而出的，每个图片的大小都是250×250，每个类下面都有3张以上的图片，非常适合做人脸识别的训练。需要邮箱申请 
 
@@ -122,10 +131,10 @@ MegaFace资料集包含一百万张图片，代表690000个独特的人。所有
 * VGG Face dataset
 该数据集包含了2622个不同的人，官网提供了每个图片的URL，下载链接：http://www.robots.ox.ac.uk/~vgg/data/vgg_face/
 
-VGGFace2 Dataset
-拓展到了331万图片,9131个人。3.31 million images of 9131 subjects (identities), with an average of 362.6 images for each subject
-
-http://www.robots.ox.ac.uk/~vgg/data/vgg_face2/
+VGGFace2 Dataset 
+3.31 million images of 9131 subjects (identities), with an average of 362.6 images for each subject
+该数据集包含331万个9131个受试者的图像，每个受试者平均有362.6个图像。图像从谷歌图像搜索下载，并在姿势，年龄，照明，种族和职业（例如演员，运动员，政治家）有很大的变化。收集数据集时考虑了三个目标：（i）同时拥有大量身份以及每个身份的大量图像; （ii）涵盖各种姿势，年龄和种族; （iii）尽量减少标签噪音
+http://www.robots.ox.ac.uk/~vgg/data/vgg_face2/ https://arxiv.org/pdf/1710.08092.pdf
 
 
 
