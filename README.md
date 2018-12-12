@@ -147,7 +147,7 @@ ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
 ### AlexNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)  Alex Krizhevsky,  Geoffrey Hinton
 * AlexNet  2012年，Alex Krizhevsky用AlexNet 在当年的ImageNet图像分类竞赛中(ILSVRC 2012)，以top-5错误率15.3%拿下第一。 他的top-5错误率比上一年的冠军下降了十个百分点，而且远远超过当年的第二名。
 
-
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-org.jpg" width="505"></a>
 
   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png" width="505"></a>
 
@@ -162,6 +162,9 @@ ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
 * GoogLeNet  采用InceptionModule和全局平均池化层，构建了一个22层的深度网络,使得很好地控制计算量和参数量的同时（ AlexNet 参数量的1/12），获得了非常好的分类性能.
 它获得2014年ILSVRC挑战赛冠军，将Top5 的错误率降低到6.67%.
 GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
+
+
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet_th.jpeg" width="505"></a>
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/googlenet.png" width="805"></a>
 
@@ -517,8 +520,7 @@ Deformable part models (DPMs)
 基于级联形状回归的方法(Cascaded regression) 2010 
      CPR(Cascaded Pose Regression) 
      ESR https://github.com/soundsilence/FaceAlignment
-     ERT(Ensemble of Regression Trees)  dlib： One Millisecond Face Alignment with an Ensemble of Regression Trees. 
-     https://github.com/davisking/dlib
+     ERT(Ensemble of Regression Trees)  dlib： One Millisecond Face Alignment with an Ensemble of Regression Trees.  http://www.csc.kth.se/~vahidk/papers/KazemiCVPR14.pdf        https://github.com/davisking/dlib
      Face Alignment at 3000 FPS cvpr2013, https://github.com/yulequan/face-alignment-in-3000fps
 
 ![FacePoint](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facepoint.png)
@@ -663,6 +665,10 @@ github：https://github.com/seetaface/SeetaFaceEngine
 
 
 主要在Landmark Detection，Landmark and head pose tracking，Facial Action Unit Recognition等，其中Facial Action Unit Recognition是个比较有意思的点，该项目给出一个脸部的每个AU的回归分数和分类结果。
+
+
+Detect faces with a pre-trained models from dlib or OpenCV.
+Transform the face for the neural network. This repository uses dlib's real-time pose estimation with OpenCV's affine transformation to try to make the eyes and bottom lip appear in the same location on each image.
 
 github：https://github.com/TadasBaltrusaitis/OpenFace
 
