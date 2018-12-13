@@ -124,7 +124,14 @@ ILSVRC2016
 
 CUImage（商汤和港中文），Trimps-Soushen（公安部三所），CUvideo（商汤和港中文），HikVision（海康威视），SenseCUSceneParsing（商汤和香港城市大学），NUIST（南京信息工程大学）包揽了各个项目的冠军。
 
-其中，Trimps-Soushen 以 2.99% 的 Top-5 分类误差率和 7.71% 的定位误差率赢得了 ImageNet 分类任务的胜利。该团队使用了分类模型的集成（即 Inception、Inception-ResNet、ResNet 和宽度残差网络模块 [17] 的平均结果）和基于标注的定位模型 Faster R-CNN [18] 来完成任务。训练数据集有 1000 个类别共计 120 万的图像数据，分割的测试集还包括训练未见过的 10 万张测试图像。
+CUImage（商汤科技和港中文）：目标检测第一；
+Trimps-Soushen（公安部三所）：目标定位第一；
+CUvideo（商汤和港中文）：视频中物体检测子项目第一；
+NUIST（南京信息工程大学）：视频中的物体探测两个子项目第一；
+HikVision（海康威视）：场景分类第一；
+SenseCUSceneParsing（商汤和港中文）：场景分析第一。
+
+其中，Trimps-Soushen 以 2.99% 的 Top-5 分类误差率和 7.71% 的定位误差率赢得了 ImageNet 分类任务的胜利。该团队使用了分类模型的集成（即 Inception、Inception-ResNet、ResNet 和宽度残差网络模块的平均结果）和基于标注的定位模型 Faster R-CNN 来完成任务。训练数据集有 1000 个类别共计 120 万的图像数据，分割的测试集还包括训练未见过的 10 万张测试图像。
 
 ILSVRC 2017
 Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classification 任务的冠军， 2.251% Top-5 错误率
