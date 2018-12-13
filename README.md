@@ -119,12 +119,22 @@ ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
 |Local Response Normalization  |+|+|– |+ |–|
 |Batch Normalization |–|–|– |– |+|
 
+ILSVRC2016
+2016 年的 ILSVRC，来自中国的团队大放异彩：
+
+CUImage（商汤和港中文），Trimps-Soushen（公安部三所），CUvideo（商汤和港中文），HikVision（海康威视），SenseCUSceneParsing（商汤和香港城市大学），NUIST（南京信息工程大学）包揽了各个项目的冠军。
+
+其中，Trimps-Soushen 以 2.99% 的 Top-5 分类误差率和 7.71% 的定位误差率赢得了 ImageNet 分类任务的胜利。该团队使用了分类模型的集成（即 Inception、Inception-ResNet、ResNet 和宽度残差网络模块 [17] 的平均结果）和基于标注的定位模型 Faster R-CNN [18] 来完成任务。训练数据集有 1000 个类别共计 120 万的图像数据，分割的测试集还包括训练未见过的 10 万张测试图像。
+
+ILSVRC 2017
+Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classification 任务的冠军， 2.251% Top-5 错误率
+
 
 ### LeNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)  Yann LeCun
 
 * LeNet  最经典的CNN网络
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet-org.jpg" width="405"> </a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet-org.jpg" width="705"> </a>
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet.png" width="405"> </a>
 
@@ -345,7 +355,7 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 它在结构中增加了一个se模块，通过Squeeze 和 Excitation 的操作，学习自动获取每个特征通道的重要程度，然后依照这个重要程度去提升有用的特征并抑制对当前任务用处不大的特征。
 
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/semodel.jpg" width="605"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/semodule.jpg" width="605"></a>
 
  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/senet.jpg" width="805"></a>
 
