@@ -1,7 +1,7 @@
 
 # SENet( Squeeze-and-Excitation Networks) 
 
-
+paper：Squeeze-and-Excitation Networks  [pdf](https://arxiv.org/pdf/1709.01507.pdf)
 Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classification 任务的冠军， 2.251% Top-5 错误率
 
 它在结构中增加了一个se模块，通过Squeeze 和 Excitation 的操作，学习自动获取每个特征通道的重要程度，然后依照这个重要程度去提升有用的特征并抑制对当前任务用处不大的特征。
