@@ -12,17 +12,12 @@ PolyNet的基本概念
 
 ![polynet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/polynet.png)
 
+
 residual unit: 
+
 一阶： (I+F)∙x=x+F∙x:=x+F(x)(I+F)∙x=x+F∙x:=x+F(x)
+
 二阶：(I+F+F2)∙x:=x+F(x)+F(F(x))
-
-
-
-
-PolyNet 模块详细如图：
-
-![polynetmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/polynet_th.jpg)
-
 
 |名称  |公式 |说明 |
 |:---:|:---:|:---:|
@@ -32,6 +27,18 @@ PolyNet 模块详细如图：
 |poly-3模块	|I+F+F2+F3I+F+F2+F3	|
 |mpoly-3模块	|I+F+GF+HGFI+F+GF+HGF|	
 |3-way模块	|I+F+G+HI+F+G+H	|
+
+PolyNet 模块详细如图：
+
+![polynetmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/polynet_th.jpg)
+
+
+
+整个网络建立在Inception-ResNet-v2的整体结构基础上，对其中的Inception模块进行了改进：
+
+![polynet1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/polynetstruct.png)
+
+
 
 由于结构过于复杂，就不进行绘制，大家可以参考
 
