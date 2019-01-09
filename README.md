@@ -648,16 +648,25 @@ estimation with energy-based models." The Journal of Machine Learning Research 8
 ## face Recognition
 DeepFace是FaceBook提出来的，后续有DeepID和FaceNet出现。DeepFace是第一个真正将大数据和深度神经网络应用于人脸识别和验证的方法，人脸识别精度接近人类水平，可以谓之CNN在人脸识别的奠基之作
 
-
+之后Facenet跳出了分类问题的限制，而是构建了一种框架，通过已有的深度模型，训练一个人脸特征。然后用这个人脸特征来完成人脸识别，人脸验证和人脸聚类。
 
 ### Deep Face
 
+DeepFace 在算法上并没有什么特别的创新，它的改进在于对前面人脸预处理对齐的部分做了精细的调整，结果显示会有一定的帮助，但是也有一些疑问，因为你要用 3D Alignment（对齐），在很多情况下，尤其是极端情况下，可能会失败。
+
+
 DeepFace: Closing the Gap to Human-Level Performance in Face Verification 
+
+![DeepFace1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/deepface.jpg)
+
+![DeepFace2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/deepface.png)
+
+![DeepFacemodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/deepface.png)
 
 
 ### DeepID
 
-DeepFace 还是将人脸作为一个分类问题来解决，而从facenet开始，则是通过设计不同的loss，端对端去学习一个人脸的特征。这个特征 在欧式空间 或者高维空间，能够用距离来代表人脸的相似性。
+DeepID 还是将人脸作为一个分类问题来解决，而从facenet开始，则是通过设计不同的loss，端对端去学习一个人脸的特征。这个特征 在欧式空间 或者高维空间，能够用距离来代表人脸的相似性。
 
 
 ### VGGFace
@@ -684,6 +693,10 @@ Model name          LFW accuracy  Training dataset  Architecture
 Loss的发展：
 文中使用的Loss 是 triplet loss。后来相应的改进有ECCV2016的 center loss，SphereFace，2018年的AMSoftmax和ArchFace（InsightFace），现在效果最好的是ArchFace（InsightFace）。
 
+
+![loss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/arcface.png)
+
+![loss2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface.png)
 
 https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py
 
