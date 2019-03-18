@@ -848,6 +848,11 @@ github：https://github.com/AaronJackson/vrn
 
 https://github.com/YadiraF/PRNet
 
+PRNet 简单来说，就是以前的一张图片三通道是RGB，表达的是二维的图片， 有没有什么方法简单的将三维问题，转换成和现有解决方案相似的问题来处理。作者将一个三维的人脸，投影到x y z 三个平面上，改用xyz作为三个通道，于是 三维的人脸 就可以还是变成三个通道来进行处理。
+简单有效。
+
+PS： 个人用CAS-PEAL-R1数据集测试了作者给的模型，人脸角度偏差在5°以内，胜过其他二维图片68个特征点很多算法的效果。
+
 HPEN High-Fidelity Pose and Expression Normalization for Face Recognition in the Wild
 
 
