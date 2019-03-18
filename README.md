@@ -1189,9 +1189,11 @@ https://zhuanlan.zhihu.com/p/37306349
 -----------------------------------------------------------------------------
 ![ObjectDetection&Seg](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectDetection&Seg.png)
 
+物体分类（物体识别）解决的是这个东西是什么的问题（What）。而物体检测则是要解决这个东西是什么，具体位置在哪里（What and Where）。
+物体分割则将物体和背景进行区分出来，譬如人群，物体分割中的实例分割则将人群中的每个人都分割出来。
+
 ## Object Detection 物体检测
 
-物体分类（物体识别）解决的是这个东西是什么的问题（What）。而物体检测则是要解决这个东西是什么，具体位置在哪里（What and Where）。
 
 Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 
