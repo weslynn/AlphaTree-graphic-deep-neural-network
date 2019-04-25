@@ -426,7 +426,9 @@ https://ai.googleblog.com/2018/08/mnasnet-towards-automating-design-of.html
 |ShuffleNet|2016.06|CVPR2017|Face++|
 |Xception|2016.10|----|Google|
 |MobileNetV2|2018.01|----|Google|
+|ShuffleNet V2|2018.07|ECCV2018|Face++|
 |MnasNet|2018.07|----|Google|
+
 
 ### SqueezeNet
 SqueezeNet：AlexNet-level accuracy with 50x fewer parameters and <0.5MB
@@ -465,6 +467,9 @@ caffe实现：https://github.com/pby5/MobileNet_Caffe
 caffe实现：https://github.com/camel007/Caffe-ShuffleNet
 
 
+shufflenet v2
+
+https://arxiv.org/abs/1807.11164
 
 ### MnasNet
 
@@ -1345,13 +1350,47 @@ SAC-X
 
 ## GAN
 
+生成式对抗网络（GAN, Generative Adversarial Networks ）是近年来深度学习中复杂分布上无监督学习最具前景的方法之一。
+监督学习需要大量标记样本，而GAN不用。
+模型包括两个模块：生成模型（Generative Model）和判别模型（Discriminative Model），通过模型的互相博弈学习产生相当好的输出。原始 GAN 理论中，并不要求 G 和 D 都是神经网络，只需要是能拟合相应生成和判别的函数即可。但实用中一般均使用深度神经网络作为 G 和 D 。
+
+   [1] Ian Goodfellow. "Generative Adversarial Networks." arXiv preprint arXiv:1406.2661v1 (2014). [pdf] (https://arxiv.org/pdf/1406.2661v1.pdf)
+
+和监督学习的的网络结构一样，GAN的发展 也主要包含网络结构性的改进 和loss、参数、权重的改进。我们首先看后者 。
+
+## WGAN /WGAN-GP
+
+在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
+
+为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
+原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
+
+https://zhuanlan.zhihu.com/p/25071913
+
+WGAN 针对loss改进 只改了4点：
+1.判别器最后一层去掉sigmoid
+2.生成器和判别器的loss不取log
+3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
+4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
+
+https://github.com/martinarjovsky/WassersteinGAN
+
+WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
+
+[1704.00028] Improved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
+
+Tensorflow实现：https://github.com/igul222/improved_wgan_training
+
+pytorch https://github.com/caogang/wgan-gp
+
+-----------------------------------------------------------------------------
 
 https://github.com/wiseodd/generative-models
 
 ### info gan
 https://github.com/openai/InfoGAN
 
-GAN - Ian Goodfellow, arXiv:1406.2661v1
+
 
 DCGAN - Alec Radford & Luke Metz, arxiv:1511.06434
 
