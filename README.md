@@ -456,9 +456,9 @@ ShuffleNet_V1与MobileNet_V2上的时间消耗分析
 
 SqueezeNet 的核心在于 Fire module，Fire module 由两层构成，分别是 squeeze 层+expand 层，squeeze 层是一个 1×1 卷积核的卷积层，对上一层 feature map 进行卷积，主要目的是减少 feature map 的维数，expand 层是 1×1 和 3×3 卷积核的卷积层，expand 层中，把 1×1 和 3×3 得到的 feature map 进行 concat。
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/squeeze.png" width="405"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SqueezeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/squeeze.png" width="405"></a>
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SqueezeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/squeezenet.png" width="605"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SqueezeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/squeezenet.png" ></a>
 
 
   [1]AlexNet-level accuracy with 50x fewer parameters and <0.5MB[pdf](https://arxiv.org/pdf/1602.07360.pdf)
@@ -466,6 +466,7 @@ SqueezeNet 的核心在于 Fire module，Fire module 由两层构成，分别是
 
 github链接：
  caffe: https://github.com/DeepScale/SqueezeNet
+
 
 ### MobileNet [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md) Google
 
