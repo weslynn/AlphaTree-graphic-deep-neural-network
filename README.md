@@ -429,22 +429,62 @@ https://ai.googleblog.com/2018/08/mnasnet-towards-automating-design-of.html
 |ShuffleNet V2|2018.07|ECCV2018|Face++|
 |MnasNet|2018.07|----|Google|
 
+ShuffleNet 论文中引用了 SqueezeNet；Xception 论文中引用了 MobileNet
+
+CNN网络时间消耗分析
+
+对于一个卷积层，假设其大小为 h \times w \times c \times n （其中c为#input channel, n为#output channel），输出的feature map尺寸为 H' \times W' ，则该卷积层的
+
+paras = n \times (h \times w \times c + 1)
+FLOPS= H' \times W' \times n \times(h \times w \times c + 1)
+即#FLOPS= H' \times W' \times #paras
+
+但是虽然Conv等计算密集型操作占了其时间的绝大多数，但其它像Elemwise/Data IO等内存读写密集型操作也占了相当比例的时间
+
+
+
+
+
+ShuffleNet_V1与MobileNet_V2上的时间消耗分析
+
+从上图中可看出，因此像以往那样一味以FLOPs来作为指导准则来设计CNN网络是不完备的，虽然它可以反映出占大比例时间的Conv操作。
+                                                                                 --------此处来自shufflenet v2
+
+
 
 ### SqueezeNet
-SqueezeNet：AlexNet-level accuracy with 50x fewer parameters and <0.5MB
 
-SqueezeNet 的核心在于 Fire module，Fire module 由两层构成，分别是 squeeze 层+expand 层，squeeze 层是一个 1×1 卷积核的卷积层，expand 层是 1×1 和 3×3 卷积核的卷积层，expand 层中，把 1×1 和 3×3 得到的 feature map 进行 concat。
+SqueezeNet 的核心在于 Fire module，Fire module 由两层构成，分别是 squeeze 层+expand 层，squeeze 层是一个 1×1 卷积核的卷积层，对上一层 feature map 进行卷积，主要目的是减少 feature map 的维数，expand 层是 1×1 和 3×3 卷积核的卷积层，expand 层中，把 1×1 和 3×3 得到的 feature map 进行 concat。
 
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/squeeze.png" width="405"></a>
+
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SqueezeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/squeezenet.png" width="605"></a>
+
+
+  [1]AlexNet-level accuracy with 50x fewer parameters and <0.5MB[pdf](https://arxiv.org/pdf/1602.07360.pdf)
+
+
+github链接：
+ caffe: https://github.com/DeepScale/SqueezeNet
 
 ### MobileNet [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md) Google
 
 MobileNet 顾名思义，可以用在移动设备上的网络，性能和效率取得了很好平衡。它发展了两个版本，第一个版本基本结构和VGG类似，主要通过 depthwise separable convolution 来减少参数和提升计算速度。 第二代结合了ResNet的特性，提出了一种新的 Inverted Residuals and Linear Bottleneck。性能优于对应的NasNet。
 
+![mobilenetv2_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2_compare.jpg)
+
+
 MobileNet v1：2017，MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
   
+![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv1.jpg)
+
+
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilenet.png" width="805"></a>
 
 MobileNet v2：2018，Inverted Residuals and Linear Bottlenecks: Mobile Networks for Classification, Detection and Segmentation
+
+![mobilenetv2_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2.jpg)
+
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilenetv2.png" width="805"></a>
 
@@ -1269,8 +1309,16 @@ ParseNet
 * Mask R-CNN
    [9] He, Gkioxari, et al. "Mask R-CNN" arXiv preprint arXiv:1703.06870 (2017). [pdf] 
 
+---------------------------------------------------------------------------------
 ## Object Segmentation 物体分割
-
+FCN　
+SegNet
+Dilated Convolutions
+DeepLab (v1 & v2)
+RefineNet
+PSPNet
+Large Kernel Matters
+DeepLab v3
 ### FCN
 [1] J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation.” in CVPR, 2015. [pdf]
 
@@ -1382,6 +1430,10 @@ WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能�
 Tensorflow实现：https://github.com/igul222/improved_wgan_training
 
 pytorch https://github.com/caogang/wgan-gp
+
+
+
+
 
 -----------------------------------------------------------------------------
 
