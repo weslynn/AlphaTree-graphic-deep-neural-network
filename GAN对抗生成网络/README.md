@@ -35,13 +35,14 @@ https://baijiahao.baidu.com/s?id=1615737087826316102&wfr=spider&for=pc
 http://www.heijing.co/almosthuman2014/2018101111561225242
 
 -----------------------------------------------------------------------------
+
+
 和监督学习的的网络结构一样，GAN的发展 也主要包含网络结构性的改进 和loss、参数、权重的改进。我们首先看后者 。
 
 
-------------------------------------------------
 那么问题来了：这么多变体，有什么区别？哪个好用？
 
-于是，Google Brain的几位研究员（不包括原版GAN的爸爸Ian Goodfellow）对各种GAN做一次“中立、多方面、大规模的”评测，得出了一个有点丧的结论：
+于是，Google Brain的几位研究员（不包括原版GAN的爸爸Ian Goodfellow）对各种进行了loss，参数，权重修改的GAN做一次“中立、多方面、大规模的”评测，得出了一个有点丧的结论：
 
 No evidence that any of the tested algorithms consistently outperforms the original one.
 ：
@@ -50,14 +51,15 @@ No evidence that any of the tested algorithms consistently outperforms the origi
 
 http://www.dataguru.cn/article-12637-1.html
 
--------------------------------------------
-这些改进的优点，主要就是让训练变得更简单了。 而不同的模型结构改进，和不同的应用领域，才是GAN大放异彩的地方。
+这些改进是否一无是处呢？当然不是，之前的GAN 训练很难， 而他们的优点，主要就是让训练变得更简单了。 
+
+那对于GAN这种无监督学习的算法，不同的模型结构改进，和不同的应用领域，才是GAN大放异彩的地方。
+
 
 ## LSGAN(Least Squares Generative Adversarial Networks)
 
 
-
-[1611.04076]Mao et al., 2017.4 [pdf](https://arxiv.org/pdf/1611.04076.pdf)
+   [2] Mao et al., 2017.4 [pdf](https://arxiv.org/pdf/1611.04076.pdf)
 
  https://github.com/hwalsuklee/tensorflow-generative-model-collections
  https://github.com/guojunq/lsgan
@@ -68,6 +70,7 @@ http://www.dataguru.cn/article-12637-1.html
 
 ## WGAN /WGAN-GP
 
+WGAN：
 在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
 
 为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
@@ -82,6 +85,8 @@ WGAN 针对loss改进 只改了4点：
 4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
 
 https://github.com/martinarjovsky/WassersteinGAN
+
+WGAN-GP：
 
 WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
 
@@ -99,6 +104,7 @@ pytorch https://github.com/caogang/wgan-gp
 https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 
+----------------------
 模型结构 ： 常见的合成为 数字及人脸。
 
 
@@ -200,6 +206,14 @@ domain-transfer-net
 
 twin—gan
 
+　　5、paGAN：用单幅照片实时生成超逼真动画人物头像
+
+　　最新引起很大反响的“换脸”技术来自华裔教授黎颢的团队，他们开发了一种新的机器学习技术paGAN，能够以每秒1000帧的速度对对人脸进行跟踪，用单幅照片实时生成超逼真动画人像，论文已被SIGGRAPH 2018接收。具体技术细节请看新智元昨天的头条报道。
+
+　　Pinscreen拍摄了《洛杉矶时报》记者David Pierson的一张照片作为输入（左），并制作了他的3D头像（右）。 这个生成的3D人脸通过黎颢的动作（中）生成表情。这个视频是6个月前制作的，Pinscreen团队称其内部早就超越了上述结果。
+
+　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
+
 
 1.3 换脸
 　从Deepfake到HeadOn：换脸技术发展简史
@@ -240,14 +254,8 @@ HeadOn技术的图示HeadOn技术的图示
 
 　　例如，将普通人的脸换成奥巴马的脸。Deep Video Portraits 可以通过一段目标人物的视频（在这里就是奥巴马），来学习构成脸部、眉毛、嘴角和背景等的要素以及它们的运动形式。 
 
-　　5、paGAN：用单幅照片实时生成超逼真动画人物头像
 
-　　最新引起很大反响的“换脸”技术来自华裔教授黎颢的团队，他们开发了一种新的机器学习技术paGAN，能够以每秒1000帧的速度对对人脸进行跟踪，用单幅照片实时生成超逼真动画人像，论文已被SIGGRAPH 2018接收。具体技术细节请看新智元昨天的头条报道。
-
-　　Pinscreen拍摄了《洛杉矶时报》记者David Pierson的一张照片作为输入（左），并制作了他的3D头像（右）。 这个生成的3D人脸通过黎颢的动作（中）生成表情。这个视频是6个月前制作的，Pinscreen团队称其内部早就超越了上述结果。
-
-　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
-
+TL-GAN
 
 Glow
 
