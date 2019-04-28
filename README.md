@@ -427,7 +427,6 @@ https://ai.googleblog.com/2018/08/mnasnet-towards-automating-design-of.html
 |Xception|2016.10|----|Google|
 |MobileNetV2|2018.01|----|Google|
 |ShuffleNet V2|2018.07|ECCV2018|Face++|
-|MorphNet|2018.04|----|Google|
 |MnasNet|2018.07|----|Google|
 
 ShuffleNet 论文中引用了 SqueezeNet；Xception 论文中引用了 MobileNet
@@ -512,17 +511,6 @@ caffe实现：https://github.com/camel007/Caffe-ShuffleNet
 shufflenet v2
 
 https://arxiv.org/abs/1807.11164
-
-### MorphNet
-
-NasNet和 AdaNet 等方法会通过搜索从零开始设计一个网络，但是考虑到搜索需要的计算资源和时间，成本太昂贵的。如何利用现有架构来进行优化，
-谷歌研究人员提出一种神经网络模型改进的复杂方法 MorphNet。
-MorphNet: Fast & Simple Resource-Constrained Structure Learning of Deep Networks，
-MorphNet 将现有神经网络作为输入，为新问题生成规模更小、速度更快、性能更好的新神经网络。
-
-https://github.com/google-research/morph-net
-
-MorphNet 通过收缩和扩展阶段的循环来优化神经网络。在收缩阶段，MorphNet 通过稀疏性正则化项（sparsifying regularizer）识别出效率低的神经元，并将它们从网络中去除，因而该网络的总损失函数包含每一神经元的成本。但是对于所有神经元，MorphNet 没有采用统一的成本度量，而是计算神经元相对于目标资源的成本。随着训练的继续进行，优化器在计算梯度时是了解资源成本信息的，从而得知哪些神经元的资源效率高，哪些神经元可以去除。
 
 ### MnasNet
 
