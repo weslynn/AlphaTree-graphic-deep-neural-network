@@ -15,12 +15,16 @@ GAN的目标,就是G生成的数据在D看来，和真实数据误差越小越�
 
 从数据分布来说，就是开始的噪声noise，在G不断修正后，产生的分布，和目标数据分布达到一致：
 
-![data](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gan/data.png)
+![data](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/data.png)
 
 
    [1] Ian Goodfellow. "Generative Adversarial Networks." arXiv preprint arXiv:1406.2661v1 (2014). [pdf] (https://arxiv.org/pdf/1406.2661v1.pdf)
 
    http://www.iangoodfellow.com/
+
+
+
+![human](https://github.com/weslynn/graphic-deep-neural-network/blob/master/famous/goodfellow.jpg)
 
 -----------------------------------------------------------------------------
 “酒后脑洞”的故事…
@@ -136,9 +140,15 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 
 ## ACGAN
-辅助分类器GAN(ACGAN)
-为了提供更多的辅助信息并允许半监督学习，可以向判别器添加额外的辅助分类器，以便在原始任务以及附加任务上优化模型。这种方法的体系结构如下图所示，其中C是辅助分类器。 添加辅助分类器允许我们使用预先训练的模型（例如，在ImageNet上训练的图像分类器），并且在ACGAN [7]中的实验证明这种方法可以帮助生成更清晰的图像以及减轻模式崩溃问题。 使用辅助分类器还可以应用在文本到图像合成和图像到图像的转换。
 
+为了提供更多的辅助信息并允许半监督学习，可以向判别器添加额外的辅助分类器，以便在原始任务以及附加任务上优化模型。
+
+和CGAN不同的是，C不直接输入D。D不仅需要判断每个样本的真假，还需要完成一个分类任务即预测C
+
+
+添加辅助分类器允许我们使用预先训练的模型（例如，在ImageNet上训练的图像分类器），并且在ACGAN中的实验证明这种方法可以帮助生成更清晰的图像以及减轻模式崩溃问题。 使用辅助分类器还可以应用在文本到图像合成和图像到图像的转换。
+
+![acgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/acgan.png)
 
 gan
 
