@@ -4,6 +4,20 @@
 监督学习需要大量标记样本，而GAN不用。
 模型包括两个模块：生成模型（Generative Model）和判别模型（Discriminative Model），通过模型的互相博弈学习产生相当好的输出。原始 GAN 理论中，并不要求 G 和 D 都是神经网络，只需要是能拟合相应生成和判别的函数即可。但实用中一般均使用深度神经网络作为 G 和 D 。
 
+
+![basic](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/basic.png)
+
+GAN的目标,就是G生成的数据在D看来，和真实数据误差越小越好，目标函数如下：
+
+![basictarget](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/basictarget.png)
+
+从判别器 D 的角度看，它希望自己能尽可能区分真实样本和虚假样本，因此希望 D(x) 尽可能大，D(G(z)) 尽可能小， 即 V(D,G)尽可能大。从生成器 G 的角度看，它希望自己尽可能骗过 D，也就是希望 D(G(z)) 尽可能大，即 V(D,G) 尽可能小。两个模型相对抗，最后达到全局最优。
+
+从数据分布来说，就是开始的噪声noise，在G不断修正后，产生的分布，和目标数据分布达到一致：
+
+![data](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gan/data.png)
+
+
    [1] Ian Goodfellow. "Generative Adversarial Networks." arXiv preprint arXiv:1406.2661v1 (2014). [pdf] (https://arxiv.org/pdf/1406.2661v1.pdf)
 
    http://www.iangoodfellow.com/
@@ -97,7 +111,8 @@ Tensorflow实现：https://github.com/igul222/improved_wgan_training
 pytorch https://github.com/caogang/wgan-gp
 
 
-
+## DRAGAN
+结合了WGAN和LSGAN两部分
 
 参考 ：
 
@@ -105,8 +120,24 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 
 ----------------------
-模型结构 ： 常见的合成为 数字及人脸。
+模型结构的发展：
 
+![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
+
+
+## CGAN
+
+[1411.1784]Mirza M, Osindero S,Conditional Generative Adversarial Nets [pdf](https://arxiv.org/pdf/1411.1784.pdf) 
+
+通过GAN可以生成想要的样本，譬如生成数字，但是如果我们想指定生成的样本呢？譬如指定生成1，或者2，就可以通过指定C condition来完成。
+
+
+![cgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/cgan.png)
+
+
+## ACGAN
+辅助分类器GAN(ACGAN)
+为了提供更多的辅助信息并允许半监督学习，可以向判别器添加额外的辅助分类器，以便在原始任务以及附加任务上优化模型。这种方法的体系结构如下图所示，其中C是辅助分类器。 添加辅助分类器允许我们使用预先训练的模型（例如，在ImageNet上训练的图像分类器），并且在ACGAN [7]中的实验证明这种方法可以帮助生成更清晰的图像以及减轻模式崩溃问题。 使用辅助分类器还可以应用在文本到图像合成和图像到图像的转换。
 
 
 gan
