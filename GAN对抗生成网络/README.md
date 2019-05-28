@@ -61,6 +61,51 @@ Avinash Hindupur建了一个GAN Zoo，他的“动物园”里目前已经收集
 主要是2014-2018年之间的GAN。
 https://github.com/hindupuravinash/the-gan-zoo
 
+那么问题来了：这么多变体，有什么区别？哪个好用？
+
+于是，Google Brain的几位研究员（不包括原版GAN的爸爸Ian Goodfellow）对各种进行了loss，参数，权重修改的GAN做一次“中立、多方面、大规模的”评测。
+在此项研究中，Google此项研究中使用了minimax损失函数和用non-saturating损失函数的GAN，分别简称为MM GAN和NS GAN，对比了WGAN、WGAN GP、LS GAN、DRAGAN、BEGAN，除了DRAGAN上文都做了介绍，另外还对比的有VAE（变分自编码器）。为了很好的说明问题，研究者们两个指标来对比了实验结果，分别是FID和精度（precision、）、召回率（recall）以及两者的平均数F1。
+
+其中FID（Fréchet distance(弗雷歇距离) ）是法国数学家Maurice René Fréchet在1906年提出的一种路径空间相似形描述，直观来说是狗绳距离：主人走路径A，狗走路径B，各自走完这两条路径过程中所需要的最短狗绳长度，所以说，FID与生成图像的质量呈负相关。
+
+为了更容易说明对比的结果，研究者们自制了一个类似mnist的数据集，数据集中都是灰度图，图像中的目标是不同形状的三角形。
+
+最后，他们得出了一个有点丧的结论：
+
+No evidence that any of the tested algorithms consistently outperforms the original one.
+：
+
+都差不多……都跟原版差不多……
+
+
+Are GANs Created Equal? A Large-Scale Study
+Mario Lucic, Karol Kurach, Marcin Michalski, Sylvain Gelly, Olivier Bousquet
+https://arxiv.org/abs/1711.10337
+
+
+http://www.dataguru.cn/article-12637-1.html
+
+这些改进是否一无是处呢？当然不是，之前的GAN 训练很难， 而他们的优点，主要就是让训练变得更简单了。 
+
+那对于GAN这种无监督学习的算法，不同的模型结构改进，和不同的应用领域，才是GAN大放异彩的地方。
+
+
+此外，谷歌大脑发布了一篇全面梳理 GAN 的论文，该研究从损失函数、对抗架构、正则化、归一化和度量方法等几大方向整理生成对抗网络的特性与变体。
+作者们复现了当前最佳的模型并公平地对比与探索 GAN 的整个研究图景，此外研究者在 TensorFlow Hub 和 GitHub 也分别提供了预训练模型与对比结果。
+https://arxiv.org/pdf/1807.04720.pdf
+
+原名：The GAN Landscape: Losses, Architectures, Regularization, and Normalization
+
+现名：A Large-Scale Study on Regularization and Normalization in GANs
+
+Github：http://www.github.com/google/compare_gan
+
+TensorFlow Hub：http://www.tensorflow.org/hub
+
+翻译 参见 http://www.sohu.com/a/241299306_129720
+
+
+----------------------------------------------
 
 首先 我们来看看GAN 基本结构的一些探索：
 
@@ -151,53 +196,18 @@ InfoGAN: Interpretable Representation Learning by Information Maximizing Generat
 https://arxiv.org/abs/1606.03657
 
 https://github.com/openai/InfoGAN
+
+
 ----------------------
 
 然后看看 loss、参数、权重的改进：
 
+Level 1: Improvements of GANs training
 
-那么问题来了：这么多变体，有什么区别？哪个好用？
-
-于是，Google Brain的几位研究员（不包括原版GAN的爸爸Ian Goodfellow）对各种进行了loss，参数，权重修改的GAN做一次“中立、多方面、大规模的”评测。
-在此项研究中，Google此项研究中使用了minimax损失函数和用non-saturating损失函数的GAN，分别简称为MM GAN和NS GAN，对比了WGAN、WGAN GP、LS GAN、DRAGAN、BEGAN，除了DRAGAN上文都做了介绍，另外还对比的有VAE（变分自编码器）。为了很好的说明问题，研究者们两个指标来对比了实验结果，分别是FID和精度（precision、）、召回率（recall）以及两者的平均数F1。
-
-其中FID（Fréchet distance(弗雷歇距离) ）是法国数学家Maurice René Fréchet在1906年提出的一种路径空间相似形描述，直观来说是狗绳距离：主人走路径A，狗走路径B，各自走完这两条路径过程中所需要的最短狗绳长度，所以说，FID与生成图像的质量呈负相关。
-
-为了更容易说明对比的结果，研究者们自制了一个类似mnist的数据集，数据集中都是灰度图，图像中的目标是不同形状的三角形。
-
-最后，他们得出了一个有点丧的结论：
-
-No evidence that any of the tested algorithms consistently outperforms the original one.
-：
-
-都差不多……都跟原版差不多……
-
-
-Are GANs Created Equal? A Large-Scale Study
-Mario Lucic, Karol Kurach, Marcin Michalski, Sylvain Gelly, Olivier Bousquet
-https://arxiv.org/abs/1711.10337
-
-
-http://www.dataguru.cn/article-12637-1.html
-
-这些改进是否一无是处呢？当然不是，之前的GAN 训练很难， 而他们的优点，主要就是让训练变得更简单了。 
-
-那对于GAN这种无监督学习的算法，不同的模型结构改进，和不同的应用领域，才是GAN大放异彩的地方。
-
-
-此外，谷歌大脑发布了一篇全面梳理 GAN 的论文，该研究从损失函数、对抗架构、正则化、归一化和度量方法等几大方向整理生成对抗网络的特性与变体。
-作者们复现了当前最佳的模型并公平地对比与探索 GAN 的整个研究图景，此外研究者在 TensorFlow Hub 和 GitHub 也分别提供了预训练模型与对比结果。
-https://arxiv.org/pdf/1807.04720.pdf
-
-原名：The GAN Landscape: Losses, Architectures, Regularization, and Normalization
-
-现名：A Large-Scale Study on Regularization and Normalization in GANs
-
-Github：http://www.github.com/google/compare_gan
-
-TensorFlow Hub：http://www.tensorflow.org/hub
-
-翻译 参见 http://www.sohu.com/a/241299306_129720
+|Beginner	|LSGAN : Least Squares Generative Adversarial Networks	|Mao & et al.|	ICCV 2017|[link](https://ieeexplore.ieee.org/document/8237566)|	
+|Advanced	|Improved Techniques for Training GANs	|Salimans & et al.|	NeurIPS (NIPS) 2016	|[link](https://ceit.aut.ac.ir/http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf)|	
+|Advanced	|WGAN : Wasserstein GAN	|Arjovsky & et al.|	ICML 2017|[link](http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf)|
+|Advanced	|Certifying Some Distributional Robustness with Principled Adversarial Training	|Sinha & et al.|ICML 2018|[link](https://arxiv.org/pdf/1710.10571.pdf) [code](https://github.com/duchi-lab/certifiable-distributional-robustness)|
 
 Loss Functions:
 
