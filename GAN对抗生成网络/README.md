@@ -22,7 +22,7 @@ GAN的目标,就是G生成的数据在D看来，和真实数据误差越小越�
 
    http://www.iangoodfellow.com/
 
-
+https://github.com/goodfeli/adversarial
 
 ![human](https://github.com/weslynn/graphic-deep-neural-network/blob/master/famous/goodfellow.jpg)
 
@@ -62,102 +62,19 @@ Avinash Hindupur建了一个GAN Zoo，他的“动物园”里目前已经收集
 https://github.com/hindupuravinash/the-gan-zoo
 
 
-
-先看 loss、参数、权重的改进：
-
-
-那么问题来了：这么多变体，有什么区别？哪个好用？
-
-于是，Google Brain的几位研究员（不包括原版GAN的爸爸Ian Goodfellow）对各种进行了loss，参数，权重修改的GAN做一次“中立、多方面、大规模的”评测，得出了一个有点丧的结论：
-
-No evidence that any of the tested algorithms consistently outperforms the original one.
-：
-
-都差不多……都跟原版差不多……
-
-Are GANs Created Equal? A Large-Scale Study
-Mario Lucic, Karol Kurach, Marcin Michalski, Sylvain Gelly, Olivier Bousquet
-https://arxiv.org/abs/1711.10337
+首先 我们来看看GAN 基本结构的一些探索：
 
 
-http://www.dataguru.cn/article-12637-1.html
-
-这些改进是否一无是处呢？当然不是，之前的GAN 训练很难， 而他们的优点，主要就是让训练变得更简单了。 
-
-那对于GAN这种无监督学习的算法，不同的模型结构改进，和不同的应用领域，才是GAN大放异彩的地方。
+Level 0: Definition of GANs
 
 
-此外，谷歌大脑发布了一篇全面梳理 GAN 的论文，该研究从损失函数、对抗架构、正则化、归一化和度量方法等几大方向整理生成对抗网络的特性与变体。
-作者们复现了当前最佳的模型并公平地对比与探索 GAN 的整个研究图景，此外研究者在 TensorFlow Hub 和 GitHub 也分别提供了预训练模型与对比结果。
-https://arxiv.org/pdf/1807.04720.pdf
 
-原名：The GAN Landscape: Losses, Architectures, Regularization, and Normalization
+Level|	Title|	Co-authors|	Publication|	Links
+Beginner|	GAN : Generative Adversarial Nets|	Goodfellow & et al.|	NeurIPS (NIPS) 2014	|[link](https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf) 
+Beginner|	GAN : Generative Adversarial Nets (Tutorial)|	Goodfellow & et al.|	NeurIPS (NIPS) 2016 Tutorial|	[link](https://arxiv.org/pdf/1701.00160.pdf)
+Beginner|	CGAN : Conditional Generative Adversarial Nets|	Mirza & et al.|	-- 2014	|[link](https://gist.github.com/shagunsodhani/5d726334de3014defeeb701099a3b4b3) 
+Beginner|	InfoGAN : Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets|	Chen & et al.|	NeuroIPS (NIPS) 2016	|
 
-现名：A Large-Scale Study on Regularization and Normalization in GANs
-
-Github：http://www.github.com/google/compare_gan
-
-TensorFlow Hub：http://www.tensorflow.org/hub
-
-翻译 参见 http://www.sohu.com/a/241299306_129720
-
-Loss Functions:
-
-## LSGAN(Least Squares Generative Adversarial Networks)
-
-
-   [2] Mao et al., 2017.4 [pdf](https://arxiv.org/pdf/1611.04076.pdf)
-
- https://github.com/hwalsuklee/tensorflow-generative-model-collections
- https://github.com/guojunq/lsgan
-
-用了最小二乘损失函数代替了GAN的损失函数,缓解了GAN训练不稳定和生成图像质量差多样性不足的问题。
-
-但缺点也是明显的, LSGAN对离离群点的过度惩罚, 可能导致样本生成的'多样性'降低, 生成样本很可能只是对真实样本的简单模仿和细微改动.
-
-## WGAN /WGAN-GP
-
-WGAN：
-在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
-
-为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
-原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
-
-https://zhuanlan.zhihu.com/p/25071913
-
-WGAN 针对loss改进 只改了4点：
-1.判别器最后一层去掉sigmoid
-2.生成器和判别器的loss不取log
-3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
-4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
-
-https://github.com/martinarjovsky/WassersteinGAN
-
-
-Regularization and Normalization of the Discriminator:
-
-![wgangp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/wgangp.png)
-
-WGAN-GP：
-
-WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
-
-[1704.00028] Gulrajani et al., 2017,mproved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
-
-Tensorflow实现：https://github.com/igul222/improved_wgan_training
-
-pytorch https://github.com/caogang/wgan-gp
-
-
-## DRAGAN
-结合了WGAN和LSGAN两部分
-
-参考 ：
-
-https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
-
-
-----------------------
 模型结构的发展：
 
 ![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
@@ -179,7 +96,7 @@ InfoGan 找到了Gan的latent code 使得Gan的数据生成具有了可解释性
 
 但是如果我们想指定生成的样本呢？譬如指定生成1，或者2，就可以通过指定C condition来完成。
 
-
+https://github.com/znxlwm/tensorflow-MNIST-cGAN-cDCGAN
 ![cgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/cgan.png)
 
 应用方向 数字生成， 图像自动标注等
@@ -229,8 +146,120 @@ InfoGAN: Interpretable Representation Learning by Information Maximizing Generat
 ![info](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/infogan.png)
 
 
+https://arxiv.org/abs/1606.03657
+
+https://github.com/openai/InfoGAN
+----------------------
+
+然后看看 loss、参数、权重的改进：
+
+
+那么问题来了：这么多变体，有什么区别？哪个好用？
+
+于是，Google Brain的几位研究员（不包括原版GAN的爸爸Ian Goodfellow）对各种进行了loss，参数，权重修改的GAN做一次“中立、多方面、大规模的”评测。
+在此项研究中，Google此项研究中使用了minimax损失函数和用non-saturating损失函数的GAN，分别简称为MM GAN和NS GAN，对比了WGAN、WGAN GP、LS GAN、DRAGAN、BEGAN，除了DRAGAN上文都做了介绍，另外还对比的有VAE（变分自编码器）。为了很好的说明问题，研究者们两个指标来对比了实验结果，分别是FID和精度（precision、）、召回率（recall）以及两者的平均数F1。
+
+其中FID（Fréchet distance(弗雷歇距离) ）是法国数学家Maurice René Fréchet在1906年提出的一种路径空间相似形描述，直观来说是狗绳距离：主人走路径A，狗走路径B，各自走完这两条路径过程中所需要的最短狗绳长度，所以说，FID与生成图像的质量呈负相关。
+
+为了更容易说明对比的结果，研究者们自制了一个类似mnist的数据集，数据集中都是灰度图，图像中的目标是不同形状的三角形。
+
+最后，他们得出了一个有点丧的结论：
+
+No evidence that any of the tested algorithms consistently outperforms the original one.
+：
+
+都差不多……都跟原版差不多……
+
+
+Are GANs Created Equal? A Large-Scale Study
+Mario Lucic, Karol Kurach, Marcin Michalski, Sylvain Gelly, Olivier Bousquet
+https://arxiv.org/abs/1711.10337
+
+
+http://www.dataguru.cn/article-12637-1.html
+
+这些改进是否一无是处呢？当然不是，之前的GAN 训练很难， 而他们的优点，主要就是让训练变得更简单了。 
+
+那对于GAN这种无监督学习的算法，不同的模型结构改进，和不同的应用领域，才是GAN大放异彩的地方。
+
+
+此外，谷歌大脑发布了一篇全面梳理 GAN 的论文，该研究从损失函数、对抗架构、正则化、归一化和度量方法等几大方向整理生成对抗网络的特性与变体。
+作者们复现了当前最佳的模型并公平地对比与探索 GAN 的整个研究图景，此外研究者在 TensorFlow Hub 和 GitHub 也分别提供了预训练模型与对比结果。
+https://arxiv.org/pdf/1807.04720.pdf
+
+原名：The GAN Landscape: Losses, Architectures, Regularization, and Normalization
+
+现名：A Large-Scale Study on Regularization and Normalization in GANs
+
+Github：http://www.github.com/google/compare_gan
+
+TensorFlow Hub：http://www.tensorflow.org/hub
+
+翻译 参见 http://www.sohu.com/a/241299306_129720
+
+Loss Functions:
+
+## LSGAN(Least Squares Generative Adversarial Networks)
+
+
+   [2] Mao et al., 2017.4 [pdf](https://arxiv.org/pdf/1611.04076.pdf)
+
+ https://github.com/hwalsuklee/tensorflow-generative-model-collections
+ https://github.com/guojunq/lsgan
+
+用了最小二乘损失函数代替了GAN的损失函数,缓解了GAN训练不稳定和生成图像质量差多样性不足的问题。
+
+但缺点也是明显的, LSGAN对离离群点的过度惩罚, 可能导致样本生成的'多样性'降低, 生成样本很可能只是对真实样本的简单模仿和细微改动.
+
+## WGAN
+
+WGAN：
+在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
+
+为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
+原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
+
+https://zhuanlan.zhihu.com/p/25071913
+
+WGAN 针对loss改进 只改了4点：
+1.判别器最后一层去掉sigmoid
+2.生成器和判别器的loss不取log
+3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
+4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
+
+https://github.com/martinarjovsky/WassersteinGAN
+
+## WGAN-GP
+Regularization and Normalization of the Discriminator:
+
+![wgangp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/wgangp.png)
+
+WGAN-GP：
+
+WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
+
+[1704.00028] Gulrajani et al., 2017,mproved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
+
+Tensorflow实现：https://github.com/igul222/improved_wgan_training
+
+pytorch https://github.com/caogang/wgan-gp
+
+
+## DRAGAN
+结合了WGAN和LSGAN两部分
+
+参考 ：
+
+https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
+
 
 ----------------------
+
+## DCGAN
+
+
+## Pix2Pix
+
 ## CycleGan /DiscoGan /DualGan
 
 
@@ -824,3 +853,7 @@ https://github.com/nyoki-mtl/pytorch-EverybodyDanceNow
 
 
 http://www.sohu.com/a/294911565_100024677
+
+
+
+https://ceit.aut.ac.ir/~khalooei/tutorials/gan/
