@@ -55,7 +55,15 @@ http://www.heijing.co/almosthuman2014/2018101111561225242
 -----------------------------------------------------------------------------
 
 
-和监督学习的的网络结构一样，GAN的发展 也主要包含网络结构性的改进 和loss、参数、权重的改进。我们首先看后者 。
+和监督学习的的网络结构一样，GAN的发展 也主要包含网络结构性的改进 和loss、参数、权重的改进。
+
+Avinash Hindupur建了一个GAN Zoo，他的“动物园”里目前已经收集了近500种有名有姓的GAN。
+主要是2014-2018年之间的GAN。
+https://github.com/hindupuravinash/the-gan-zoo
+
+
+
+先看 loss、参数、权重的改进：
 
 
 那么问题来了：这么多变体，有什么区别？哪个好用？
@@ -67,12 +75,33 @@ No evidence that any of the tested algorithms consistently outperforms the origi
 
 都差不多……都跟原版差不多……
 
+Are GANs Created Equal? A Large-Scale Study
+Mario Lucic, Karol Kurach, Marcin Michalski, Sylvain Gelly, Olivier Bousquet
+https://arxiv.org/abs/1711.10337
+
+
 http://www.dataguru.cn/article-12637-1.html
 
 这些改进是否一无是处呢？当然不是，之前的GAN 训练很难， 而他们的优点，主要就是让训练变得更简单了。 
 
 那对于GAN这种无监督学习的算法，不同的模型结构改进，和不同的应用领域，才是GAN大放异彩的地方。
 
+
+此外，谷歌大脑发布了一篇全面梳理 GAN 的论文，该研究从损失函数、对抗架构、正则化、归一化和度量方法等几大方向整理生成对抗网络的特性与变体。
+作者们复现了当前最佳的模型并公平地对比与探索 GAN 的整个研究图景，此外研究者在 TensorFlow Hub 和 GitHub 也分别提供了预训练模型与对比结果。
+https://arxiv.org/pdf/1807.04720.pdf
+
+原名：The GAN Landscape: Losses, Architectures, Regularization, and Normalization
+
+现名：A Large-Scale Study on Regularization and Normalization in GANs
+
+Github：http://www.github.com/google/compare_gan
+
+TensorFlow Hub：http://www.tensorflow.org/hub
+
+翻译 参见 http://www.sohu.com/a/241299306_129720
+
+Loss Functions:
 
 ## LSGAN(Least Squares Generative Adversarial Networks)
 
@@ -104,6 +133,11 @@ WGAN 针对loss改进 只改了4点：
 
 https://github.com/martinarjovsky/WassersteinGAN
 
+
+Regularization and Normalization of the Discriminator:
+
+![wgangp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/wgangp.png)
+
 WGAN-GP：
 
 WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
@@ -128,16 +162,27 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 ![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
 
+首先看基本结构上的改进。
+
+在标准的GAN中，生成数据的来源一般是一段连续单一的噪声z, 在半监督式学习中，会加入c的class 分类。
+
+InfoGan 找到了Gan的latent code 使得Gan的数据生成具有了可解释性
+
+半监督式学习： 
+一个生成器与一个判别器：
 
 ## CGAN
 
 [1411.1784]Mirza M, Osindero S,Conditional Generative Adversarial Nets [pdf](https://arxiv.org/pdf/1411.1784.pdf) 
 
-通过GAN可以生成想要的样本，譬如生成数字，但是如果我们想指定生成的样本呢？譬如指定生成1，或者2，就可以通过指定C condition来完成。
+通过GAN可以生成想要的样本，以MNIST手写数字集为例，可以任意生成0-9的数字。
+
+但是如果我们想指定生成的样本呢？譬如指定生成1，或者2，就可以通过指定C condition来完成。
 
 
 ![cgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/cgan.png)
 
+应用方向 数字生成， 图像自动标注等
 
 ## ACGAN
 
@@ -149,6 +194,46 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 添加辅助分类器允许我们使用预先训练的模型（例如，在ImageNet上训练的图像分类器），并且在ACGAN中的实验证明这种方法可以帮助生成更清晰的图像以及减轻模式崩溃问题。 使用辅助分类器还可以应用在文本到图像合成和图像到图像的转换。
 
 ![acgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/acgan.png)
+
+
+## SemiGan /SSGAN  Goodfellow
+
+Salimans, Tim, et al. “Improved techniques for training gans.” Advances in Neural Information Processing Systems. 2016.
+
+
+![ssgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/semi.png)
+
+
+
+Theano+Lasagne https://github.com/openai/improved-gan
+
+tf: https://github.com/gitlimlab/SSGAN-Tensorflow
+
+https://blog.csdn.net/shenxiaolu1984/article/details/75736407
+
+
+----------------------
+## InfoGan
+
+提出了latent code。
+
+单一的噪声z，使得人们无法通过控制z的某些维度来控制生成数据的语义特征，也就是说，z是不可解释的。
+
+以MNIST手写数字集为例，每个数字可以分解成多个维度特征：数字的类别、倾斜度、粗细度等等，在标准GAN的框架下，是无法在维度上具体指定生成什么样的数字。但是Info Gan 通过latent code的设定成功让网络学习到了可解释的特征表示（interpretable representation）
+
+把原来的噪声z分解成两部分：一是原来的z；二是由若干个latent variables拼接而成的latent code c，这些latent variables会有一个先验的概率分布，且可以是离散的或连续的，用于代表生成数据的不同特征维度，如数字类别（离散），倾斜度（连续），粗细度（连续）等。通过找到对信息影响最大的c，来得到数据中最重要的特征。
+
+
+InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets，NIPS 2016。
+
+![info](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/infogan.png)
+
+
+
+----------------------
+## CycleGan /DiscoGan /DualGan
+
+
 
 gan
 
