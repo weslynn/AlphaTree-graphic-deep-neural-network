@@ -71,11 +71,12 @@ Level 0: Definition of GANs
 
 |Level|	Title|	Co-authors|	Publication|	Links|
 |:---:|:---:|:---:|:---:|:---:|
-
 |Beginner|	GAN : Generative Adversarial Nets|	Goodfellow & et al.|	NeurIPS (NIPS) 2014	|[link](https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf) |
 |Beginner|	GAN : Generative Adversarial Nets (Tutorial)|	Goodfellow & et al.|	NeurIPS (NIPS) 2016 Tutorial|	[link](https://arxiv.org/pdf/1701.00160.pdf)|
 |Beginner|	CGAN : Conditional Generative Adversarial Nets|	Mirza & et al.|	-- 2014	|[link](https://gist.github.com/shagunsodhani/5d726334de3014defeeb701099a3b4b3) |
 |Beginner|	InfoGAN : Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets|	Chen & et al.|	NeuroIPS (NIPS) 2016	||
+
+
 模型结构的发展：
 
 ![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
