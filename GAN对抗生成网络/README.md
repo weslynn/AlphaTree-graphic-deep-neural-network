@@ -106,11 +106,10 @@ TensorFlow Hub：http://www.tensorflow.org/hub
 
 
 ----------------------------------------------
+参考Mohammad KHalooei的教程，我也将GAN分为4个level，第四个level将按照应用层面进行拓展。 
 
-首先 我们来看看GAN 基本结构的一些探索：
 
-
-Level 0: Definition of GANs
+# Level 0: Definition of GANs
 
 
 
@@ -200,10 +199,13 @@ https://github.com/openai/InfoGAN
 
 ----------------------
 
+
+# Level 1: Improvements of GANs training
+
 然后看看 loss、参数、权重的改进：
 
-Level 1: Improvements of GANs training
-
+|Level|	Title|	Co-authors|	Publication|	Links|
+|:---:|:---:|:---:|:---:|:---:|
 |Beginner	|LSGAN : Least Squares Generative Adversarial Networks	|Mao & et al.|	ICCV 2017|[link](https://ieeexplore.ieee.org/document/8237566)|	
 |Advanced	|Improved Techniques for Training GANs	|Salimans & et al.|	NeurIPS (NIPS) 2016	|[link](https://ceit.aut.ac.ir/http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf)|	
 |Advanced	|WGAN : Wasserstein GAN	|Arjovsky & et al.|	ICML 2017|[link](http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf)|
@@ -267,10 +269,79 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 ----------------------
 
+# Level 2: Implementation skill
+
+GAN的实现
+
+|Title|	Co-authors|	Publication|	Links|
+|:---:|:---:|:---:|:---:|
+Keras Implementation of GANs	Linder-Norén	Github	
+GAN implementation hacks	Salimans paper & Chintala	World research	
+DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks	Radford & et al.	ICLR 2016	
+IcGAN: Invertible Conditional GANs for image editing	Arjovsky & et al.	NIPS 2016	
+
+
 ## DCGAN
 
 
+
+
+
+
+
+# Level 4: GANs Applications
+
+
+
+Title	Co-authors	Publication	Links
+CycleGAN: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks	Zhu & Park & et al.	ICCV 2017	
+IcGAN: Invertible Conditional GANs for image editing	Arjovsky & et al.	NIPS 2016	
+Generative Adversarial Text to Image Synthesis	Reed & et al.	ICML 2016	
+StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks	Zhang & et al.	ICCV 2017	
+Conditional Generative Adversarial Networks for Speech Enhancement and Noise-Robust Speaker Verification	Michelsanti & Tan	Interspeech 2017	
+Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network	Ledig & et al.	CVPR 2017	
+SalGAN: Visual Saliency Prediction with Generative Adversarial Networks	Pan & et al.	CVPR 2017	
+SAGAN: Self-Attention Generative Adversarial Networks	Zhang & et al.	NIPS 2018	
+Speaker Adaptation for High Fidelity WaveNet Vocoder with GAN	Tian & et al.	arXiv Nov 2018	
+MTGAN: Speaker Verification through Multitasking Triplet Generative Adversarial Networks	Ding & et al.	arXiv Mar 2018	
+Adversarial Learning and Augmentation for Speaker Recognition	Zhang & et al.	Speaker Odyssey 2018 / ISCA 2018	
+Investigating Generative Adversarial Networks based Speech Dereverberation for Robust Speech Recognition	Wang & et al.	Interspeech 2018	
+On Enhancing Speech Emotion Recognition using Generative Adversarial Networks	Sahu & et al.	Interspeech 2018	
+Robust Speech Recognition Using Generative Adversarial Networks	Sriram & et al.	ICASSP 2018	
+Adversarially Learned One-Class Classifier for Novelty Detection	Sabokrou & khalooei & et al.	CVPR 2018	
+Generalizing to Unseen Domains via Adversarial Data Augmentation	Volpi & et al.	NeurIPS (NIPS) 2018	
+Generative Adversarial Networks for Unpaired Voice Transformation on Impaired Speech	Chen & lee & et al.	Submitted on ICASSP 2019	
+Generative Adversarial Speaker Embedding Networks for Domain Robust End-to-End Speaker Verification	Bhattacharya & et al.	Submitted on ICASSP 2019	
+
+
+----------------
+
+图像翻译
+
+
+
 ## Pix2Pix
+
+论文：
+
+Image-to-Image Translation with Conditional Adversarial Networks
+
+https://arxiv.org/pdf/1611.07004v1.pdf
+
+ 
+
+代码：
+
+官方project：https://phillipi.github.io/pix2pix/
+
+官方torch代码：https://github.com/phillipi/pix2pix
+
+官方pytorch代码（CycleGAN、pix2pix）：https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+
+第三方的tensorflow版本：https://github.com/yenchenlin/pix2pix-tensorflow
+
+
+
 
 ## CycleGan /DiscoGan /DualGan
 
