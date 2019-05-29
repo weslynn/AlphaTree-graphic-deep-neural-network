@@ -1,3 +1,6 @@
+# GAN 生成式对抗网络
+
+
 ## GAN
 
 生成式对抗网络（GAN, Generative Adversarial Networks ）是近年来深度学习中复杂分布上无监督学习最具前景的方法之一。
@@ -260,11 +263,14 @@ pytorch https://github.com/caogang/wgan-gp
 
 
 ## DRAGAN
-结合了WGAN和LSGAN两部分
+结合了WGAN和LSGAN两部分，引入博弈论中的无后悔算法，改造其 loss 以解决 mode collapse 问题。
 
 参考 ：
 
 https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
+
+
+
 
 
 ----------------------
@@ -275,29 +281,51 @@ GAN的实现
 
 |Title|	Co-authors|	Publication|	Links|
 |:---:|:---:|:---:|:---:|
-Keras Implementation of GANs	Linder-Norén	Github	
-GAN implementation hacks	Salimans paper & Chintala	World research	
-DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks	Radford & et al.	ICLR 2016	
-IcGAN: Invertible Conditional GANs for image editing	Arjovsky & et al.	NIPS 2016	
+|Keras Implementation of GANs|	Linder-Norén|	Github	|[link](https://github.com/eriklindernoren/Keras-GAN)
+|GAN implementation hacks|	Salimans paper & Chintala|	World research	|[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)
+|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|
+|IcGAN: Invertible Conditional GANs for image editing|Arjovsky & et al.|NIPS 2016|	
 
 
 ## DCGAN
 
+DCGAN 提出使用 CNN 结构来稳定 GAN 的训练，并使用了以下一些 trick：
+
+Batch Normalization
+使用 Transpose convlution 进行上采样
+使用 Leaky ReLu 作为激活函数
+上面这些 trick 对于稳定 GAN 的训练有许多帮助
+
+https://arxiv.org/pdf/1511.06434.pdf
+
+https://github.com/carpedm20/DCGAN-tensorflow
 
 
+## IcGAN
+Invertible Conditional GANs for image editing
+
+https://arxiv.org/pdf/1611.06355.pdf
+https://github.com/Guim3/IcGAN
 
 
+## ImprovedDCGAN
+
+## SAGAN
+
+## BigGAN
 
 
-# Level 4: GANs Applications
+-------------------------------------------------------
 
+# Level 3: GANs Applications
 
 
 Title	Co-authors	Publication	Links
+|:---:|:---:|:---:|:---:|
 CycleGAN: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks	Zhu & Park & et al.	ICCV 2017	
-IcGAN: Invertible Conditional GANs for image editing	Arjovsky & et al.	NIPS 2016	
 Generative Adversarial Text to Image Synthesis	Reed & et al.	ICML 2016	
-StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks	Zhang & et al.	ICCV 2017	
+
+	
 Conditional Generative Adversarial Networks for Speech Enhancement and Noise-Robust Speaker Verification	Michelsanti & Tan	Interspeech 2017	
 Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network	Ledig & et al.	CVPR 2017	
 SalGAN: Visual Saliency Prediction with Generative Adversarial Networks	Pan & et al.	CVPR 2017	
@@ -316,9 +344,14 @@ Generative Adversarial Speaker Embedding Networks for Domain Robust End-to-End S
 
 ----------------
 
-图像翻译
+图像翻译 (Image Translation)
 
 
+图像翻译，指从一副（源域）图像到另一副（目标域）图像的转换。可以类比机器翻译，一种语言转换为另一种语言。翻译过程中会保持源域图像内容不变，但是风格或者一些其他属性变成目标域。
+
+Paired two domain data
+
+成对图像翻译典型的例子就是 pix2pix，pix2pix 使用成对数据训练了一个条件 GAN，Loss 包括 GAN 的 loss 和逐像素差 loss。而 PAN 则使用特征图上的逐像素差作为感知损失替代图片上的逐像素差，以生成人眼感知上更加接近源域的图像。
 
 ## Pix2Pix
 
@@ -341,11 +374,75 @@ https://arxiv.org/pdf/1611.07004v1.pdf
 第三方的tensorflow版本：https://github.com/yenchenlin/pix2pix-tensorflow
 
 
+# Pix2Pix HD
+
+
+Unpaired two domain data
+
+对于无成对训练数据的图像翻译问题，一个典型的例子是 CycleGAN。CycleGAN 使用两对 GAN，将源域数据通过一个 GAN 网络转换到目标域之后，再使用另一个 GAN 网络将目标域数据转换回源域，转换回来的数据和源域数据正好是成对的，构成监督信息。
+
 
 
 ## CycleGan /DiscoGan /DualGan
 
 
+-----------------------------------------
+
+超分辨率 
+
+Title	Co-authors	Publication	Links
+|:---:|:---:|:---:|:---:|
+StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks	Zhang & et al.	ICCV 2017
+
+GAN 对于高分辨率图像生成一直存在许多问题，层级结构的 GAN 通过逐层次，分阶段生成，一步步提生图像的分辨率。典型的使用多对 GAN 的模型有 StackGAN，GoGAN。使用单一 GAN，分阶段生成的有 ProgressiveGAN。StackGAN 和 ProgressiveGAN 结构如下：
+
+
+
+SRGAN 中使用 GAN 和感知损失生成细节丰富的图像。感知损失重点关注中间特征层的误差，而不是输出结果的逐像素误差。避免了生成的高分辨图像缺乏纹理细节信息问题。
+
+
+得益于 GAN 在超分辨中的应用，针对小目标检测问题，可以通过 GAN 生成小目标的高分辨率图像从而提高目标检测精度
+
+
+--------------------------
+
+图像联合分布学习
+
+大部分 GAN 都是学习单一域的数据分布，CoupledGAN 则提出一种部分权重共享的网络，使用无监督方法来学习多个域图像的联合分布。具体结构如下 [11]：
+
+
+
+如上图所示，CoupledGAN 使用两个 GAN 网络。生成器前半部分权重共享，目的在于编码两个域高层的，共有信息，后半部分没有进行共享，则是为了各自编码各自域的数据。判别器前半部分不共享，后半部分用于提取高层特征共享二者权重。对于训练好的网络，输入一个随机噪声，输出两张不同域的图片。
+
+值得注意的是，上述模型学习的是联合分布 P(x,y)，如果使用两个单独的 GAN 分别取训练，那么学习到的就是边际分布 P(x) 和 P(y)。通常情况下，。
+
+
+----------------
+
+ 视频生成
+
+通常来说，视频有相对静止的背景和运动的前景组成。VideoGAN 使用一个两阶段的生成器，3D CNN 生成器生成运动前景，2D CNN 生成器生成静止的背景。Pose GAN 则使用 VAE 和 GAN 生成视频，首先，VAE 结合当前帧的姿态和过去的姿态特征预测下一帧的运动信息，然后 3D CNN 使用运动信息生成后续视频帧。Motion and Content GAN(MoCoGAN) 则提出在隐空间对运动部分和内容部分进行分离，使用 RNN 去建模运动部分。
+
+
+--------------------------
+
+序列生成
+
+相比于 GAN 在图像领域的应用，GAN 在文本，语音领域的应用要少很多。主要原因有两个：
+
+GAN 在优化的时候使用 BP 算法，对于文本，语音这种离散数据，GAN 没法直接跳到目标值，只能根据梯度一步步靠近。
+对于序列生成问题，每生成一个单词，我们就需要判断这个序列是否合理，可是 GAN 里面的判别器是没法做到的。除非我们针对每一个 step 都设置一个判别器，这显然不合理。
+为了解决上述问题，强化学习中的策略梯度下降（Policy gredient descent）被引入到 GAN 中的序列生成问题。
+
+音乐生成
+
+RNN-GAN 使用 LSTM 作为生成器和判别器，直接生成整个音频序列。然而，正如上面提到的，音乐当做包括歌词和音符，对于这种离散数据生成问题直接使用 GAN 存在很多问题，特别是生成的数据缺乏局部一致性。
+
+相比之下，SeqGAN 把生成器的输出作为一个智能体 (agent) 的策略，而判别器的输出作为奖励 (reward)，使用策略梯度下降来训练模型。ORGAN 则在 SeqGAN 的基础上，针对具体的目标设定了一个特定目标函数。
+
+语言和语音
+
+VAW-GAN(Variational autoencoding Wasserstein GAN) 结合 VAE 和 WGAN 实现了一个语音转换系统。编码器编码语音信号的内容，解码器则用于重建音色。由于 VAE 容易导致生成结果过于平滑，所以此处使用 WGAN 来生成更加清晰的语音信号。
 
 gan
 
