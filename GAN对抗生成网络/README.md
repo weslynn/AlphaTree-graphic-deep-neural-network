@@ -270,9 +270,6 @@ pytorch https://github.com/caogang/wgan-gp
 https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 
-
-
-
 ----------------------
 
 # Level 2: Implementation skill
@@ -301,6 +298,22 @@ https://arxiv.org/pdf/1511.06434.pdf
 https://github.com/carpedm20/DCGAN-tensorflow
 
 
+## ImprovedDCGAN
+ 
+
+
+## GAN + ResNet
+
+
+随着 ResNet 在分类问题的日益深入，自然也就会考虑到 ResNet 结构在 GAN 的应用。事实上，目前 GAN 上主流的生成器和判别器架构确实已经变成了 ResNet：PGGAN、SNGAN、SAGAN 等知名 GAN 都已经用上了 ResNet
+
+可以看到，其实基于 ResNet 的 GAN 在整体结构上与 DCGAN 并没有太大差别，主要的特点在于：
+1. 不管在判别器还是生成器，均去除了反卷积，只保留了普通卷积层；
+2. 通过 AvgPooling2D 和 UpSampling2D 来实现上/下采样，而 DCGAN 中则是通过 stride > 1 的卷积/反卷积实现的；其中 UpSampling2D 相当于将图像的长/宽放大若干倍；
+3. 有些作者认为 BN 不适合 GAN，有时候会直接移除掉，或者用 LayerNorm 等代替。
+
+然而，ResNet层数更多、层之间的连接更多，相比 DCGAN，ResNet比 DCGAN 要慢得多，所需要的显存要多得多。
+
 ## IcGAN
 Invertible Conditional GANs for image editing
 
@@ -308,43 +321,75 @@ https://arxiv.org/pdf/1611.06355.pdf
 https://github.com/Guim3/IcGAN
 
 
-## ImprovedDCGAN
 
 ## SAGAN
+将 Self Attention 引入到了生成器（以及判别器）
+
+## SELF-MOD
+
+Self Modulated Generator，来自文章 On Self Modulation for Generative Adversarial Networks
+条件BN首先出现在文章 Modulating early visual processing by language 中，后来又先后被用在 cGANs With Projection Discriminator 中，目前已经成为了做条件 GAN（cGAN）的标准方案，包括 SAGAN、BigGAN 都用到了它。
+
+SELF-MOD 考虑到 cGAN 训练的稳定性更好，但是一般情况下 GAN 并没有标签 c 可用，那怎么办呢？干脆以噪声 z 自身为标签好了！这就是 Self Modulated 的含义了，自己调节自己，不借助于外部标签，但能实现类似的效果。
+
+## LAPGAN 
+，是第一篇将层次化或者迭代生成的思想运用到 GAN 中的工作。在原始 GAN[2] 和后来的 CGAN[15] 中，GAN 还只能生成32X32 这种低像素小尺寸的图片。而这篇工作[16] 是首次成功实现 64X64 的图像生成。思想就是，与其一下子生成这么大的（包含信息量这么多），不如一步步由小转大，这样每一步生成的时候，可以基于上一步的结果，而且还只需要“填充”和“补全”新大小所需要的那些信息。这样信息量就会少很多，而为了进一步减少信息量，他们甚至让 G 每次只生成“残差”图片，生成后的插值图片与上一步放大后的图片做加法，就得到了这一步生成的图片。
+
+## PGGAN
+首次实现了 1024 人脸生成的 Progressive Growing GANs，简称 PGGAN，来自 NVIDIA。
+
+顾名思义，PGGAN 通过一种渐进式的结构，实现了从低分辨率到高分辨率的过渡，从而能平滑地训练出高清模型出来。论文还提出了自己对正则化、归一化的一些理解和技巧，值得思考。当然，由于是渐进式的，所以相当于要串联地训练很多个模型，所以 PGGAN 很慢。
+
+
+CelebA HQ 数据集
+## StyleGAN  NVIDIA
+
+被很多文章称之为 GAN 2.0，借鉴了风格迁移的模型，所以叫 Style-Based Generator
+
+
+
+新数据集 FFHQ。
+
 
 ## BigGAN
+
+Progressive Growing of GANs for Improved Quality, Stability, and Variation
+
+Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
+
+https://arxiv.org/abs/1710.10196
+
+BigGAN — Brock et al. (2019)
+
+BigGAN模型是基于ImageNet生成图像质量最高的模型之一。该模型很难在本地机器上实现，而且BigGAN有许多组件，如Self-Attention、 Spectral Normalization和带有投影鉴别器的cGAN，这些组件在各自的论文中都有更好的解释。不过，这篇论文对构成当前最先进技术水平的基础论文的思想提供了很好的概述，因此非常值得阅读。
+
+这篇文章提供了 128、256、512 的自然场景图片的生成结果。 自然场景图片的生成可是比 CelebA 的人脸生成要难上很多
+
+
+
+
+参考 https://mp.weixin.qq.com/s/9GeryvW5PI93FCmTpuFEPQ
+此外 https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247495491&idx=1&sn=978f0afeb0b38affe54fc9e6d6086e3c&chksm=96ea30c3a19db9d52b735bdfee3f535ce68bcc6ace230b452b2ef8d389e66d32bba38e1574e3&scene=21#wechat_redirect
+
+O-GAN 可以加入其它的loss 将生成器 变为编码器。
+
 
 
 -------------------------------------------------------
 
 # Level 3: GANs Applications
 
+----------------
+图像翻译 (Image Translation)
+
 
 Title	Co-authors	Publication	Links
 |:---:|:---:|:---:|:---:|
-CycleGAN: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks	Zhu & Park & et al.	ICCV 2017	
-Generative Adversarial Text to Image Synthesis	Reed & et al.	ICML 2016	
-
+|CycleGAN |	Zhu & Park & et al.|ICCV 2017	|
 	
-Conditional Generative Adversarial Networks for Speech Enhancement and Noise-Robust Speaker Verification	Michelsanti & Tan	Interspeech 2017	
-Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network	Ledig & et al.	CVPR 2017	
-SalGAN: Visual Saliency Prediction with Generative Adversarial Networks	Pan & et al.	CVPR 2017	
-SAGAN: Self-Attention Generative Adversarial Networks	Zhang & et al.	NIPS 2018	
-Speaker Adaptation for High Fidelity WaveNet Vocoder with GAN	Tian & et al.	arXiv Nov 2018	
-MTGAN: Speaker Verification through Multitasking Triplet Generative Adversarial Networks	Ding & et al.	arXiv Mar 2018	
-Adversarial Learning and Augmentation for Speaker Recognition	Zhang & et al.	Speaker Odyssey 2018 / ISCA 2018	
-Investigating Generative Adversarial Networks based Speech Dereverberation for Robust Speech Recognition	Wang & et al.	Interspeech 2018	
-On Enhancing Speech Emotion Recognition using Generative Adversarial Networks	Sahu & et al.	Interspeech 2018	
-Robust Speech Recognition Using Generative Adversarial Networks	Sriram & et al.	ICASSP 2018	
-Adversarially Learned One-Class Classifier for Novelty Detection	Sabokrou & khalooei & et al.	CVPR 2018	
-Generalizing to Unseen Domains via Adversarial Data Augmentation	Volpi & et al.	NeurIPS (NIPS) 2018	
-Generative Adversarial Networks for Unpaired Voice Transformation on Impaired Speech	Chen & lee & et al.	Submitted on ICASSP 2019	
-Generative Adversarial Speaker Embedding Networks for Domain Robust End-to-End Speaker Verification	Bhattacharya & et al.	Submitted on ICASSP 2019	
 
 
-----------------
 
-图像翻译 (Image Translation)
 
 
 图像翻译，指从一副（源域）图像到另一副（目标域）图像的转换。可以类比机器翻译，一种语言转换为另一种语言。翻译过程中会保持源域图像内容不变，但是风格或者一些其他属性变成目标域。
@@ -374,8 +419,16 @@ https://arxiv.org/pdf/1611.07004v1.pdf
 第三方的tensorflow版本：https://github.com/yenchenlin/pix2pix-tensorflow
 
 
+
+
 # Pix2Pix HD
 
+
+采用 multi-scale 的 Discriminator 和 coarse2fine 的 Generator 能够有效帮助提升生成的质量。
+
+所谓 multi-scale 的 Discriminator 是指多个 D，分别判别不同分辨率的真假图像。比如采用 3 个 scale 的判别器，分别判别 256x256，128x128，64x64 分辨率的图像。至于获得不同分辨率的图像，直接经过 pooling 下采样即可。
+
+Coarse2fine 的 Generator 是指先训一个低分辨率的网络，训好了再接一个高分辨率的网络，高分辨率网络融合低分辨率网络的特征得到更精细的生成结果。。
 
 Unpaired two domain data
 
@@ -385,7 +438,7 @@ Unpaired two domain data
 
 ## CycleGan /DiscoGan /DualGan
 
-
+CycleGan: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
 -----------------------------------------
 
 超分辨率 
@@ -403,8 +456,56 @@ SRGAN 中使用 GAN 和感知损失生成细节丰富的图像。感知损失重
 
 得益于 GAN 在超分辨中的应用，针对小目标检测问题，可以通过 GAN 生成小目标的高分辨率图像从而提高目标检测精度
 
+TensorFlow 版本：https://github.com/buriburisuri/SRGAN
 
+Torch 版本：https://github.com/leehomyc/Photo-Realistic-Super-Resoluton
+
+Keras 版本：https://github.com/titu1994/Super-Resolution-using-Generative-Adversarial-Networks
+
+-------------------------
+交互式图像生成
+## iGAN
+
+Adobe公司构建了一套图像编辑操作[14]，如图9，能使得经过这些操作以后，图像依旧在“真实图像流形”上，因此编辑后的图像更接近真实图像。
+
+具体来说，iGAN的流程包括以下几个步骤：
+
+1.    将原始图像投影到低维的隐向量空间
+
+2.    将隐向量作为输入，利用GAN重构图像
+
+3.    利用画笔工具对重构的图像进行修改（颜色、形状等）
+
+4.    将等量的结构、色彩等修改应用到原始图像上。
+
+
+
+值得一提的是，作者提出G需为保距映射的限制，这使得整个过程的大部分操作可以转换为求解优化问题，整个修改过程近乎实时。
+
+Theano 版本：https://github.com/junyanz/iGAN
+
+
+## 简笔 生成图画
+
+[24] Jun-Yan Zhu, Philipp Krähenbühl, Eli Shechtman and Alexei A. Efros. “Generative Visual Manipulation on the Natural Image Manifold”, ECCV 2016.
+
+
+## GANpaint
 --------------------------
+图像融合、图像修补
+
+## GP-GAN
+GP-GAN[25]，目标是将直接复制粘贴过来的图片，更好地融合进原始图片中，做一个 blending 的事情。
+
+
+
+这个过程非常像 iGAN，也用到了类似 iGAN 中的一些约束，比如 color constraint。另一方面，这个工作也有点像 pix2pix，因为它是一种有监督训练模型，在 blending 的学习过程中，会有一个有监督目标和有监督的损失函数。
+
+
+## 
+
+
+------------------------
 
 图像联合分布学习
 
@@ -426,6 +527,47 @@ SRGAN 中使用 GAN 和感知损失生成细节丰富的图像。感知损失重
 
 --------------------------
 
+自然语言处理领域
+GAN在自然语言处理上的应用可以分为两类：生成文本、根据文本生成图像。其中，生成文本包括两种：根据隐向量（噪声）生成一段文本；对话生成。
+
+ 
+
+4.2.1 对话生成
+ Li J等2017年发表的Adversarial Learning for Neural Dialogue Generation[16]显示了GAN在对话生成领域的应用。实验效果如图11。可以看出，生成的对话具有一定的相关性，但是效果并不是很好，而且这只能做单轮对话。
+
+
+
+如图11 Li J对话生成效果
+
+文本到图像的翻译（text to image）
+
+文本到图像的翻译指GAN的输入是一个描述图像内容的一句话，比如“一只有着粉色的胸和冠的小鸟”，那么所生成的图像内容要和这句话所描述的内容相匹配。
+
+
+
+在ICML 2016会议上，Scott Reed等[17]人提出了基于CGAN的一种解决方案将文本编码作为generator的condition输入；对于discriminator，文本编码在特定层作为condition信息引入，以辅助判断输入图像是否满足文本描述。作者提出了两种基于GAN的算法，GAN-CLS和GAN-INT。
+
+
+
+Text2image
+
+Torch 版本：https://github.com/reedscot/icml2016
+
+TensorFlow+Theano 版本：https://github.com/paarthneekhara/text-to-image
+
+
+ Jun-Yan Zhu, Philipp Krähenbühl, Eli Shechtman and Alexei A. Efros. “Generative Visual Manipulation on the Natural Image Manifold”, ECCV 2016.
+
+从 Text 生成 Image，比如从图片标题生成一个具体的图片。这个过程需要不仅要考虑生成的图片是否真实，还应该考虑生成的图片是否符合标题里的描述。比如要标题形容了一个黄色的鸟，那么就算生成的蓝色鸟再真实，也是不符合任务需求的。为了捕捉或者约束这种条件，他们提出了 matching-aware discriminator 的思想，让本来的 D 的目标函数中的两项，扩大到了三项：
+
+
+StackGAN
+
+
+Han Zhang, Tao Xu, Hongsheng Li, Shaoting Zhang, Xiaolei Huang, Xiaogang Wang, Dimitris Metaxas. “StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks”. arXiv preprint 2016.
+第三篇这方面的工作[20]可以粗略认为是 LAPGAN[16] 和 matching-aware[18] 的结合。他们提出的 StackGAN[20] 做的事情从标题生成鸟类，但是生成的过程则是像 LAPGAN 一样层次化的，从而实现了 256X256 分辨率的图片生成过程。StackGAN 将图片生成分成两个阶段，阶段一去捕捉大体的轮廓和色调，阶段二加入一些细节上的限制从而实现精修。这个过程效果很好，甚至在某些数据集上以及可以做到以假乱真：
+
+
 序列生成
 
 相比于 GAN 在图像领域的应用，GAN 在文本，语音领域的应用要少很多。主要原因有两个：
@@ -433,6 +575,8 @@ SRGAN 中使用 GAN 和感知损失生成细节丰富的图像。感知损失重
 GAN 在优化的时候使用 BP 算法，对于文本，语音这种离散数据，GAN 没法直接跳到目标值，只能根据梯度一步步靠近。
 对于序列生成问题，每生成一个单词，我们就需要判断这个序列是否合理，可是 GAN 里面的判别器是没法做到的。除非我们针对每一个 step 都设置一个判别器，这显然不合理。
 为了解决上述问题，强化学习中的策略梯度下降（Policy gredient descent）被引入到 GAN 中的序列生成问题。
+
+ GAN 在 NLP 上的应用可以分为两类：生成文本、根据文本生成图像。
 
 音乐生成
 
@@ -456,7 +600,6 @@ Deep Learning: State of the Art*
 • Training Deep Networks with Synthetic Data
 • Segmentation Annotation with Polygon-RNN++
 • DAWNBench: Training Fast and Cheap
-• BigGAN: State of the Art in Image Synthesis
 • Video-to-Video Synthesis
 • Semantic Segmentation
 • AlphaZero & OpenAI Five
@@ -475,7 +618,6 @@ AutoAugment：用强化学习做数据增强
 
 DAWNBench：寻找快速便宜的训练方法
 
-BigGAN：最领先的图像合成研究
 
 视频到视频合成
 
@@ -752,6 +894,21 @@ http://www.elecfans.com/d/877752.html
 
 VAW-GAN(Variational autoencoding Wasserstein GAN) 结合 VAE 和 WGAN 实现了一个语音转换系统。编码器编码语音信号的内容，解码器则用于重建音色。由于 VAE 容易导致生成结果过于平滑，所以此处使用 WGAN 来生成更加清晰的语音信号。
 
+	Generative Adversarial Text to Image Synthesis	Reed & et al.	ICML 2016
+Conditional Generative Adversarial Networks for Speech Enhancement and Noise-Robust Speaker Verification	Michelsanti & Tan	Interspeech 2017	
+Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network	Ledig & et al.	CVPR 2017	
+SalGAN: Visual Saliency Prediction with Generative Adversarial Networks	Pan & et al.	CVPR 2017	
+SAGAN: Self-Attention Generative Adversarial Networks	Zhang & et al.	NIPS 2018	
+Speaker Adaptation for High Fidelity WaveNet Vocoder with GAN	Tian & et al.	arXiv Nov 2018	
+MTGAN: Speaker Verification through Multitasking Triplet Generative Adversarial Networks	Ding & et al.	arXiv Mar 2018	
+Adversarial Learning and Augmentation for Speaker Recognition	Zhang & et al.	Speaker Odyssey 2018 / ISCA 2018	
+Investigating Generative Adversarial Networks based Speech Dereverberation for Robust Speech Recognition	Wang & et al.	Interspeech 2018	
+On Enhancing Speech Emotion Recognition using Generative Adversarial Networks	Sahu & et al.	Interspeech 2018	
+Robust Speech Recognition Using Generative Adversarial Networks	Sriram & et al.	ICASSP 2018	
+Adversarially Learned One-Class Classifier for Novelty Detection	Sabokrou & khalooei & et al.	CVPR 2018	
+Generalizing to Unseen Domains via Adversarial Data Augmentation	Volpi & et al.	NeurIPS (NIPS) 2018	
+Generative Adversarial Networks for Unpaired Voice Transformation on Impaired Speech	Chen & lee & et al.	Submitted on ICASSP 2019	
+Generative Adversarial Speaker Embedding Networks for Domain Robust End-to-End Speaker Verification	Bhattacharya & et al.	Submitted on ICASSP 2019	
 
 7 
 唇读
