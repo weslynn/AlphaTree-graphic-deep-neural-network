@@ -779,6 +779,7 @@ HeadOn技术的图示HeadOn技术的图示
 | Line art | Paints Chainer | Online Demo | [[Demo]](https://paintschainer.preferred.tech/) [[code]](https://github.com/pfnet/PaintsChainer) |
 | Line art | PaintsTensorFlow | Github Repo | [[Code]](https://github.com/rapidrabbit76/PaintsTensorFlow) |
 | Manga | MangaCraft | Online Demo | [[Demo]](https://github.com/lllyasviel/MangaCraft) |
+|Line art|[Comicolorization: Semi-automatic Manga Colorization](https://arxiv.org/pdf/1706.06759.pdf) |1706.06759  (DwangoMediaVillage) | [[code]](https://github.com/DwangoMediaVillage/Comicolorization)|
 
 
 ##### 2.2 Based on reference color image
@@ -828,6 +829,57 @@ HeadOn技术的图示HeadOn技术的图示
 | [Switchable Temporal Propagation Network](http://openaccess.thecvf.com/content_ECCV_2018/papers/Sifei_Liu_Switchable_Temporal_Propagation_ECCV_2018_paper.pdf) | ECCV 2018 |  |
 | [Tracking Emerges by Colorizing Videos](http://openaccess.thecvf.com/content_ECCV_2018/papers/Carl_Vondrick_Self-supervised_Tracking_by_ECCV_2018_paper.pdf) | ECCV 2018 | [[code]](https://github.com/wbaek/tracking_via_colorization) |
 | [Deep Exemplar-based Video Colorization]() | CVPR 2019 |  |
+
+
+
+##### style2paints 
+
+Style2paints会根据用户的颜色提示和选择的图片风格完成对图片的上色。目前共以下迭代了4个版本。
+
+Style2paints V1
+（信息暂未公开）
+Style Transfer for Anime Sketches with Enhanced Residual U-net and Auxiliary Classifier GAN
+https://arxiv.org/pdf/1706.03319.pdf
+使用的是Unet
+
+
+Style2paints V2
+于2017年12月发布，使用3×3 像素点的高精度提示和风格迁移给线稿或草图上色。已下线。
+作者在Reddit上回答说，和上一版相比，style2paints 2.0大部分训练都是纯粹无监督，甚至无条件的。
+也就是说，在这个模型的训练过程中，除了对抗规则之外没有添加其他的人工定义规则，没有规则来强迫生成器神经网络照着线稿画画，而是靠神经网络自己发现，如果遵照线稿，会更容易骗过鉴别器。
+pix2pix、CycleGAN等同类模型为了确保收敛，会对学习对象添加l1 loss，鉴别器接收到的数据是成对的[input, training data]和[input, fake output]。而style2paints 2.0模型的学习目标和经典DCGAN完全相同，没有添加其他规则，鉴别器收到的也不是成对的输出。
+作者说，让这样一个模型收敛其实是很难的，何况神经网络这么深。
+
+https://zhuanlan.zhihu.com/p/32461125
+
+
+Style2paints V3/PaintsTransfer-Euclid
+
+Style2paints V3的工作界面
+较V2版本拥有更高的精准度，是V4版本的雏形。同样已下线，但能在github的开发页面下载源码以部署到本地[1]。
+
+Style2paints V4/PaintsTransfer
+
+Style2paints V4的工作界面
+于2018年11月发布，并做出以下更新：
+
+1) 取消了V3版本中的颜色稳定器
+2) 引入了光渲染模式和固有色模式
+3) 加入提示保存和上传功能
+
+
+填充颜色>>添加颜色渐变>>添加阴影
+
+
+目前因作者经费不足而暂时关闭了服务器，但同时也宣布V4版本开源，并正在积极开发V4线下版以及V5版
+
+Style2paints和Mangacraft的关系
+Style2paints和Mangacraft都是由一秒一喵/lllyasviel和不存在的S2P项目组开发完成的上色软件。但有以下区别
+
+S2P是线稿纯上色软件，MC是黑白漫画上色软件
+S2P更面向于画师，MC更面向于普通看本子的群众（虽然官方这么说，实际上不会画画也是能用好S2P的）
+S2P V4早期使用了MC相同的前端和UI设计，其实后台运作方式万全相同，内测时服务器各种Bug所以被改得面目全非罢了
+
 
 
 图像修复  
