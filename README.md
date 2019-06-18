@@ -70,7 +70,7 @@ Object Detection：ssd
 PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 
-目录 
+# Content 目录 
 
 
 - [Object Classification 物体分类](#-Object-Classification-物体分类)
@@ -79,13 +79,16 @@ PS： caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
   - [GoogLeNet](#googlenet--详解-detail-christian-szegedy--google)
   - [Inception V3](#inception-v3--详解-detail-christian-szegedy--google)
   - [VGG](#vgg-详解-detail-karen-simonyan--andrew-zisserman----visual-geometry-groupvggoxford)
-  - [ResNet and ResNeXt](#-ResNet-and-ResNeXt)
-  - [Inception-Resnet-V2](#-Inception-Resnet-V2)
-  - [AlexNet](###-AlexNet)
-  - [LeNet](###-LeNet)
-  - [AlexNet](###-AlexNet)   
+  - [ResNet and ResNeXt](#resnet-and-resnext详解-detail-何凯明-he-kaiming)
+  - [Inception-Resnet-V2](#inception-resnet-v2详解-detail-christian-szegedy--google)
+  - [DenseNet](#densenet详解-detail-黄高gao-huang-刘壮zhuang-liu)
+  - [DPN](#dpn详解-detail--颜水成)
+  - [PolyNet](#polynet-xingcheng-zhang-林达华dahua-lin---cuhk-mmlab--商汤科技-详解-detail)   
+  - [SENet](#senet--详解-detail)
+  - [NasNet](#nasnet-google)
+
 - [轻量级模型 & 剪枝](#-轻量级模型-&-剪枝)
-  - [Based on color strokes](#21-based-on-color-strokes)
+  - [SqueezeNet](#squeezenet)
   - [Based on reference color image](#22-based-on-reference-color-image)
   - [Based on color palette](#23-based-on-color-palette)
   - [Based on language(text)](#24-based-on-language-or-text)
@@ -200,6 +203,8 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-org.jpg" width="805"></a>
 
   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png" width="505"></a>
+
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet_data.png"></a>
 
    [2] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012. [pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
