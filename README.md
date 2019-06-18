@@ -178,6 +178,7 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet-org.jpg" width="705"> </a>
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet.png" width="600"> </a>
+   
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet_data.png" width="405"> </a>
 
    [1] LeCun, Yann; Léon Bottou; Yoshua Bengio; Patrick Haffner (1998). "Gradient-based learning applied to document recognition" [pdf](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
