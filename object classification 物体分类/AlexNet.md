@@ -62,13 +62,13 @@ AlexNet在2012年大出风头之后，2013年随即出现了大量的CNN模型�
 
 模型下方的柱状图，表示一张图片的尺寸，因为图片输入目前绝大部分都是正方形，因此简化成柱状图，表示图片的边长，可以看到对应网络结构中，图片大小的变化。
 
-![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png)
+![alexnet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png)
 
 
 但是tf官方后来给出的代码，进行了修改，将初始化选择用xavier_initializer的方法，将LRN层移除了。
 
 
-![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnettf.png)
+![alexnet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnettf.png)
 
 将卷积层和maxpooling层画在一起
 
@@ -77,7 +77,12 @@ AlexNet在2012年大出风头之后，2013年随即出现了大量的CNN模型�
 
 简化成
 
-![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet-short.png)
+![alexnet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet-short.png)
+
+
+数据变化为
+
+![alexnet data](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet_data.png)
 
 源码：
 tensorflow 源码 https://github.com/tensorflow/models/tree/master/research/slim/nets/alexnet.py

@@ -41,6 +41,10 @@ Lenet5 原始结构如，包括卷积层，降采样，卷积层，降采样，�
 
 ![lenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet-short.png)
 
+数据变化为
+
+![lenet data](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet_data.png)
+
 源码：
 
 tensorflow 源码 https://github.com/tensorflow/models/tree/master/research/slim/nets/lenet.py

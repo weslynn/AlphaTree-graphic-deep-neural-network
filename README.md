@@ -269,6 +269,8 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/vgg.png" width="805"></a>
 
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/vgg16_data.png" width="805"></a>
+
 单独看VGG19的模型：
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/vgg19.png" width="805"></a>
@@ -1372,12 +1374,30 @@ ParseNet
 ---------------------------------------------------------------------------------
 ## Object Segmentation 物体分割
 FCN　
+
+
+
+
 SegNet
+
+
+
 Dilated Convolutions
+
+
+
 DeepLab (v1 & v2)
+
+
+
 RefineNet
+
+
 PSPNet
+
+
 Large Kernel Matters
+
 DeepLab v3
 ### FCN
 [1] J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation.” in CVPR, 2015. [pdf]
