@@ -71,6 +71,7 @@ PS：
 
 
 
+3d 神经网络数据变化绘制 ：https://github.com/HarisIqbal88/PlotNeuralNet
 
 
 caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
