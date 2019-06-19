@@ -97,14 +97,22 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 - [轻量级模型 & 剪枝](#-轻量级模型-&-剪枝)
   - [SqueezeNet](#squeezenet)
-  - [Based on reference color image](#22-based-on-reference-color-image)
-  - [Based on color palette](#23-based-on-color-palette)
-  - [Based on language(text)](#24-based-on-language-or-text)
-- [Video Colorization](#3-video-colorization)
-  - [Automatically](#31-automatically)
-  - [Based on reference](#32-based-on-reference)
+  - [MobileNet](#mobilenet-详解-detail-google)
 
+- [Face Detection & Recognition 人脸检测与识别]
+  - [MTCNN](#mtcnn-详解-detail-zhang-kaipeng-乔宇-qiao-yu--cuhk-mmlab--siat)
+  - [Deep Face](#deep-face)
+  - [FaceNet](#facenet-详解-detail)
 
+- [OCR](ocroptical-character-recognition-字符识别--str-scene-text-recognition-场景文字识别)
+  - [CTPN](#ctpn-connectionist-text-proposal-network--详解-detail--zhi-tian--乔宇-qiao-yu--cuhk-mmlab--siat)
+  - [TextBoxes](#textboxes--详解-detail-白翔-xiang-baimedia-and-communication-lab-hust)
+  - [CRNN](#crnn-详解-detail-白翔-xiang-baimedia-and-communication-lab-hust)
+- [Object Detection 物体检测](#object-detection-物体检测)
+  - [SSD](#ssdthe-single-shot-detector-详解-detail)
+  - [RCNN]
+- [Object Segmentation 物体分割](#object-segmentation-物体分割)
+  - [Unet]
 
 
 
