@@ -109,9 +109,12 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
   - [TextBoxes](#textboxes--详解-detail-白翔-xiang-baimedia-and-communication-lab-hust)
   - [CRNN](#crnn-详解-detail-白翔-xiang-baimedia-and-communication-lab-hust)
 - [Object Detection 物体检测](#object-detection-物体检测)
-  - [SSD](#ssdthe-single-shot-detector-详解-detail)
   - [RCNN]
+  - [Yolo]
+  - [SSD](#ssdthe-single-shot-detector-详解-detail)
+
 - [Object Segmentation 物体分割](#object-segmentation-物体分割)
+  -
   - [Unet]
 
 
@@ -148,6 +151,7 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
 
+输入:图片   输出:类别标签
 
 ![allmodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/allmodel.png)
 
@@ -972,8 +976,6 @@ HPEN High-Fidelity Pose and Expression Normalization for Face Recognition in the
 
 
 
-
-
 表情相关
 ExpNet: Landmark-Free, Deep, 3D Facial Expressions
 
@@ -1311,6 +1313,9 @@ https://zhuanlan.zhihu.com/p/37306349
 
 物体分类（物体识别）解决的是这个东西是什么的问题（What）。而物体检测则是要解决这个东西是什么，具体位置在哪里（What and Where）。
 物体分割则将物体和背景进行区分出来，譬如人群，物体分割中的实例分割则将人群中的每个人都分割出来。
+输入:图片   输出:类别标签和bbox(x,y,w,h)
+
+![pic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/detail.jpg)
 
 ## Object Detection 物体检测
 
@@ -1319,45 +1324,106 @@ Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 
    [1] Szegedy, Christian, Alexander Toshev, and Dumitru Erhan. "Deep neural networks for object detection." Advances in Neural Information Processing Systems. 2013.  [pdf](http://papers.nips.cc/paper/5207-deep-neural-networks-for-object-detection.pdf)
 
+
 不过真正取得巨大突破，引发基于深度学习目标检测的热潮的还是RCNN
+
+但是如果将如何检测出区域，按照回归问题的思路去解决，预测出（x,y,w,h）四个参数的值，从而得出方框的位置。回归问题的训练参数收敛时间要长很多，于是将回归问题转成分类问题来解决。总共两个步骤：
+
+第一步：将图片转换成不同大小的框，
+第二步：对框内的数据进行特征提取，然后通过分类器判定，选区分最高的框作为物体定位框。
+
+![old](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/old.png)
+
+
+![scorecompare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/compare.png)
+
+
+评价标准: IoU(Intersection over Union)； mAP(Mean Average Precision) 速度：帧率FPS
+![iou](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/iou.png)
+
 
 ### RCNN  Ross B. Girshick(RBG) [link](https://people.eecs.berkeley.edu/~rbg/index.html) / UC-Berkeley
 
-* RCNN R-CNN框架，取代传统目标检测使用的滑动窗口+手工设计特征，而使用CNN来进行特征提取。
+* RCNN R-CNN框架，取代传统目标检测使用的滑动窗口+手工设计特征，而使用CNN来进行特征提取。这是深度神经网络的应用。
 
 Traditional region proposal methods + CNN classifier
 
+也就是将第二步改成了深度神经网络提取特征。
+然后通过线性svm分类器识别对象的的类别，再通过回归模型用于收紧边界框；
 创新点：将CNN用在物体检测上，提高了检测率。
-缺点：每个proposal都卷积一次，重复计算，速度慢。
+缺点： 基于选择性搜索算法为每个图像提取2,000个候选区域，使用CNN为每个图像区域提取特征，重复计算，速度慢，40-50秒。
 
 R-CNN在PASCAL VOC2007上的检测结果提升到66%(mAP)
 
+![rcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rcnn.png)
+
+
+
    [2] SGirshick, Ross, et al. "Rich feature hierarchies for accurate object detection and semantic segmentation." Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. [pdf](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf)
 
+github: https://github.com/rbgirshick/rcnn
+
 ### SPPNet 何凯明 [He Kaiming](http://kaiminghe.com/) /MSRA
-* SPPNet
+* SPPNet Spatial Pyramid Pooling（空间金字塔池化）
    [3] He, Kaiming, et al. "Spatial pyramid pooling in deep convolutional networks for visual recognition." European Conference on Computer Vision. Springer International Publishing, 2014. [pdf](http://arxiv.org/pdf/1406.4729)
+
+一般CNN后接全连接层或者分类器，他们都需要固定的输入尺寸，因此不得不对输入数据进行crop或者warp，这些预处理会造成数据的丢失或几何的失真。SPP Net的提出，将金字塔思想加入到CNN，实现了数据的多尺度输入。此时网络的输入可以是任意尺度的，在SPP layer中每一个pooling的filter会根据输入调整大小，而SPP的输出尺度始终是固定的。
+
+![spp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/spp.png)
+
+这样打破了之前大家认为需要先提出检测框，然后resize到一个固定尺寸再通过CNN的模式，而可以图片先通过CNN获取到特征后，在特征图上使用不同的检测框提取特征。之后pooling到同样尺寸进行后续步骤。这样可以提高物体检测速度。
+
 
 ### Fast RCNN Ross B. Girshick
 * Fast RCNN
    [4] Girshick, Ross. "Fast r-cnn." Proceedings of the IEEE International Conference on Computer Vision. 2015.
 
+如果RCNN的卷积计算只需要计算一次，那么速度就可以很快降下来了。
+
+Ross Girshick将SPPNet的方法应用到RCNN中，提出了一个可以看做单层sppnet的网络层，叫做ROI Pooling，这个网络层可以把不同大小的输入映射到一个固定尺度的特征向量.将图像输出到CNN生成卷积特征映射。使用这些特征图结合候选区域算法提取候选区域。然后，使用RoI池化层将所有可能的区域重新整形为固定大小，以便将其馈送到全连接网络中。
+
+1.首先将图像作为输入；
+2.将图像传递给卷积神经网络，计算卷积后的特征。
+3.然后通过之前proposal的方法提取ROI，在所有的感兴趣的区域上应用RoI池化层，并调整区域的尺寸。然后，每个区域被传递到全连接层的网络中；
+4.softmax层用于全连接网以输出类别。与softmax层一起，也并行使用线性回归层，以输出预测类的边界框坐标。
+      
+![fastrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fastrcnn.png)
+
+github:  https://github.com/rbgirshick/fast-rcnn
+
 ### Faster RCNN 何凯明 [He Kaiming](http://kaiminghe.com/)
 * Faster RCNN
-将Region Proposal Network和特征提取、目标分类和边框回归统一到了一个框架中。
+Fast RCNN的区域提取还是使用的传统方法，而Faster RCNN将Region Proposal Network和特征提取、目标分类和边框回归统一到了一个框架中。
 
 Faster R-CNN = Region Proposal Network +Fast R-CNN
 
+![fasterrcnn1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn1.png)
+
+
+![fasterrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn.png)
+
+将区域提取通过一个CNN完成。这个CNN叫做Region Proposal Network，RPN的运用使得region proposal的额外开销就只有一个两层网络。关于RPN可以参考[link](https://cloud.tencent.com/developer/article/1347839)
+
+
+![rpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rpn.png)
+
 
    [5] Ren, Shaoqing, et al. "Faster R-CNN: Towards real-time object detection with region proposal networks." Advances in neural information processing systems. 2015.
+
+github: caffe https://github.com/rbgirshick/py-faster-rcnn/
 
 ### Yolo
 * Yolo
    [6] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." arXiv preprint arXiv:1506.02640 (2015). [pdf] (YOLO,Oustanding Work, really practical)
 
+
+
 ### SSD(The Single Shot Detector) [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20detection%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B/SSD.md)
 
 * SSD SSD是一种直接预测bounding box的坐标和类别的object detection算法，没有生成proposal的过程。它使用object classification的模型作为base network，如VGG16网络，
+
+
+   ![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/ssd.jpg)
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20detection%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B/SSD.md"><img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/objdetection/ssd.png" width="805"></a>
 
@@ -1411,7 +1477,7 @@ DeepLab v3
 [1] J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation.” in CVPR, 2015. [pdf]
 
 ### U-NET
-
+http://www.arxiv.org/pdf/1505.04597.pdf
 
 ### SegNet
 
