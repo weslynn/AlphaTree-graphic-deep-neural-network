@@ -628,6 +628,8 @@ H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork 
 
 对比传统人脸检测方法，CascadeCNN将Cascade级联结构中每个stage中CNN的分类器代替了传统的分类器；2. 每个分类stage之后应用了一个矫正网络使得人脸框的位置更为精确。该论文是当时基于CNN的人脸检测方法中速度最快的
 
+![cascade](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/cascadestruct.png)
+
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/CascadeCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadeCNN.png" width="400"></a>
 
@@ -638,6 +640,7 @@ H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork 
 * MTCNN 
 MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务分解后让三个子网络来完成。每个网络都很浅，使用多个小网络级联，较好的完成任务。
 
+![mtcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/mtcnn_struct.png)
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/mtcnn.png" width="400"></a>
 
 
@@ -648,9 +651,11 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
 
    tensorflow 源码 : https://github.com/davidsandberg/facenet/tree/master/src/align 
 
+### TinyFace
 
+### DSFD: Dual Shot Face Detector
 
-
+[介绍](https://blog.csdn.net/wwwhp/article/details/83757286)
 ### FaceBoxes
 
 
@@ -1117,6 +1122,9 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 * TextBoxes，一个端到端的场景文本检测模型。这个算法是基于SSD来实现的,解决水平文字检测问题，将原来3×3的kernel改成了更适应文字的long conv kernels 3×3 -> 1×5。default boxes 也做了修改。
    
+![textboxes](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/textboxes.png)
+
+
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes.png" width="905"> </a>
 
 
@@ -1137,7 +1145,8 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 
 * TextBoxes++ 这个算法也是基于SSD来实现的，实现了对多方向文字的检测。boundingbox的输出从4维的水平的boundingbox扩展到4+8=12维的输出。long conv kernels 从 1×5 改成了 3×5。default boxes 也做了修改。
-   
+
+   ![textboxesplus](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/textboxes++.png)
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes++.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes++.png" width="905"> </a>
 
 
@@ -1307,7 +1316,7 @@ https://github.com/MichalBusta/DeepTextSpotter
 
 DocUNet: Document Image Unwarping via A Stacked U-Net  face++
 
-https://zhuanlan.zhihu.com/p/37306349
+[好贴](https://zhuanlan.zhihu.com/p/37306349)
 -----------------------------------------------------------------------------
 ![ObjectDetection&Seg](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectDetection&Seg.png)
 
@@ -1407,10 +1416,18 @@ Faster R-CNN = Region Proposal Network +Fast R-CNN
 
 ![fasterrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn.png)
 
+
+![fasterrcnn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn2.png)
+
 将区域提取通过一个CNN完成。这个CNN叫做Region Proposal Network，RPN的运用使得region proposal的额外开销就只有一个两层网络。关于RPN可以参考[link](https://cloud.tencent.com/developer/article/1347839)
 
 
 ![rpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rpn.png)
+
+
+Faster R-CNN设计了提取候选区域的网络RPN，代替了费时的Selective Search（选择性搜索），使得检测速度大幅提升，下表对比了R-CNN、Fast R-CNN、Faster R-CNN的检测速度：
+
+![speed](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/speed.png)
 
 
    [5] Ren, Shaoqing, et al. "Faster R-CNN: Towards real-time object detection with region proposal networks." Advances in neural information processing systems. 2015.
@@ -1418,10 +1435,14 @@ Faster R-CNN = Region Proposal Network +Fast R-CNN
 github: caffe https://github.com/rbgirshick/py-faster-rcnn/
 
 ### Yolo
-* Yolo
-   [6] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." arXiv preprint arXiv:1506.02640 (2015). [pdf] (YOLO,Oustanding Work, really practical)
+* Yolo(You only look once)
+   [6] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." arXiv preprint arXiv:1506.02640 (2015). [pdf](https://arxiv.org/pdf/1506.02640.pdf)YOLO,Oustanding Work, really practical
+   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/yolo.jpg)
 
 
+
+
+pytorch (tencent) v1, v2, v3 :https://github.com/TencentYoutuResearch/ObjectDetection-OneStageDet
 
 ### SSD(The Single Shot Detector) [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20detection%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B/SSD.md)
 
@@ -1449,14 +1470,52 @@ ParseNet
 ### Mask R-CNN
 * Mask R-CNN
    [9] He, Gkioxari, et al. "Mask R-CNN" arXiv preprint arXiv:1703.06870 (2017). [pdf] 
+ICCV 2017的最佳论文，在Mask R-CNN的工作中，它主要完成了三件事情：目标检测，目标分类，像素级分割。它在Faster R-CNN的结构基础上加上了Mask预测分支，并且改良了ROI Pooling，提出了ROI Align。
 
 ---------------------------------------------------------------------------------
 ## Object Segmentation 物体分割
-FCN　
+目标识别网络（分类网络）尽管表面上来看可以接受任意尺寸的图片作为输入，但是由于网络结构最后全连接层的存在，使其丢失了输入的空间信息，因此，这些网络并没有办法直接用于解决诸如分割等稠密估计的问题。于是FCN用卷积层和池化层替代了分类网络中的全连接层，从而使得网络结构可以适应像素级的稠密估计任务。该工作被视为里程碑式的进步，因为它阐释了CNN如何可以在语义分割问题上被端对端的训练，而且高效的学习了如何基于任意大小的输入来为语义分割问题产生像素级别的标签预测。
+
+### FCN　
 
 
+FCN(Fully Convolutional Networks for Semantic Segmentation)成为了深度学习技术应用于语义分割问题的基石：
+
+它利用了现存的CNN网络作为其模块之一来产生层次化的特征。作者将现存的知名的分类模型包括AlexNet、VGG-16、GoogLeNet和ResNet等转化为全卷积模型：将其全连接层均替换为卷积层，输出空间映射而不是分类分数。这些映射由小步幅卷积上采样（又称反卷积）得到，来产生密集的像素级别的标签。
+
+  ![fcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn.png)
+  ![fcn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn2.png)
+
+输入：整幅图像。
+输出：空间尺寸与输入图像相同，通道数等于全部类别个数。
+真值：通道数为1（或2）的分割图像。
+
+ [1] Jonathan Long, Evan Shelhamer, Trevor Darrell; The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2015, pp. 3431-3440[pdf](https://arxiv.org/pdf/1605.06211v1.pdf) CVPR 2015 Best paper
+
+   ![fcn8s](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn8s.png)
 
 
+   ![fcn8sdata](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/seg/fcn8s.png)
+
+caffe https://github.com/shelhamer/fcn.berkeleyvision.org 官方
+tf ： https://github.com/shekkizh/FCN.tensorflow
+
+ 尽管FCN模型强大而普适，它任然有着多个缺点从而限制其对于某些问题的应用：
+
+ 1 固有的空间不变性导致其没有考虑到有用的全局上下文信息，
+ 2 并没有默认考虑对实例的辨识，
+ 3 效率在高分辨率场景下还远达不到实时操作的能力，
+ 4 不完全适合非结构性数据如3D点云，或者非结构化模型。
+ [参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)给出了这个综述的总结，他们所基于的架构、主要的贡献、以及基于其任务目标的分级：准确率、效率、训练难度、序列数据处理、多模式输入以及3D数据处理能力等。每个目标分为3个等级，依赖于对应工作对该目标的专注程度，叉号则代表该目标问题并没有被该工作考虑进来。
+
+   ![fcn35](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn35.png)
+
+   ![fcn3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn3.png)
+
+[参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)
+
+
+ 
 SegNet
 
 
@@ -1500,6 +1559,11 @@ http://www.arxiv.org/pdf/1505.04597.pdf
 
 https://github.com/facebookresearch/deepmask
 
+
+### Mask Scoring R-CNN
+MS R-CNN对Mask R-CNN进行了修正,在结构中添加了Mask-IoU。Mask R-CNN的评价函数只对目标检测的候选框进行打分，而不是分割模板打分，所以会出现分割模板效果很差但是打分很高的情况。所以增加了对模板进行打分的Mask-IoU Head
+
+   ![msrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/msrcnn.png)
 
 
 ![Art&Gan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
