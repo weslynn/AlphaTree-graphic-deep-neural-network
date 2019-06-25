@@ -114,8 +114,8 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
   - [SSD](#ssdthe-single-shot-detector-详解-detail)
 
 - [Object Segmentation 物体分割](#object-segmentation-物体分割)
-  - [FCN](#FCN)
-  - [UNet](#UNet)
+  - [FCN](#fcn)
+  - [UNet](#u-net)
 
 
 
@@ -1483,21 +1483,23 @@ FCN(Fully Convolutional Networks for Semantic Segmentation)成为了深度学习
 
 它利用了现存的CNN网络作为其模块之一来产生层次化的特征。作者将现存的知名的分类模型包括AlexNet、VGG-16、GoogLeNet和ResNet等转化为全卷积模型：将其全连接层均替换为卷积层，输出空间映射而不是分类分数。这些映射由小步幅卷积上采样（又称反卷积）得到，来产生密集的像素级别的标签。
 
-  ![fcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn.png)
-  ![fcn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn2.png)
+![fcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn.png)
+
+![fcn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn2.png)
 
 输入：整幅图像。
 输出：空间尺寸与输入图像相同，通道数等于全部类别个数。
 真值：通道数为1（或2）的分割图像。
 
- [1] Jonathan Long, Evan Shelhamer, Trevor Darrell; The IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2015, pp. 3431-3440[pdf](https://arxiv.org/pdf/1605.06211v1.pdf) CVPR 2015 Best paper
+ [1]  J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation.” in CVPR, 2015. pp. 3431-3440 [pdf](https://arxiv.org/pdf/1605.06211v1.pdf) CVPR 2015 Best paper
 
    ![fcn8s](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn8s.png)
 
 
-   ![fcn8sdata](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/seg/fcn8s.png)
+   ![fcn8sdata](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/seg/fcn8.png)
 
 caffe https://github.com/shelhamer/fcn.berkeleyvision.org 官方
+
 tf ： https://github.com/shekkizh/FCN.tensorflow
 
  尽管FCN模型强大而普适，它任然有着多个缺点从而限制其对于某些问题的应用：
@@ -1514,7 +1516,8 @@ tf ： https://github.com/shekkizh/FCN.tensorflow
 
 [参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)
 
-
+### U-NET
+http://www.arxiv.org/pdf/1505.04597.pdf
  
 SegNet
 
@@ -1537,11 +1540,8 @@ PSPNet
 Large Kernel Matters
 
 DeepLab v3
-### FCN
-[1] J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation.” in CVPR, 2015. [pdf]
 
-### U-NET
-http://www.arxiv.org/pdf/1505.04597.pdf
+
 
 ### SegNet
 
