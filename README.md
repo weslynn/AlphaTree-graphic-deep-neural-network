@@ -114,8 +114,8 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
   - [SSD](#ssdthe-single-shot-detector-详解-detail)
 
 - [Object Segmentation 物体分割](#object-segmentation-物体分割)
-  -
-  - [Unet]
+  - [FCN](#FCN)
+  - [UNet](#UNet)
 
 
 
