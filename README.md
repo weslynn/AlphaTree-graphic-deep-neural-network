@@ -1441,7 +1441,10 @@ github: caffe https://github.com/rbgirshick/py-faster-rcnn/
 
 
 
-
+c 官方:  https://pjreddie.com/darknet/yolo/   v3
+         https://pjreddie.com/darknet/yolov2/ v2
+         https://pjreddie.com/darknet/yolov1/ v1
+         
 pytorch (tencent) v1, v2, v3 :https://github.com/TencentYoutuResearch/ObjectDetection-OneStageDet
 
 ### SSD(The Single Shot Detector) [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20detection%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B/SSD.md)
@@ -1476,8 +1479,7 @@ ICCV 2017的最佳论文，在Mask R-CNN的工作中，它主要完成了三件�
 ## Object Segmentation 物体分割
 目标识别网络（分类网络）尽管表面上来看可以接受任意尺寸的图片作为输入，但是由于网络结构最后全连接层的存在，使其丢失了输入的空间信息，因此，这些网络并没有办法直接用于解决诸如分割等稠密估计的问题。于是FCN用卷积层和池化层替代了分类网络中的全连接层，从而使得网络结构可以适应像素级的稠密估计任务。该工作被视为里程碑式的进步，因为它阐释了CNN如何可以在语义分割问题上被端对端的训练，而且高效的学习了如何基于任意大小的输入来为语义分割问题产生像素级别的标签预测。
 
-### FCN　
-
+### FCN
 
 FCN(Fully Convolutional Networks for Semantic Segmentation)成为了深度学习技术应用于语义分割问题的基石：
 
@@ -1505,9 +1507,13 @@ tf ： https://github.com/shekkizh/FCN.tensorflow
  尽管FCN模型强大而普适，它任然有着多个缺点从而限制其对于某些问题的应用：
 
  1 固有的空间不变性导致其没有考虑到有用的全局上下文信息，
+
  2 并没有默认考虑对实例的辨识，
+
  3 效率在高分辨率场景下还远达不到实时操作的能力，
+
  4 不完全适合非结构性数据如3D点云，或者非结构化模型。
+
  [参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)给出了这个综述的总结，他们所基于的架构、主要的贡献、以及基于其任务目标的分级：准确率、效率、训练难度、序列数据处理、多模式输入以及3D数据处理能力等。每个目标分为3个等级，依赖于对应工作对该目标的专注程度，叉号则代表该目标问题并没有被该工作考虑进来。
 
    ![fcn35](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn35.png)
