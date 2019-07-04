@@ -1436,16 +1436,24 @@ github: caffe https://github.com/rbgirshick/py-faster-rcnn/
 
 ### Yolo
 * Yolo(You only look once)
-   [6] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." arXiv preprint arXiv:1506.02640 (2015). [pdf](https://arxiv.org/pdf/1506.02640.pdf)YOLO,Oustanding Work, really practical
+
+
+   YOLO的检测思想不同于R-CNN系列的思想，它将目标检测作为回归任务来解决。YOLO 的核心思想就是利用整张图作为网络的输入，直接在输出层回归 bounding box（边界框） 的位置及其所属的类别。
+
    ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/yolo.jpg)
 
+   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/yolo.png)
 
+   [6] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." arXiv preprint arXiv:1506.02640 (2015). [pdf](https://arxiv.org/pdf/1506.02640.pdf)YOLO,Oustanding Work, really practical
+  [PPT](https://docs.google.com/presentation/d/1aeRvtKG21KHdD5lg6Hgyhx5rPq_ZOsGjG5rJ1HP7BbA/pub?start=false&loop=false&delayms=3000&slide=id.g137784ab86_4_1822)
 
 c 官方:  https://pjreddie.com/darknet/yolo/   v3
          https://pjreddie.com/darknet/yolov2/ v2
          https://pjreddie.com/darknet/yolov1/ v1
-         
+
 pytorch (tencent) v1, v2, v3 :https://github.com/TencentYoutuResearch/ObjectDetection-OneStageDet
+
+yolo 介绍 可以参考[介绍](https://blog.csdn.net/App_12062011/article/details/77554288)
 
 ### SSD(The Single Shot Detector) [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20detection%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B/SSD.md)
 
@@ -1463,17 +1471,43 @@ pytorch (tencent) v1, v2, v3 :https://github.com/TencentYoutuResearch/ObjectDete
 
    caffe ：https://github.com/weiliu89/caffe/tree/ssd
 
+### FPN
+FPN（feature pyramid networks）特征金字塔，是一种融合了多层特征信息的特征提取方法，可以结合各种深度神经网络使用。
+SSD的多尺度特征融合的方式，没有上采样过程，没有用到足够低层的特征（在SSD中，最低层的特征是VGG网络的conv4_3）
 
-ParseNet
+   ![fpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fpn.JPG)
+
+
+Feature Pyramid Networks for Object Detection [pdf](https://arxiv.org/pdf/1612.03144.pdf)
+
+
 
 ### R-FCN
 * R-FCN
-   [8] Dai, Jifeng, et al. "R-FCN: Object Detection via Region-based Fully Convolutional Networks." arXiv preprint arXiv:1605.06409 (2016). [pdf] 
+R-FCN是对faster rcnn的改进。因为Faster RCNN的roi pooling中的全连接层计算量大，但是丢弃全连接层（起到了融合特征和特征映射的作用），直接将roi pooling的生成的feature map 连接到最后的分类和回归层检测结果又很差，《Deep residual learning for image recognition》认为：图像分类具有图像移动不敏感性；而目标检测领域是图像移动敏感的，因此在roi pooling中加入位置相关性设计。
+
+   ![rfcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rfcn.png)
+
+   [8] Dai, Jifeng, et al. "R-FCN: Object Detection via Region-based Fully Convolutional Networks." arXiv preprint arXiv:1605.06409 (2016). [pdf](https://arxiv.org/abs/1605.06409)
+
+[介绍](https://blog.csdn.net/App_12062011/article/details/79737363)
+
+
 
 ### Mask R-CNN
 * Mask R-CNN
+
+
+ICCV 2017的最佳论文，在Mask R-CNN的工作中，它主要完成了三件事情：目标检测，目标分类，像素级分割。它在Faster R-CNN的结构基础上加上了Mask预测分支，并且改良了ROI Pooling，提出了ROI Align。这是第一次将目标检测和目标分割任务统一起来。
+
+   ![maskrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/maskrcnn.png)
+
    [9] He, Gkioxari, et al. "Mask R-CNN" arXiv preprint arXiv:1703.06870 (2017). [pdf] 
-ICCV 2017的最佳论文，在Mask R-CNN的工作中，它主要完成了三件事情：目标检测，目标分类，像素级分割。它在Faster R-CNN的结构基础上加上了Mask预测分支，并且改良了ROI Pooling，提出了ROI Align。
+
+
+[介绍](https://blog.csdn.net/jiongnima/article/details/79094159)
+[zhihu](https://zhuanlan.zhihu.com/p/37998710)
+
 
 ---------------------------------------------------------------------------------
 ## Object Segmentation 物体分割
@@ -1539,7 +1573,7 @@ DeepLab (v1 & v2)
 
 RefineNet
 
-
+ParseNet
 PSPNet
 
 
@@ -1570,229 +1604,6 @@ https://github.com/facebookresearch/deepmask
 MS R-CNN对Mask R-CNN进行了修正,在结构中添加了Mask-IoU。Mask R-CNN的评价函数只对目标检测的候选框进行打分，而不是分割模板打分，所以会出现分割模板效果很差但是打分很高的情况。所以增加了对模板进行打分的Mask-IoU Head
 
    ![msrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/msrcnn.png)
-
-
-![Art&Gan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
-
-## Art
-
-### Interactive Deep Colorization
-https://github.com/junyanz/interactive-deep-colorization
-
-
-### pix2pix
-Edges2cats：
-
-http://affinelayer.com/pixsrv/index.html
-
-Github：
-
-https://github.com/phillipi/pix2pix
-
-
-http://paintschainer.preferred.tech/index_zh.html
-
-
-### Neural Doodle
-
-使用深度神经网络把你的二流涂鸦变成艺术品。
-
-Champandard（2016） “Semantic Style Transfer and Turning Two-Bit Doodles into Fine Artworks”
-
-基于 Chuan Li 和 Michael Wand（2016）在论文“Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis”中提出的 Neural Patches 算法。这篇文章中深入解释了这个项目的动机和灵感来源：https://nucl.ai/blog/neural-doodles/
-
-doodle.py 脚本通过使用1个，2个，3个或4个图像作为输入来生成新的图像，输入的图像数量取决于你希望生成怎样的图像：原始风格及它的注释（annotation），以及带有注释（即你的涂鸦）的目标内容图像（可选）。该算法从带风格图像中提取 annotated patches，然后根据它们匹配的紧密程度用这些 annotated patches 渐进地改变目标图像的风格。
-
-Github 地址：https://github.com/alexjc/neural-doodle
-### Deep Painterly Harmonization
-https://github.com/luanfujun/deep-painterly-harmonization
-
-
-### Visual Attribute Transfer through Deep Image Analogy SIGGRAPH 2017 paper
-https://github.com/msracver/Deep-Image-Analogy
-### 
-
-### Colornet
-
-
-
-Github 地址：https://github.com/pavelgonchar/colornet
-## 强化学习
-
-
-
-
-SAC-X
-
-
-## GAN
-
-生成式对抗网络（GAN, Generative Adversarial Networks ）是近年来深度学习中复杂分布上无监督学习最具前景的方法之一。
-监督学习需要大量标记样本，而GAN不用。
-模型包括两个模块：生成模型（Generative Model）和判别模型（Discriminative Model），通过模型的互相博弈学习产生相当好的输出。原始 GAN 理论中，并不要求 G 和 D 都是神经网络，只需要是能拟合相应生成和判别的函数即可。但实用中一般均使用深度神经网络作为 G 和 D 。
-
-   [1] Ian Goodfellow. "Generative Adversarial Networks." arXiv preprint arXiv:1406.2661v1 (2014). [pdf] (https://arxiv.org/pdf/1406.2661v1.pdf)
-
-和监督学习的的网络结构一样，GAN的发展 也主要包含网络结构性的改进 和loss、参数、权重的改进。我们首先看后者 。
-
-## WGAN /WGAN-GP
-
-在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
-
-为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
-原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
-
-https://zhuanlan.zhihu.com/p/25071913
-
-WGAN 针对loss改进 只改了4点：
-1.判别器最后一层去掉sigmoid
-2.生成器和判别器的loss不取log
-3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
-4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
-
-https://github.com/martinarjovsky/WassersteinGAN
-
-WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
-
-[1704.00028] Improved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
-
-Tensorflow实现：https://github.com/igul222/improved_wgan_training
-
-pytorch https://github.com/caogang/wgan-gp
-
-
-
-
-
------------------------------------------------------------------------------
-
-https://github.com/wiseodd/generative-models
-
-### info gan
-https://github.com/openai/InfoGAN
-
-
-
-DCGAN - Alec Radford & Luke Metz, arxiv:1511.06434
-
-CGAN - Mehdi Mirza, arXiv:1411.1784v1
-
-LAPGAN - Emily Denton & Soumith Chintala, arxiv: 1506.05751
-
-InfoGAN - Xi Chen, arxiv: 1606.03657
-
-PPGAN - Anh Nguyen, arXiv:1612.00005v1
-
-WGAN - Martin Arjovsky, arXiv:1701.07875v1
-
-LS-GAN - Guo-Jun Qi, arxiv: 1701.06264
-
-SeqGAN - Lantao Yu, arxiv: 1609.05473
-
-EBGAN - Junbo Zhao, arXiv:1609.03126v2
-
-VAEGAN - Anders Boesen Lindbo Larsen, arxiv: 1512.09300
-
-......
-
-特定任务中提出来的模型，如GAN-CLS、GAN-INT、SRGAN、iGAN、IAN 等
-LS-GAN
-
-Torch 版本：https://github.com/guojunq/lsgan
-
-SRGAN
-
-TensorFlow 版本：https://github.com/buriburisuri/SRGAN
-
-Torch 版本：https://github.com/leehomyc/Photo-Realistic-Super-Resoluton
-
-Keras 版本：https://github.com/titu1994/Super-Resolution-using-Generative-Adversarial-Networks
-
-iGAN
-
-Theano 版本：https://github.com/junyanz/iGAN
-
-IAN
-
-Theano 版本：https://github.com/ajbrock/Neural-Photo-Editor
-
-Pix2pix
-
-Torch 版本：https://github.com/phillipi/pix2pix
-
-TensorFlow 版本：https://github.com/yenchenlin/pix2pix-tensorflow
-
-GAN for Neural dialogue generation
-
-Torch 版本：https://github.com/jiweil/Neural-Dialogue-Generation
-
-Text2image
-
-Torch 版本：https://github.com/reedscot/icml2016
-
-TensorFlow+Theano 版本：https://github.com/paarthneekhara/text-to-image
-
-GAN for Imitation Learning
-
-Theano 版本：https://github.com/openai/imitation
-
-SeqGAN
-
-TensorFlow 版本：https://github.com/LantaoYu/SeqGAN
-
-
-Qi G J. Loss-Sensitive Generative Adversarial Networks onLipschitz Densities[J]. arXiv preprint arXiv:1701.06264, 2017.
-
-Li J, Monroe W, Shi T, et al. Adversarial Learning for NeuralDialogue Generation[J]. arXiv preprint arXiv:1701.06547, 2017.
-
-Sønderby C K, Caballero J, Theis L, et al. Amortised MAPInference for Image Super-resolution[J]. arXiv preprint arXiv:1610.04490, 2016.
-
-Ravanbakhsh S, Lanusse F, Mandelbaum R, et al. Enabling DarkEnergy Science with Deep Generative Models of Galaxy Images[J]. arXiv preprintarXiv:1609.05796, 2016.
-
-Ho J, Ermon S. Generative adversarial imitationlearning[C]//Advances in Neural Information Processing Systems. 2016:4565-4573.
-
-Zhu J Y, Krähenbühl P, Shechtman E, et al. Generative visualmanipulation on the natural image manifold[C]//European Conference on ComputerVision. Springer International Publishing, 2016: 597-613.
-
-Isola P, Zhu J Y, Zhou T, et al. Image-to-image translationwith conditional adversarial networks[J]. arXiv preprint arXiv:1611.07004,2016.
-
-Shrivastava A, Pfister T, Tuzel O, et al. Learning fromSimulated and Unsupervised Images through Adversarial Training[J]. arXivpreprint arXiv:1612.07828, 2016.
-
-Ledig C, Theis L, Huszár F, et al. Photo-realistic singleimage super-resolution using a generative adversarial network[J]. arXivpreprint arXiv:1609.04802, 2016.
-
-Nguyen A, Yosinski J, Bengio Y, et al. Plug & playgenerative networks: Conditional iterative generation of images in latentspace[J]. arXiv preprint arXiv:1612.00005, 2016.
-
-Yu L, Zhang W, Wang J, et al. Seqgan: sequence generativeadversarial nets with policy gradient[J]. arXiv preprint arXiv:1609.05473,2016.
-
-Lotter W, Kreiman G, Cox D. Unsupervised learning of visualstructure using predictive generative networks[J]. arXiv preprintarXiv:1511.06380, 2015.
-
-Reed S, Akata Z, Yan X, et al. Generative adversarial textto image synthesis[C]//Proceedings of The 33rd International Conference onMachine Learning. 2016, 3.
-
-Brock A, Lim T, Ritchie J M, et al. Neural photo editingwith introspective adversarial networks[J]. arXiv preprint arXiv:1609.07093,2016.
-
-Pfau D, Vinyals O. Connecting generative adversarialnetworks and actor-critic methods[J]. arXiv preprint arXiv:1610.01945, 2016.
-
-
-
-### iGan
-https://github.com/junyanz/iGAN#igan-interactive-image-generation-via-generative-adversarial-networks
-
-
-
-
-
-
-
-
-
-
-Neural Dialogue Generation
-https://github.com/jiweil/Neural-Dialogue-Generation
-
-
-
-
-
-
 
 
 

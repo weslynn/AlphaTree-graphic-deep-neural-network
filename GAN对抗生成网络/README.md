@@ -1345,3 +1345,228 @@ http://www.sohu.com/a/294911565_100024677
 
 
 https://ceit.aut.ac.ir/~khalooei/tutorials/gan/
+
+
+![Art&Gan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
+
+## Art
+
+### Interactive Deep Colorization
+https://github.com/junyanz/interactive-deep-colorization
+
+
+### pix2pix
+Edges2cats：
+
+http://affinelayer.com/pixsrv/index.html
+
+Github：
+
+https://github.com/phillipi/pix2pix
+
+
+http://paintschainer.preferred.tech/index_zh.html
+
+
+### Neural Doodle
+
+使用深度神经网络把你的二流涂鸦变成艺术品。
+
+Champandard（2016） “Semantic Style Transfer and Turning Two-Bit Doodles into Fine Artworks”
+
+基于 Chuan Li 和 Michael Wand（2016）在论文“Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis”中提出的 Neural Patches 算法。这篇文章中深入解释了这个项目的动机和灵感来源：https://nucl.ai/blog/neural-doodles/
+
+doodle.py 脚本通过使用1个，2个，3个或4个图像作为输入来生成新的图像，输入的图像数量取决于你希望生成怎样的图像：原始风格及它的注释（annotation），以及带有注释（即你的涂鸦）的目标内容图像（可选）。该算法从带风格图像中提取 annotated patches，然后根据它们匹配的紧密程度用这些 annotated patches 渐进地改变目标图像的风格。
+
+Github 地址：https://github.com/alexjc/neural-doodle
+### Deep Painterly Harmonization
+https://github.com/luanfujun/deep-painterly-harmonization
+
+
+### Visual Attribute Transfer through Deep Image Analogy SIGGRAPH 2017 paper
+https://github.com/msracver/Deep-Image-Analogy
+### 
+
+### Colornet
+
+
+
+Github 地址：https://github.com/pavelgonchar/colornet
+## 强化学习
+
+
+
+
+SAC-X
+
+
+## GAN
+
+生成式对抗网络（GAN, Generative Adversarial Networks ）是近年来深度学习中复杂分布上无监督学习最具前景的方法之一。
+监督学习需要大量标记样本，而GAN不用。
+模型包括两个模块：生成模型（Generative Model）和判别模型（Discriminative Model），通过模型的互相博弈学习产生相当好的输出。原始 GAN 理论中，并不要求 G 和 D 都是神经网络，只需要是能拟合相应生成和判别的函数即可。但实用中一般均使用深度神经网络作为 G 和 D 。
+
+   [1] Ian Goodfellow. "Generative Adversarial Networks." arXiv preprint arXiv:1406.2661v1 (2014). [pdf] (https://arxiv.org/pdf/1406.2661v1.pdf)
+
+和监督学习的的网络结构一样，GAN的发展 也主要包含网络结构性的改进 和loss、参数、权重的改进。我们首先看后者 。
+
+## WGAN /WGAN-GP
+
+在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
+
+为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
+原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
+
+https://zhuanlan.zhihu.com/p/25071913
+
+WGAN 针对loss改进 只改了4点：
+1.判别器最后一层去掉sigmoid
+2.生成器和判别器的loss不取log
+3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
+4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
+
+https://github.com/martinarjovsky/WassersteinGAN
+
+WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
+
+[1704.00028] Improved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
+
+Tensorflow实现：https://github.com/igul222/improved_wgan_training
+
+pytorch https://github.com/caogang/wgan-gp
+
+
+
+
+
+-----------------------------------------------------------------------------
+
+https://github.com/wiseodd/generative-models
+
+### info gan
+https://github.com/openai/InfoGAN
+
+
+
+DCGAN - Alec Radford & Luke Metz, arxiv:1511.06434
+
+CGAN - Mehdi Mirza, arXiv:1411.1784v1
+
+LAPGAN - Emily Denton & Soumith Chintala, arxiv: 1506.05751
+
+InfoGAN - Xi Chen, arxiv: 1606.03657
+
+PPGAN - Anh Nguyen, arXiv:1612.00005v1
+
+WGAN - Martin Arjovsky, arXiv:1701.07875v1
+
+LS-GAN - Guo-Jun Qi, arxiv: 1701.06264
+
+SeqGAN - Lantao Yu, arxiv: 1609.05473
+
+EBGAN - Junbo Zhao, arXiv:1609.03126v2
+
+VAEGAN - Anders Boesen Lindbo Larsen, arxiv: 1512.09300
+
+......
+
+特定任务中提出来的模型，如GAN-CLS、GAN-INT、SRGAN、iGAN、IAN 等
+LS-GAN
+
+Torch 版本：https://github.com/guojunq/lsgan
+
+SRGAN
+
+TensorFlow 版本：https://github.com/buriburisuri/SRGAN
+
+Torch 版本：https://github.com/leehomyc/Photo-Realistic-Super-Resoluton
+
+Keras 版本：https://github.com/titu1994/Super-Resolution-using-Generative-Adversarial-Networks
+
+iGAN
+
+Theano 版本：https://github.com/junyanz/iGAN
+
+IAN
+
+Theano 版本：https://github.com/ajbrock/Neural-Photo-Editor
+
+Pix2pix
+
+Torch 版本：https://github.com/phillipi/pix2pix
+
+TensorFlow 版本：https://github.com/yenchenlin/pix2pix-tensorflow
+
+GAN for Neural dialogue generation
+
+Torch 版本：https://github.com/jiweil/Neural-Dialogue-Generation
+
+Text2image
+
+Torch 版本：https://github.com/reedscot/icml2016
+
+TensorFlow+Theano 版本：https://github.com/paarthneekhara/text-to-image
+
+GAN for Imitation Learning
+
+Theano 版本：https://github.com/openai/imitation
+
+SeqGAN
+
+TensorFlow 版本：https://github.com/LantaoYu/SeqGAN
+
+
+Qi G J. Loss-Sensitive Generative Adversarial Networks onLipschitz Densities[J]. arXiv preprint arXiv:1701.06264, 2017.
+
+Li J, Monroe W, Shi T, et al. Adversarial Learning for NeuralDialogue Generation[J]. arXiv preprint arXiv:1701.06547, 2017.
+
+Sønderby C K, Caballero J, Theis L, et al. Amortised MAPInference for Image Super-resolution[J]. arXiv preprint arXiv:1610.04490, 2016.
+
+Ravanbakhsh S, Lanusse F, Mandelbaum R, et al. Enabling DarkEnergy Science with Deep Generative Models of Galaxy Images[J]. arXiv preprintarXiv:1609.05796, 2016.
+
+Ho J, Ermon S. Generative adversarial imitationlearning[C]//Advances in Neural Information Processing Systems. 2016:4565-4573.
+
+Zhu J Y, Krähenbühl P, Shechtman E, et al. Generative visualmanipulation on the natural image manifold[C]//European Conference on ComputerVision. Springer International Publishing, 2016: 597-613.
+
+Isola P, Zhu J Y, Zhou T, et al. Image-to-image translationwith conditional adversarial networks[J]. arXiv preprint arXiv:1611.07004,2016.
+
+Shrivastava A, Pfister T, Tuzel O, et al. Learning fromSimulated and Unsupervised Images through Adversarial Training[J]. arXivpreprint arXiv:1612.07828, 2016.
+
+Ledig C, Theis L, Huszár F, et al. Photo-realistic singleimage super-resolution using a generative adversarial network[J]. arXivpreprint arXiv:1609.04802, 2016.
+
+Nguyen A, Yosinski J, Bengio Y, et al. Plug & playgenerative networks: Conditional iterative generation of images in latentspace[J]. arXiv preprint arXiv:1612.00005, 2016.
+
+Yu L, Zhang W, Wang J, et al. Seqgan: sequence generativeadversarial nets with policy gradient[J]. arXiv preprint arXiv:1609.05473,2016.
+
+Lotter W, Kreiman G, Cox D. Unsupervised learning of visualstructure using predictive generative networks[J]. arXiv preprintarXiv:1511.06380, 2015.
+
+Reed S, Akata Z, Yan X, et al. Generative adversarial textto image synthesis[C]//Proceedings of The 33rd International Conference onMachine Learning. 2016, 3.
+
+Brock A, Lim T, Ritchie J M, et al. Neural photo editingwith introspective adversarial networks[J]. arXiv preprint arXiv:1609.07093,2016.
+
+Pfau D, Vinyals O. Connecting generative adversarialnetworks and actor-critic methods[J]. arXiv preprint arXiv:1610.01945, 2016.
+
+
+
+### iGan
+https://github.com/junyanz/iGAN#igan-interactive-image-generation-via-generative-adversarial-networks
+
+
+
+
+
+
+
+
+
+
+Neural Dialogue Generation
+https://github.com/jiweil/Neural-Dialogue-Generation
+
+
+
+
+
+
+
+
