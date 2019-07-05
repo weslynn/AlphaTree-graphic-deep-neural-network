@@ -1570,7 +1570,7 @@ Dilated Convolutions
 DeepLab (v1 & v2)
 
 
-
+http://liangchiehchen.com/projects/DeepLab.html
 RefineNet
 
 ParseNet

@@ -3,6 +3,14 @@
 
 ## GAN
 
+2019年，是很重要的一年。在这一年里，GAN有了重大的进展，出现了 BigGan，StyleGan 这样生成高清大图的GAN，也出现了很多对GAN的可解释性方法，包括 苏剑林的OGAN。这一切预示着GAN这个话题，马上就要被勤勉的科学家们攻克了。
+
+从目标分类的被攻克，人脸识别的特征提取和loss改进，目标检测与分割的统一…… 深度学习的堡垒一个接一个的被攻克。一切都迅速都走上可应用化的道路。
+
+
+深度学习的发展惊人，如果说互联网过的是狗年，一年抵七年，深度学习的发展一定是在天宫的，天上一天，地上一年。
+
+
 生成式对抗网络（GAN, Generative Adversarial Networks ）是近年来深度学习中复杂分布上无监督学习最具前景的方法之一。
 监督学习需要大量标记样本，而GAN不用。
 模型包括两个模块：生成模型（Generative Model）和判别模型（Discriminative Model），通过模型的互相博弈学习产生相当好的输出。原始 GAN 理论中，并不要求 G 和 D 都是神经网络，只需要是能拟合相应生成和判别的函数即可。但实用中一般均使用深度神经网络作为 G 和 D 。
@@ -280,22 +288,27 @@ GAN的实现
 |:---:|:---:|:---:|:---:|
 |Keras Implementation of GANs|	Linder-Norén|	Github	|[link](https://github.com/eriklindernoren/Keras-GAN)
 |GAN implementation hacks|	Salimans paper & Chintala|	World research	|[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)
-|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|
+|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)
 |IcGAN: Invertible Conditional GANs for image editing|Arjovsky & et al.|NIPS 2016|	
 
 
 ## DCGAN
 
-DCGAN 提出使用 CNN 结构来稳定 GAN 的训练，并使用了以下一些 trick：
+Deep Convolution Generative Adversarial Networks(深度卷积生成对抗网络)
+
+Alec Radford & Luke Metz提出使用 CNN 结构来稳定 GAN 的训练，并使用了以下一些 trick：
 
 Batch Normalization
 使用 Transpose convlution 进行上采样
 使用 Leaky ReLu 作为激活函数
 上面这些 trick 对于稳定 GAN 的训练有许多帮助
 
-https://arxiv.org/pdf/1511.06434.pdf
+这是CNN在unsupervised learning领域的一次重要尝试，这个架构能极大地稳定GAN的训练，以至于它在相当长的一段时间内都成为了GAN的标准架构，给后面的探索开启了重要的篇章。
 
-https://github.com/carpedm20/DCGAN-tensorflow
+![dcgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/dcgang.png)
+
+
+![dcganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/dcganr.png)
 
 
 ## ImprovedDCGAN
@@ -373,7 +386,13 @@ BigGAN模型是基于ImageNet生成图像质量最高的模型之一。该模型
 
 O-GAN 可以加入其它的loss 将生成器 变为编码器。
 
+通过简单地修改原来的GAN模型，就可以让判别器变成一个编码器，从而让GAN同时具备生成能力和编码能力，并且几乎不会增加训练成本。这个新模型被称为O-GAN（正交GAN，即Orthogonal Generative Adversarial Network），因为它是基于对判别器的正交分解操作来完成的，是对判别器自由度的最充分利用。
 
+Arxiv链接：https://arxiv.org/abs/1903.01931
+
+开源代码：https://github.com/bojone/o-gan
+
+https://kexue.fm/archives/6409
 
 -------------------------------------------------------
 
@@ -1448,7 +1467,6 @@ https://github.com/openai/InfoGAN
 
 
 
-DCGAN - Alec Radford & Luke Metz, arxiv:1511.06434
 
 CGAN - Mehdi Mirza, arXiv:1411.1784v1
 
