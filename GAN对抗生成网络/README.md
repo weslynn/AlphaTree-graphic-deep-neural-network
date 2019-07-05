@@ -153,10 +153,33 @@ InfoGan 找到了Gan的latent code 使得Gan的数据生成具有了可解释性
 
 但是如果我们想指定生成的样本呢？譬如指定生成1，或者2，就可以通过指定C condition来完成。
 
+条件BN首先出现在文章 Modulating early visual processing by language 中，后来又先后被用在 cGANs With Projection Discriminator 中，目前已经成为了做条件 GAN（cGAN）的标准方案，包括 SAGAN、BigGAN 都用到了它。
+
+
 https://github.com/znxlwm/tensorflow-MNIST-cGAN-cDCGAN
 ![cgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/cgan.png)
 
 应用方向 数字生成， 图像自动标注等
+
+## LAPGAN 
+Emily Denton & Soumith Chintala, arxiv: 1506.05751
+
+是第一篇将层次化或者迭代生成的思想运用到 GAN 中的工作。在原始 GAN和后来的 CGAN中，GAN 还只能生成32X32 这种低像素小尺寸的图片。而这篇工作[16] 是首次成功实现 64X64 的图像生成。思想就是，与其一下子生成这么大的（包含信息量这么多），不如一步步由小转大，这样每一步生成的时候，可以基于上一步的结果，而且还只需要“填充”和“补全”新大小所需要的那些信息。这样信息量就会少很多，而为了进一步减少信息量，他们甚至让 G 每次只生成“残差”图片，生成后的插值图片与上一步放大后的图片做加法，就得到了这一步生成的图片。
+
+
+## IcGAN
+Invertible Conditional GANs for image editing
+
+通常GAN的生成网络输入为一个噪声向量z,IcGAN是对cGAN的z的解释。
+
+利用一个encoder网络,对输入图像提取得到一个特征向量z,将特征向量z,以及需要转换的目标attribute向量y串联输入生成网络,得到生成图像,网络结构如下,
+
+![icgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/icgan.png)
+
+
+https://arxiv.org/pdf/1611.06355.pdf
+https://github.com/Guim3/IcGAN
+
 
 ## ACGAN
 
@@ -187,7 +210,9 @@ https://blog.csdn.net/shenxiaolu1984/article/details/75736407
 
 
 ----------------------
-## InfoGan
+## InfoGan OpenAI
+
+InfoGAN - Xi Chen, arxiv: 1606.03657
 
 提出了latent code。
 
@@ -226,6 +251,7 @@ Loss Functions:
 
 ## LSGAN(Least Squares Generative Adversarial Networks)
 
+LS-GAN - Guo-Jun Qi, arxiv: 1701.06264
 
    [2] Mao et al., 2017.4 [pdf](https://arxiv.org/pdf/1611.04076.pdf)
 
@@ -237,6 +263,7 @@ Loss Functions:
 但缺点也是明显的, LSGAN对离离群点的过度惩罚, 可能导致样本生成的'多样性'降低, 生成样本很可能只是对真实样本的简单模仿和细微改动.
 
 ## WGAN
+WGAN - Martin Arjovsky, arXiv:1701.07875v1
 
 WGAN：
 在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
@@ -284,12 +311,13 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 GAN的实现
 
-|Title|	Co-authors|	Publication|	Links|
-|:---:|:---:|:---:|:---:|
-|Keras Implementation of GANs|	Linder-Norén|	Github	|[link](https://github.com/eriklindernoren/Keras-GAN)
-|GAN implementation hacks|	Salimans paper & Chintala|	World research	|[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)
-|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)
-|IcGAN: Invertible Conditional GANs for image editing|Arjovsky & et al.|NIPS 2016|	
+|Title|	Co-authors|	Publication|	Links| size |
+|:---:|:---:|:---:|:---:|:---:|
+|Keras Implementation of GANs|	Linder-Norén|	Github	|[link](https://github.com/eriklindernoren/Keras-GAN)||
+|GAN implementation hacks|	Salimans paper & Chintala|	World research	|[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)||
+|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)| 64x64 human|
+|ProGAN:Progressive Growing of GANs for Improved Quality, Stability, and Variation|Tero Karras|2017|[paper](https://arxiv.org/pdf/1710.10196.pdf) [link](https://github.com/tkarras/progressive_growing_of_gans)|1024x1024 human|
+|SAGAN：Self-Attention Generative Adversarial Networks| Han Zhang & Ian Goodfellow||[paper](https://arxiv.org/pdf/1805.08318.pdf) [link](https://github.com/taki0112/Self-Attention-GAN-Tensorflow)|128x128 obj|
 
 
 ## DCGAN
@@ -305,14 +333,26 @@ Batch Normalization
 
 这是CNN在unsupervised learning领域的一次重要尝试，这个架构能极大地稳定GAN的训练，以至于它在相当长的一段时间内都成为了GAN的标准架构，给后面的探索开启了重要的篇章。
 
-![dcgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/dcgang.png)
+![dcgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/dcgang.jpg)
 
 
-![dcganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/dcganr.png)
+![dcganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/dcganr.jpg)
 
 
 ## ImprovedDCGAN
- 
+ GANs的主要问题之一是收敛性不稳定，尽管DCGAN做了结构细化，训练过程仍可能难以收敛。GANs的训练常常是同时在两个目标上使用梯度下降，然而这并不能保证到达均衡点，毕竟目标未必是凸的。也就是说GANs可能永远达不到这样的均衡点，于是就会出现收敛性不稳定。
+
+为了解决这一问题，ImprovedDCGAN针对DCGAN训练过程提出了不同的增强方法。
+1 特征匹配(feature mapping)
+
+为了不让生成器尽可能地去蒙骗鉴别器，ImprovedDCGAN希望以特征作为匹配标准，而不是图片作为匹配标准，于是提出了一种新的生成器的目标函数
+
+2 批次判别(minibatch discrimination)
+
+GAN的一个常见的失败就是收敛到同一个点，只要生成一个会被discriminator误认的内容，那么梯度方向就会不断朝那个方向前进。ImprovedDCGAN使用的方法是用minibatch discriminator。也就是说每次不是判别单张图片，而是判别一批图片。
+3 历史平均(historical averaging)
+4 单侧标签平滑(one-sided label smoothing)
+
 
 
 ## GAN + ResNet
@@ -327,34 +367,53 @@ Batch Normalization
 
 然而，ResNet层数更多、层之间的连接更多，相比 DCGAN，ResNet比 DCGAN 要慢得多，所需要的显存要多得多。
 
-## IcGAN
-Invertible Conditional GANs for image editing
 
-https://arxiv.org/pdf/1611.06355.pdf
-https://github.com/Guim3/IcGAN
+## SAGAN Ian Goodfellow
+由于卷积的局部感受野的限制，如果要生成大范围相关（Long-range dependency）的区域会出现问题，用更深的卷积网络参数量太大，于是采用将 Self Attention 引入到了生成器（以及判别器）中，使用来自所有特征位置的信息生成图像细节，同时保证判别器能鉴别距离较远的两个特征之间的一致性，获取全局信息。
+
+![sagan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/sagan.jpg)
+
+![sagan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/sagan.png)
+
+SAGAN 使用注意力机制，高亮部位为注意力机制关注的位置。
+
+![saganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/saganr.jpg)
 
 
 
-## SAGAN
-将 Self Attention 引入到了生成器（以及判别器）
+论文地址：https://arxiv.org/pdf/1805.08318v2.pdf
+
+https://github.com/taki0112/Self-Attention-GAN-Tensorflow
+
+pytorch https://github.com/heykeetae/Self-Attention-GAN
 
 ## SELF-MOD
 
 Self Modulated Generator，来自文章 On Self Modulation for Generative Adversarial Networks
-条件BN首先出现在文章 Modulating early visual processing by language 中，后来又先后被用在 cGANs With Projection Discriminator 中，目前已经成为了做条件 GAN（cGAN）的标准方案，包括 SAGAN、BigGAN 都用到了它。
 
-SELF-MOD 考虑到 cGAN 训练的稳定性更好，但是一般情况下 GAN 并没有标签 c 可用，那怎么办呢？干脆以噪声 z 自身为标签好了！这就是 Self Modulated 的含义了，自己调节自己，不借助于外部标签，但能实现类似的效果。
+SELF-MOD 考虑到 cGAN 训练的稳定性更好，但是一般情况下 GAN 并没有标签 c 可用，而以噪声 z 自身为标签好了，自己调节自己，不借助于外部标签，但能实现类似的效果。
 
-## LAPGAN 
-，是第一篇将层次化或者迭代生成的思想运用到 GAN 中的工作。在原始 GAN[2] 和后来的 CGAN[15] 中，GAN 还只能生成32X32 这种低像素小尺寸的图片。而这篇工作[16] 是首次成功实现 64X64 的图像生成。思想就是，与其一下子生成这么大的（包含信息量这么多），不如一步步由小转大，这样每一步生成的时候，可以基于上一步的结果，而且还只需要“填充”和“补全”新大小所需要的那些信息。这样信息量就会少很多，而为了进一步减少信息量，他们甚至让 G 每次只生成“残差”图片，生成后的插值图片与上一步放大后的图片做加法，就得到了这一步生成的图片。
 
-## PGGAN
+
+
+
+## PGGAN(ProGAN)
 首次实现了 1024 人脸生成的 Progressive Growing GANs，简称 PGGAN，来自 NVIDIA。
 
 顾名思义，PGGAN 通过一种渐进式的结构，实现了从低分辨率到高分辨率的过渡，从而能平滑地训练出高清模型出来。论文还提出了自己对正则化、归一化的一些理解和技巧，值得思考。当然，由于是渐进式的，所以相当于要串联地训练很多个模型，所以 PGGAN 很慢。
 
+Progressive Growing of GANs for Improved Quality, Stability, and Variation
+
+Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
+
+论文地址：https://arxiv.org/pdf/1710.10196.pdf
+
+代码实现地址：https://github.com/tkarras/progressive_growing_of_gans 
+
 
 CelebA HQ 数据集
+
+
 ## StyleGAN  NVIDIA
 
 被很多文章称之为 GAN 2.0，借鉴了风格迁移的模型，所以叫 Style-Based Generator
@@ -366,11 +425,8 @@ CelebA HQ 数据集
 
 ## BigGAN
 
-Progressive Growing of GANs for Improved Quality, Stability, and Variation
 
-Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
 
-https://arxiv.org/abs/1710.10196
 
 BigGAN — Brock et al. (2019)
 
@@ -1462,23 +1518,16 @@ pytorch https://github.com/caogang/wgan-gp
 
 https://github.com/wiseodd/generative-models
 
-### info gan
-https://github.com/openai/InfoGAN
 
 
 
 
-CGAN - Mehdi Mirza, arXiv:1411.1784v1
 
-LAPGAN - Emily Denton & Soumith Chintala, arxiv: 1506.05751
 
-InfoGAN - Xi Chen, arxiv: 1606.03657
 
 PPGAN - Anh Nguyen, arXiv:1612.00005v1
 
-WGAN - Martin Arjovsky, arXiv:1701.07875v1
 
-LS-GAN - Guo-Jun Qi, arxiv: 1701.06264
 
 SeqGAN - Lantao Yu, arxiv: 1609.05473
 
