@@ -312,8 +312,8 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 GAN的实现
 
-|Title|	Co-authors|	Publication|	Links| size |FID/IS|
-|:---:|:---:|:---:|:---:|:---:|
+|Title|	Co-authors|	Publication|Links| size |FID/IS|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 |Keras Implementation of GANs|	Linder-Norén|	Github	|[link](https://github.com/eriklindernoren/Keras-GAN)|||
 |GAN implementation hacks|	Salimans paper & Chintala|	World research	|[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)|||
 |DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)| 64x64 human||
@@ -386,10 +386,9 @@ Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
 CelebA HQ 数据集
 
 
-## GAN + ResNet
 
 
-随着 ResNet 在分类问题的日益深入，自然也就会考虑到 ResNet 结构在 GAN 的应用。事实上，目前 GAN 上主流的生成器和判别器架构确实已经变成了 ResNet：PGGAN、SNGAN、SAGAN 等知名 GAN 都已经用上了 ResNet
+"随着 ResNet 在分类问题的日益深入，自然也就会考虑到 ResNet 结构在 GAN 的应用。事实上，目前 GAN 上主流的生成器和判别器架构确实已经变成了 ResNet：PGGAN、SNGAN、SAGAN 等知名 GAN 都已经用上了 ResNet
 
 可以看到，其实基于 ResNet 的 GAN 在整体结构上与 DCGAN 并没有太大差别，主要的特点在于：
 1. 不管在判别器还是生成器，均去除了反卷积，只保留了普通卷积层；
@@ -397,7 +396,7 @@ CelebA HQ 数据集
 3. 有些作者认为 BN 不适合 GAN，有时候会直接移除掉，或者用 LayerNorm 等代替。
 
 然而，ResNet层数更多、层之间的连接更多，相比 DCGAN，ResNet比 DCGAN 要慢得多，所需要的显存要多得多。
-
+                                           ---苏剑林
 
 ## SAGAN Ian Goodfellow
 由于卷积的局部感受野的限制，如果要生成大范围相关（Long-range dependency）的区域会出现问题，用更深的卷积网络参数量太大，于是采用将 Self Attention 引入到了生成器（以及判别器）中，使用来自所有特征位置的信息生成图像细节，同时保证判别器能鉴别距离较远的两个特征之间的一致性，获取全局信息。
@@ -438,6 +437,7 @@ BigGAN模型是基于ImageNet生成图像质量最高的模型之一。BigGAN作
 
 ![biggan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/biggan.png)
 
+![bigganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/bigganr.png)
 
 Github：https://github.com/AaronLeong/BigGAN-pytorch
 
@@ -454,6 +454,18 @@ A Style-Based Generator Architecture for Generative Adversarial Networks
 
 新数据集 FFHQ。
 
+ProGAN是逐级直接生成图片，特征无法控制，相互关联，我们希望有一种更好的模型，能让我们控制生成图片过程中每一级的特征，要能够特定决定生成图片某些方面的表象，并且相互间的影响尽可能小。于是，在ProGAN的基础上，StyleGAN作出了进一步的改进与提升。
+
+StyleGAN首先重点关注了ProGAN的生成器网络，它发现，渐进层的一个潜在的好处是，如果使用得当，它们能够控制图像的不同视觉特征。层和分辨率越低，它所影响的特征就越粗糙。简要将这些特征分为三种类型：
+  1、粗糙的——分辨率不超过8^2，影响姿势、一般发型、面部形状等；
+  2、中等的——分辨率为16^2至32^2，影响更精细的面部特征、发型、眼睛的睁开或是闭合等；
+  3、高质的——分辨率为64^2到1024^2，影响颜色（眼睛、头发和皮肤）和微观特征；
+
+
+![stylegan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stylegan.png)
+
+![stylegan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stylegan.gif)
+![styleganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/styleganr.jpg)
 
 
 tf： https://github.com/NVlabs/stylegan
@@ -461,6 +473,11 @@ tf： https://github.com/NVlabs/stylegan
 不存在系列：
 https://thispersondoesnotexist.com/
 
+https://www.thiswaifudoesnotexist.net/
+
+http://thesecatsdonotexist.com/
+
+https://www.obormot.net/demos/these-waifus-do-not-exist-alt
 
 PS:
 O-GAN 可以加入其它的loss 将生成器 变为编码器。
