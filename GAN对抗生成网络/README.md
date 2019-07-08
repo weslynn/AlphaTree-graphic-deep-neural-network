@@ -281,6 +281,7 @@ WGAN 针对loss改进 只改了4点：
 
 https://github.com/martinarjovsky/WassersteinGAN
 
+
 ## WGAN-GP
 Regularization and Normalization of the Discriminator:
 
@@ -311,15 +312,26 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 GAN的实现
 
-|Title|	Co-authors|	Publication|	Links| size |
+|Title|	Co-authors|	Publication|	Links| size |FID/IS|
 |:---:|:---:|:---:|:---:|:---:|
-|Keras Implementation of GANs|	Linder-Norén|	Github	|[link](https://github.com/eriklindernoren/Keras-GAN)||
-|GAN implementation hacks|	Salimans paper & Chintala|	World research	|[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)||
-|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)| 64x64 human|
-|ProGAN:Progressive Growing of GANs for Improved Quality, Stability, and Variation|Tero Karras|2017|[paper](https://arxiv.org/pdf/1710.10196.pdf) [link](https://github.com/tkarras/progressive_growing_of_gans)|1024x1024 human|
-|SAGAN：Self-Attention Generative Adversarial Networks| Han Zhang & Ian Goodfellow||[paper](https://arxiv.org/pdf/1805.08318.pdf) [link](https://github.com/taki0112/Self-Attention-GAN-Tensorflow)|128x128 obj|
+|Keras Implementation of GANs|	Linder-Norén|	Github	|[link](https://github.com/eriklindernoren/Keras-GAN)|||
+|GAN implementation hacks|	Salimans paper & Chintala|	World research	|[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)|||
+|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)| 64x64 human||
+|ProGAN:Progressive Growing of GANs for Improved Quality, Stability, and Variation|Tero Karras|2017|[paper](https://arxiv.org/pdf/1710.10196.pdf) [link](https://github.com/tkarras/progressive_growing_of_gans)|1024x1024 human|8.04|
+|SAGAN：Self-Attention Generative Adversarial Networks| Han Zhang & Ian Goodfellow|2018.05|[paper](https://arxiv.org/pdf/1805.08318.pdf) [link](https://github.com/taki0112/Self-Attention-GAN-Tensorflow)|128x128 obj|18.65/52.52|
+|BigGAN:Large Scale GAN Training for High Fidelity Natural Image Synthesis|Brock et al.|ICLR 2019|[paper](https://arxiv.org/pdf/1809.11096.pdf) [link](https://github.com/AaronLeong/BigGAN-pytorch)|512x512 obj|9.6/166.3|
+|StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks|Tero Karras|2018|[paper](https://arxiv.org/pdf/1812.04948.pdf) [link]( https://github.com/NVlabs/stylegan)|1024x1024 human|4.04|
 
 
+指标：
+
+1 Inception Score (IS，越大越好) IS用来衡量GAN网络的两个指标：1. 生成图片的质量 和2. 多样性
+
+2 Fréchet Inception Distance (FID，越小越好) 在FID中我们用相同的inception network来提取中间层的特征。然后我们使用一个均值为 μμ 方差为 ΣΣ 的正态分布去模拟这些特征的分布。较低的FID意味着较高图片的质量和多样性。FID对模型坍塌更加敏感。
+
+FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者不出现。但是他们都无法描述这些特征的空间关系。
+
+物体的数据在Imagenet数据库上比较，人脸的 progan 和stylegan 在CelebA-HQ和FFHQ上比较。上表列的为FFHQ指标。
 ## DCGAN
 
 Deep Convolution Generative Adversarial Networks(深度卷积生成对抗网络)
@@ -353,6 +365,25 @@ GAN的一个常见的失败就是收敛到同一个点，只要生成一个会�
 3 历史平均(historical averaging)
 4 单侧标签平滑(one-sided label smoothing)
 
+## PGGAN(ProGAN)
+Progressive Growing of GANs for Improved Quality, Stability, and Variation
+
+Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
+
+首次实现了 1024 人脸生成的 Progressive Growing GANs，简称 PGGAN，来自 NVIDIA。
+
+顾名思义，PGGAN 通过一种渐进式的结构，实现了从低分辨率到高分辨率的过渡，从而能平滑地训练出高清模型出来。论文还提出了自己对正则化、归一化的一些理解和技巧，值得思考。当然，由于是渐进式的，所以相当于要串联地训练很多个模型，所以 PGGAN 很慢。
+
+
+![progan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/progan.gif)
+
+
+论文地址：https://arxiv.org/pdf/1710.10196.pdf
+
+代码实现地址：https://github.com/tkarras/progressive_growing_of_gans 
+
+
+CelebA HQ 数据集
 
 
 ## GAN + ResNet
@@ -370,7 +401,7 @@ GAN的一个常见的失败就是收敛到同一个点，只要生成一个会�
 
 ## SAGAN Ian Goodfellow
 由于卷积的局部感受野的限制，如果要生成大范围相关（Long-range dependency）的区域会出现问题，用更深的卷积网络参数量太大，于是采用将 Self Attention 引入到了生成器（以及判别器）中，使用来自所有特征位置的信息生成图像细节，同时保证判别器能鉴别距离较远的两个特征之间的一致性，获取全局信息。
-
+IS从36.8提到了52.52，并把FID（Fréchet Inception Distance）从27.62降到了18.65。
 ![sagan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/sagan.jpg)
 
 ![sagan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/sagan.png)
@@ -394,52 +425,44 @@ Self Modulated Generator，来自文章 On Self Modulation for Generative Advers
 SELF-MOD 考虑到 cGAN 训练的稳定性更好，但是一般情况下 GAN 并没有标签 c 可用，而以噪声 z 自身为标签好了，自己调节自己，不借助于外部标签，但能实现类似的效果。
 
 
-
-
-
-## PGGAN(ProGAN)
-首次实现了 1024 人脸生成的 Progressive Growing GANs，简称 PGGAN，来自 NVIDIA。
-
-顾名思义，PGGAN 通过一种渐进式的结构，实现了从低分辨率到高分辨率的过渡，从而能平滑地训练出高清模型出来。论文还提出了自己对正则化、归一化的一些理解和技巧，值得思考。当然，由于是渐进式的，所以相当于要串联地训练很多个模型，所以 PGGAN 很慢。
-
-Progressive Growing of GANs for Improved Quality, Stability, and Variation
-
-Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
-
-论文地址：https://arxiv.org/pdf/1710.10196.pdf
-
-代码实现地址：https://github.com/tkarras/progressive_growing_of_gans 
-
-
-CelebA HQ 数据集
-
-
-## StyleGAN  NVIDIA
-
-被很多文章称之为 GAN 2.0，借鉴了风格迁移的模型，所以叫 Style-Based Generator
-
-
-
-新数据集 FFHQ。
-
-
 ## BigGAN
 
+BigGAN — Brock et al. (2019) Large Scale GAN Training for High Fidelity Natural Image Synthesis”
 
+https://arxiv.org/pdf/1809.11096.pdf
 
-
-BigGAN — Brock et al. (2019)
-
-BigGAN模型是基于ImageNet生成图像质量最高的模型之一。该模型很难在本地机器上实现，而且BigGAN有许多组件，如Self-Attention、 Spectral Normalization和带有投影鉴别器的cGAN，这些组件在各自的论文中都有更好的解释。不过，这篇论文对构成当前最先进技术水平的基础论文的思想提供了很好的概述，因此非常值得阅读。
+BigGAN模型是基于ImageNet生成图像质量最高的模型之一。BigGAN作为GAN发展史上的重要里程碑，将精度作出了跨越式提升。在ImageNet （128x128分辨率）训练下，将IS从52.52提升到166.3，FID从18.65降到9.6。
+该模型很难在本地机器上实现，而且BigGAN有许多组件，如Self-Attention、 Spectral Normalization和带有投影鉴别器的cGAN，这些组件在各自的论文中都有更好的解释。不过，这篇论文对构成当前最先进技术水平的基础论文的思想提供了很好的概述，论文贡献包括，大batchsize，大channel数，截断技巧，训练平稳性控制等。（暴力出奇迹）
 
 这篇文章提供了 128、256、512 的自然场景图片的生成结果。 自然场景图片的生成可是比 CelebA 的人脸生成要难上很多
 
+![biggan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/biggan.png)
 
+
+Github：https://github.com/AaronLeong/BigGAN-pytorch
 
 
 参考 https://mp.weixin.qq.com/s/9GeryvW5PI93FCmTpuFEPQ
 此外 https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247495491&idx=1&sn=978f0afeb0b38affe54fc9e6d6086e3c&chksm=96ea30c3a19db9d52b735bdfee3f535ce68bcc6ace230b452b2ef8d389e66d32bba38e1574e3&scene=21#wechat_redirect
 
+
+## StyleGAN  NVIDIA
+
+A Style-Based Generator Architecture for Generative Adversarial Networks
+
+被很多文章称之为 GAN 2.0，借鉴了风格迁移的模型，所以叫 Style-Based Generator
+
+新数据集 FFHQ。
+
+
+
+tf： https://github.com/NVlabs/stylegan
+
+不存在系列：
+https://thispersondoesnotexist.com/
+
+
+PS:
 O-GAN 可以加入其它的loss 将生成器 变为编码器。
 
 通过简单地修改原来的GAN模型，就可以让判别器变成一个编码器，从而让GAN同时具备生成能力和编码能力，并且几乎不会增加训练成本。这个新模型被称为O-GAN（正交GAN，即Orthogonal Generative Adversarial Network），因为它是基于对判别器的正交分解操作来完成的，是对判别器自由度的最充分利用。
@@ -1474,41 +1497,6 @@ Github 地址：https://github.com/pavelgonchar/colornet
 
 SAC-X
 
-
-## GAN
-
-生成式对抗网络（GAN, Generative Adversarial Networks ）是近年来深度学习中复杂分布上无监督学习最具前景的方法之一。
-监督学习需要大量标记样本，而GAN不用。
-模型包括两个模块：生成模型（Generative Model）和判别模型（Discriminative Model），通过模型的互相博弈学习产生相当好的输出。原始 GAN 理论中，并不要求 G 和 D 都是神经网络，只需要是能拟合相应生成和判别的函数即可。但实用中一般均使用深度神经网络作为 G 和 D 。
-
-   [1] Ian Goodfellow. "Generative Adversarial Networks." arXiv preprint arXiv:1406.2661v1 (2014). [pdf] (https://arxiv.org/pdf/1406.2661v1.pdf)
-
-和监督学习的的网络结构一样，GAN的发展 也主要包含网络结构性的改进 和loss、参数、权重的改进。我们首先看后者 。
-
-## WGAN /WGAN-GP
-
-在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
-
-为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
-原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
-
-https://zhuanlan.zhihu.com/p/25071913
-
-WGAN 针对loss改进 只改了4点：
-1.判别器最后一层去掉sigmoid
-2.生成器和判别器的loss不取log
-3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
-4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
-
-https://github.com/martinarjovsky/WassersteinGAN
-
-WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
-
-[1704.00028] Improved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
-
-Tensorflow实现：https://github.com/igul222/improved_wgan_training
-
-pytorch https://github.com/caogang/wgan-gp
 
 
 
