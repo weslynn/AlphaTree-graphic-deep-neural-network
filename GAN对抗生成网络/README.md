@@ -376,10 +376,7 @@ Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
 
 
 ![progan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/progan.gif)
-
-
 论文地址：https://arxiv.org/pdf/1710.10196.pdf
-
 代码实现地址：https://github.com/tkarras/progressive_growing_of_gans 
 
 
@@ -391,9 +388,9 @@ CelebA HQ 数据集
 "随着 ResNet 在分类问题的日益深入，自然也就会考虑到 ResNet 结构在 GAN 的应用。事实上，目前 GAN 上主流的生成器和判别器架构确实已经变成了 ResNet：PGGAN、SNGAN、SAGAN 等知名 GAN 都已经用上了 ResNet
 
 可以看到，其实基于 ResNet 的 GAN 在整体结构上与 DCGAN 并没有太大差别，主要的特点在于：
-1. 不管在判别器还是生成器，均去除了反卷积，只保留了普通卷积层；
-2. 通过 AvgPooling2D 和 UpSampling2D 来实现上/下采样，而 DCGAN 中则是通过 stride > 1 的卷积/反卷积实现的；其中 UpSampling2D 相当于将图像的长/宽放大若干倍；
-3. 有些作者认为 BN 不适合 GAN，有时候会直接移除掉，或者用 LayerNorm 等代替。
+1) 不管在判别器还是生成器，均去除了反卷积，只保留了普通卷积层；
+2) 通过 AvgPooling2D 和 UpSampling2D 来实现上/下采样，而 DCGAN 中则是通过 stride > 1 的卷积/反卷积实现的；其中 UpSampling2D 相当于将图像的长/宽放大若干倍；
+3) 有些作者认为 BN 不适合 GAN，有时候会直接移除掉，或者用 LayerNorm 等代替。
 
 然而，ResNet层数更多、层之间的连接更多，相比 DCGAN，ResNet比 DCGAN 要慢得多，所需要的显存要多得多。
                                            ---苏剑林
