@@ -477,7 +477,7 @@ http://thesecatsdonotexist.com/
 https://www.obormot.net/demos/these-waifus-do-not-exist-alt
 
 
-# BigBiGAN
+## BigBiGAN
 
 https://arxiv.org/pdf/1907.02544.pdf
 
@@ -506,51 +506,29 @@ https://kexue.fm/archives/6409
 
 # Level 3: GANs Applications
 
-----------------
-图像翻译 (Image Translation)
+## 3.1 图像翻译 (Image Translation)
 
+图像翻译，指从一副（源域）输入的图像到另一副（目标域）对应的输出图像的转换。它代表了图像处理的很多问题，比如灰度图、梯度图、彩色图之间的转换等。可以类比机器翻译，一种语言转换为另一种语言。翻译过程中会保持源域图像内容不变，但是风格或者一些其他属性变成目标域。
+
+有标注数据的，被称为Paired Image-to-Image Translation，没有标注数据的，被称为 Unpaired Image-to-Image Translation。
+
+- [ Paired Image-to-Image Translation](#1-Paired-Image-to-Image-Translation)
+- [ Unpaired Image-to-Image Translation](#2-Unpaired-Image-to-Image-Translation)
+
+
+
+## 1. Paired Image-to-Image Translation
 
 Title	Co-authors	Publication	Links
 |:---:|:---:|:---:|:---:|
-|CycleGAN |	Zhu & Park & et al.|ICCV 2017	|
-	
+|Pix2Pix |	Zhu & Park & et al.|ICCV 2017	| |
+|PAN
 
 
-- [Automatic Image Colorization](#1-automatic-image-colorization)
-- [User Guided Image Colorization](#2-user-guided-image-colorization)
-  - [Based on color strokes](#21-based-on-color-strokes)
-  - [Based on reference color image](#22-based-on-reference-color-image)
-  - [Based on color palette](#23-based-on-color-palette)
-  - [Based on language(text)](#24-based-on-language-or-text)
-- [Video Colorization](#3-video-colorization)
-  - [Automatically](#31-automatically)
-  - [Based on reference](#32-based-on-reference)
-
-
----
-
-#### 1. Automatic Image Colorization
-
-| Paper | Source | Code/Project Link  |
-| --- | --- | --- |
-| [Learning Large-Scale Automatic Image Colorization](http://openaccess.thecvf.com/content_iccv_2015/papers/Deshpande_Learning_Large-Scale_Automatic_ICCV_2015_paper.pdf) | ICCV 2015 | [[project]](http://vision.cs.illinois.edu/projects/lscolor/) [[code]](https://github.com/aditya12agd5/iccv15_lscolorization) |
-| [Deep Colorization](http://openaccess.thecvf.com/content_iccv_2015/papers/Cheng_Deep_Colorization_ICCV_2015_paper.pdf) | ICCV 2015 |  |
-| [Learning Representations for Automatic Colorization](https://arxiv.org/pdf/1603.06668.pdf) | ECCV 2016 | [[project]](http://people.cs.uchicago.edu/~larsson/colorization/) [[code]](https://github.com/gustavla/autocolorize) |
-| [Colorful Image Colorization](https://arxiv.org/pdf/1603.08511.pdf) | ECCV 2016 | [[project]](http://richzhang.github.io/colorization/) [[code]](https://github.com/richzhang/colorization) |
-| [Let there be Color!: Joint End-to-end Learning of Global and Local Image Priors for Automatic Image Colorization with Simultaneous Classification](http://iizuka.cs.tsukuba.ac.jp/projects/colorization/data/colorization_sig2016.pdf) | SIGGRAPH 2016 | [[project]](http://iizuka.cs.tsukuba.ac.jp/projects/colorization/en/) [[code]](https://github.com/satoshiiizuka/siggraph2016_colorization) |
-| [Unsupervised Diverse Colorization via Generative Adversarial Networks](https://arxiv.org/pdf/1702.06674.pdf) | ECML-PKDD 2017 | [[code]](https://github.com/ccyyatnet/COLORGAN) |
-| [Learning Diverse Image Colorization](http://openaccess.thecvf.com/content_cvpr_2017/papers/Deshpande_Learning_Diverse_Image_CVPR_2017_paper.pdf) | CVPR 2017 | [[code]](https://github.com/aditya12agd5/divcolor) |
-| [Structural Consistency and Controllability for Diverse Colorization](http://openaccess.thecvf.com/content_ECCV_2018/papers/Safa_Messaoud_Structural_Consistency_and_ECCV_2018_paper.pdf) | ECCV 2018 |  |
-| [Pixelated Semantic Colorization](https://arxiv.org/abs/1901.10889) | 1901.10889 |  |
-| [Coloring With Limited Data: Few-Shot Colorization via Memory Augmented Networks](http://davian.korea.ac.kr/filemanager/wl/?id=BPD0GpKupqUgHTxRMpaaLbCDrNoEjVfu) | CVPR 2019 |  |
-
-
-图像翻译，指从一副（源域）图像到另一副（目标域）图像的转换。可以类比机器翻译，一种语言转换为另一种语言。翻译过程中会保持源域图像内容不变，但是风格或者一些其他属性变成目标域。
-
-Paired two domain data
 
 成对图像翻译典型的例子就是 pix2pix，pix2pix 使用成对数据训练了一个条件 GAN，Loss 包括 GAN 的 loss 和逐像素差 loss。而 PAN 则使用特征图上的逐像素差作为感知损失替代图片上的逐像素差，以生成人眼感知上更加接近源域的图像。
-
+。
+先看一张效果图：
 ## Pix2Pix
 
 论文：
@@ -558,7 +536,7 @@ Paired two domain data
 Image-to-Image Translation with Conditional Adversarial Networks
 
 https://arxiv.org/pdf/1611.07004v1.pdf
-
+通过pix2pix来完成成对的图像转换(Labels to Street Scene, Aerial to Map,Day to Night等)，可以得到比较清晰的结果。
  
 
 代码：
@@ -583,7 +561,7 @@ https://arxiv.org/pdf/1611.07004v1.pdf
 
 Coarse2fine 的 Generator 是指先训一个低分辨率的网络，训好了再接一个高分辨率的网络，高分辨率网络融合低分辨率网络的特征得到更精细的生成结果。。
 
-Unpaired two domain data
+## 2. Unpaired Image-to-Image Translation
 
 对于无成对训练数据的图像翻译问题，一个典型的例子是 CycleGAN。CycleGAN 使用两对 GAN，将源域数据通过一个 GAN 网络转换到目标域之后，再使用另一个 GAN 网络将目标域数据转换回源域，转换回来的数据和源域数据正好是成对的，构成监督信息。
 
@@ -594,7 +572,7 @@ Unpaired two domain data
 CycleGan: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
 -----------------------------------------
 
-超分辨率 
+## 3.2 超分辨率 
 
 Title	Co-authors	Publication	Links
 |:---:|:---:|:---:|:---:|
