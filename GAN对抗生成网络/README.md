@@ -476,6 +476,21 @@ http://thesecatsdonotexist.com/
 
 https://www.obormot.net/demos/these-waifus-do-not-exist-alt
 
+
+# BigBiGAN
+
+https://arxiv.org/pdf/1907.02544.pdf
+
+大规模对抗性表示学习
+DeepMind基于最先进的BigGAN模型构建了BigBiGAN模型，通过添加编码器和修改鉴别器将其扩展到表示学习。
+
+BigBiGAN表明，“图像生成质量的进步转化为了表示学习性能的显著提高”。
+
+研究人员广泛评估了BigBiGAN模型的表示学习和生成性能，证明这些基于生成的模型在ImageNet上的无监督表示学习和无条件图像生成方面都达到了state of the art的水平。
+
+[介绍](http://www.sohu.com/a/325681408_100024677)
+
+
 PS:
 O-GAN 可以加入其它的loss 将生成器 变为编码器。
 
@@ -500,6 +515,34 @@ Title	Co-authors	Publication	Links
 |CycleGAN |	Zhu & Park & et al.|ICCV 2017	|
 	
 
+
+- [Automatic Image Colorization](#1-automatic-image-colorization)
+- [User Guided Image Colorization](#2-user-guided-image-colorization)
+  - [Based on color strokes](#21-based-on-color-strokes)
+  - [Based on reference color image](#22-based-on-reference-color-image)
+  - [Based on color palette](#23-based-on-color-palette)
+  - [Based on language(text)](#24-based-on-language-or-text)
+- [Video Colorization](#3-video-colorization)
+  - [Automatically](#31-automatically)
+  - [Based on reference](#32-based-on-reference)
+
+
+---
+
+#### 1. Automatic Image Colorization
+
+| Paper | Source | Code/Project Link  |
+| --- | --- | --- |
+| [Learning Large-Scale Automatic Image Colorization](http://openaccess.thecvf.com/content_iccv_2015/papers/Deshpande_Learning_Large-Scale_Automatic_ICCV_2015_paper.pdf) | ICCV 2015 | [[project]](http://vision.cs.illinois.edu/projects/lscolor/) [[code]](https://github.com/aditya12agd5/iccv15_lscolorization) |
+| [Deep Colorization](http://openaccess.thecvf.com/content_iccv_2015/papers/Cheng_Deep_Colorization_ICCV_2015_paper.pdf) | ICCV 2015 |  |
+| [Learning Representations for Automatic Colorization](https://arxiv.org/pdf/1603.06668.pdf) | ECCV 2016 | [[project]](http://people.cs.uchicago.edu/~larsson/colorization/) [[code]](https://github.com/gustavla/autocolorize) |
+| [Colorful Image Colorization](https://arxiv.org/pdf/1603.08511.pdf) | ECCV 2016 | [[project]](http://richzhang.github.io/colorization/) [[code]](https://github.com/richzhang/colorization) |
+| [Let there be Color!: Joint End-to-end Learning of Global and Local Image Priors for Automatic Image Colorization with Simultaneous Classification](http://iizuka.cs.tsukuba.ac.jp/projects/colorization/data/colorization_sig2016.pdf) | SIGGRAPH 2016 | [[project]](http://iizuka.cs.tsukuba.ac.jp/projects/colorization/en/) [[code]](https://github.com/satoshiiizuka/siggraph2016_colorization) |
+| [Unsupervised Diverse Colorization via Generative Adversarial Networks](https://arxiv.org/pdf/1702.06674.pdf) | ECML-PKDD 2017 | [[code]](https://github.com/ccyyatnet/COLORGAN) |
+| [Learning Diverse Image Colorization](http://openaccess.thecvf.com/content_cvpr_2017/papers/Deshpande_Learning_Diverse_Image_CVPR_2017_paper.pdf) | CVPR 2017 | [[code]](https://github.com/aditya12agd5/divcolor) |
+| [Structural Consistency and Controllability for Diverse Colorization](http://openaccess.thecvf.com/content_ECCV_2018/papers/Safa_Messaoud_Structural_Consistency_and_ECCV_2018_paper.pdf) | ECCV 2018 |  |
+| [Pixelated Semantic Colorization](https://arxiv.org/abs/1901.10889) | 1901.10889 |  |
+| [Coloring With Limited Data: Few-Shot Colorization via Memory Augmented Networks](http://davian.korea.ac.kr/filemanager/wl/?id=BPD0GpKupqUgHTxRMpaaLbCDrNoEjVfu) | CVPR 2019 |  |
 
 
 图像翻译，指从一副（源域）图像到另一副（目标域）图像的转换。可以类比机器翻译，一种语言转换为另一种语言。翻译过程中会保持源域图像内容不变，但是风格或者一些其他属性变成目标域。
