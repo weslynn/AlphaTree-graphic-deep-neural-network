@@ -319,7 +319,7 @@ GAN的实现
 |DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|	Radford & et al.|ICLR 2016	|[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)| 64x64 human||
 |ProGAN:Progressive Growing of GANs for Improved Quality, Stability, and Variation|Tero Karras|2017|[paper](https://arxiv.org/pdf/1710.10196.pdf) [link](https://github.com/tkarras/progressive_growing_of_gans)|1024x1024 human|8.04|
 |SAGAN：Self-Attention Generative Adversarial Networks| Han Zhang & Ian Goodfellow|2018.05|[paper](https://arxiv.org/pdf/1805.08318.pdf) [link](https://github.com/taki0112/Self-Attention-GAN-Tensorflow)|128x128 obj|18.65/52.52|
-|BigGAN:Large Scale GAN Training for High Fidelity Natural Image Synthesis|Brock et al.|ICLR 2019|[paper](https://arxiv.org/pdf/1809.11096.pdf) [link](https://github.com/AaronLeong/BigGAN-pytorch)|512x512 obj|9.6/166.3|
+|BigGAN:Large Scale GAN Training for High Fidelity Natural Image Synthesis|Brock et al.|ICLR 2019|[demo](https://tfhub.dev/deepmind/biggan-256) [paper](https://arxiv.org/pdf/1809.11096.pdf) [link](https://github.com/AaronLeong/BigGAN-pytorch)|512x512 obj|9.6/166.3|
 |StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks|Tero Karras|2018|[paper](https://arxiv.org/pdf/1812.04948.pdf) [link]( https://github.com/NVlabs/stylegan)|1024x1024 human|4.04|
 
 
@@ -381,8 +381,6 @@ Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
 
 
 CelebA HQ 数据集
-
-
 
 
 "随着 ResNet 在分类问题的日益深入，自然也就会考虑到 ResNet 结构在 GAN 的应用。事实上，目前 GAN 上主流的生成器和判别器架构确实已经变成了 ResNet：PGGAN、SNGAN、SAGAN 等知名 GAN 都已经用上了 ResNet
@@ -468,13 +466,14 @@ StyleGAN首先重点关注了ProGAN的生成器网络，它发现，渐进层的
 tf： https://github.com/NVlabs/stylegan
 
 不存在系列：
-https://thispersondoesnotexist.com/
 
-https://www.thiswaifudoesnotexist.net/
+人 ： https://thispersondoesnotexist.com/
 
-http://thesecatsdonotexist.com/
+动漫： https://www.thiswaifudoesnotexist.net/ https://www.obormot.net/demos/these-waifus-do-not-exist-alt
 
-https://www.obormot.net/demos/these-waifus-do-not-exist-alt
+猫： http://thesecatsdonotexist.com/
+
+
 
 
 ## BigBiGAN
@@ -519,8 +518,8 @@ https://kexue.fm/archives/6409
 
 |Title|	Co-authors|	Publication|Links|
 |:---:|:---:|:---:|:---:|
-|Pix2Pix |	Zhu & Park & et al.|CVPR 2017|[demo](https://affinelayer.com/pixsrv/)[code](https://phillipi.github.io/pix2pix/) [paper](https://arxiv.org/pdf/1611.07004v1.pdf)|
-|Pix2Pix HD|UC Berkeley | CVPR 2018|[paper](https://arxiv.org/pdf/1711.11585v2.pdf)[code](https://github.com/NVIDIA/pix2pixHD)|
+|Pix2Pix |	Zhu & Park & et al.|CVPR 2017|[demo](https://affinelayer.com/pixsrv/) [code](https://phillipi.github.io/pix2pix/) [paper](https://arxiv.org/pdf/1611.07004v1.pdf)|
+|Pix2Pix HD|UC Berkeley | CVPR 2018|[paper](https://arxiv.org/pdf/1711.11585v2.pdf) [code](https://github.com/NVIDIA/pix2pixHD)|
 
 
 ## 1. Paired two domain data
@@ -671,6 +670,8 @@ Keras 版本：https://github.com/titu1994/Super-Resolution-using-Generative-Adv
 ## ESRGAN 
 
 ECCV 2018收录，赢得了PIRM2018-SR挑战赛的第一名。
+
+
 -------------------------
 ## 3.3 交互式图像生成
 ## iGAN
@@ -835,12 +836,8 @@ AlphaZero和OpenAI Five
 深度学习框架
 https://github.com/lexfridman/mit-deep-learning
 
-2D
-------------------
-《Progressive Growing of GANs for Improved Quality, Stability, and Variation》
-stylegan
-biggan
-http://www.ijiandao.com/2b/baijia/183668.html
+
+
 3D
 -------------------
 《Visual Object Networks: Image Generation with Disentangled 3D Representation》，描述了一种用GAN生成3D图片的方法。
@@ -851,8 +848,6 @@ NeurIPS 2018
 
 ## 应用 
 
-
-1.0 人脸生成
 
 
 
