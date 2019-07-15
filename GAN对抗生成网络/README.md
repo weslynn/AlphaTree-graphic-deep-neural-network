@@ -517,27 +517,40 @@ https://kexue.fm/archives/6409
 
 
 
+|Title|	Co-authors|	Publication|Links|
+|:---:|:---:|:---:|:---:|
+|Pix2Pix |	Zhu & Park & et al.|CVPR 2017|[demo](https://affinelayer.com/pixsrv/)[code](https://phillipi.github.io/pix2pix/) [paper](https://arxiv.org/pdf/1611.07004v1.pdf)|
+|Pix2Pix HD|UC Berkeley | CVPR 2018|[paper](https://arxiv.org/pdf/1711.11585v2.pdf)[code](https://github.com/NVIDIA/pix2pixHD)|
+
+
+
 ## 1. Paired Image-to-Image Translation
 
-Title	Co-authors	Publication	Links
-|:---:|:---:|:---:|:---:|
-|Pix2Pix |	Zhu & Park & et al.|ICCV 2017	| |
-|PAN
-
-
-
 成对图像翻译典型的例子就是 pix2pix，pix2pix 使用成对数据训练了一个条件 GAN，Loss 包括 GAN 的 loss 和逐像素差 loss。而 PAN 则使用特征图上的逐像素差作为感知损失替代图片上的逐像素差，以生成人眼感知上更加接近源域的图像。
-。
-先看一张效果图：
-## Pix2Pix
 
-论文：
+## Pix2Pix
 
 Image-to-Image Translation with Conditional Adversarial Networks
 
 https://arxiv.org/pdf/1611.07004v1.pdf
+
+传统的GAN也不是万能的，它有下面两个不足：
+
+1. 没有用户控制（user control）能力
+在传统的GAN里，输入一个随机噪声，就会输出一幅随机图像。但用户是有想法滴，我们想输出的图像是我们想要的那种图像，和我们的输入是对应的、有关联的。比如输入一只猫的草图，输出同一形态的猫的真实图片（这里对形态的要求就是一种用户控制）。
+
+2. 低分辨率（Low resolution）和低质量（Low quality）问题
+尽管生成的图片看起来很不错，但如果你放大看，就会发现细节相当模糊。
+ ----------------朱俊彦（Jun-Yan Zhu） Games2018 Webinar 64期 ：[Siggraph 2018优秀博士论文报告](https://games-cn.org/games-webinar-20180913-64/)
+
+Pix2Pix对传统的GAN做了个小改动，它不再输入随机噪声，而是输入用户给的图片：
+
+![pix2pix](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/pix2pix.png)
+
+
 通过pix2pix来完成成对的图像转换(Labels to Street Scene, Aerial to Map,Day to Night等)，可以得到比较清晰的结果。
- 
+
+![pix2pixr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/pix2pixr.png)
 
 代码：
 
@@ -550,39 +563,95 @@ https://arxiv.org/pdf/1611.07004v1.pdf
 第三方的tensorflow版本：https://github.com/yenchenlin/pix2pix-tensorflow
 
 
+demo: https://affinelayer.com/pixsrv/
 
 
 # Pix2Pix HD
 
+High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs
 
-采用 multi-scale 的 Discriminator 和 coarse2fine 的 Generator 能够有效帮助提升生成的质量。
+https://arxiv.org/pdf/1711.11585v2.pdf
 
-所谓 multi-scale 的 Discriminator 是指多个 D，分别判别不同分辨率的真假图像。比如采用 3 个 scale 的判别器，分别判别 256x256，128x128，64x64 分辨率的图像。至于获得不同分辨率的图像，直接经过 pooling 下采样即可。
+1 模型结构
+2 Loss设计
+3 使用Instance-map的图像进行训练。
 
-Coarse2fine 的 Generator 是指先训一个低分辨率的网络，训好了再接一个高分辨率的网络，高分辨率网络融合低分辨率网络的特征得到更精细的生成结果。。
+![pix2pixhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/pix2pixhd.png)
+
+![pix2pixhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/pix2pixhd.gif)
+
+官方代码 ：https://github.com/NVIDIA/pix2pixHD
+
+pix2pix的核心是有了对应关系，这种网络的应用范围还是比较广泛的，如草稿变图片，自动上色，交互式上色等。
 
 ## 2. Unpaired Image-to-Image Translation
 
 对于无成对训练数据的图像翻译问题，一个典型的例子是 CycleGAN。CycleGAN 使用两对 GAN，将源域数据通过一个 GAN 网络转换到目标域之后，再使用另一个 GAN 网络将目标域数据转换回源域，转换回来的数据和源域数据正好是成对的，构成监督信息。
 
 
-
 ## CycleGan /DiscoGan /DualGan
 
 CycleGan: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
+
+starGan
+
+
+
+DAGAN
+
+FUNIT
 -----------------------------------------
 
-## 3.2 超分辨率 
+## 3.2 超分辨率 (Super-Resolution)
+
+超分辨率的问题研究由来已久，其目标是将低分辨率图像恢复或重建为高分辨率图像，随着GAN的发展，使得这个问题有了惊人的进展。这项技术得以广泛应用于卫星和航天图像分析、医疗图像处理、压缩图像/视频增强及手机摄像领域，有着明确商业用途。SR技术存在一个有趣的“悖论”，即还原或重建后的高分辨率图像与原图相似度越高，则肉眼观察清晰度越差；反之，若肉眼观察清晰度越好，则图像的失真度越高。导致这一现象的原因在于畸变（Distortion）参数和感知（Perception）参数之间侧重点选择的不同。
+
+传统方法有Google发布的 RAISR: Rapid and Accurate Image Super Resolution(2016 [paper](https://arxiv.org/pdf/1606.01299.pdf) )国内也同期都发布了自己的算法，如腾讯发布的TSR(Tencent Super Resolution），华为的HiSR等。
+
+
+SRCNN[1]、FSRCNN[2]、ESPCN[3]、VDSR[4]、EDSR[5]、SRGAN[6]
+1. (SRCNN) Image super-resolution using deep convolutional networks
+
+2. (DRCN) Deeply-recursive convolutional network for image super-resolution
+
+3. (ESPCN) Real-time single image and video super-resolution using an efficient sub-pixel convolutional neural network
+
+4. (VESPCN) Real-Time Video Super-Resolution with Spatio-Temporal Networks and Motion Compensation 
+
+5. Spatial transformer networks 
+
+6. Photo-realistic single image super-resolution using a generative adversarial network (SRGAN)
+
+超分辨率的比赛 为 NTIRE
+
+客观指标：Peak signal-to-noise ratio (PSNR)
+
+主观指标：在纯的超分辨领域，评价性能的指标是 PSNR（和 MSE 直接挂钩），所以如果单纯看 PSNR 值可能还是 L2 要好。如果考虑主观感受的话估计 L1 要好。
+
+
+3.2.1 单张图像超分辨率（Single Image Super-Resolution)
 
 Title	Co-authors	Publication	Links
 |:---:|:---:|:---:|:---:|
+
+## 
+
 StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks	Zhang & et al.	ICCV 2017
 
 GAN 对于高分辨率图像生成一直存在许多问题，层级结构的 GAN 通过逐层次，分阶段生成，一步步提生图像的分辨率。典型的使用多对 GAN 的模型有 StackGAN，GoGAN。使用单一 GAN，分阶段生成的有 ProgressiveGAN。StackGAN 和 ProgressiveGAN 结构如下：
 
 
+## SRGAN 
+SRCNN /SRResNet
 
-SRGAN 中使用 GAN 和感知损失生成细节丰富的图像。感知损失重点关注中间特征层的误差，而不是输出结果的逐像素误差。避免了生成的高分辨图像缺乏纹理细节信息问题。
+
+
+
+SRGAN 中使用 GAN 
+
+Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network (https://arxiv.org/abs/1609.04802, 21 Nov, 2016)这篇文章将对抗学习用于基于单幅图像的高分辨重建。基于深度学习的高分辨率图像重建已经取得了很好的效果，其方法是通过一系列低分辨率图像和与之对应的高分辨率图像作为训练数据，学习一个从低分辨率图像到高分辨率图像的映射函数，这个函数通过卷积神经网络来表示。
+
+和感知损失生成细节丰富的图像。感知损失重点关注中间特征层的误差，而不是输出结果的逐像素误差。避免了生成的高分辨图像缺乏纹理细节信息问题。
 
 
 得益于 GAN 在超分辨中的应用，针对小目标检测问题，可以通过 GAN 生成小目标的高分辨率图像从而提高目标检测精度
@@ -593,8 +662,10 @@ Torch 版本：https://github.com/leehomyc/Photo-Realistic-Super-Resoluton
 
 Keras 版本：https://github.com/titu1994/Super-Resolution-using-Generative-Adversarial-Networks
 
+
+
 -------------------------
-交互式图像生成
+## 3.3 交互式图像生成
 ## iGAN
 
 Adobe公司构建了一套图像编辑操作[14]，如图9，能使得经过这些操作以后，图像依旧在“真实图像流形”上，因此编辑后的图像更接近真实图像。
