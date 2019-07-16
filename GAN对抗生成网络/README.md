@@ -469,14 +469,16 @@ tf： https://github.com/NVlabs/stylegan
 
 人 ： https://thispersondoesnotexist.com/
 
-动漫： https://www.thiswaifudoesnotexist.net/ https://www.obormot.net/demos/these-waifus-do-not-exist-alt
+动漫： https://www.thiswaifudoesnotexist.net/ 
+
+https://www.obormot.net/demos/these-waifus-do-not-exist-alt
 
 猫： http://thesecatsdonotexist.com/
 
 
 
 
-## BigBiGAN
+## BigBiGAN DeepMind
 
 https://arxiv.org/pdf/1907.02544.pdf
 
@@ -503,7 +505,7 @@ https://kexue.fm/archives/6409
 
 -------------------------------------------------------
 
-# Level 3: GANs Applications
+# Level 3: GANs Applications in CV
 
 ## 3.1 图像翻译 (Image Translation)
 
@@ -520,8 +522,9 @@ https://kexue.fm/archives/6409
 |:---:|:---:|:---:|:---:|
 |Pix2Pix |	Zhu & Park & et al.|CVPR 2017|[demo](https://affinelayer.com/pixsrv/) [code](https://phillipi.github.io/pix2pix/) [paper](https://arxiv.org/pdf/1611.07004v1.pdf)|
 |Pix2Pix HD|UC Berkeley | CVPR 2018|[paper](https://arxiv.org/pdf/1711.11585v2.pdf) [code](https://github.com/NVIDIA/pix2pixHD)|
-
-
+|CycleGan| ||[code](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) [paper](https://arxiv.org/pdf/1703.10593.pdf)|
+|StarGan|| ||
+|FUNIT|| ||
 ## 1. Paired two domain data
 
 成对图像翻译典型的例子就是 pix2pix，pix2pix 使用成对数据训练了一个条件 GAN，Loss 包括 GAN 的 loss 和逐像素差 loss。而 PAN 则使用特征图上的逐像素差作为感知损失替代图片上的逐像素差，以生成人眼感知上更加接近源域的图像。
@@ -563,6 +566,9 @@ Pix2Pix对传统的CGAN做了个小改动，它不再输入随机噪声，而是
 
 demo: https://affinelayer.com/pixsrv/
 
+Edges2cats： http://affinelayer.com/pixsrv/index.html
+
+http://paintschainer.preferred.tech/index_zh.html
 
 # Pix2Pix HD
 
@@ -594,13 +600,75 @@ pix2pix的核心是有了对应关系，这种网络的应用范围还是比较�
 
 CycleGan: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
 
-starGan
+https://arxiv.org/abs/1703.10593
+
+同一时期还有两篇非常类似的文章，同样的idea，同样的结构，同样的功能：DualGAN( https://arxiv.org/abs/1704.02510 ) 和 DiscoGAN( Learning to Discover Cross-Domain Relations with Generative Adversarial Networks ： https://arxiv.org/abs/1703.05192)
+
+CycleGan是让两个domain的图片互相转化。传统的GAN是单向生成，而CycleGAN是互相生成，一个A→B单向GAN加上一个B→A单向GAN，网络是个环形，所以命名为Cycle。理念就是，如果从A生成的B是对的，那么从B再生成A也应该是对的。CycleGAN输入的两张图片可以是任意的两张图片，也就是unpaired。
+
+![CycleGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/cyclegan.png)
+
+![CycleGanr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/cyclegan.jpg)
+
+官方pytorch代码（CycleGAN、pix2pix）：https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+
+有趣的应用：
+地图转换
+风格转换
+游戏画风转换：Chintan Trivedi的实现：用CycleGAN把《堡垒之夜》转成《绝地求生》写实风。
+
+
+## StarGan
+
+StarGAN的引入是为了解决多领域间的转换问题的，之前的CycleGAN等只能解决两个领域之间的转换，那么对于含有C个领域转换而言，需要学习Cx(C-1)个模型，但StarGAN仅需要学习一个
+
+![starGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stargan.png)
+
+
+pytorch 原版github地址：https://github.com/yunjey/StarGAN 
+tf版github地址：https://github.com/taki0112/StarGAN-Tensorflow 
+
+## CoGAN (CoupledGAN)
+
+CoGAN:Coupled Generative Adversarial Networks
+
+CoGAN会训练两个GAN而不是一个单一的GAN。
+
+当然，GAN研究人员不停止地将此与那些警察和伪造者的博弈理论进行类比。所以这就是CoGAN背后的想法，用作者自己的话说就是：
+
+在游戏中，有两个团队，每个团队有两个成员。生成模型组成一个团队，在两个不同的域中合作共同合成一对图像，用以混淆判别模型。判别模型试图将从各个域中的训练数据分布中绘制的图像与从各个生成模型中绘制的图像区分开。同一团队中，参与者之间的协作是根据权重分配约束建立的。这样就有了一个GAN的多人局域网竞赛
+
+CoupledGAN 通过部分权重共享学习到多个域图像的联合分布。生成器前半部分权重共享，目的在于编码两个域高层的，共有信息，后半部分没有进行共享，则是为了各自编码各自域的数据。判别器前半部分不共享，后半部分用于提取高层特征共享二者权重。对于训练好的网络，输入一个随机噪声，输出两张不同域的图片。
+
+值得注意的是，上述模型学习的是联合分布 P(x,y)，如果使用两个单独的 GAN 分别取训练，那么学习到的就是边际分布 P(x) 和 P(y)。。
+
+
+论文：
+
+https://arxiv.org/abs/1606.07536
+
+代码：
+
+https://github.com/mingyuliutw/CoGAN
+
+博客：
+
+https://wiseodd.github.io/techblog/2017/02/18/coupled_gan/
 
 
 
-DAGAN
 
-FUNIT
+## FUNIT
+
+Few-Shot Unsupervised Image-to-Image Translation
+
+https://arxiv.org/pdf/1905.01723.pdf
+
+小样本(few-shot)非监督图像到图像转换。
+
+https://github.com/NVlabs/FUNIT
+
+
 
 -----------------------------------------
 
@@ -645,7 +713,7 @@ Title	Co-authors	Publication	Links
 
 StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks	Zhang & et al.	ICCV 2017
 
-GAN 对于高分辨率图像生成一直存在许多问题，层级结构的 GAN 通过逐层次，分阶段生成，一步步提生图像的分辨率。典型的使用多对 GAN 的模型有 StackGAN，GoGAN。使用单一 GAN，分阶段生成的有 ProgressiveGAN。StackGAN 和 ProgressiveGAN 结构如下：
+GAN 对于高分辨率图像生成一直存在许多问题，层级结构的 GAN 通过逐层次，分阶段生成，一步步提生图像的分辨率。典型的使用多对 GAN 的模型有 StackGAN，GoGAN。使用单一 GAN，分阶段生成的有 ProgressiveGAN。
 
 
 
@@ -680,13 +748,13 @@ Adobe公司构建了一套图像编辑操作[14]，如图9，能使得经过这�
 
 具体来说，iGAN的流程包括以下几个步骤：
 
-1.    将原始图像投影到低维的隐向量空间
+1 将原始图像投影到低维的隐向量空间
 
-2.    将隐向量作为输入，利用GAN重构图像
+2 将隐向量作为输入，利用GAN重构图像
 
-3.    利用画笔工具对重构的图像进行修改（颜色、形状等）
+3 利用画笔工具对重构的图像进行修改（颜色、形状等）
 
-4.    将等量的结构、色彩等修改应用到原始图像上。
+4 将等量的结构、色彩等修改应用到原始图像上。
 
 
 
@@ -699,8 +767,42 @@ Theano 版本：https://github.com/junyanz/iGAN
 [24] Jun-Yan Zhu, Philipp Krähenbühl, Eli Shechtman and Alexei A. Efros. “Generative Visual Manipulation on the Natural Image Manifold”, ECCV 2016.
 
 ## GANpaint
+
+### Interactive Deep Colorization
+https://github.com/junyanz/interactive-deep-colorization
+
+
+
+
+
+### Neural Doodle
+
+使用深度神经网络把你的二流涂鸦变成艺术品。
+
+Champandard（2016） “Semantic Style Transfer and Turning Two-Bit Doodles into Fine Artworks”
+
+基于 Chuan Li 和 Michael Wand（2016）在论文“Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis”中提出的 Neural Patches 算法。这篇文章中深入解释了这个项目的动机和灵感来源：https://nucl.ai/blog/neural-doodles/
+
+doodle.py 脚本通过使用1个，2个，3个或4个图像作为输入来生成新的图像，输入的图像数量取决于你希望生成怎样的图像：原始风格及它的注释（annotation），以及带有注释（即你的涂鸦）的目标内容图像（可选）。该算法从带风格图像中提取 annotated patches，然后根据它们匹配的紧密程度用这些 annotated patches 渐进地改变目标图像的风格。
+
+Github 地址：https://github.com/alexjc/neural-doodle
+### Deep Painterly Harmonization
+https://github.com/luanfujun/deep-painterly-harmonization
+
+
+### Visual Attribute Transfer through Deep Image Analogy SIGGRAPH 2017 paper
+https://github.com/msracver/Deep-Image-Analogy
+### 
+
+### Colornet
+
+
+
+Github 地址：https://github.com/pavelgonchar/colornet
+
 --------------------------
-图像融合、图像修补
+
+## 3.4 图像融合、图像修补
 
 ## GP-GAN
 GP-GAN[25]，目标是将直接复制粘贴过来的图片，更好地融合进原始图片中，做一个 blending 的事情。
@@ -709,235 +811,23 @@ GP-GAN[25]，目标是将直接复制粘贴过来的图片，更好地融合进�
 
 这个过程非常像 iGAN，也用到了类似 iGAN 中的一些约束，比如 color constraint。另一方面，这个工作也有点像 pix2pix，因为它是一种有监督训练模型，在 blending 的学习过程中，会有一个有监督目标和有监督的损失函数。
 
+ 
 
-## 
 
+
+
+EdgeConnect
+TL-GAN
+
+
+
+DeepCreamPy自动去码
+
+Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 
 ------------------------
 
-图像联合分布学习
-
-大部分 GAN 都是学习单一域的数据分布，CoupledGAN 则提出一种部分权重共享的网络，使用无监督方法来学习多个域图像的联合分布。具体结构如下 [11]：
-
-
-
-如上图所示，CoupledGAN 使用两个 GAN 网络。生成器前半部分权重共享，目的在于编码两个域高层的，共有信息，后半部分没有进行共享，则是为了各自编码各自域的数据。判别器前半部分不共享，后半部分用于提取高层特征共享二者权重。对于训练好的网络，输入一个随机噪声，输出两张不同域的图片。
-
-值得注意的是，上述模型学习的是联合分布 P(x,y)，如果使用两个单独的 GAN 分别取训练，那么学习到的就是边际分布 P(x) 和 P(y)。通常情况下，。
-
-
-----------------
-
- 视频生成
-
-通常来说，视频有相对静止的背景和运动的前景组成。VideoGAN 使用一个两阶段的生成器，3D CNN 生成器生成运动前景，2D CNN 生成器生成静止的背景。Pose GAN 则使用 VAE 和 GAN 生成视频，首先，VAE 结合当前帧的姿态和过去的姿态特征预测下一帧的运动信息，然后 3D CNN 使用运动信息生成后续视频帧。Motion and Content GAN(MoCoGAN) 则提出在隐空间对运动部分和内容部分进行分离，使用 RNN 去建模运动部分。
-
-
---------------------------
-
-自然语言处理领域
-GAN在自然语言处理上的应用可以分为两类：生成文本、根据文本生成图像。其中，生成文本包括两种：根据隐向量（噪声）生成一段文本；对话生成。
-
- 
-
-4.2.1 对话生成
- Li J等2017年发表的Adversarial Learning for Neural Dialogue Generation[16]显示了GAN在对话生成领域的应用。实验效果如图11。可以看出，生成的对话具有一定的相关性，但是效果并不是很好，而且这只能做单轮对话。
-
-
-
-如图11 Li J对话生成效果
-
-文本到图像的翻译（text to image）
-
-文本到图像的翻译指GAN的输入是一个描述图像内容的一句话，比如“一只有着粉色的胸和冠的小鸟”，那么所生成的图像内容要和这句话所描述的内容相匹配。
-
-
-
-在ICML 2016会议上，Scott Reed等[17]人提出了基于CGAN的一种解决方案将文本编码作为generator的condition输入；对于discriminator，文本编码在特定层作为condition信息引入，以辅助判断输入图像是否满足文本描述。作者提出了两种基于GAN的算法，GAN-CLS和GAN-INT。
-
-
-
-Text2image
-
-Torch 版本：https://github.com/reedscot/icml2016
-
-TensorFlow+Theano 版本：https://github.com/paarthneekhara/text-to-image
-
-
- Jun-Yan Zhu, Philipp Krähenbühl, Eli Shechtman and Alexei A. Efros. “Generative Visual Manipulation on the Natural Image Manifold”, ECCV 2016.
-
-从 Text 生成 Image，比如从图片标题生成一个具体的图片。这个过程需要不仅要考虑生成的图片是否真实，还应该考虑生成的图片是否符合标题里的描述。比如要标题形容了一个黄色的鸟，那么就算生成的蓝色鸟再真实，也是不符合任务需求的。为了捕捉或者约束这种条件，他们提出了 matching-aware discriminator 的思想，让本来的 D 的目标函数中的两项，扩大到了三项：
-
-
-StackGAN
-
-
-Han Zhang, Tao Xu, Hongsheng Li, Shaoting Zhang, Xiaolei Huang, Xiaogang Wang, Dimitris Metaxas. “StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks”. arXiv preprint 2016.
-第三篇这方面的工作[20]可以粗略认为是 LAPGAN[16] 和 matching-aware[18] 的结合。他们提出的 StackGAN[20] 做的事情从标题生成鸟类，但是生成的过程则是像 LAPGAN 一样层次化的，从而实现了 256X256 分辨率的图片生成过程。StackGAN 将图片生成分成两个阶段，阶段一去捕捉大体的轮廓和色调，阶段二加入一些细节上的限制从而实现精修。这个过程效果很好，甚至在某些数据集上以及可以做到以假乱真：
-
-
-序列生成
-
-相比于 GAN 在图像领域的应用，GAN 在文本，语音领域的应用要少很多。主要原因有两个：
-
-GAN 在优化的时候使用 BP 算法，对于文本，语音这种离散数据，GAN 没法直接跳到目标值，只能根据梯度一步步靠近。
-对于序列生成问题，每生成一个单词，我们就需要判断这个序列是否合理，可是 GAN 里面的判别器是没法做到的。除非我们针对每一个 step 都设置一个判别器，这显然不合理。
-为了解决上述问题，强化学习中的策略梯度下降（Policy gredient descent）被引入到 GAN 中的序列生成问题。
-
- GAN 在 NLP 上的应用可以分为两类：生成文本、根据文本生成图像。
-
-音乐生成
-
-RNN-GAN 使用 LSTM 作为生成器和判别器，直接生成整个音频序列。然而，正如上面提到的，音乐当做包括歌词和音符，对于这种离散数据生成问题直接使用 GAN 存在很多问题，特别是生成的数据缺乏局部一致性。
-
-相比之下，SeqGAN 把生成器的输出作为一个智能体 (agent) 的策略，而判别器的输出作为奖励 (reward)，使用策略梯度下降来训练模型。ORGAN 则在 SeqGAN 的基础上，针对具体的目标设定了一个特定目标函数。
-
-语言和语音
-
-VAW-GAN(Variational autoencoding Wasserstein GAN) 结合 VAE 和 WGAN 实现了一个语音转换系统。编码器编码语音信号的内容，解码器则用于重建音色。由于 VAE 容易导致生成结果过于平滑，所以此处使用 WGAN 来生成更加清晰的语音信号。
-
-gan
-
-Deep Learning: State of the Art*
-(Breakthrough Developments in 2017 & 2018)
-
-• BERT and Natural Language Processing
-• Tesla Autopilot Hardware v2+: Neural Networks at Scale
-• AdaNet: AutoML with Ensembles
-• AutoAugment: Deep RL Data Augmentation
-• Training Deep Networks with Synthetic Data
-• Segmentation Annotation with Polygon-RNN++
-• DAWNBench: Training Fast and Cheap
-• Video-to-Video Synthesis
-• Semantic Segmentation
-• AlphaZero & OpenAI Five
-• Deep Learning Frameworks
-BERT和自然语言处理（NLP）
-
-特斯拉Autopilot二代（以上）硬件：规模化神经网络
-
-AdaNet：可集成学习的AutoML
-
-AutoAugment：用强化学习做数据增强
-
-用合成数据训练深度神经网络
-
-用Polygon-RNN++做图像分割自动标注
-
-DAWNBench：寻找快速便宜的训练方法
-
-
-视频到视频合成
-
-语义分割
-
-AlphaZero和OpenAI Five
-
-深度学习框架
-https://github.com/lexfridman/mit-deep-learning
-
-
-
-3D
--------------------
-《Visual Object Networks: Image Generation with Disentangled 3D Representation》，描述了一种用GAN生成3D图片的方法。
-
-这篇文章被近期在蒙特利尔举办的
-
-NeurIPS 2018
-
-## 应用 
-
-
-
-
-
-1 侧脸->正脸 多角度 
-TP-GAN
-
-2 年龄
-
-
- Face Aging With Conditional Generative Adversarial Networks 的作者使用在 IMDB 数据集上预训练模型而获得年龄的预测方法，然后研究者基于条件 GAN 修改生成图像的面部年龄。
-
-
-
-agegan？？
-
-
-论文：https://arxiv.org/pdf/1711.10352.pdf
-
-
-http://k.sina.com.cn/article_6462307252_1812efbb4001009quq.html
-1.1 人脸表情生成
-
-https://github.com/albertpumarola/GANimation
-
-https://www.albertpumarola.com/research/GANimation/
-http://tech.ifeng.com/a/20180729/45089543_0.shtml
-
-二次元
-
-1.2 动漫头像生成
-
-
-domain-transfer-net
-
-
-
-twin—gan
-
-　　5、paGAN：用单幅照片实时生成超逼真动画人物头像
-
-　　最新引起很大反响的“换脸”技术来自华裔教授黎颢的团队，他们开发了一种新的机器学习技术paGAN，能够以每秒1000帧的速度对对人脸进行跟踪，用单幅照片实时生成超逼真动画人像，论文已被SIGGRAPH 2018接收。具体技术细节请看新智元昨天的头条报道。
-
-　　Pinscreen拍摄了《洛杉矶时报》记者David Pierson的一张照片作为输入（左），并制作了他的3D头像（右）。 这个生成的3D人脸通过黎颢的动作（中）生成表情。这个视频是6个月前制作的，Pinscreen团队称其内部早就超越了上述结果。
-
-　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
-
-
-1.3 换脸
-　从Deepfake到HeadOn：换脸技术发展简史
-
-　　DAPAR的担忧并非空穴来风，如今的变脸技术已经达到威胁安全的地步。最先，可能是把特朗普和普京弄来表达政治观点；但后来，出现了比如DeepFake，令普通人也可以利用这样的技术制造虚假色情视频和假新闻。技术越来越先进，让AI安全也产生隐患。
-
-　　1、Deepfake
-https://github.com/deepfakes/faceswap
-　　我们先看看最大名鼎鼎的Deepfake是何方神圣。
-
-　　Deepfake即“deep learning”和“fake”的组合词，是一种基于深度学习的人物图像合成技术。它可以将任意的现有图像和视频组合并叠加到源图像和视频上。
-
-　　Deepfake允许人们用简单的视频和开源代码制作虚假的色情视频、假新闻、恶意内容等。后来，deepfakes还推出一款名为Fake APP的桌面应用程序，允许用户轻松创建和分享换脸的视频，进一步把技术门槛降低到C端。
-
-特朗普的脸被换到希拉里身上特朗普的脸被换到希拉里身上
-　　由于其恶意使用引起大量批评，Deepfake已经被Reddit、Twitter等网站封杀。
-
-　　2、Face2Face
-
-　　Face2Face同样是一项引起巨大争议的“换脸”技术。它比Deepfake更早出现，由德国纽伦堡大学科学家Justus Thies的团队在CVPR 2016发布。这项技术可以非常逼真的将一个人的面部表情、说话时面部肌肉的变化、嘴型等完美地实时复制到另一个人脸上。它的效果如下：
-
-
-　　Face2Face被认为是第一个能实时进行面部转换的模型，而且其准确率和真实度比以前的模型高得多。
-
-　　3、HeadOn
-
-　　HeadOn可以说是Face2Face的升级版，由原来Face2Face的团队创造。研究团队在Face2Face上所做的工作为HeadOn的大部分能力提供了框架，但Face2Face只能实现面部表情的转换，HeadOn增加了身体运动和头部运动的迁移。
-
-　　也就是说，HeadOn不仅可以“变脸”，它还可以“变人”——根据输入人物的动作，实时地改变视频中人物的面部表情、眼球运动和身体动作，使得图像中的人看起来像是真的在说话和移动一样。
-
-HeadOn技术的图示HeadOn技术的图示
-　　研究人员在论文里将这个系统称为“首个人体肖像视频的实时的源到目标（source-to-target）重演方法，实现了躯干运动、头部运动、面部表情和视线注视的迁移”。
-
-　　4、Deep Video Portraits
-
-　　Deep Video Portraits 是斯坦福大学、慕尼黑技术大学等的研究人员提交给今年 8 月SIGGRAPH 大会的一篇论文，描述了一种经过改进的 “换脸” 技术，可以在视频中用一个人的脸再现另一人脸部的动作、面部表情和说话口型。
-
-
-　　例如，将普通人的脸换成奥巴马的脸。Deep Video Portraits 可以通过一段目标人物的视频（在这里就是奥巴马），来学习构成脸部、眉毛、嘴角和背景等的要素以及它们的运动形式。 
-
--------------------------------------------------------------------------------------------------
-
-1.4 动漫图像上色
+## 3.5 图像上色
 
 
 - [Automatic Image Colorization](#1-automatic-image-colorization)
@@ -951,7 +841,6 @@ HeadOn技术的图示HeadOn技术的图示
   - [Based on reference](#32-based-on-reference)
 
 
----
 
 #### 1. Automatic Image Colorization
 
@@ -979,13 +868,7 @@ HeadOn技术的图示HeadOn技术的图示
 | Line art / Sketch | [Auto-painter: Cartoon Image Generation from Sketch by Using Conditional Generative Adversarial Networks](https://arxiv.org/pdf/1705.01908.pdf) | 1705.01908 | [[code]](https://github.com/irfanICMLL/Auto_painter) |
 | Natural Gray-Scale | [Real-Time User-Guided Image Colorization with Learned Deep Priors](https://arxiv.org/abs/1705.02999) | SIGGRAPH 2017 | [[project]](https://richzhang.github.io/ideepcolor/) [[code1]](https://github.com/junyanz/interactive-deep-colorization) [[code2]](https://github.com/richzhang/colorization-pytorch) |
 | Sketch | [Scribbler: Controlling Deep Image Synthesis with Sketch and Color](http://openaccess.thecvf.com/content_cvpr_2017/papers/Sangkloy_Scribbler_Controlling_Deep_CVPR_2017_paper.pdf) | CVPR 2017 |  |
-| Line art | [User-Guided Deep Anime Line Art Colorization with Conditional Adversarial Networks](https://arxiv.org/pdf/1808.03240.pdf) | ACM MM 2018 | [[code]](https://github.com/orashi/AlacGAN) |
-| Line art | Style2paints V3 : [Two-stage Sketch Colorization](http://www.cse.cuhk.edu.hk/~ttwong/papers/colorize/colorize.pdf) | SIGGRAPH Asia 2018 | [[Project]](https://www.cse.cuhk.edu.hk/~ttwong/papers/colorize/colorize.html) [[Code]](https://github.com/lllyasviel/style2paints#style2paints-v3) [[Demo]](http://s2p.moe/) <br/><br/> [[PyTorch Reimplementation]](https://github.com/Pengxiao-Wang/Style2Paints_V3) |
 | Natural Gray-Scale | [Interactive Deep Colorization Using Simultaneous Global and Local Inputs](https://ieeexplore.ieee.org/abstract/document/8683686) (also palette based) | ICASSP 2019 |  |
-| Line art | Paints Chainer | Online Demo | [[Demo]](https://paintschainer.preferred.tech/) [[code]](https://github.com/pfnet/PaintsChainer) |
-| Line art | PaintsTensorFlow | Github Repo | [[Code]](https://github.com/rapidrabbit76/PaintsTensorFlow) |
-| Manga | MangaCraft | Online Demo | [[Demo]](https://github.com/lllyasviel/MangaCraft) |
-|Line art|[Comicolorization: Semi-automatic Manga Colorization](https://arxiv.org/pdf/1706.06759.pdf) |1706.06759  (DwangoMediaVillage) | [[code]](https://github.com/DwangoMediaVillage/Comicolorization)|
 
 
 ##### 2.2 Based on reference color image
@@ -1035,6 +918,156 @@ HeadOn技术的图示HeadOn技术的图示
 | [Switchable Temporal Propagation Network](http://openaccess.thecvf.com/content_ECCV_2018/papers/Sifei_Liu_Switchable_Temporal_Propagation_ECCV_2018_paper.pdf) | ECCV 2018 |  |
 | [Tracking Emerges by Colorizing Videos](http://openaccess.thecvf.com/content_ECCV_2018/papers/Carl_Vondrick_Self-supervised_Tracking_by_ECCV_2018_paper.pdf) | ECCV 2018 | [[code]](https://github.com/wbaek/tracking_via_colorization) |
 | [Deep Exemplar-based Video Colorization]() | CVPR 2019 |  |
+
+
+## Colourful Image Colorization
+
+Let there be Color!: Joint End-to-end Learning of Global and Local Image Priors for Automatic Image Colorization with Simultaneous Classification
+
+Colourful Image Colourization 
+2016 ECCV 里加州大学伯克利分校的一篇文章介绍的方法。这个方法与之前方法的不同之处在于，它把照片上色看成是一个分类问题——预测三百多种颜色在图片每一个像素点上的概率分布。这种方法tackle了这个任务本身的不确定性，例如，当你看到一个黑白的苹果时，你可能会觉得它是红色的，但如果这个苹果是青色的，其实也并没有多少违和感。大家也可以到作者的网站网站来试用他们的demo。 
+https://richzhang.github.io/colorization/
+
+
+## Real-Time User-Guided Image Colorization with Learned Deep Priors
+
+UC Berkeley 的研究人员近日推出了一种利用深度学习对黑白图像进行实时上色的模型，并开源了相关代码。该研究的论文将出现在 7 月 30 日在洛杉矶举行的 SIGGRAPH 2017 计算机图像和交互技术大会上。
+论文链接：https://arxiv.org/abs/1705.02999
+Demo 和代码链接：https://richzhang.github.io/ideepcolor/
+
+在计算机图形学领域中，一直存在两种为图片上色的方向：用户引导上色和数据驱动的自动上色方式。第一种范式是由 Levin 等人在 2004 年开创的，用户通过彩色画笔在灰度图像中进行引导性上色，随后优化算法会生成符合用户逻辑的上色结果。这种方法可以保留人工上色的部分性质，因而经常会有绝佳的表现，但往往需要密集的用户交互次数（有时超过五十次）。
+
+
+
+
+## Deep Painterly Harmonization
+开源地址：https://github.com/luanfujun/deep-painterly-harmonization
+
+首先从我最喜爱的一个开源项目讲起。我希望你花点时间仅仅来欣赏一下上面的图像。你能分辨出哪张是由人类做的，哪张是由机器生成的吗？我确定你不能。这里，第一个画面是输入图像（原始的），而第三个画面是由这项技术所生成的。
+很惊讶，是吗？这个算法将你选择的外部物体添加到了任意一张图像上，并成功让它看上去好像本来就应该在那里一样。你不妨查看这个代码，然后尝试亲自到一系列不同的图像上去操作这项技术。
+
+## Image Outpainting
+开源地址：https://github.com/bendangnuksung/Image-OutPainting
+
+如果我给你一张图像，并让你通过想象图像在图中完整场景呈现时的样子，来扩展它的画面边界，你会怎么办？正常来说，你可能会把这个图导入到某个图像编辑软件里进行操作。但是现在有了一个非常棒的新软件——你可以用几行代码就实现这项操作。
+这个项目是斯坦福大学「Image Outpainting」论文（论文地址：https://cs230.stanford.edu/projects_spring_2018/posters/8265861.pdf ，
+这是一篇无比惊艳并配有示例说明的论文——这就是大多数研究论文所应有的样子！）的 Keras 实现。你或者可以从头开始创建模型，或者也可以使用这个开源项目作者所提供的模型。深度学习从来不会停止给人们带来惊喜。
+
+
+## 3.6 人脸相关
+
+### 3.6.1 侧脸转正脸
+为了提高人脸识别准确率，侧脸转正脸一直是很多人的研究方向：TP-GAN
+
+### 3.6.2 年龄，表情
+之前有应用就是生成年老的照片等，实际年龄判断一直不太准，是因为数据库在10-15岁年龄段的照片有断层。所以年龄预测一直准确度也不够高。随着stylegan等的成长，之前年龄这个部分的研究并没有太多可追随性。研究paper有 agengan，Face Aging With Conditional Generative Adversarial Networks 。作者使用在 IMDB 数据集上预训练模型而获得年龄的预测方法，然后研究者基于条件 GAN 修改生成图像的面部年龄。
+
+论文：https://arxiv.org/pdf/1711.10352.pdf
+
+http://k.sina.com.cn/article_6462307252_1812efbb4001009quq.html
+
+表情也和年龄类似，可用模型有 GANimation
+
+https://github.com/albertpumarola/GANimation
+
+https://www.albertpumarola.com/research/GANimation/
+http://tech.ifeng.com/a/20180729/45089543_0.shtml
+
+Glow: Generative Flow with Invertible 1x1 Convolutions
+
+
+基于流的生成模型在 2014 年已经被提出，但是一直被忽视。由 OpenAI 带来的 Glow 展示了流生成模型强大的图像生成能力。文章使用可逆 1 x 1 卷积在已有的流模型 NICE 和 RealNVP 基础上进行扩展，精确的潜变量推断在人脸属性上展示了惊艳的实验效果。
+
+ https://www.paperweekly.site/papers/2101
+
+ https://github.com/openai/glow
+
+### 3.6.3 换脸
+　
+从Deepfake到HeadOn：换脸技术发展简史
+
+　　DAPAR的担忧并非空穴来风，如今的变脸技术已经达到威胁安全的地步。最先，可能是把特朗普和普京弄来表达政治观点；但后来，出现了比如DeepFake，令普通人也可以利用这样的技术制造虚假色情视频和假新闻。技术越来越先进，让AI安全也产生隐患。
+
+　　1、Deepfake
+https://github.com/deepfakes/faceswap
+　　我们先看看最大名鼎鼎的Deepfake是何方神圣。
+
+　　Deepfake即“deep learning”和“fake”的组合词，是一种基于深度学习的人物图像合成技术。它可以将任意的现有图像和视频组合并叠加到源图像和视频上。
+
+　　Deepfake允许人们用简单的视频和开源代码制作虚假的色情视频、假新闻、恶意内容等。后来，deepfakes还推出一款名为Fake APP的桌面应用程序，允许用户轻松创建和分享换脸的视频，进一步把技术门槛降低到C端。
+
+特朗普的脸被换到希拉里身上特朗普的脸被换到希拉里身上
+　　由于其恶意使用引起大量批评，Deepfake已经被Reddit、Twitter等网站封杀。
+
+　　2、Face2Face
+
+　　Face2Face同样是一项引起巨大争议的“换脸”技术。它比Deepfake更早出现，由德国纽伦堡大学科学家Justus Thies的团队在CVPR 2016发布。这项技术可以非常逼真的将一个人的面部表情、说话时面部肌肉的变化、嘴型等完美地实时复制到另一个人脸上。它的效果如下：
+
+
+　　Face2Face被认为是第一个能实时进行面部转换的模型，而且其准确率和真实度比以前的模型高得多。
+
+　　3、HeadOn
+
+　　HeadOn可以说是Face2Face的升级版，由原来Face2Face的团队创造。研究团队在Face2Face上所做的工作为HeadOn的大部分能力提供了框架，但Face2Face只能实现面部表情的转换，HeadOn增加了身体运动和头部运动的迁移。
+
+　　也就是说，HeadOn不仅可以“变脸”，它还可以“变人”——根据输入人物的动作，实时地改变视频中人物的面部表情、眼球运动和身体动作，使得图像中的人看起来像是真的在说话和移动一样。
+
+HeadOn技术的图示HeadOn技术的图示
+　　研究人员在论文里将这个系统称为“首个人体肖像视频的实时的源到目标（source-to-target）重演方法，实现了躯干运动、头部运动、面部表情和视线注视的迁移”。
+
+　　4、Deep Video Portraits
+
+　　Deep Video Portraits 是斯坦福大学、慕尼黑技术大学等的研究人员提交给今年 8 月SIGGRAPH 大会的一篇论文，描述了一种经过改进的 “换脸” 技术，可以在视频中用一个人的脸再现另一人脸部的动作、面部表情和说话口型。
+
+
+　　例如，将普通人的脸换成奥巴马的脸。Deep Video Portraits 可以通过一段目标人物的视频（在这里就是奥巴马），来学习构成脸部、眉毛、嘴角和背景等的要素以及它们的运动形式。 
+
+
+
+
+
+
+
+
+
+工具 ：
+
+https://github.com/iperov/DeepFaceLab
+
+
+-------------------------------------------------------------------------------------------------
+
+
+## 3.7 动漫相关
+
+
+### 3.7.1 动漫头像生成
+
+twin—gan
+
+paGAN：用单幅照片实时生成超逼真动画人物头像
+
+　　最新引起很大反响的“换脸”技术来自华裔教授黎颢的团队，他们开发了一种新的机器学习技术paGAN，能够以每秒1000帧的速度对对人脸进行跟踪，用单幅照片实时生成超逼真动画人像，论文已被SIGGRAPH 2018接收。具体技术细节请看新智元昨天的头条报道。
+
+　　Pinscreen拍摄了《洛杉矶时报》记者David Pierson的一张照片作为输入（左），并制作了他的3D头像（右）。 这个生成的3D人脸通过黎颢的动作（中）生成表情。这个视频是6个月前制作的，Pinscreen团队称其内部早就超越了上述结果。
+
+　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
+
+
+
+### 3.7.2 动漫图像上色
+
+
+
+| Line art | [User-Guided Deep Anime Line Art Colorization with Conditional Adversarial Networks](https://arxiv.org/pdf/1808.03240.pdf) | ACM MM 2018 | [[code]](https://github.com/orashi/AlacGAN) |
+| Line art | Style2paints V3 : [Two-stage Sketch Colorization](http://www.cse.cuhk.edu.hk/~ttwong/papers/colorize/colorize.pdf) | SIGGRAPH Asia 2018 | [[Project]](https://www.cse.cuhk.edu.hk/~ttwong/papers/colorize/colorize.html) [[Code]](https://github.com/lllyasviel/style2paints#style2paints-v3) [[Demo]](http://s2p.moe/) <br/><br/> [[PyTorch Reimplementation]](https://github.com/Pengxiao-Wang/Style2Paints_V3) |
+
+| Line art | Paints Chainer | Online Demo | [[Demo]](https://paintschainer.preferred.tech/) [[code]](https://github.com/pfnet/PaintsChainer) |
+| Line art | PaintsTensorFlow | Github Repo | [[Code]](https://github.com/rapidrabbit76/PaintsTensorFlow) |
+| Manga | MangaCraft | Online Demo | [[Demo]](https://github.com/lllyasviel/MangaCraft) |
+|Line art|[Comicolorization: Semi-automatic Manga Colorization](https://arxiv.org/pdf/1706.06759.pdf) |1706.06759  (DwangoMediaVillage) | [[code]](https://github.com/DwangoMediaVillage/Comicolorization)|
+---
+
 
 
 
@@ -1107,294 +1140,13 @@ Single-Image Super-Resolution for anime/fan-art using Deep Convolutional Neural 
 效果还是相当不错的, 下面是官方的Demo图:
 https://raw.githubusercontent.com/nagadomi/waifu2x/master/images/slide.png
 
-图像修复  
 
 
 
-EdgeConnect
-TL-GAN
 
-Glow
+------------------------
 
-
-基于流的生成模型在 2014 年已经被提出，但是一直被忽视。由 OpenAI 带来的 Glow 展示了流生成模型强大的图像生成能力。文章使用可逆 1 x 1 卷积在已有的流模型 NICE 和 RealNVP 基础上进行扩展，精确的潜变量推断在人脸属性上展示了惊艳的实验效果。
-
-
-
-■ 论文 | Glow: Generative Flow with Invertible 1x1 Convolutions
-
-■ 链接 | https://www.paperweekly.site/papers/2101
-
-■ 源码 | https://github.com/openai/glow
-
-图像生成在 GAN 和 VAE 诞生后得到了很快的发展，现在围绕 GAN 的论文十分火热。生成模型只能受限于 GAN 和 VAE 吗？OpenAI 给出了否定的答案，OpenAI 带来了 Glow，一种基于流的生成模型。
-
-Recycle-GAN
-
-
-
-
-工具 ：
-
-https://github.com/iperov/DeepFaceLab
-
-
-
-3.1.4 图像联合分布学习
-
-大部分 GAN 都是学习单一域的数据分布，CoupledGAN 则提出一种部分权重共享的网络，使用无监督方法来学习多个域图像的联合分布。具体结构如下 [11]：
-
-
-
-如上图所示，CoupledGAN 使用两个 GAN 网络。生成器前半部分权重共享，目的在于编码两个域高层的，共有信息，后半部分没有进行共享，则是为了各自编码各自域的数据。判别器前半部分不共享，后半部分用于提取高层特征共享二者权重。对于训练好的网络，输入一个随机噪声，输出两张不同域的图片。
-
-值得注意的是，上述模型学习的是联合分布 P(x,y)，如果使用两个单独的 GAN 分别取训练，那么学习到的就是边际分布 P(x) 和 P(y)。
-
-
-
-3.2 填补图像
-
-DeepCreamPy自动去码
-
-
-
-4 根据图像生成描述 /根据描述生成图像
-
-
-
-5 视频生成
-
-通常来说，视频有相对静止的背景和运动的前景组成。VideoGAN 使用一个两阶段的生成器，3D CNN 生成器生成运动前景，2D CNN 生成器生成静止的背景。Pose GAN 则使用 VAE 和 GAN 生成视频，首先，VAE 结合当前帧的姿态和过去的姿态特征预测下一帧的运动信息，然后 3D CNN 使用运动信息生成后续视频帧。Motion and Content GAN(MoCoGAN) 则提出在隐空间对运动部分和内容部分进行分离，使用 RNN 去建模运动部分。
-
-
-
-标题：视频到视频的合成Video-to-Video Synthesis
-作者：Ting-Chun Wang, Ming-Yu Liu, Jun-Yan Zhu, Guilin Liu, Andrew Tao, Jan Kautz, Bryan Catanzaro
-https://arxiv.org/abs/1808.06601
-论文摘要
-本文研究的问题是视频到视频(Video-to-Video)的合成，其目标是学习一个映射函数从一个输入源视频(例如，语义分割掩码序列)到一个输出逼真的视频，准确地描述了源视频的内容。
-与之对应的图像到图像的合成问题是一个热门话题，而视频到视频的合成问题在文献中研究较少。在不了解时间动态的情况下，直接将现有的图像合成方法应用于输入视频往往会导致视频在时间上不连贯，视觉质量低下。
-本文提出了一种在生成对抗学习框架下的视频合成方法。通过精心设计的生成器和鉴别器架构，再加上时空对抗目标，可以在一组不同的输入格式(包括分割掩码、草图和姿势)上获得高分辨率、逼真的、时间相干的视频结果。
-在多个基准上的实验表明，与强基线相比，本文的方法具有优势。特别是该模型能够合成长达30秒的街道场景的2K分辨率视频，大大提高了视频合成的技术水平。最后，将该方法应用于未来的视频预测，表现优于几个最先进的系统。
-概要总结
-英伟达的研究人员引入了一种新的视频合成方法。该框架基于条件甘斯。具体地说，该方法将精心设计的发生器和鉴别器与时空对抗性目标相结合。实验表明，所提出的vid2vid方法可以在不同的输入格式(包括分割掩码、草图和姿势)上合成高分辨率、逼真、时间相干的视频。它还可以预测下一帧，其结果远远优于基线模型。
-
-市场营销和广告可以从vid2vid方法创造的机会中获益(例如，在视频中替换面部甚至整个身体)。然而，这应该谨慎使用，需要想到道德伦理方面的一些顾虑。
-代码
-英伟达团队提供了本研究论文在GitHub上的原始实现的代码：
-https://github.com/NVIDIA/vid2vid
-
-6 序列生成
-
-相比于 GAN 在图像领域的应用，GAN 在文本，语音领域的应用要少很多。主要原因有两个：
-
-GAN 在优化的时候使用 BP 算法，对于文本，语音这种离散数据，GAN 没法直接跳到目标值，只能根据梯度一步步靠近。
-
-对于序列生成问题，每生成一个单词，我们就需要判断这个序列是否合理，可是 GAN 里面的判别器是没法做到的。除非我们针对每一个 step 都设置一个判别器，这显然不合理。
-
-为了解决上述问题，强化学习中的策略梯度下降（Policy gredient descent）被引入到 GAN 中的序列生成问题。
-
-6.1 音乐生成
-
-RNN-GAN 使用 LSTM 作为生成器和判别器，直接生成整个音频序列。然而，正如上面提到的，音乐当做包括歌词和音符，对于这种离散数据生成问题直接使用 GAN 存在很多问题，特别是生成的数据缺乏局部一致性。
-
-相比之下，SeqGAN 把生成器的输出作为一个智能体 (agent) 的策略，而判别器的输出作为奖励 (reward)，使用策略梯度下降来训练模型。ORGAN 则在 SeqGAN 的基础上，针对具体的目标设定了一个特定目标函数。
-
-
-wavenet
-
-GANSynth是一种快速生成高保真音频的新方法
-http://www.elecfans.com/d/877752.html
-
-
-6.2 语言和语音
-
-VAW-GAN(Variational autoencoding Wasserstein GAN) 结合 VAE 和 WGAN 实现了一个语音转换系统。编码器编码语音信号的内容，解码器则用于重建音色。由于 VAE 容易导致生成结果过于平滑，所以此处使用 WGAN 来生成更加清晰的语音信号。
-
-	Generative Adversarial Text to Image Synthesis	Reed & et al.	ICML 2016
-Conditional Generative Adversarial Networks for Speech Enhancement and Noise-Robust Speaker Verification	Michelsanti & Tan	Interspeech 2017	
-Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network	Ledig & et al.	CVPR 2017	
-SalGAN: Visual Saliency Prediction with Generative Adversarial Networks	Pan & et al.	CVPR 2017	
-SAGAN: Self-Attention Generative Adversarial Networks	Zhang & et al.	NIPS 2018	
-Speaker Adaptation for High Fidelity WaveNet Vocoder with GAN	Tian & et al.	arXiv Nov 2018	
-MTGAN: Speaker Verification through Multitasking Triplet Generative Adversarial Networks	Ding & et al.	arXiv Mar 2018	
-Adversarial Learning and Augmentation for Speaker Recognition	Zhang & et al.	Speaker Odyssey 2018 / ISCA 2018	
-Investigating Generative Adversarial Networks based Speech Dereverberation for Robust Speech Recognition	Wang & et al.	Interspeech 2018	
-On Enhancing Speech Emotion Recognition using Generative Adversarial Networks	Sahu & et al.	Interspeech 2018	
-Robust Speech Recognition Using Generative Adversarial Networks	Sriram & et al.	ICASSP 2018	
-Adversarially Learned One-Class Classifier for Novelty Detection	Sabokrou & khalooei & et al.	CVPR 2018	
-Generalizing to Unseen Domains via Adversarial Data Augmentation	Volpi & et al.	NeurIPS (NIPS) 2018	
-Generative Adversarial Networks for Unpaired Voice Transformation on Impaired Speech	Chen & lee & et al.	Submitted on ICASSP 2019	
-Generative Adversarial Speaker Embedding Networks for Domain Robust End-to-End Speaker Verification	Bhattacharya & et al.	Submitted on ICASSP 2019	
-
-7 
-唇读
-
-
-
-唇读（lipreading）是指根据说话人的嘴唇运动解码出文本的任务。传统的方法是将该问题分成两步解决：设计或学习视觉特征、以及预测。最近的深度唇读方法是可以端到端训练的（Wand et al., 2016; Chung & Zisserman, 2016a）。目前唇读的准确度已经超过了人类。
-
-
-
-
-
-
-
-Google DeepMind 与牛津大学合作的一篇论文《Lip Reading Sentences in the Wild》介绍了他们的模型经过电视数据集的训练后，性能超越 BBC 的专业唇读者。
-
-
-
-该数据集包含 10 万个音频、视频语句。音频模型：LSTM，视频模型：CNN + LSTM。这两个状态向量被馈送至最后的 LSTM，然后生成结果（字符）。
-
-
-
- 人工合成奥巴马：嘴唇动作和音频的同步
-
-
-
-华盛顿大学进行了一项研究，生成美国前总统奥巴马的嘴唇动作。选择奥巴马的原因在于网络上有他大量的视频（17 小时高清视频）。
-
-
-
-# Art
-
-## Neural Style 风格迁移
-1.1 风格迁移 
-Neural Style
-
-它将待风格化图片和风格化样本图放入VGG中进行前向运算。其中待风格化图像提取relu4特征图，风格化样本图提取relu1,relu2,relu3,relu4,relu5的特征图。我们要把一个随机噪声初始化的图像变成目标风格化图像，将其放到VGG中计算得到特征图，然后分别计算内容损失和风格损失。
-
-用这个训练好的 VGG 提取风格图片代表风格的高层语义信息，具体为，把风格图片作为 VGG 的输入，然后提取在风格语义选取层激活值的格拉姆矩阵（Gramian Matrix）。值得一提的是，格拉姆矩阵的数学意义使得其可以很好地捕捉激活值之间的相关性，所以能很好地表现图片的风格特征；
-用 VGG 提取被风格化图片代表内容的高层语义信息，具体为，把该图片作为 VGG 的输入，然后提取内容语义提取层的激活值。这个方法很好地利用了卷积神经网络的性质，既捕捉了图片元素的结构信息，又对细节有一定的容错度；
-随机初始化一张图片，然后用2，3介绍的方法提取其风格，内容特征，然后将它们分别与风格图片的风格特征，内容图片的内容特征相减，再按一定的权重相加，作为优化的目标函数。
-保持 VGG 的权重不不变，直接对初始化的图⽚做梯度下降，直至目标函数降至一个比较小的值。
-这个方法的风格化效果震惊了学术界，但它的缺点也是显而易见的，由于这种风格化方式本质上是一个利用梯度下降迭代优化的过程，所以尽管其效果不不错，但是风格化的速度较慢，处理一张图片在GPU上大概需要十几秒。deepart.io这个网站就是运用这个技术来进行图片纹理转换的。 
-
-
-
-
-Ulyanov的Texture Networks: Feed-forward Synthesis of Textures and Stylized Images
-李飞飞老师的Perceptual Losses for Real-Time Style Transfer and Super-Resolution。 
-
-后面两篇都是将原来的求解全局最优解问题转换成用前向网络逼近最优解
-原版的方法每次要将一幅内容图进行风格转换，就要进行不断的迭代，而后两篇的方法是先将其进行训练，训练得到前向生成网络，以后再来一张内容图，直接输入到生成网络中，即可得到具有预先训练的风格的内容图。 
-
-
-1.2
-
-多风格及任意风格转换
-A Learned Representation for Artistic Style
-
-condition instance normalization。
-
-该论文在IN的基础上做了改进，加入了类似BN的γ和β缩放和平移因子，也就是风格特征的方差和均值，称为CIN（条件IN）。这样一来，网络只要在学习风格化的同时学习多种不同风格的γ和β，并保存起来。在要风格化某一风格的时候，只要将网络的所有γ和β（网络中所有有用到CIN层的地方）替换成对应风格的γ和β。 该方法还能实现同一内容图像风格化成多种风格的融合，这只要将多种风格特征的γ和β进行相应的线性融合便可，具体参考论文的实验部分。 该论文只能同时风格化有限的风格种类（论文中为32种），因为其需要保存所有风格种类的γ和β参数。
-
-
-
-Diversified Texture Synthesis with Feed-forward Networks
-是通过加入不同的风格图片ID，并加入嵌入层，来达到实现多种风格的目的。有点类似语音合成中的基于说话人ID搞成词向量作为网络的输入信息之一。
-
-Fast Patch-based Style Transfer of Arbitrary Style
-      这篇论文实现了图像的任意风格转换，不在局限于单个风格的训练。同时支持优化和前向网络的方法。生成时间：少于 10 秒。网络核心部分是一个style swap layer，即在这一层，对content的feature maps的每一块使用最接近的style feature 来替换。
-
-
-style swap
-论文分为2个部分，第一部分就是常规的迭代方式，第二个是将常规的改成一次前向的方法。
-
-
-Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization
-https://arxiv.org/pdf/1703.06868.pdf
-https://github.com/xunhuang1995/AdaIN-style
-http://www.ctolib.com/AdaIN-style.html
-支持使用一个前向网络来实现任意的风格转换，同时还保证的效率，能达到实时的效果。运行时间少于1s, 该论文在CIN的基础上做了一个改进，提出了AdaIN（自适应IN层）。顾名思义，就是自己根据风格图像调整缩放和平移参数，不在需要像CIN一样保存风格特征的均值和方差，而是在将风格图像经过卷积网络后计算出均值和方差。
-
-
-
-1.3  语义合成图像：涂鸦拓展
-
-1 Neural Doodle 
-纹理转换的另外一个非常有意思的应用是Neural Doodle，运用这个技术，我们可以让三岁的小孩子都轻易地像莫奈一样成为绘画大师。这个技术本质上其实就是先对一幅世界名画（比如皮埃尔-奥古斯特·雷诺阿的Bank of a River）做一个像素分割，得出它的语义图，让神经网络学习每个区域的风格。 
-然后，我们只需要像小孩子一样在这个语义图上面涂鸦（比如，我们想要在图片的中间画一条河，在右上方画一棵树），神经网络就能根据语义图上的区域渲染它，最后得出一幅印象派的大作。
-Faster
-https://github.com/DmitryUlyanov/fast-neural-doodle
-实时
-https://github.com/DmitryUlyanov/online-neural-doodle
-
-
-
-英伟达出品的GauGAN：你画一幅涂鸦，用颜色区分每一块对应着什么物体，它就能照着你的大作，合成以假乱真的真实世界效果图。在AI界，你的涂鸦有个学名，叫“语义布局”。
-
-要实现这种能力，GauGAN靠的是空间自适应归一化合成法SPADE架构。这种算法的论文Semantic Image Synthesis with Spatially-Adaptive Normalization已经被CVPR 2019接收，而且还是口头报告（oral）。
-
-这篇论文的一作，照例还是实习生。另外几位作者来自英伟达和MIT，CycleGAN的创造者华人小哥哥朱俊彦也在其中。
-
-在基于语义合成图像这个领域里，这可是目前效果最强的方法。
-
-
-在正在举行的英伟达GTC 19大会上，GauGAN已表态了。美国时候周三周五Ting-Chun Wang和Ming-Yu Liu还将举行相干演讲。
-
-论文地点：https://arxiv.org/abs/1903.07291
-
-GitHub地点（代码行将上线）：https://github.com/NVlabs/SPADE
-
-项目地点：https://nvlabs.github.io/SPADE/
-
-https://36kr.com/p/5187136
-
-1.4
-
-Controlling Perceptual Factors in Neural Style Transfer
-颜色控制颜色控制
-在以前的风格转换中，生成图的颜色都会最终变成style图的颜色，但是很多时候我们并不希望这样。其中一种方法是，将RGB转换成YIQ，只在Y上进行风格转换，因为I和Q通道主要是保存了颜色信息。 
-
-
-
-
-1.5 Deep Photo Style Transfer
-本文在 Neural Style algorithm [5] 的基础上进行改进，主要是在目标函数进行了修改，加了一项 Photorealism regularization，修改了一项损失函数引入 semantic segmentation 信息使其在转换风格时 preserve the image structure
-贡献是将从输入图像到输出图像的变换约束在色彩空间的局部仿射变换中，将这个约束表示成一个完全可微的参数项。我们发现这种方法成功地抑制了图像扭曲，在各种各样的场景中生成了满意的真实图像风格变换，包括一天中时间变换，天气，季节和艺术编辑风格变换。
-
-
-以前都是整幅图stransfer的，然后他们想只对一幅图的单个物体进行stransfer，比如下面这幅图是电视剧Son of Zorn的剧照，设定是一个卡通人物生活在真实世界。他们还说这种技术可能在增强现实起作用，比如Pokemon go. 
-
-
-
-1.5 Colourful Image Colorization
-
-Let there be Color!: Joint End-to-end Learning of Global and Local Image Priors for Automatic Image Colorization with Simultaneous Classification
-
-Colourful Image Colourization 
-2016 ECCV 里加州大学伯克利分校的一篇文章介绍的方法。这个方法与之前方法的不同之处在于，它把照片上色看成是一个分类问题——预测三百多种颜色在图片每一个像素点上的概率分布。这种方法tackle了这个任务本身的不确定性，例如，当你看到一个黑白的苹果时，你可能会觉得它是红色的，但如果这个苹果是青色的，其实也并没有多少违和感。大家也可以到作者的网站网站来试用他们的demo。 
-https://richzhang.github.io/colorization/
-
-
-Real-Time User-Guided Image Colorization with Learned Deep Priors
-
-UC Berkeley 的研究人员近日推出了一种利用深度学习对黑白图像进行实时上色的模型，并开源了相关代码。该研究的论文将出现在 7 月 30 日在洛杉矶举行的 SIGGRAPH 2017 计算机图像和交互技术大会上。
-论文链接：https://arxiv.org/abs/1705.02999
-Demo 和代码链接：https://richzhang.github.io/ideepcolor/
-
-在计算机图形学领域中，一直存在两种为图片上色的方向：用户引导上色和数据驱动的自动上色方式。第一种范式是由 Levin 等人在 2004 年开创的，用户通过彩色画笔在灰度图像中进行引导性上色，随后优化算法会生成符合用户逻辑的上色结果。这种方法可以保留人工上色的部分性质，因而经常会有绝佳的表现，但往往需要密集的用户交互次数（有时超过五十次）。
-
-
-
-
-Deep Painterly Harmonization
-开源地址：https://github.com/luanfujun/deep-painterly-harmonization
-
-首先从我最喜爱的一个开源项目讲起。我希望你花点时间仅仅来欣赏一下上面的图像。你能分辨出哪张是由人类做的，哪张是由机器生成的吗？我确定你不能。这里，第一个画面是输入图像（原始的），而第三个画面是由这项技术所生成的。
-很惊讶，是吗？这个算法将你选择的外部物体添加到了任意一张图像上，并成功让它看上去好像本来就应该在那里一样。你不妨查看这个代码，然后尝试亲自到一系列不同的图像上去操作这项技术。
-Image Outpainting
-开源地址：https://github.com/bendangnuksung/Image-OutPainting
-
-如果我给你一张图像，并让你通过想象图像在图中完整场景呈现时的样子，来扩展它的画面边界，你会怎么办？正常来说，你可能会把这个图导入到某个图像编辑软件里进行操作。但是现在有了一个非常棒的新软件——你可以用几行代码就实现这项操作。
-这个项目是斯坦福大学「Image Outpainting」论文（论文地址：https://cs230.stanford.edu/projects_spring_2018/posters/8265861.pdf ，
-这是一篇无比惊艳并配有示例说明的论文——这就是大多数研究论文所应有的样子！）的 Keras 实现。你或者可以从头开始创建模型，或者也可以使用这个开源项目作者所提供的模型。深度学习从来不会停止给人们带来惊喜。
-
-
-
-
-字体合成
+## 3.8 字体合成
 英文 ：
 Handwriting Synthesis（手写体合成）
 
@@ -1449,30 +1201,32 @@ Github 用户 kaonashi-tyc 将 字体设计 的过程转化为一个“风格迁
 ■ 链接 | https://www.paperweekly.site/papers/1781
 
 ■ 源码 | https://github.com/azadis/MC-GAN
+----------------
 
-其他 
+## 3.9 视频生成
 
- SketchRNN：教机器画画
-
-
-
-你可能看过谷歌的 Quick, Draw! 数据集，其目标是 20 秒内绘制不同物体的简笔画。谷歌收集该数据集的目的是教神经网络画画。
-
-专业摄影作品
+通常来说，视频有相对静止的背景和运动的前景组成。VideoGAN 使用一个两阶段的生成器，3D CNN 生成器生成运动前景，2D CNN 生成器生成静止的背景。Pose GAN 则使用 VAE 和 GAN 生成视频，首先，VAE 结合当前帧的姿态和过去的姿态特征预测下一帧的运动信息，然后 3D CNN 使用运动信息生成后续视频帧。Motion and Content GAN(MoCoGAN) 则提出在隐空间对运动部分和内容部分进行分离，使用 RNN 去建模运动部分。
 
 
 
-谷歌已经开发了另一个非常有意思的 GAN 应用，即摄影作品的选择和改进。开发者在专业摄影作品数据集上训练 GAN，其中生成器试图改进照片的表现力（如更好的拍摄参数和减少对滤镜的依赖等），判别器用于区分「改进」的照片和真实的作品。
-训练后的算法会通过 Google Street View 搜索最佳构图，获得了一些专业级的和半专业级的作品评分。
+## vid2vid
 
-：Creatism: A deep-learning photographer capable of creating professional work（https://arxiv.org/abs/1707.03491）。
-Showcase：https://google.github.io/creatism/
+视频到视频的合成 ： Video-to-Video Synthesis
+作者：Ting-Chun Wang, Ming-Yu Liu, Jun-Yan Zhu, Guilin Liu, Andrew Tao, Jan Kautz, Bryan Catanzaro
+https://arxiv.org/abs/1808.06601
+论文摘要
+本文研究的问题是视频到视频(Video-to-Video)的合成，其目标是学习一个映射函数从一个输入源视频(例如，语义分割掩码序列)到一个输出逼真的视频，准确地描述了源视频的内容。
+与之对应的图像到图像的合成问题是一个热门话题，而视频到视频的合成问题在文献中研究较少。在不了解时间动态的情况下，直接将现有的图像合成方法应用于输入视频往往会导致视频在时间上不连贯，视觉质量低下。
+本文提出了一种在生成对抗学习框架下的视频合成方法。通过精心设计的生成器和鉴别器架构，再加上时空对抗目标，可以在一组不同的输入格式(包括分割掩码、草图和姿势)上获得高分辨率、逼真的、时间相干的视频结果。
+在多个基准上的实验表明，与强基线相比，本文的方法具有优势。特别是该模型能够合成长达30秒的街道场景的2K分辨率视频，大大提高了视频合成的技术水平。最后，将该方法应用于未来的视频预测，表现优于几个最先进的系统。
+概要总结
+英伟达的研究人员引入了一种新的视频合成方法。该框架基于条件甘斯。具体地说，该方法将精心设计的发生器和鉴别器与时空对抗性目标相结合。实验表明，所提出的vid2vid方法可以在不同的输入格式(包括分割掩码、草图和姿势)上合成高分辨率、逼真、时间相干的视频。它还可以预测下一帧，其结果远远优于基线模型。
 
-https://www.sohu.com/a/157091073_473283
+市场营销和广告可以从vid2vid方法创造的机会中获益(例如，在视频中替换面部甚至整个身体)。然而，这应该谨慎使用，需要想到道德伦理方面的一些顾虑。
+代码
+英伟达团队提供了本研究论文在GitHub上的原始实现的代码：
+https://github.com/NVIDIA/vid2vid
 
-
-
-　DeepMasterPrint 万能指纹
 
 
 人人来跳舞
@@ -1515,53 +1269,297 @@ http://www.sohu.com/a/294911565_100024677
 https://ceit.aut.ac.ir/~khalooei/tutorials/gan/
 
 
-![Art&Gan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
+## Recycle-GAN
 
-## Art
+-------------------
 
-### Interactive Deep Colorization
-https://github.com/junyanz/interactive-deep-colorization
+## 3.10 3D
+《Visual Object Networks: Image Generation with Disentangled 3D Representation》，描述了一种用GAN生成3D图片的方法。
 
+这篇文章被近期在蒙特利尔举办的
 
-### pix2pix
-Edges2cats：
+NeurIPS 2018
 
-http://affinelayer.com/pixsrv/index.html
+--------------------------
 
-Github：
+# Level 4: GANs Applications in Others
 
-https://github.com/phillipi/pix2pix
+## 4.1 NLP 自然语言处理领域
+相比于 GAN 在图像领域的应用，GAN 在文本，语音领域的应用要少很多。主要原因有两个：
 
+GAN 在优化的时候使用 BP 算法，对于文本，语音这种离散数据，GAN 没法直接跳到目标值，只能根据梯度一步步靠近。
+对于序列生成问题，每生成一个单词，我们就需要判断这个序列是否合理，可是 GAN 里面的判别器是没法做到的。除非我们针对每一个 step 都设置一个判别器，这显然不合理。为了解决上述问题，强化学习中的策略梯度下降（Policy gredient descent）被引入到 GAN 中的序列生成问题。
 
-http://paintschainer.preferred.tech/index_zh.html
+GAN在自然语言处理上的应用可以分为两类：生成文本、根据文本生成图像。其中，生成文本包括两种：根据隐向量（噪声）生成一段文本；对话生成。
 
+ 
+BERT和自然语言处理（NLP）
 
-### Neural Doodle
-
-使用深度神经网络把你的二流涂鸦变成艺术品。
-
-Champandard（2016） “Semantic Style Transfer and Turning Two-Bit Doodles into Fine Artworks”
-
-基于 Chuan Li 和 Michael Wand（2016）在论文“Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis”中提出的 Neural Patches 算法。这篇文章中深入解释了这个项目的动机和灵感来源：https://nucl.ai/blog/neural-doodles/
-
-doodle.py 脚本通过使用1个，2个，3个或4个图像作为输入来生成新的图像，输入的图像数量取决于你希望生成怎样的图像：原始风格及它的注释（annotation），以及带有注释（即你的涂鸦）的目标内容图像（可选）。该算法从带风格图像中提取 annotated patches，然后根据它们匹配的紧密程度用这些 annotated patches 渐进地改变目标图像的风格。
-
-Github 地址：https://github.com/alexjc/neural-doodle
-### Deep Painterly Harmonization
-https://github.com/luanfujun/deep-painterly-harmonization
-
-
-### Visual Attribute Transfer through Deep Image Analogy SIGGRAPH 2017 paper
-https://github.com/msracver/Deep-Image-Analogy
-### 
-
-### Colornet
+### 4.2.1 对话生成
+ Li J等2017年发表的Adversarial Learning for Neural Dialogue Generation[16]显示了GAN在对话生成领域的应用。实验效果如图11。可以看出，生成的对话具有一定的相关性，但是效果并不是很好，而且这只能做单轮对话。
 
 
 
-Github 地址：https://github.com/pavelgonchar/colornet
-## 强化学习
+如图11 Li J对话生成效果
 
+文本到图像的翻译（text to image）
+
+文本到图像的翻译指GAN的输入是一个描述图像内容的一句话，比如“一只有着粉色的胸和冠的小鸟”，那么所生成的图像内容要和这句话所描述的内容相匹配。
+
+
+
+在ICML 2016会议上，Scott Reed等[17]人提出了基于CGAN的一种解决方案将文本编码作为generator的condition输入；对于discriminator，文本编码在特定层作为condition信息引入，以辅助判断输入图像是否满足文本描述。作者提出了两种基于GAN的算法，GAN-CLS和GAN-INT。
+
+
+
+### 4.2.2 Text2image
+
+Torch 版本：https://github.com/reedscot/icml2016
+
+TensorFlow+Theano 版本：https://github.com/paarthneekhara/text-to-image
+
+
+ Jun-Yan Zhu, Philipp Krähenbühl, Eli Shechtman and Alexei A. Efros. “Generative Visual Manipulation on the Natural Image Manifold”, ECCV 2016.
+
+从 Text 生成 Image，比如从图片标题生成一个具体的图片。这个过程需要不仅要考虑生成的图片是否真实，还应该考虑生成的图片是否符合标题里的描述。比如要标题形容了一个黄色的鸟，那么就算生成的蓝色鸟再真实，也是不符合任务需求的。为了捕捉或者约束这种条件，他们提出了 matching-aware discriminator 的思想，让本来的 D 的目标函数中的两项，扩大到了三项：
+
+
+StackGAN
+
+
+Han Zhang, Tao Xu, Hongsheng Li, Shaoting Zhang, Xiaolei Huang, Xiaogang Wang, Dimitris Metaxas. “StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks”. arXiv preprint 2016.
+第三篇这方面的工作[20]可以粗略认为是 LAPGAN[16] 和 matching-aware[18] 的结合。他们提出的 StackGAN[20] 做的事情从标题生成鸟类，但是生成的过程则是像 LAPGAN 一样层次化的，从而实现了 256X256 分辨率的图片生成过程。StackGAN 将图片生成分成两个阶段，阶段一去捕捉大体的轮廓和色调，阶段二加入一些细节上的限制从而实现精修。这个过程效果很好，甚至在某些数据集上以及可以做到以假乱真：
+
+
+## 4.2 语音方向
+
+### 4.2.1 音乐生成
+
+RNN-GAN 使用 LSTM 作为生成器和判别器，直接生成整个音频序列。然而，正如上面提到的，音乐当做包括歌词和音符，对于这种离散数据生成问题直接使用 GAN 存在很多问题，特别是生成的数据缺乏局部一致性。
+
+相比之下，SeqGAN 把生成器的输出作为一个智能体 (agent) 的策略，而判别器的输出作为奖励 (reward)，使用策略梯度下降来训练模型。ORGAN 则在 SeqGAN 的基础上，针对具体的目标设定了一个特定目标函数。
+
+RNN-GAN 使用 LSTM 作为生成器和判别器，直接生成整个音频序列。然而，正如上面提到的，音乐当做包括歌词和音符，对于这种离散数据生成问题直接使用 GAN 存在很多问题，特别是生成的数据缺乏局部一致性。
+
+相比之下，SeqGAN 把生成器的输出作为一个智能体 (agent) 的策略，而判别器的输出作为奖励 (reward)，使用策略梯度下降来训练模型。ORGAN 则在 SeqGAN 的基础上，针对具体的目标设定了一个特定目标函数。
+
+
+wavenet
+
+GANSynth是一种快速生成高保真音频的新方法
+http://www.elecfans.com/d/877752.html
+
+
+### 4.2.2 语言和语音
+
+
+VAW-GAN(Variational autoencoding Wasserstein GAN) 结合 VAE 和 WGAN 实现了一个语音转换系统。编码器编码语音信号的内容，解码器则用于重建音色。由于 VAE 容易导致生成结果过于平滑，所以此处使用 WGAN 来生成更加清晰的语音信号。
+
+	Generative Adversarial Text to Image Synthesis	Reed & et al.	ICML 2016
+Conditional Generative Adversarial Networks for Speech Enhancement and Noise-Robust Speaker Verification	Michelsanti & Tan	Interspeech 2017	
+Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network	Ledig & et al.	CVPR 2017	
+SalGAN: Visual Saliency Prediction with Generative Adversarial Networks	Pan & et al.	CVPR 2017	
+SAGAN: Self-Attention Generative Adversarial Networks	Zhang & et al.	NIPS 2018	
+Speaker Adaptation for High Fidelity WaveNet Vocoder with GAN	Tian & et al.	arXiv Nov 2018	
+MTGAN: Speaker Verification through Multitasking Triplet Generative Adversarial Networks	Ding & et al.	arXiv Mar 2018	
+Adversarial Learning and Augmentation for Speaker Recognition	Zhang & et al.	Speaker Odyssey 2018 / ISCA 2018	
+Investigating Generative Adversarial Networks based Speech Dereverberation for Robust Speech Recognition	Wang & et al.	Interspeech 2018	
+On Enhancing Speech Emotion Recognition using Generative Adversarial Networks	Sahu & et al.	Interspeech 2018	
+Robust Speech Recognition Using Generative Adversarial Networks	Sriram & et al.	ICASSP 2018	
+Adversarially Learned One-Class Classifier for Novelty Detection	Sabokrou & khalooei & et al.	CVPR 2018	
+Generalizing to Unseen Domains via Adversarial Data Augmentation	Volpi & et al.	NeurIPS (NIPS) 2018	
+Generative Adversarial Networks for Unpaired Voice Transformation on Impaired Speech	Chen & lee & et al.	Submitted on ICASSP 2019	
+Generative Adversarial Speaker Embedding Networks for Domain Robust End-to-End Speaker Verification	Bhattacharya & et al.	Submitted on ICASSP 2019	
+
+
+### 4.2.3 唇读
+
+唇读（lipreading）是指根据说话人的嘴唇运动解码出文本的任务。传统的方法是将该问题分成两步解决：设计或学习视觉特征、以及预测。最近的深度唇读方法是可以端到端训练的（Wand et al., 2016; Chung & Zisserman, 2016a）。目前唇读的准确度已经超过了人类。
+
+Google DeepMind 与牛津大学合作的一篇论文《Lip Reading Sentences in the Wild》介绍了他们的模型经过电视数据集的训练后，性能超越 BBC 的专业唇读者。
+
+该数据集包含 10 万个音频、视频语句。音频模型：LSTM，视频模型：CNN + LSTM。这两个状态向量被馈送至最后的 LSTM，然后生成结果（字符）。
+
+ 人工合成奥巴马：嘴唇动作和音频的同步
+
+
+
+华盛顿大学进行了一项研究，生成美国前总统奥巴马的嘴唇动作。选择奥巴马的原因在于网络上有他大量的视频（17 小时高清视频）。
+
+
+
+------------------------------------
+## Neural Style 风格迁移
+
+###1.1 风格迁移 
+Neural Style
+
+它将待风格化图片和风格化样本图放入VGG中进行前向运算。其中待风格化图像提取relu4特征图，风格化样本图提取relu1,relu2,relu3,relu4,relu5的特征图。我们要把一个随机噪声初始化的图像变成目标风格化图像，将其放到VGG中计算得到特征图，然后分别计算内容损失和风格损失。
+
+用这个训练好的 VGG 提取风格图片代表风格的高层语义信息，具体为，把风格图片作为 VGG 的输入，然后提取在风格语义选取层激活值的格拉姆矩阵（Gramian Matrix）。值得一提的是，格拉姆矩阵的数学意义使得其可以很好地捕捉激活值之间的相关性，所以能很好地表现图片的风格特征；
+用 VGG 提取被风格化图片代表内容的高层语义信息，具体为，把该图片作为 VGG 的输入，然后提取内容语义提取层的激活值。这个方法很好地利用了卷积神经网络的性质，既捕捉了图片元素的结构信息，又对细节有一定的容错度；
+随机初始化一张图片，然后用2，3介绍的方法提取其风格，内容特征，然后将它们分别与风格图片的风格特征，内容图片的内容特征相减，再按一定的权重相加，作为优化的目标函数。
+保持 VGG 的权重不不变，直接对初始化的图⽚做梯度下降，直至目标函数降至一个比较小的值。
+这个方法的风格化效果震惊了学术界，但它的缺点也是显而易见的，由于这种风格化方式本质上是一个利用梯度下降迭代优化的过程，所以尽管其效果不不错，但是风格化的速度较慢，处理一张图片在GPU上大概需要十几秒。deepart.io这个网站就是运用这个技术来进行图片纹理转换的。 
+
+
+
+
+Ulyanov的Texture Networks: Feed-forward Synthesis of Textures and Stylized Images
+李飞飞老师的Perceptual Losses for Real-Time Style Transfer and Super-Resolution。 
+
+后面两篇都是将原来的求解全局最优解问题转换成用前向网络逼近最优解
+原版的方法每次要将一幅内容图进行风格转换，就要进行不断的迭代，而后两篇的方法是先将其进行训练，训练得到前向生成网络，以后再来一张内容图，直接输入到生成网络中，即可得到具有预先训练的风格的内容图。 
+
+
+### 1.2 多风格及任意风格转换
+A Learned Representation for Artistic Style
+
+condition instance normalization。
+
+该论文在IN的基础上做了改进，加入了类似BN的γ和β缩放和平移因子，也就是风格特征的方差和均值，称为CIN（条件IN）。这样一来，网络只要在学习风格化的同时学习多种不同风格的γ和β，并保存起来。在要风格化某一风格的时候，只要将网络的所有γ和β（网络中所有有用到CIN层的地方）替换成对应风格的γ和β。 该方法还能实现同一内容图像风格化成多种风格的融合，这只要将多种风格特征的γ和β进行相应的线性融合便可，具体参考论文的实验部分。 该论文只能同时风格化有限的风格种类（论文中为32种），因为其需要保存所有风格种类的γ和β参数。
+
+
+
+Diversified Texture Synthesis with Feed-forward Networks
+是通过加入不同的风格图片ID，并加入嵌入层，来达到实现多种风格的目的。有点类似语音合成中的基于说话人ID搞成词向量作为网络的输入信息之一。
+
+Fast Patch-based Style Transfer of Arbitrary Style
+      这篇论文实现了图像的任意风格转换，不在局限于单个风格的训练。同时支持优化和前向网络的方法。生成时间：少于 10 秒。网络核心部分是一个style swap layer，即在这一层，对content的feature maps的每一块使用最接近的style feature 来替换。
+
+
+style swap
+论文分为2个部分，第一部分就是常规的迭代方式，第二个是将常规的改成一次前向的方法。
+
+
+Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization
+https://arxiv.org/pdf/1703.06868.pdf
+https://github.com/xunhuang1995/AdaIN-style
+http://www.ctolib.com/AdaIN-style.html
+支持使用一个前向网络来实现任意的风格转换，同时还保证的效率，能达到实时的效果。运行时间少于1s, 该论文在CIN的基础上做了一个改进，提出了AdaIN（自适应IN层）。顾名思义，就是自己根据风格图像调整缩放和平移参数，不在需要像CIN一样保存风格特征的均值和方差，而是在将风格图像经过卷积网络后计算出均值和方差。
+
+
+
+### 1.3  语义合成图像：涂鸦拓展
+
+1 Neural Doodle 
+纹理转换的另外一个非常有意思的应用是Neural Doodle，运用这个技术，我们可以让三岁的小孩子都轻易地像莫奈一样成为绘画大师。这个技术本质上其实就是先对一幅世界名画（比如皮埃尔-奥古斯特·雷诺阿的Bank of a River）做一个像素分割，得出它的语义图，让神经网络学习每个区域的风格。 
+然后，我们只需要像小孩子一样在这个语义图上面涂鸦（比如，我们想要在图片的中间画一条河，在右上方画一棵树），神经网络就能根据语义图上的区域渲染它，最后得出一幅印象派的大作。
+Faster
+https://github.com/DmitryUlyanov/fast-neural-doodle
+实时
+https://github.com/DmitryUlyanov/online-neural-doodle
+
+
+
+英伟达出品的GauGAN：你画一幅涂鸦，用颜色区分每一块对应着什么物体，它就能照着你的大作，合成以假乱真的真实世界效果图。在AI界，你的涂鸦有个学名，叫“语义布局”。
+
+要实现这种能力，GauGAN靠的是空间自适应归一化合成法SPADE架构。这种算法的论文Semantic Image Synthesis with Spatially-Adaptive Normalization已经被CVPR 2019接收，而且还是口头报告（oral）。
+
+这篇论文的一作，照例还是实习生。另外几位作者来自英伟达和MIT，CycleGAN的创造者华人小哥哥朱俊彦也在其中。
+
+在基于语义合成图像这个领域里，这可是目前效果最强的方法。
+
+
+在正在举行的英伟达GTC 19大会上，GauGAN已表态了。美国时候周三周五Ting-Chun Wang和Ming-Yu Liu还将举行相干演讲。
+
+论文地点：https://arxiv.org/abs/1903.07291
+
+GitHub地点（代码行将上线）：https://github.com/NVlabs/SPADE
+
+项目地点：https://nvlabs.github.io/SPADE/
+
+https://36kr.com/p/5187136
+
+### 1.4 Controlling Perceptual Factors in Neural Style Transfer
+颜色控制颜色控制
+在以前的风格转换中，生成图的颜色都会最终变成style图的颜色，但是很多时候我们并不希望这样。其中一种方法是，将RGB转换成YIQ，只在Y上进行风格转换，因为I和Q通道主要是保存了颜色信息。 
+
+
+
+
+### 1.5 Deep Photo Style Transfer
+本文在 Neural Style algorithm [5] 的基础上进行改进，主要是在目标函数进行了修改，加了一项 Photorealism regularization，修改了一项损失函数引入 semantic segmentation 信息使其在转换风格时 preserve the image structure
+贡献是将从输入图像到输出图像的变换约束在色彩空间的局部仿射变换中，将这个约束表示成一个完全可微的参数项。我们发现这种方法成功地抑制了图像扭曲，在各种各样的场景中生成了满意的真实图像风格变换，包括一天中时间变换，天气，季节和艺术编辑风格变换。
+
+
+以前都是整幅图stransfer的，然后他们想只对一幅图的单个物体进行stransfer，比如下面这幅图是电视剧Son of Zorn的剧照，设定是一个卡通人物生活在真实世界。他们还说这种技术可能在增强现实起作用，比如Pokemon go. 
+
+
+
+
+
+
+
+
+--------------------------------
+
+其他 
+
+ SketchRNN：教机器画画
+
+
+
+你可能看过谷歌的 Quick, Draw! 数据集，其目标是 20 秒内绘制不同物体的简笔画。谷歌收集该数据集的目的是教神经网络画画。
+
+专业摄影作品
+
+
+
+谷歌已经开发了另一个非常有意思的 GAN 应用，即摄影作品的选择和改进。开发者在专业摄影作品数据集上训练 GAN，其中生成器试图改进照片的表现力（如更好的拍摄参数和减少对滤镜的依赖等），判别器用于区分「改进」的照片和真实的作品。
+训练后的算法会通过 Google Street View 搜索最佳构图，获得了一些专业级的和半专业级的作品评分。
+
+：Creatism: A deep-learning photographer capable of creating professional work（https://arxiv.org/abs/1707.03491）。
+Showcase：https://google.github.io/creatism/
+
+https://www.sohu.com/a/157091073_473283
+
+
+
+　DeepMasterPrint 万能指纹
+
+
+
+
+
+
+
+---------------------------
+
+其他：
+
+Deep Learning: State of the Art*
+(Breakthrough Developments in 2017 & 2018)
+
+• AdaNet: AutoML with Ensembles
+• AutoAugment: Deep RL Data Augmentation
+• Training Deep Networks with Synthetic Data
+• Segmentation Annotation with Polygon-RNN++
+• DAWNBench: Training Fast and Cheap
+• Video-to-Video Synthesis
+• Semantic Segmentation
+• AlphaZero & OpenAI Five
+• Deep Learning Frameworks
+
+
+AdaNet：可集成学习的AutoML
+
+AutoAugment：用强化学习做数据增强
+
+用合成数据训练深度神经网络
+
+用Polygon-RNN++做图像分割自动标注
+
+DAWNBench：寻找快速便宜的训练方法
+
+
+
+语义分割
+
+AlphaZero和OpenAI Five
+
+深度学习框架
+https://github.com/lexfridman/mit-deep-learning
 
 
 
@@ -1577,12 +1575,6 @@ SAC-X
 https://github.com/wiseodd/generative-models
 
 
-
-
-
-
-
-
 PPGAN - Anh Nguyen, arXiv:1612.00005v1
 
 
@@ -1596,29 +1588,12 @@ VAEGAN - Anders Boesen Lindbo Larsen, arxiv: 1512.09300
 ......
 
 特定任务中提出来的模型，如GAN-CLS、GAN-INT、SRGAN、iGAN、IAN 等
-LS-GAN
 
-Torch 版本：https://github.com/guojunq/lsgan
-
-SRGAN
-
-TensorFlow 版本：https://github.com/buriburisuri/SRGAN
-
-Torch 版本：https://github.com/leehomyc/Photo-Realistic-Super-Resoluton
-
-Keras 版本：https://github.com/titu1994/Super-Resolution-using-Generative-Adversarial-Networks
-
-iGAN
-
-Theano 版本：https://github.com/junyanz/iGAN
 
 IAN
 
 Theano 版本：https://github.com/ajbrock/Neural-Photo-Editor
 
-Pix2pix
-
-Torch 版本：https://github.com/phillipi/pix2pix
 
 TensorFlow 版本：https://github.com/yenchenlin/pix2pix-tensorflow
 
@@ -1626,11 +1601,6 @@ GAN for Neural dialogue generation
 
 Torch 版本：https://github.com/jiweil/Neural-Dialogue-Generation
 
-Text2image
-
-Torch 版本：https://github.com/reedscot/icml2016
-
-TensorFlow+Theano 版本：https://github.com/paarthneekhara/text-to-image
 
 GAN for Imitation Learning
 
@@ -1670,18 +1640,6 @@ Reed S, Akata Z, Yan X, et al. Generative adversarial textto image synthesis[C]/
 Brock A, Lim T, Ritchie J M, et al. Neural photo editingwith introspective adversarial networks[J]. arXiv preprint arXiv:1609.07093,2016.
 
 Pfau D, Vinyals O. Connecting generative adversarialnetworks and actor-critic methods[J]. arXiv preprint arXiv:1610.01945, 2016.
-
-
-
-### iGan
-https://github.com/junyanz/iGAN#igan-interactive-image-generation-via-generative-adversarial-networks
-
-
-
-
-
-
-
 
 
 
