@@ -1040,38 +1040,24 @@ https://github.com/iperov/DeepFaceLab
 
 ## 3.7 动漫相关
 
+动漫的头像生成，目前最好的是StyleGan。
 
-### 3.7.1 动漫头像生成
+从真人照片到动漫头像，之前有twin—gan做了尝试，然后很多手机应用上做了一些，包括国内美图，但是多样化很差，国外google，facebook，做的emoji效果。
 
-twin—gan
-
-paGAN：用单幅照片实时生成超逼真动画人物头像
-
-　　最新引起很大反响的“换脸”技术来自华裔教授黎颢的团队，他们开发了一种新的机器学习技术paGAN，能够以每秒1000帧的速度对对人脸进行跟踪，用单幅照片实时生成超逼真动画人像，论文已被SIGGRAPH 2018接收。具体技术细节请看新智元昨天的头条报道。
-
-　　Pinscreen拍摄了《洛杉矶时报》记者David Pierson的一张照片作为输入（左），并制作了他的3D头像（右）。 这个生成的3D人脸通过黎颢的动作（中）生成表情。这个视频是6个月前制作的，Pinscreen团队称其内部早就超越了上述结果。
-
-　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
+因此我们这里主要介绍动漫的图像上色。
 
 
-
-### 3.7.2 动漫图像上色
-
-
-
+| Image Type | Paper | Source | Code/Project Link  |
+| --- | --- | --- |--- |
 | Line art | [User-Guided Deep Anime Line Art Colorization with Conditional Adversarial Networks](https://arxiv.org/pdf/1808.03240.pdf) | ACM MM 2018 | [[code]](https://github.com/orashi/AlacGAN) |
 | Line art | Style2paints V3 : [Two-stage Sketch Colorization](http://www.cse.cuhk.edu.hk/~ttwong/papers/colorize/colorize.pdf) | SIGGRAPH Asia 2018 | [[Project]](https://www.cse.cuhk.edu.hk/~ttwong/papers/colorize/colorize.html) [[Code]](https://github.com/lllyasviel/style2paints#style2paints-v3) [[Demo]](http://s2p.moe/) <br/><br/> [[PyTorch Reimplementation]](https://github.com/Pengxiao-Wang/Style2Paints_V3) |
-
 | Line art | Paints Chainer | Online Demo | [[Demo]](https://paintschainer.preferred.tech/) [[code]](https://github.com/pfnet/PaintsChainer) |
 | Line art | PaintsTensorFlow | Github Repo | [[Code]](https://github.com/rapidrabbit76/PaintsTensorFlow) |
 | Manga | MangaCraft | Online Demo | [[Demo]](https://github.com/lllyasviel/MangaCraft) |
 |Line art|[Comicolorization: Semi-automatic Manga Colorization](https://arxiv.org/pdf/1706.06759.pdf) |1706.06759  (DwangoMediaVillage) | [[code]](https://github.com/DwangoMediaVillage/Comicolorization)|
----
 
 
-
-
-##### style2paints 
+### style2paints 
 
 Style2paints会根据用户的颜色提示和选择的图片风格完成对图片的上色。目前共以下迭代了4个版本。
 
@@ -1141,7 +1127,14 @@ Single-Image Super-Resolution for anime/fan-art using Deep Convolutional Neural 
 https://raw.githubusercontent.com/nagadomi/waifu2x/master/images/slide.png
 
 
+其他：
+paGAN：用单幅照片实时生成超逼真动画人物头像
 
+　　最新引起很大反响的“换脸”技术来自华裔教授黎颢的团队，他们开发了一种新的机器学习技术paGAN，能够以每秒1000帧的速度对对人脸进行跟踪，用单幅照片实时生成超逼真动画人像，论文已被SIGGRAPH 2018接收。具体技术细节请看新智元昨天的头条报道。
+
+　　Pinscreen拍摄了《洛杉矶时报》记者David Pierson的一张照片作为输入（左），并制作了他的3D头像（右）。 这个生成的3D人脸通过黎颢的动作（中）生成表情。这个视频是6个月前制作的，Pinscreen团队称其内部早就超越了上述结果。
+
+　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
 
 
 ------------------------
@@ -1201,13 +1194,12 @@ Github 用户 kaonashi-tyc 将 字体设计 的过程转化为一个“风格迁
 ■ 链接 | https://www.paperweekly.site/papers/1781
 
 ■ 源码 | https://github.com/azadis/MC-GAN
+
 ----------------
 
 ## 3.9 视频生成
 
 通常来说，视频有相对静止的背景和运动的前景组成。VideoGAN 使用一个两阶段的生成器，3D CNN 生成器生成运动前景，2D CNN 生成器生成静止的背景。Pose GAN 则使用 VAE 和 GAN 生成视频，首先，VAE 结合当前帧的姿态和过去的姿态特征预测下一帧的运动信息，然后 3D CNN 使用运动信息生成后续视频帧。Motion and Content GAN(MoCoGAN) 则提出在隐空间对运动部分和内容部分进行分离，使用 RNN 去建模运动部分。
-
-
 
 ## vid2vid
 
