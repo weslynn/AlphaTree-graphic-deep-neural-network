@@ -3,7 +3,9 @@
 
 ## GAN
 
-2019年，是很重要的一年。在这一年里，GAN有了重大的进展，出现了 BigGan，StyleGan 这样生成高清大图的GAN，也出现了很多对GAN的可解释性方法，包括 苏剑林的OGAN。这一切预示着GAN这个话题，马上就要被勤勉的科学家们攻克了。
+2019年，是很重要的一年。在这一年里，GAN有了重大的进展，出现了 BigGan，StyleGan 这样生成高清大图的GAN，也出现了很多对GAN的可解释性方法，包括 苏剑林的OGAN。 还有GAN都被拿来烤Pizza了……(CVPR2019还有个PizzaGAN,[demo](http://pizzagan.csail.mit.edu/) [paper](https://arxiv.org/abs/1906.02839))
+
+这一切预示着GAN这个话题，马上就要被勤勉的科学家们攻克了。
 
 从目标分类的被攻克，人脸识别的特征提取和loss改进，目标检测与分割的统一…… 深度学习的堡垒一个接一个的被攻克。一切都迅速都走上可应用化的道路。
 
@@ -624,6 +626,9 @@ StarGAN的引入是为了解决多领域间的转换问题的，之前的CycleGA
 
 ![starGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stargan.png)
 
+
+
+https://arxiv.org/pdf/1711.09020.pdf
 
 pytorch 原版github地址：https://github.com/yunjey/StarGAN 
 tf版github地址：https://github.com/taki0112/StarGAN-Tensorflow 
@@ -1322,6 +1327,9 @@ StackGAN
 Han Zhang, Tao Xu, Hongsheng Li, Shaoting Zhang, Xiaolei Huang, Xiaogang Wang, Dimitris Metaxas. “StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks”. arXiv preprint 2016.
 第三篇这方面的工作[20]可以粗略认为是 LAPGAN[16] 和 matching-aware[18] 的结合。他们提出的 StackGAN[20] 做的事情从标题生成鸟类，但是生成的过程则是像 LAPGAN 一样层次化的，从而实现了 256X256 分辨率的图片生成过程。StackGAN 将图片生成分成两个阶段，阶段一去捕捉大体的轮廓和色调，阶段二加入一些细节上的限制从而实现精修。这个过程效果很好，甚至在某些数据集上以及可以做到以假乱真：
 
+ObjGAN，可以通过关注文本描述中最相关的单词和预先生成的语义布局(semantic layout)来合成显著对象。
+
+https://www.microsoft.com/en-us/research/uploads/prod/2019/06/1902.10740.pdf
 
 ## 4.2 语音方向
 
