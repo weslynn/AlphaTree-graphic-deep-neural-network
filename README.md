@@ -65,10 +65,10 @@ https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN
 
 
 
-<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.3.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.3.png" width="1200"> </a>
+<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.4.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.4.png" width="1200"> </a>
 
 
-[大图链接](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.3.png)
+[大图链接](https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.4.png)
 
 
 现在主要有如下方向
@@ -1599,6 +1599,7 @@ MS R-CNN对Mask R-CNN进行了修正,在结构中添加了Mask-IoU。Mask R-CNN�
 ----------------------------------------------------------------------------------
 ## GAN 生成式对抗网络
 
+![GAN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
 
 
 参考Mohammad KHalooei的教程，我也将GAN分为4个level，第四个level将按照应用层面进行拓展。 这里先列出0,1,2，具体可以参见 https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C

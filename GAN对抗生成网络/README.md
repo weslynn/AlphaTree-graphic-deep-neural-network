@@ -1,5 +1,6 @@
 # GAN 生成式对抗网络
 
+![GAN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
 
 ## GAN
 
@@ -780,19 +781,6 @@ https://github.com/junyanz/interactive-deep-colorization
 
 
 
-### Neural Doodle
-
-使用深度神经网络把你的二流涂鸦变成艺术品。
-
-Champandard（2016） “Semantic Style Transfer and Turning Two-Bit Doodles into Fine Artworks”
-
-基于 Chuan Li 和 Michael Wand（2016）在论文“Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis”中提出的 Neural Patches 算法。这篇文章中深入解释了这个项目的动机和灵感来源：https://nucl.ai/blog/neural-doodles/
-
-doodle.py 脚本通过使用1个，2个，3个或4个图像作为输入来生成新的图像，输入的图像数量取决于你希望生成怎样的图像：原始风格及它的注释（annotation），以及带有注释（即你的涂鸦）的目标内容图像（可选）。该算法从带风格图像中提取 annotated patches，然后根据它们匹配的紧密程度用这些 annotated patches 渐进地改变目标图像的风格。
-
-Github 地址：https://github.com/alexjc/neural-doodle
-### Deep Painterly Harmonization
-https://github.com/luanfujun/deep-painterly-harmonization
 
 
 ### Visual Attribute Transfer through Deep Image Analogy SIGGRAPH 2017 paper
@@ -817,13 +805,11 @@ GP-GAN[25]，目标是将直接复制粘贴过来的图片，更好地融合进�
 这个过程非常像 iGAN，也用到了类似 iGAN 中的一些约束，比如 color constraint。另一方面，这个工作也有点像 pix2pix，因为它是一种有监督训练模型，在 blending 的学习过程中，会有一个有监督目标和有监督的损失函数。
 
  
-
-
-
+Deep image prior
+去除弹幕
 
 EdgeConnect
 TL-GAN
-
 
 
 DeepCreamPy自动去码
@@ -832,8 +818,8 @@ Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 
 ------------------------
 
-## 3.5 图像上色
-
+## 3.5 图像上色  Colourful Image Colorization
+在计算机图形学领域中，一直存在两种为图片上色的方向：数据驱动的自动上色和用户交互的引导上色。
 
 - [Automatic Image Colorization](#1-automatic-image-colorization)
 - [User Guided Image Colorization](#2-user-guided-image-colorization)
@@ -847,7 +833,8 @@ Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 
 
 
-#### 1. Automatic Image Colorization
+### 1. Automatic Image Colorization
+
 
 | Paper | Source | Code/Project Link  |
 | --- | --- | --- |
@@ -862,9 +849,17 @@ Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 | [Pixelated Semantic Colorization](https://arxiv.org/abs/1901.10889) | 1901.10889 |  |
 | [Coloring With Limited Data: Few-Shot Colorization via Memory Augmented Networks](http://davian.korea.ac.kr/filemanager/wl/?id=BPD0GpKupqUgHTxRMpaaLbCDrNoEjVfu) | CVPR 2019 |  |
 
-####  2. User Guided Image Colorization
 
-##### 2.1 Based on color strokes
+
+#### Colourful Image Colourization 
+2016 ECCV 里加州大学伯克利分校的一篇文章介绍的方法。这个方法与之前方法的不同之处在于，它把照片上色看成是一个分类问题——预测三百多种颜色在图片每一个像素点上的概率分布。这种方法tackle了这个任务本身的不确定性，例如，当你看到一个黑白的苹果时，你可能会觉得它是红色的，但如果这个苹果是青色的，其实也并没有多少违和感。大家也可以到作者的网站网站来试用他们的demo。 
+https://richzhang.github.io/colorization/
+
+###  2. User Guided Image Colorization
+
+这种方法是由 Levin 等人在 2004 年开创的，用户通过彩色画笔在灰度图像中进行引导性上色，随后优化算法会生成符合用户逻辑的上色结果。这种方法可以保留人工上色的部分性质，因而经常会有绝佳的表现，但往往需要密集的用户交互次数（有时超过五十次）。随着技术进步，现在的交互次数慢慢减少。
+
+#### 2.1 Based on color strokes
 
 | Image Type | Paper | Source | Code/Project Link  |
 | --- | --- | --- |--- |
@@ -876,7 +871,14 @@ Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 | Natural Gray-Scale | [Interactive Deep Colorization Using Simultaneous Global and Local Inputs](https://ieeexplore.ieee.org/abstract/document/8683686) (also palette based) | ICASSP 2019 |  |
 
 
-##### 2.2 Based on reference color image
+#### Real-Time User-Guided Image Colorization with Learned Deep Priors
+
+UC Berkeley  SIGGRAPH 2017 
+论文链接：https://arxiv.org/abs/1705.02999
+Demo 和代码链接：https://richzhang.github.io/ideepcolor/
+
+
+#### 2.2 Based on reference color image
 
 | Image Type | Paper | Source | Code/Project Link  |
 | --- | --- | --- |--- |
@@ -888,7 +890,7 @@ Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 | Natural Gray-Scale | [A Superpixel-based Variational Model for Image Colorization](https://ieeexplore.ieee.org/abstract/document/8676327) | TVCG 2019 |  |
 | Natural Gray-Scale | [Automatic Example-based Image Colourisation using Location-Aware Cross-Scale Matching](https://ieeexplore.ieee.org/abstract/document/8699109) | TIP 2019 |  |
 
-##### 2.3 Based on color palette
+#### 2.3 Based on color palette
 
 | Image Type | Paper | Source | Code/Project Link  |
 | --- | --- | --- |--- |
@@ -898,7 +900,7 @@ Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 | Natural Gray-Scale | [Example-Based Colourization Via Dense Encoding Pyramids](http://www.shengfenghe.com/uploads/1/5/1/3/15132160/cgf_13659_rev_ev.pdf) (also reference based) | Pacific Graphics 2018 | [[code]](https://github.com/chufengxiao/Example-based-Colorization-via-Dense-Encoding-pyramids) |
 | Natural Gray-Scale | [Interactive Deep Colorization Using Simultaneous Global and Local Inputs](https://ieeexplore.ieee.org/abstract/document/8683686) (also strokes based) | ICASSP 2019 |  |
 
-##### 2.4 Based on language or text
+#### 2.4 Based on language or text
 
 | Image Type | Paper | Source | Code/Project Link  |
 | --- | --- | --- |--- |
@@ -907,16 +909,16 @@ Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 | Scene Sketch | [LUCSS: Language-based User-customized Colorization of Scene Sketches](https://arxiv.org/pdf/1808.10544.pdf) | 1808.10544 | [[code]](https://github.com/SketchyScene/LUCSS) |
 
 
-#### 3. Video Colorization
+### 3. Video Colorization
 
-##### 3.1 Automatically
+#### 3.1 Automatically
 
 | Paper | Source | Code/Project Link  |
 | --- | --- |--- |
 | [Fully Automatic Video Colorization with Self-Regularization and Diversity](https://cqf.io/papers/Fully_Automatic_Video_Colorization_CVPR2019.pdf) | CVPR 2019 |  |
 
 
-##### 3.2 Based on reference
+#### 3.2 Based on reference
 
 | Paper | Source | Code/Project Link  |
 | --- | --- |--- |
@@ -925,38 +927,19 @@ Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
 | [Deep Exemplar-based Video Colorization]() | CVPR 2019 |  |
 
 
-## Colourful Image Colorization
-
-Let there be Color!: Joint End-to-end Learning of Global and Local Image Priors for Automatic Image Colorization with Simultaneous Classification
-
-Colourful Image Colourization 
-2016 ECCV 里加州大学伯克利分校的一篇文章介绍的方法。这个方法与之前方法的不同之处在于，它把照片上色看成是一个分类问题——预测三百多种颜色在图片每一个像素点上的概率分布。这种方法tackle了这个任务本身的不确定性，例如，当你看到一个黑白的苹果时，你可能会觉得它是红色的，但如果这个苹果是青色的，其实也并没有多少违和感。大家也可以到作者的网站网站来试用他们的demo。 
-https://richzhang.github.io/colorization/
-
-
-## Real-Time User-Guided Image Colorization with Learned Deep Priors
-
-UC Berkeley 的研究人员近日推出了一种利用深度学习对黑白图像进行实时上色的模型，并开源了相关代码。该研究的论文将出现在 7 月 30 日在洛杉矶举行的 SIGGRAPH 2017 计算机图像和交互技术大会上。
-论文链接：https://arxiv.org/abs/1705.02999
-Demo 和代码链接：https://richzhang.github.io/ideepcolor/
-
-在计算机图形学领域中，一直存在两种为图片上色的方向：用户引导上色和数据驱动的自动上色方式。第一种范式是由 Levin 等人在 2004 年开创的，用户通过彩色画笔在灰度图像中进行引导性上色，随后优化算法会生成符合用户逻辑的上色结果。这种方法可以保留人工上色的部分性质，因而经常会有绝佳的表现，但往往需要密集的用户交互次数（有时超过五十次）。
 
 
 
 
-## Deep Painterly Harmonization
-开源地址：https://github.com/luanfujun/deep-painterly-harmonization
+其他：
 
-首先从我最喜爱的一个开源项目讲起。我希望你花点时间仅仅来欣赏一下上面的图像。你能分辨出哪张是由人类做的，哪张是由机器生成的吗？我确定你不能。这里，第一个画面是输入图像（原始的），而第三个画面是由这项技术所生成的。
-很惊讶，是吗？这个算法将你选择的外部物体添加到了任意一张图像上，并成功让它看上去好像本来就应该在那里一样。你不妨查看这个代码，然后尝试亲自到一系列不同的图像上去操作这项技术。
-
-## Image Outpainting
+#### Image Outpainting
 开源地址：https://github.com/bendangnuksung/Image-OutPainting
 
 如果我给你一张图像，并让你通过想象图像在图中完整场景呈现时的样子，来扩展它的画面边界，你会怎么办？正常来说，你可能会把这个图导入到某个图像编辑软件里进行操作。但是现在有了一个非常棒的新软件——你可以用几行代码就实现这项操作。
 这个项目是斯坦福大学「Image Outpainting」论文（论文地址：https://cs230.stanford.edu/projects_spring_2018/posters/8265861.pdf ，
 这是一篇无比惊艳并配有示例说明的论文——这就是大多数研究论文所应有的样子！）的 Keras 实现。你或者可以从头开始创建模型，或者也可以使用这个开源项目作者所提供的模型。深度学习从来不会停止给人们带来惊喜。
+
 
 
 ## 3.6 人脸相关
@@ -1445,12 +1428,22 @@ http://www.ctolib.com/AdaIN-style.html
 1 Neural Doodle 
 纹理转换的另外一个非常有意思的应用是Neural Doodle，运用这个技术，我们可以让三岁的小孩子都轻易地像莫奈一样成为绘画大师。这个技术本质上其实就是先对一幅世界名画（比如皮埃尔-奥古斯特·雷诺阿的Bank of a River）做一个像素分割，得出它的语义图，让神经网络学习每个区域的风格。 
 然后，我们只需要像小孩子一样在这个语义图上面涂鸦（比如，我们想要在图片的中间画一条河，在右上方画一棵树），神经网络就能根据语义图上的区域渲染它，最后得出一幅印象派的大作。
+
+Champandard（2016） “Semantic Style Transfer and Turning Two-Bit Doodles into Fine Artworks”
+
+基于 Chuan Li 和 Michael Wand（2016）在论文“Combining Markov Random Fields and Convolutional Neural Networks for Image Synthesis”中提出的 Neural Patches 算法。这篇文章中深入解释了这个项目的动机和灵感来源：https://nucl.ai/blog/neural-doodles/
+
+doodle.py 脚本通过使用1个，2个，3个或4个图像作为输入来生成新的图像，输入的图像数量取决于你希望生成怎样的图像：原始风格及它的注释（annotation），以及带有注释（即你的涂鸦）的目标内容图像（可选）。该算法从带风格图像中提取 annotated patches，然后根据它们匹配的紧密程度用这些 annotated patches 渐进地改变目标图像的风格。
+
+Github 地址：https://github.com/alexjc/neural-doodle
+
 Faster
 https://github.com/DmitryUlyanov/fast-neural-doodle
 实时
 https://github.com/DmitryUlyanov/online-neural-doodle
 
 
+2 GauGAN
 
 英伟达出品的GauGAN：你画一幅涂鸦，用颜色区分每一块对应着什么物体，它就能照着你的大作，合成以假乱真的真实世界效果图。在AI界，你的涂鸦有个学名，叫“语义布局”。
 
@@ -1470,6 +1463,14 @@ GitHub地点（代码行将上线）：https://github.com/NVlabs/SPADE
 项目地点：https://nvlabs.github.io/SPADE/
 
 https://36kr.com/p/5187136
+
+
+
+
+
+### Deep Painterly Harmonization
+https://github.com/luanfujun/deep-painterly-harmonization
+这个算法将你选择的外部物体添加到了任意一张图像上，并成功让它看上去好像本来就应该在那里一样。你不妨查看这个代码，然后尝试亲自到一系列不同的图像上去操作这项技术。
 
 ### 1.4 Controlling Perceptual Factors in Neural Style Transfer
 颜色控制颜色控制
