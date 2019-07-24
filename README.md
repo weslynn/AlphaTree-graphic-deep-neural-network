@@ -1,4 +1,4 @@
-![title](https://github.com/weslynn/graphic-deep-neural-network/blob/master/qr/alphatree_title.png)
+![title](https://github.com/weslynn/graphic-deep-neural-network/blob/master/qr/map_title.png)
 
 # AlphaTree : Graphic Deep Neural Network && GAN     深度神经网络(DNN)与对抗神经网络(GAN)模型总览
 
