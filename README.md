@@ -1,7 +1,6 @@
 ![title](https://github.com/weslynn/graphic-deep-neural-network/blob/master/qr/alphatree_title.png)
 
-# AlphaTree : Graphic Deep Neural Network && GAN 
-  深度神经网络(DNN)与对抗神经网络(GAN)模型总览
+# AlphaTree : Graphic Deep Neural Network && GAN     深度神经网络(DNN)与对抗神经网络(GAN)模型总览
 
 
 在AI学习的漫漫长路上，理解不同文章中的模型与方法是每个人的必经之路，偶尔见到Fjodor van Veen所作的[A mostly complete chart of Neural Networks](http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png) 和 FeiFei Li AI课程中对模型的[画法](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/feifei.png)，大为触动。决定将深度神经网络中的一些模型 进行统一的图示，便于大家对模型的理解。
@@ -110,7 +109,7 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
   - [SqueezeNet](#squeezenet)
   - [MobileNet](#mobilenet-详解-detail-google)
 
-- [Face Detection & Recognition 人脸检测与识别]
+- [Face Detection & Recognition 人脸检测与识别](#face-detection-and-face-alignment-人脸检测与矫正)
   - [MTCNN](#mtcnn-详解-detail-zhang-kaipeng-乔宇-qiao-yu--cuhk-mmlab--siat)
   - [Deep Face](#deep-face)
   - [FaceNet](#facenet-详解-detail)
@@ -128,7 +127,11 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
   - [FCN](#fcn)
   - [UNet](#u-net)
 
-
+- [GAN 生成式对抗网络](#gan-生成式对抗网络)
+  - [level0 GAN的定义](#level-0-definition-of-gans)
+  - [level1 GAN训练上的改进](#level-1-improvements-of-gans-training)
+  - [level2 那些优秀的GAN](#level-2-implementation-skill)
+  - [level3 GAN不同方向的应用]
 
 
 
