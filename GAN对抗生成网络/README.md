@@ -1314,6 +1314,10 @@ ObjGAN，可以通过关注文本描述中最相关的单词和预先生成的�
 
 https://www.microsoft.com/en-us/research/uploads/prod/2019/06/1902.10740.pdf
 
+
+其他：
+textGAN MailGAN
+
 ## 4.2 语音方向
 
 ### 4.2.1 音乐生成
@@ -1374,13 +1378,12 @@ Google DeepMind 与牛津大学合作的一篇论文《Lip Reading Sentences in 
 ------------------------------------
 ## Neural Style 风格迁移
 
-###1.1 风格迁移 
-Neural Style
+### 风格迁移 Neural Style
 
 它将待风格化图片和风格化样本图放入VGG中进行前向运算。其中待风格化图像提取relu4特征图，风格化样本图提取relu1,relu2,relu3,relu4,relu5的特征图。我们要把一个随机噪声初始化的图像变成目标风格化图像，将其放到VGG中计算得到特征图，然后分别计算内容损失和风格损失。
 
-用这个训练好的 VGG 提取风格图片代表风格的高层语义信息，具体为，把风格图片作为 VGG 的输入，然后提取在风格语义选取层激活值的格拉姆矩阵（Gramian Matrix）。值得一提的是，格拉姆矩阵的数学意义使得其可以很好地捕捉激活值之间的相关性，所以能很好地表现图片的风格特征；
-用 VGG 提取被风格化图片代表内容的高层语义信息，具体为，把该图片作为 VGG 的输入，然后提取内容语义提取层的激活值。这个方法很好地利用了卷积神经网络的性质，既捕捉了图片元素的结构信息，又对细节有一定的容错度；
+用这个训练好的 VGG 提取风格图片代表风格的高层语义信息，具体为，把风格图片作为 VGG 的输入，然后提取在风格语义选取层激活值的格拉姆矩阵（Gramian Matrix）。值得一提的是，格拉姆矩阵的数学意义使得其可以很好地捕捉激活值之间的相关性，所以能很好地表现图片的风格特征；
+用 VGG 提取被风格化图片代表内容的高层语义信息，具体为，把该图片作为 VGG 的输入，然后提取内容语义提取层的激活值。这个方法很好地利用了卷积神经网络的性质，既捕捉了图片元素的结构信息，又对细节有一定的容错度；
 随机初始化一张图片，然后用2，3介绍的方法提取其风格，内容特征，然后将它们分别与风格图片的风格特征，内容图片的内容特征相减，再按一定的权重相加，作为优化的目标函数。
 保持 VGG 的权重不不变，直接对初始化的图⽚做梯度下降，直至目标函数降至一个比较小的值。
 这个方法的风格化效果震惊了学术界，但它的缺点也是显而易见的，由于这种风格化方式本质上是一个利用梯度下降迭代优化的过程，所以尽管其效果不不错，但是风格化的速度较慢，处理一张图片在GPU上大概需要十几秒。deepart.io这个网站就是运用这个技术来进行图片纹理转换的。 
@@ -1395,7 +1398,8 @@ Ulyanov的Texture Networks: Feed-forward Synthesis of Textures and Stylized Imag
 原版的方法每次要将一幅内容图进行风格转换，就要进行不断的迭代，而后两篇的方法是先将其进行训练，训练得到前向生成网络，以后再来一张内容图，直接输入到生成网络中，即可得到具有预先训练的风格的内容图。 
 
 
-### 1.2 多风格及任意风格转换
+### 多风格及任意风格转换
+
 A Learned Representation for Artistic Style
 
 condition instance normalization。
@@ -1423,9 +1427,9 @@ http://www.ctolib.com/AdaIN-style.html
 
 
 
-### 1.3  语义合成图像：涂鸦拓展
+### 语义合成图像：涂鸦拓展
 
-1 Neural Doodle 
+### Neural Doodle 
 纹理转换的另外一个非常有意思的应用是Neural Doodle，运用这个技术，我们可以让三岁的小孩子都轻易地像莫奈一样成为绘画大师。这个技术本质上其实就是先对一幅世界名画（比如皮埃尔-奥古斯特·雷诺阿的Bank of a River）做一个像素分割，得出它的语义图，让神经网络学习每个区域的风格。 
 然后，我们只需要像小孩子一样在这个语义图上面涂鸦（比如，我们想要在图片的中间画一条河，在右上方画一棵树），神经网络就能根据语义图上的区域渲染它，最后得出一幅印象派的大作。
 
@@ -1443,7 +1447,7 @@ https://github.com/DmitryUlyanov/fast-neural-doodle
 https://github.com/DmitryUlyanov/online-neural-doodle
 
 
-2 GauGAN
+#### GauGAN
 
 英伟达出品的GauGAN：你画一幅涂鸦，用颜色区分每一块对应着什么物体，它就能照着你的大作，合成以假乱真的真实世界效果图。在AI界，你的涂鸦有个学名，叫“语义布局”。
 
@@ -1472,14 +1476,14 @@ https://36kr.com/p/5187136
 https://github.com/luanfujun/deep-painterly-harmonization
 这个算法将你选择的外部物体添加到了任意一张图像上，并成功让它看上去好像本来就应该在那里一样。你不妨查看这个代码，然后尝试亲自到一系列不同的图像上去操作这项技术。
 
-### 1.4 Controlling Perceptual Factors in Neural Style Transfer
+###  Controlling Perceptual Factors in Neural Style Transfer
 颜色控制颜色控制
 在以前的风格转换中，生成图的颜色都会最终变成style图的颜色，但是很多时候我们并不希望这样。其中一种方法是，将RGB转换成YIQ，只在Y上进行风格转换，因为I和Q通道主要是保存了颜色信息。 
 
 
 
 
-### 1.5 Deep Photo Style Transfer
+###  Deep Photo Style Transfer
 本文在 Neural Style algorithm [5] 的基础上进行改进，主要是在目标函数进行了修改，加了一项 Photorealism regularization，修改了一项损失函数引入 semantic segmentation 信息使其在转换风格时 preserve the image structure
 贡献是将从输入图像到输出图像的变换约束在色彩空间的局部仿射变换中，将这个约束表示成一个完全可微的参数项。我们发现这种方法成功地抑制了图像扭曲，在各种各样的场景中生成了满意的真实图像风格变换，包括一天中时间变换，天气，季节和艺术编辑风格变换。
 
