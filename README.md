@@ -13,27 +13,50 @@
 https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C
 
 
-进度：
+# Content 目录 
 
 
-2018/05/30 目前object classification 主干部分基本完成 包括 LeNet, AlexNet, GoogLeNet, Inception V3,Inception-Resnet-V2, VGG, ResNet ,ResNext, DenseNet ,DPN等。
+- [Object Classification 物体分类](#-Object-Classification-物体分类)
+  - [LeNet](#lenet--详解-detail--yann-lecun)
+  - [AlexNet](#alexnet--详解-detail--alex-krizhevsky--geoffrey-hinton)
+  - [GoogLeNet](#googlenet--详解-detail-christian-szegedy--google)
+  - [Inception V3](#inception-v3--详解-detail-christian-szegedy--google)
+  - [VGG](#vgg-详解-detail-karen-simonyan--andrew-zisserman----visual-geometry-groupvggoxford)
+  - [ResNet and ResNeXt](#resnet-and-resnext详解-detail-何凯明-he-kaiming)
+  - [Inception-Resnet-V2](#inception-resnet-v2详解-detail-christian-szegedy--google)
+  - [DenseNet](#densenet详解-detail-黄高gao-huang-刘壮zhuang-liu)
+  - [DPN](#dpn详解-detail--颜水成)
+  - [PolyNet](#polynet-xingcheng-zhang-林达华dahua-lin---cuhk-mmlab--商汤科技-详解-detail)   
+  - [SENet](#senet--详解-detail)
+  - [NasNet](#nasnet-google)
 
-2018/06/15 完成 MobileNet 与 MobileNet V2.
+- [轻量级模型 & 剪枝](#-轻量级模型-&-剪枝)
+  - [SqueezeNet](#squeezenet)
+  - [MobileNet](#mobilenet-详解-detail-google)
 
-2018/07/04 完成FaceNet系列，修正地图上facenet loss部分，将二维距离（center loss） 到 球面角度距离SphereFace之后的发展 区分开
+- [Face Detection & Recognition 人脸检测与识别](#face-detection-and-face-alignment-人脸检测与矫正)
+  - [MTCNN](#mtcnn-详解-detail-zhang-kaipeng-乔宇-qiao-yu--cuhk-mmlab--siat)
+  - [Deep Face](#deep-face)
+  - [FaceNet](#facenet-详解-detail)
 
-2018/08/10 图上加入MnasNet ，人脸部分加入 mobilefacenet mobileID
+- [OCR](ocroptical-character-recognition-字符识别--str-scene-text-recognition-场景文字识别)
+  - [CTPN](#ctpn-connectionist-text-proposal-network--详解-detail--zhi-tian--乔宇-qiao-yu--cuhk-mmlab--siat)
+  - [TextBoxes](#textboxes--详解-detail-白翔-xiang-baimedia-and-communication-lab-hust)
+  - [CRNN](#crnn-详解-detail-白翔-xiang-baimedia-and-communication-lab-hust)
+- [Object Detection 物体检测](#object-detection-物体检测)
+  - [RCNN](#rcnn--ross-b-girshickrbg-link--uc-berkeley)
+  - [Yolo](#yolo)
+  - [SSD](#ssdthe-single-shot-detector-详解-detail)
 
-2018/09/04 修正3D人脸部分，整理16 17年的部分知名开源成果 将加入密集人脸对齐部分的算法 和 之前的cnn获取3dmm参数算法分开  。18年开始 主要研究在gan对侧脸部分的正脸生成，暂未整理 可看后续发展。 
+- [Object Segmentation 物体分割](#object-segmentation-物体分割)
+  - [FCN](#fcn)
+  - [UNet](#u-net)
 
-2019/06/30 完成GAN基本路线
-
-其他：
-Face ： mtcnn 
-
-OCR ： CRNN CTPN Textboxes Textboxes++
-
-Object Detection：ssd
+- [GAN 生成式对抗网络](#gan-生成式对抗网络)
+  - [level0 GAN的定义](#level-0-definition-of-gans)
+  - [level1 GAN训练上的改进](#level-1-improvements-of-gans-training)
+  - [level2 那些优秀的GAN](#level-2-implementation-skill)
+  - [level3 GAN不同方向的应用]
 
 
 
@@ -86,55 +109,6 @@ PS：
 
 
 caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
-
-
-# Content 目录 
-
-
-- [Object Classification 物体分类](#-Object-Classification-物体分类)
-  - [LeNet](#lenet--详解-detail--yann-lecun)
-  - [AlexNet](#alexnet--详解-detail--alex-krizhevsky--geoffrey-hinton)
-  - [GoogLeNet](#googlenet--详解-detail-christian-szegedy--google)
-  - [Inception V3](#inception-v3--详解-detail-christian-szegedy--google)
-  - [VGG](#vgg-详解-detail-karen-simonyan--andrew-zisserman----visual-geometry-groupvggoxford)
-  - [ResNet and ResNeXt](#resnet-and-resnext详解-detail-何凯明-he-kaiming)
-  - [Inception-Resnet-V2](#inception-resnet-v2详解-detail-christian-szegedy--google)
-  - [DenseNet](#densenet详解-detail-黄高gao-huang-刘壮zhuang-liu)
-  - [DPN](#dpn详解-detail--颜水成)
-  - [PolyNet](#polynet-xingcheng-zhang-林达华dahua-lin---cuhk-mmlab--商汤科技-详解-detail)   
-  - [SENet](#senet--详解-detail)
-  - [NasNet](#nasnet-google)
-
-- [轻量级模型 & 剪枝](#-轻量级模型-&-剪枝)
-  - [SqueezeNet](#squeezenet)
-  - [MobileNet](#mobilenet-详解-detail-google)
-
-- [Face Detection & Recognition 人脸检测与识别](#face-detection-and-face-alignment-人脸检测与矫正)
-  - [MTCNN](#mtcnn-详解-detail-zhang-kaipeng-乔宇-qiao-yu--cuhk-mmlab--siat)
-  - [Deep Face](#deep-face)
-  - [FaceNet](#facenet-详解-detail)
-
-- [OCR](ocroptical-character-recognition-字符识别--str-scene-text-recognition-场景文字识别)
-  - [CTPN](#ctpn-connectionist-text-proposal-network--详解-detail--zhi-tian--乔宇-qiao-yu--cuhk-mmlab--siat)
-  - [TextBoxes](#textboxes--详解-detail-白翔-xiang-baimedia-and-communication-lab-hust)
-  - [CRNN](#crnn-详解-detail-白翔-xiang-baimedia-and-communication-lab-hust)
-- [Object Detection 物体检测](#object-detection-物体检测)
-  - [RCNN](#rcnn--ross-b-girshickrbg-link--uc-berkeley)
-  - [Yolo](#yolo)
-  - [SSD](#ssdthe-single-shot-detector-详解-detail)
-
-- [Object Segmentation 物体分割](#object-segmentation-物体分割)
-  - [FCN](#fcn)
-  - [UNet](#u-net)
-
-- [GAN 生成式对抗网络](#gan-生成式对抗网络)
-  - [level0 GAN的定义](#level-0-definition-of-gans)
-  - [level1 GAN训练上的改进](#level-1-improvements-of-gans-training)
-  - [level2 那些优秀的GAN](#level-2-implementation-skill)
-  - [level3 GAN不同方向的应用]
-
-
-
 
 
 
@@ -1745,6 +1719,30 @@ MegaFace资料集包含一百万张图片，代表690000个独特的人。所有
 帮忙进行模型校对等
 
 提出修改建议
+
+
+进度：
+
+
+2018/05/30 目前object classification 主干部分基本完成 包括 LeNet, AlexNet, GoogLeNet, Inception V3,Inception-Resnet-V2, VGG, ResNet ,ResNext, DenseNet ,DPN等。
+
+2018/06/15 完成 MobileNet 与 MobileNet V2.
+
+2018/07/04 完成FaceNet系列，修正地图上facenet loss部分，将二维距离（center loss） 到 球面角度距离SphereFace之后的发展 区分开
+
+2018/08/10 图上加入MnasNet ，人脸部分加入 mobilefacenet mobileID
+
+2018/09/04 修正3D人脸部分，整理16 17年的部分知名开源成果 将加入密集人脸对齐部分的算法 和 之前的cnn获取3dmm参数算法分开  。18年开始 主要研究在gan对侧脸部分的正脸生成，暂未整理 可看后续发展。 
+
+2019/06/30 完成GAN基本路线
+
+其他：
+Face ： mtcnn 
+
+OCR ： CRNN CTPN Textboxes Textboxes++
+
+Object Detection：ssd
+
 
 
 
