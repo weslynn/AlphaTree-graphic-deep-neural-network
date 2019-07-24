@@ -749,8 +749,7 @@ ECCV 2018收录，赢得了PIRM2018-SR挑战赛的第一名。
 -------------------------
 ## 3.3 交互式图像生成
 ## iGAN
-
-Adobe公司构建了一套图像编辑操作[14]，如图9，能使得经过这些操作以后，图像依旧在“真实图像流形”上，因此编辑后的图像更接近真实图像。
+基于DCGAN，Adobe公司构建了一套图像编辑操作，能使得经过这些操作以后，图像依旧在“真实图像流形”上，因此编辑后的图像更接近真实图像。
 
 具体来说，iGAN的流程包括以下几个步骤：
 
@@ -761,7 +760,6 @@ Adobe公司构建了一套图像编辑操作[14]，如图9，能使得经过这�
 3 利用画笔工具对重构的图像进行修改（颜色、形状等）
 
 4 将等量的结构、色彩等修改应用到原始图像上。
-
 
 
 值得一提的是，作者提出G需为保距映射的限制，这使得整个过程的大部分操作可以转换为求解优化问题，整个修改过程近乎实时。
@@ -793,6 +791,14 @@ https://github.com/msracver/Deep-Image-Analogy
 
 Github 地址：https://github.com/pavelgonchar/colornet
 
+
+### GauGAN（SPADE）
+基于 Pix2PixHD， Nvidia开发了GauGAN
+Semantic Image Synthesis with Spatially-Adaptive Normalization.
+
+https://nvlabs.github.io/SPADE/demo.html
+https://nvlabs.github.io/SPADE/
+
 --------------------------
 
 ## 3.4 图像融合、图像修补
@@ -815,6 +821,13 @@ TL-GAN
 DeepCreamPy自动去码
 
 Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
+
+
+## IMAGE INPAINTING Nvidia
+Image Inpainting for Irregular Holes Using Partial Convolutions
+https://arxiv.org/pdf/1804.07723.pdf
+
+https://www.nvidia.com/en-us/research/ai-playground/?ncid=so-twi-nz-92489
 
 ------------------------
 
@@ -1026,7 +1039,7 @@ https://github.com/iperov/DeepFaceLab
 -------------------------------------------------------------------------------------------------
 
 
-## 3.7 动漫相关
+## 3.7 动漫二次元相关
 
 动漫的头像生成，目前最好的是StyleGan。
 
@@ -1108,6 +1121,7 @@ waifu2x, 属于是Image scaling领域的内容.
 
 waifu2x
 Github: nagadomi/waifu2x · GitHub
+http://bigjpg.com/
 
 Single-Image Super-Resolution for anime/fan-art using Deep Convolutional Neural Networks.
 使用卷积神经网络(Convolutional Neural Network, CNN)针对漫画风格的图片进行放大. 
@@ -1124,7 +1138,95 @@ paGAN：用单幅照片实时生成超逼真动画人物头像
 
 　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
 
+线稿提取：
+Simplifying Rough Sketches using Deep Learning，作者为 Ashish Sinha。
+利用LSGAN 和CRF进行线稿简化
+https://github.com/bobbens/sketch_simplification/
 
+http://hi.cs.waseda.ac.jp/~esimo/en/research/sketch/
+
+
+
+## DeepCreamPy 图像修复项目
+
+最近 deeppomf 开源了 Image Inpainting for Irregular Holes Using Partial Convolutions 的修复实现，它主要使用深度全卷积网络修复漫画图像。DeepCreamPy 能将遮挡的漫画图像重构为可信的画像，并且与通常的图像修复不一样，它使用的是不规则的 Mask。
+
+用户需要事先使用绿色指定被遮住的区域，这一过程可以用简单的图画工具或 Photoshop 等。如下展示了加上绿色 Mask 的「损坏图像」和通过 DeepCreamPy 重构的图像
+预构建模型下载地址：https://github.com/deeppomf/DeepCreamPy/releases
+
+预训练模型地址：https://drive.google.com/open?id=1byrmn6wp0r27lSXcT9MC4j-RQ2R04P1Z
+
+
+其他：
+
+https://make.girls.moe/
+
+https://crypko.ai/#/
+
+https://paintschainer.preferred.tech/index_zh.html
+
+http://mangacraft.net/
+
+https://github.com/lllyasviel/MangaCraft
+
+
+玩点别的：
+半色调效果
+
+https://halftonepro.com/
+
+半色调效果在设计中经常遇到，然而ps自带的彩色半调功能单薄，大部分人也不会代码，幸好有了这个网站，常见各种半调效果都能在线完成了。
+
+在线制作故障风动效
+
+https://getmosh.io
+
+
+中国传统颜色
+
+http://zhongguose.com
+
+各种中国传统颜色一览，美得一塌糊涂。
+
+
+在线制作像素风GIF图
+
+http://www.piskelapp.com/
+
+功能强大，界面直观。可通过网页翻译插件翻译成中文后使用。
+
+
+在线制作立体像素风
+
+http://gallery.echartsjs.com/editor.html?c=xS1l7vPPwW
+
+无需借助3D软件，可上传自定义图片，制作立体像素风，实时预览，参数可控性强，虽然比不上专业的3D软件，但制作写简单的效果还是很快的。
+
+
+在线各类格式转换
+
+https://cn.office-converter.com/
+
+特别强大，几乎可以转换我们常用的各种格式。
+
+
+光丝图谱
+
+http://weavesilk.com/
+
+很多人都玩过的在线画炫光网站，可以设置颜色点数等等，有时需要画点魔法等细节丰富的光，可以用这个试试，然后滤镜叠加一下，duang~ 完美。
+
+
+奇幻风格合成滤镜
+
+http://ostagram.ru/
+
+来自俄罗斯的Ostagram，用一种基于DeepDream算法生成绘画作品，它可以学习绘画作品的画风，然后把另一张照片的画风替换成你所想要的画风，这种合成结果和那些图像处理软件的滤镜效果有着本质的区别，它看起来非常自然：
+
+在线黑白照片AI填色
+https://colourise.sg/
+
+http://demos.algorithmia.com/colorize-photos/
 ------------------------
 
 ## 3.8 字体合成
@@ -1182,6 +1284,284 @@ Github 用户 kaonashi-tyc 将 字体设计 的过程转化为一个“风格迁
 ■ 链接 | https://www.paperweekly.site/papers/1781
 
 ■ 源码 | https://github.com/azadis/MC-GAN
+
+
+- [1. Datasets](#1-datasets)
+- [2. Sketch-Synthesis Approaches](#2-sketch-synthesis-approaches)
+  - [1) Category-to-sketch](#1-category-to-sketch)
+  - [2) Photo-to-sketch](#2-photo-to-sketch)
+  - [3) Text/Attribute-to-sketch](#3-textattribute-to-sketch)
+  - [4) 3D shape-to-sketch](#4-3d-shape-to-sketch)
+  - [5) Sketch(pixelwise)-to-sketch(vector)](#5-sketchpixelwise-to-sketchvector)
+  - [6) Art-to-sketch](#6-art-to-sketch)
+
+
+---
+
+## 1. Datasets
+Here `Vector strokes` means having *svg* data. `With photos` means having the photo-sketch paired data.
+
+<table>
+  <tr>
+    <td><strong>Level</strong></td>
+    <td><strong>Dataset</strong></td>
+    <td><strong>Source</strong></td>
+    <td><strong>Vector strokes</strong></td>
+    <td><strong>With photos</strong></td>
+    <td><strong>Notes</strong></td>
+  </tr>
+  <tr>
+    <td rowspan="7"><strong>Instance-level</strong></td>
+    <td> <a href="http://kanjivg.tagaini.net/">KanjiVG</a> </td> 
+    <td> </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> :x: </td> 
+    <td> Chinese characters </td>
+  </tr>
+  <tr>
+    <td> <a href="http://cybertron.cg.tu-berlin.de/eitz/projects/classifysketch/">TU-Berlin</a> </td> 
+    <td> SIGGRAPH 2012 </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> :x: </td> 
+    <td> Multi-category hand sketches </td>
+  </tr>
+  <tr>
+    <td> <a href="http://sketchy.eye.gatech.edu/">Sketchy</a> </td> 
+    <td> SIGGRAPH 2016 </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> Multi-category photo-sketch paired </td>
+  </tr>
+  <tr>
+    <td> <a href="https://quickdraw.withgoogle.com/data">QuickDraw</a> </td> 
+    <td> ICLR 2018 </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> :x: </td> 
+    <td> Multi-category hand sketches </td>
+  </tr>
+  <tr>
+    <td> <a href="http://www.eecs.qmul.ac.uk/~qian/Project_cvpr16.html">QMUL-Shoe-Chair-V2</a> </td> 
+    <td> CVPR 2016 </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> Only two categories </td>
+  </tr>
+  <tr>
+    <td> <a href="https://github.com/KeLi-SketchX/SketchX-PRIS-Dataset">Sketch Perceptual Grouping (SPG)</a> </td> 
+    <td> ECCV 2018 </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> :x: </td> 
+    <td> With part-level semantic segmentation information </td>
+  </tr>
+  <tr>
+    <td> <a href="https://facex.idvxlab.com/">FaceX</a> </td> 
+    <td> AAAI 2019 </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> :x: </td> 
+    <td> Labeled facial sketches </td>  
+  </tr>
+  <tr>
+    <td rowspan="4"><strong>Scene-level</strong></td>
+    <td> <a href="http://www.cs.cmu.edu/~mengtial/proj/sketch/">Photo-Sketching</a> </td> 
+    <td> WACV 2019 </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> ScenePhoto-sketch paired </td>
+  </tr>
+  <tr>
+    <td> <a href="https://sketchyscene.github.io/SketchyScene/">SketchyScene</a> </td> 
+    <td> ECCV 2018 </td> 
+    <td> :x: </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> With semantic/instance segmentation information </td>  
+  </tr>
+  <tr>
+    <td> <a href="http://projects.csail.mit.edu/cmplaces/">CMPlaces</a> </td> 
+    <td> TPAMI 2018 </td> 
+    <td> :x: </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> Cross-modal scene dataset </td>  
+  </tr>
+  <tr>
+    <td> <a href="http://sweb.cityu.edu.hk/hongbofu/doc/context_based_sketch_classification_Expressive2018.pdf">Context-Skecth</a> </td> 
+    <td> Expressive 2018 </td> 
+    <td> :x: </td> 
+    <td> :heavy_check_mark: </td> 
+    <td> Context-based scene sketches for co-classification </td>  
+  </tr>
+  
+</table>
+
+
+
+## 2. Sketch-Synthesis Approaches
+
+### 1) Category-to-sketch
+
+
+<table>
+  <tr>
+    <td><strong>Level</strong></td>
+    <td><strong>Paper</strong></td>
+    <td><strong>Source</strong></td>
+    <td><strong>Code/Project Link</strong></td>
+  </tr>
+  <tr>
+    <td rowspan="4"><strong>Instance-level</strong></td>
+    <td> <a href="https://openreview.net/pdf?id=Hy6GHpkCW">A Neural Representation of Sketch Drawings (sketch-rnn)</a> </td> 
+    <td> ICLR 2018 </td> 
+    <td> 
+      <a href="https://github.com/tensorflow/magenta/tree/master/magenta/models/sketch_rnn">[Code]</a> 
+      <a href="https://magenta.tensorflow.org/sketch-rnn-demo">[Project]</a> 
+      <a href="https://magenta.tensorflow.org/assets/sketch_rnn_demo/index.html">[Demo]</a> 
+    </td>
+  </tr>
+  <tr>
+    <td> <a href="https://arxiv.org/pdf/1709.04121.pdf">Sketch-pix2seq: a Model to Generate Sketches of Multiple Categories</a> </td> 
+    <td>  </td> 
+    <td> 
+      <a href="https://github.com/MarkMoHR/sketch-pix2seq">[Code]</a> 
+    </td>
+  </tr>
+  <tr>
+    <td> <a href="https://idvxlab.com/papers/2019AAAI_Sketcher_Cao.pdf">AI-Sketcher : A Deep Generative Model for Producing High-Quality Sketches</a> </td> 
+    <td> AAAI 2019 </td> 
+    <td> <a href="https://facex.idvxlab.com/">[Project]</a> </td>
+  </tr>
+  <tr>
+    <td> <a href="https://arxiv.org/pdf/1901.03427.pdf">Stroke-based sketched symbol reconstruction and segmentation (stroke-rnn)</a> </td> 
+    <td> </td> 
+    <td> </td>
+  </tr>
+  
+</table>
+
+---
+
+### 2) Photo-to-sketch
+
+- vector image generation
+
+<table>
+  <tr>
+    <td><strong>Level</strong></td>
+    <td><strong>Paper</strong></td>
+    <td><strong>Source</strong></td>
+    <td><strong>Code/Project Link</strong></td>
+  </tr>
+  <tr>
+    <td rowspan="1"><strong>Facial</strong></td>
+    <td> <a href="https://dl.acm.org/citation.cfm?id=2461964">Style and abstraction in portrait sketching</a> </td> 
+    <td> TOG 2013 </td> 
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="3"><strong>Instance-level</strong></td>
+    <td> <a href="https://link.springer.com/content/pdf/10.1007%2Fs11263-016-0963-9.pdf">Free-Hand Sketch Synthesis with Deformable Stroke Models</a> </td> 
+    <td> IJCV 2017 </td> 
+    <td>
+      <a href="https://panly099.github.io/skSyn.html">[Project]</a> 
+      <a href="https://github.com/panly099/sketchSynthesis">[code]</a> 
+    </td>
+  </tr>
+  <tr>
+    <td> <a href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Song_Learning_to_Sketch_CVPR_2018_paper.pdf">Learning to Sketch with Shortcut Cycle Consistency</a> </td> 
+    <td> CVPR 2018 </td> 
+    <td> <a href="https://github.com/seindlut/deep_p2s">[Code1]</a> <a href="https://github.com/MarkMoHR/sketch-photo2seq">[Code2]</a> </td>
+  </tr>
+  <tr>
+    <td> <a href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Muhammad_Learning_Deep_Sketch_CVPR_2018_paper.pdf">Learning Deep Sketch Abstraction</a> </td> 
+    <td> CVPR 2018 </td> 
+    <td>  </td>
+  </tr>
+</table>
+
+
+- pixelwise image generation
+
+<table>
+  <tr>
+    <td><strong>Level</strong></td>
+    <td><strong>Paper</strong></td>
+    <td><strong>Source</strong></td>
+    <td><strong>Code/Project Link</strong></td>
+  </tr>
+  <tr>
+    <td rowspan="2"><strong>Instance-level</strong></td>
+    <td> <a href="http://openaccess.thecvf.com/content_ECCV_2018/papers/Kaiyue_Pang_Deep_Factorised_Inverse-Sketching_ECCV_2018_paper.pdf">Deep Factorised Inverse-Sketching</a> </td> 
+    <td> ECCV 2018 </td> 
+    <td> </td>
+  </tr>
+  <tr>
+    <td> <a href="https://www.spiedigitallibrary.org/journals/Journal-of-Electronic-Imaging/volume-27/issue-6/063006/Making-better-use-of-edges-for-sketch-generation/10.1117/1.JEI.27.6.063006.short?SSO=1">Making better use of edges for sketch generation</a> </td> 
+    <td> JEI 2018 </td> 
+    <td> </td>
+  </tr>
+  <tr>
+    <td rowspan="1"><strong>Scene-level</strong></td>
+    <td> <a href="https://arxiv.org/pdf/1901.00542.pdf">Photo-Sketching: Inferring Contour Drawings from Images</a> </td> 
+    <td> WACV 2019 </td> 
+    <td>
+      <a href="https://github.com/mtli/PhotoSketch">[Code]</a> 
+      <a href="http://www.cs.cmu.edu/~mengtial/proj/sketch/">[Project]</a> 
+    </td>
+  </tr>
+</table>
+
+---
+
+### 3) Text/Attribute-to-sketch
+
+| Level | Paper | Source | Code/Project Link |
+| --- | --- | --- | --- |
+| **Facial** | [Text2Sketch: Learning Face Sketch from Facial Attribute Text](https://ieeexplore.ieee.org/abstract/document/8451236) | ICIP 2018 |  |
+| **Scene-level** | [Sketchforme: Composing Sketched Scenes from Text Descriptions for Interactive Applications](https://arxiv.org/pdf/1904.04399.pdf) | 1904.04399 |  |
+
+---
+
+### 4) 3D shape-to-sketch
+
+| Paper | Source | Code/Project Link |
+| --- | --- | --- |
+| [DeepShapeSketch : Generating hand drawing sketches from 3D objects](https://shizhezhou.github.io/projects/DeepFreeHandSke2019/deepFreehandSke2019.pdf) | IJCNN 2019 |  |
+
+---
+
+
+### 5) Sketch(pixelwise)-to-sketch(vector)
+
+
+This means translating a pixelwise sketch into a sequential sketch imitating human's drawing order. The appearance of the sequential sketch is exactly the **same** as the pixelwise one.
+
+
+| Paper | Source | Code/Project Link |
+| --- | --- | --- |
+| [Animated Construction of Line Drawings](http://sweb.cityu.edu.hk/hongbofu/projects/animatedConstructionOfLineDrawings_SiggA11/animatedConstructionOfLineDrawings_SiggA11.pdf) | SIGGRAPH ASIA 2011 | [[Project]](http://sweb.cityu.edu.hk/hongbofu/projects/animatedConstructionOfLineDrawings_SiggA11/) [[code]](http://sweb.cityu.edu.hk/hongbofu/projects/animatedConstructionOfLineDrawings_SiggA11/Viewer_src.zip) [[Demo]](http://sweb.cityu.edu.hk/hongbofu/projects/animatedConstructionOfLineDrawings_SiggA11/Viewer.zip) |
+
+---
+
+### 6) Art-to-sketch
+
+Here we list sketch synthesis based on other image types, like Manga and line art.
+
+- Hand drawn line art (a.k.a. Sketch Simplification)
+
+
+| Paper | Source | Code/Project Link |
+| --- | --- | --- |
+| [Closure-aware Sketch Simplification](http://www.cse.cuhk.edu.hk/~ttwong/papers/sketch/sketch.pdf) | SIGGRAPH ASIA 2015 | [[Project]](https://www.cse.cuhk.edu.hk/~ttwong/papers/sketch/sketch.html) |
+| [Learning to Simplify: Fully Convolutional Networks for Rough Sketch Cleanup](https://esslab.jp/publications/SimoSerraSIGGRAPH2016.pdf) | SIGGRAPH 2016 | [[Code]](https://github.com/bobbens/sketch_simplification) [[Project]](https://esslab.jp/~ess/en/research/sketch/) |
+| [Mastering Sketching: Adversarial Augmentation for Structured Prediction](https://esslab.jp/~ess/publications/SimoSerraTOG2018.pdf) | SIGGRAPH 2018 | [[Code]](https://github.com/bobbens/sketch_simplification)  [[Project]](https://esslab.jp/~ess/en/research/sketch_master/) |
+| [Real-Time Data-Driven Interactive Rough Sketch Inking](https://esslab.jp/~ess/publications/SimoSerraSIGGRAPH2018.pdf) | SIGGRAPH 2018 | [[Code]](https://github.com/bobbens/line_thinning) [[Project]](https://esslab.jp/~ess/en/research/inking/) |
+| [StrokeAggregator: Consolidating Raw Sketches into Artist-Intended Curve Drawings](https://www.cs.ubc.ca/labs/imager/tr/2018/StrokeAggregator/StrokeAggregator_authorversion.pdf) | SIGGRAPH 2018 | [[Project]](https://www.cs.ubc.ca/labs/imager/tr/2018/StrokeAggregator/) |
+
+- Manga (Comics)
+
+| Paper | Source | Code/Project Link |
+| --- | --- | --- |
+| [Deep extraction of manga structural lines](https://dl.acm.org/citation.cfm?id=3073675) | SIGGRAPH 2017 | [[Code]](https://github.com/ljsabc/MangaLineExtraction) |
+
 
 ----------------
 
