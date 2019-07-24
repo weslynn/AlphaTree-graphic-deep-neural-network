@@ -1,5 +1,5 @@
 
-# AlphaTree : Graphic Deep Neural Network 神经网络模型图示
+# AlphaTree : Graphic Deep Neural Network && GAN 深度神经网络(DNN)与对抗神经网络(GAN)模型总览
 
 在AI学习的漫漫长路上，理解不同文章中的模型与方法是每个人的必经之路，偶尔见到Fjodor van Veen所作的[A mostly complete chart of Neural Networks](http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png) 和 FeiFei Li AI课程中对模型的[画法](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/feifei.png)，大为触动。决定将深度神经网络中的一些模型 进行统一的图示，便于大家对模型的理解。
 
@@ -1609,6 +1609,221 @@ MS R-CNN对Mask R-CNN进行了修正,在结构中添加了Mask-IoU。Mask R-CNN�
 
 
 ----------------------------------------------------------------------------------
+## GAN 生成式对抗网络
+
+
+### GAN
+
+2019年，是很重要的一年。在这一年里，GAN有了重大的进展，出现了 BigGan，StyleGan 这样生成高清大图的GAN，也出现了很多对GAN的可解释性方法，包括 苏剑林的OGAN。 还有GAN都被拿来烤Pizza了……(CVPR2019还有个PizzaGAN,[demo](http://pizzagan.csail.mit.edu/) [paper](https://arxiv.org/abs/1906.02839))
+
+这一切预示着GAN这个话题，马上就要被勤勉的科学家们攻克了。
+
+从目标分类的被攻克，人脸识别的特征提取和loss改进，目标检测与分割的统一…… 深度学习的堡垒一个接一个的被攻克。一切都迅速都走上可应用化的道路。
+
+
+深度学习的发展惊人，如果说互联网过的是狗年，一年抵七年，深度学习的发展一定是在天宫的，天上一天，地上一年。
+
+
+生成式对抗网络（GAN, Generative Adversarial Networks ）是近年来深度学习中复杂分布上无监督学习最具前景的方法之一。
+监督学习需要大量标记样本，而GAN不用。
+模型包括两个模块：生成模型（Generative Model）和判别模型（Discriminative Model），通过模型的互相博弈学习产生相当好的输出。原始 GAN 理论中，并不要求 G 和 D 都是神经网络，只需要是能拟合相应生成和判别的函数即可。但实用中一般均使用深度神经网络作为 G 和 D 。
+
+
+![basic](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/basic.png)
+
+GAN的目标,就是G生成的数据在D看来，和真实数据误差越小越好，目标函数如下：
+
+![basictarget](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/basictarget.png)
+
+从判别器 D 的角度看，它希望自己能尽可能区分真实样本和虚假样本，因此希望 D(x) 尽可能大，D(G(z)) 尽可能小， 即 V(D,G)尽可能大。从生成器 G 的角度看，它希望自己尽可能骗过 D，也就是希望 D(G(z)) 尽可能大，即 V(D,G) 尽可能小。两个模型相对抗，最后达到全局最优。
+
+从数据分布来说，就是开始的噪声noise，在G不断修正后，产生的分布，和目标数据分布达到一致：
+
+![data](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/data.png)
+
+
+   [1] Ian Goodfellow. "Generative Adversarial Networks." arXiv preprint arXiv:1406.2661v1 (2014). [pdf] (https://arxiv.org/pdf/1406.2661v1.pdf)
+
+   http://www.iangoodfellow.com/
+
+https://github.com/goodfeli/adversarial
+
+
+
+和监督学习的的网络结构一样，GAN的发展 也主要包含网络结构性的改进 和loss、参数、权重的改进。
+
+Avinash Hindupur建了一个GAN Zoo，他的“动物园”里目前已经收集了近500种有名有姓的GAN。
+主要是2014-2018年之间的GAN。
+https://github.com/hindupuravinash/the-gan-zoo
+
+那么问题来了：这么多变体，有什么区别？哪个好用？
+
+于是，Google Brain的几位研究员（不包括原版GAN的爸爸Ian Goodfellow）对各种进行了loss，参数，权重修改的GAN做一次“中立、多方面、大规模的”评测。
+在此项研究中，Google此项研究中使用了minimax损失函数和用non-saturating损失函数的GAN，分别简称为MM GAN和NS GAN，对比了WGAN、WGAN GP、LS GAN、DRAGAN、BEGAN，除了DRAGAN上文都做了介绍，另外还对比的有VAE（变分自编码器）。为了很好的说明问题，研究者们两个指标来对比了实验结果，分别是FID和精度（precision、）、召回率（recall）以及两者的平均数F1。
+
+其中FID（Fréchet distance(弗雷歇距离) ）是法国数学家Maurice René Fréchet在1906年提出的一种路径空间相似形描述，直观来说是狗绳距离：主人走路径A，狗走路径B，各自走完这两条路径过程中所需要的最短狗绳长度，所以说，FID与生成图像的质量呈负相关。
+
+为了更容易说明对比的结果，研究者们自制了一个类似mnist的数据集，数据集中都是灰度图，图像中的目标是不同形状的三角形。
+
+最后，他们得出了一个有点丧的结论：
+
+No evidence that any of the tested algorithms consistently outperforms the original one.
+：
+
+都差不多……都跟原版差不多……
+
+
+Are GANs Created Equal? A Large-Scale Study
+Mario Lucic, Karol Kurach, Marcin Michalski, Sylvain Gelly, Olivier Bousquet
+https://arxiv.org/abs/1711.10337
+
+
+http://www.dataguru.cn/article-12637-1.html
+
+这些改进是否一无是处呢？当然不是，之前的GAN 训练很难， 而他们的优点，主要就是让训练变得更简单了。 
+
+那对于GAN这种无监督学习的算法，不同的模型结构改进，和不同的应用领域，才是GAN大放异彩的地方。
+
+
+此外，谷歌大脑发布了一篇全面梳理 GAN 的论文，该研究从损失函数、对抗架构、正则化、归一化和度量方法等几大方向整理生成对抗网络的特性与变体。
+作者们复现了当前最佳的模型并公平地对比与探索 GAN 的整个研究图景，此外研究者在 TensorFlow Hub 和 GitHub 也分别提供了预训练模型与对比结果。
+https://arxiv.org/pdf/1807.04720.pdf
+
+原名：The GAN Landscape: Losses, Architectures, Regularization, and Normalization
+
+现名：A Large-Scale Study on Regularization and Normalization in GANs
+
+Github：http://www.github.com/google/compare_gan
+
+TensorFlow Hub：http://www.tensorflow.org/hub
+
+翻译 参见 http://www.sohu.com/a/241299306_129720
+
+
+----------------------------------------------
+参考Mohammad KHalooei的教程，我也将GAN分为4个level，第四个level将按照应用层面进行拓展。 这里先列出0,1,2，具体可以参见 https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C
+
+
+### Level 0: Definition of GANs
+
+
+
+|Level| Title|  Co-authors| Publication|  Links|
+|:---:|:---:|:---:|:---:|:---:|
+|Beginner|  GAN : Generative Adversarial Nets|  Goodfellow & et al.|  NeurIPS (NIPS) 2014 |[link](https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf) |
+|Beginner|  GAN : Generative Adversarial Nets (Tutorial)| Goodfellow & et al.|  NeurIPS (NIPS) 2016 Tutorial| [link](https://arxiv.org/pdf/1701.00160.pdf)|
+|Beginner|  CGAN : Conditional Generative Adversarial Nets| Mirza & et al.| -- 2014 |[link](https://gist.github.com/shagunsodhani/5d726334de3014defeeb701099a3b4b3) |
+|Beginner|  InfoGAN : Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets|  Chen & et al.|  NeuroIPS (NIPS) 2016  ||
+
+
+模型结构的发展：
+
+![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
+
+
+----------------------
+
+
+### Level 1: Improvements of GANs training
+
+然后看看 loss、参数、权重的改进：
+
+|Level| Title|  Co-authors| Publication|  Links|
+|:---:|:---:|:---:|:---:|:---:|
+|Beginner |LSGAN : Least Squares Generative Adversarial Networks  |Mao & et al.|  ICCV 2017|[link](https://ieeexplore.ieee.org/document/8237566)| 
+|Advanced |Improved Techniques for Training GANs  |Salimans & et al.| NeurIPS (NIPS) 2016 |[link](https://ceit.aut.ac.ir/http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf)| 
+|Advanced |WGAN : Wasserstein GAN |Arjovsky & et al.| ICML 2017|[link](http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf)|
+|Advanced |Certifying Some Distributional Robustness with Principled Adversarial Training |Sinha & et al.|ICML 2018|[link](https://arxiv.org/pdf/1710.10571.pdf) [code](https://github.com/duchi-lab/certifiable-distributional-robustness)|
+
+Loss Functions:
+
+### LSGAN(Least Squares Generative Adversarial Networks)
+
+LS-GAN - Guo-Jun Qi, arxiv: 1701.06264
+
+   [2] Mao et al., 2017.4 [pdf](https://arxiv.org/pdf/1611.04076.pdf)
+
+ https://github.com/hwalsuklee/tensorflow-generative-model-collections
+ https://github.com/guojunq/lsgan
+
+用了最小二乘损失函数代替了GAN的损失函数,缓解了GAN训练不稳定和生成图像质量差多样性不足的问题。
+
+但缺点也是明显的, LSGAN对离离群点的过度惩罚, 可能导致样本生成的'多样性'降低, 生成样本很可能只是对真实样本的简单模仿和细微改动.
+
+### WGAN
+WGAN - Martin Arjovsky, arXiv:1701.07875v1
+
+WGAN：
+在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
+
+为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
+原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
+
+https://zhuanlan.zhihu.com/p/25071913
+
+WGAN 针对loss改进 只改了4点：
+1.判别器最后一层去掉sigmoid
+2.生成器和判别器的loss不取log
+3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
+4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
+
+https://github.com/martinarjovsky/WassersteinGAN
+
+
+### WGAN-GP
+Regularization and Normalization of the Discriminator:
+
+![wgangp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/wgangp.png)
+
+WGAN-GP：
+
+WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
+
+[1704.00028] Gulrajani et al., 2017,mproved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
+
+Tensorflow实现：https://github.com/igul222/improved_wgan_training
+
+pytorch https://github.com/caogang/wgan-gp
+
+
+### DRAGAN
+结合了WGAN和LSGAN两部分，引入博弈论中的无后悔算法，改造其 loss 以解决 mode collapse 问题。
+
+参考 ：
+
+https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
+
+
+----------------------
+
+## Level 2: Implementation skill
+
+GAN的实现
+
+|Title| Co-authors| Publication|Links| size |FID/IS|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|Keras Implementation of GANs|  Linder-Norén| Github  |[link](https://github.com/eriklindernoren/Keras-GAN)|||
+|GAN implementation hacks|  Salimans paper & Chintala|  World research  |[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)|||
+|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|  Radford & et al.|ICLR 2016  |[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)| 64x64 human||
+|ProGAN:Progressive Growing of GANs for Improved Quality, Stability, and Variation|Tero Karras|2017|[paper](https://arxiv.org/pdf/1710.10196.pdf) [link](https://github.com/tkarras/progressive_growing_of_gans)|1024x1024 human|8.04|
+|SAGAN：Self-Attention Generative Adversarial Networks| Han Zhang & Ian Goodfellow|2018.05|[paper](https://arxiv.org/pdf/1805.08318.pdf) [link](https://github.com/taki0112/Self-Attention-GAN-Tensorflow)|128x128 obj|18.65/52.52|
+|BigGAN:Large Scale GAN Training for High Fidelity Natural Image Synthesis|Brock et al.|ICLR 2019|[demo](https://tfhub.dev/deepmind/biggan-256) [paper](https://arxiv.org/pdf/1809.11096.pdf) [link](https://github.com/AaronLeong/BigGAN-pytorch)|512x512 obj|9.6/166.3|
+|StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks|Tero Karras|2018|[paper](https://arxiv.org/pdf/1812.04948.pdf) [link]( https://github.com/NVlabs/stylegan)|1024x1024 human|4.04|
+
+
+指标：
+
+1 Inception Score (IS，越大越好) IS用来衡量GAN网络的两个指标：1. 生成图片的质量 和2. 多样性
+
+2 Fréchet Inception Distance (FID，越小越好) 在FID中我们用相同的inception network来提取中间层的特征。然后我们使用一个均值为 μμ 方差为 ΣΣ 的正态分布去模拟这些特征的分布。较低的FID意味着较高图片的质量和多样性。FID对模型坍塌更加敏感。
+
+FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者不出现。但是他们都无法描述这些特征的空间关系。
+
+物体的数据在Imagenet数据库上比较，人脸的 progan 和stylegan 在CelebA-HQ和FFHQ上比较。上表列的为FFHQ指标。
+
+
+-------------------------------------------------------------------------------------------
+
 
 ## Datasets 数据库
 
