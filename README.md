@@ -1,7 +1,7 @@
-[title](https://github.com/weslynn/graphic-deep-neural-network/blob/master/qr/alphatree_title.png)
+![title](https://github.com/weslynn/graphic-deep-neural-network/blob/master/qr/alphatree_title.png)
 
 # AlphaTree : Graphic Deep Neural Network && GAN 
-# 深度神经网络(DNN)与对抗神经网络(GAN)模型总览
+  深度神经网络(DNN)与对抗神经网络(GAN)模型总览
 
 
 在AI学习的漫漫长路上，理解不同文章中的模型与方法是每个人的必经之路，偶尔见到Fjodor van Veen所作的[A mostly complete chart of Neural Networks](http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png) 和 FeiFei Li AI课程中对模型的[画法](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/feifei.png)，大为触动。决定将深度神经网络中的一些模型 进行统一的图示，便于大家对模型的理解。
