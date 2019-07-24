@@ -5,7 +5,14 @@
 
 从AI研究的角度来说，AI的学习和跟进是有偏向性的，更多的精英是擅长相关的一到两个领域，在这个领域做到更好。而从AI应用工程师的角度来说，每一个工程都可能涉及很多个AI的方向，而他们需要了解掌握不同的方向才能更好的开发和设计。但是AI中每一个领域都在日新月异的成长。而每一位研究人员写paper的风格都不一样，相似的模型，为了突出不同的改进点，他们对模型的描述和图示都可能大不相同。为了帮助更多的人在不同领域能够快速跟进前沿技术，我们构建了“AlphaTree计划”，每一篇文章都会对应文章，代码，然后进行图示输出。
 
+图示工作主要完成了object classification部分，部分还使用PlotNeuralNet [link](https://github.com/HarisIqbal88/PlotNeuralNet)进行了更精美的绘制。 而其他的很多任务是基于object classification 去迁移的，因此不是每一个都需要模型绘制。
+
+由于GAN工作的进展，使得相关工作达到可以进行总结的阶段，于是在2019年开启了GAN工作的总结。参考Mohammad KHalooei的教程，将GAN的发展分为四个level， 详细可见分目录
+https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C
+
+
 进度：
+
 
 2018/05/30 目前object classification 主干部分基本完成 包括 LeNet, AlexNet, GoogLeNet, Inception V3,Inception-Resnet-V2, VGG, ResNet ,ResNext, DenseNet ,DPN等。
 
@@ -17,6 +24,7 @@
 
 2018/09/04 修正3D人脸部分，整理16 17年的部分知名开源成果 将加入密集人脸对齐部分的算法 和 之前的cnn获取3dmm参数算法分开  。18年开始 主要研究在gan对侧脸部分的正脸生成，暂未整理 可看后续发展。 
 
+2019/06/30 完成GAN基本路线
 
 其他：
 Face ： mtcnn 
