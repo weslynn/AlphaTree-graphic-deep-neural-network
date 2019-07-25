@@ -78,7 +78,7 @@ https://github.com/hindupuravinash/the-gan-zoo
 那么问题来了：这么多变体，有什么区别？哪个好用？
 
 于是，Google Brain的几位研究员（不包括原版GAN的爸爸Ian Goodfellow）对各种进行了loss，参数，权重修改的GAN做一次“中立、多方面、大规模的”评测。
-在此项研究中，Google此项研究中使用了minimax损失函数和用non-saturating损失函数的GAN，分别简称为MM GAN和NS GAN，对比了WGAN、WGAN GP、LS GAN、DRAGAN、BEGAN，除了DRAGAN上文都做了介绍，另外还对比的有VAE（变分自编码器）。为了很好的说明问题，研究者们两个指标来对比了实验结果，分别是FID和精度（precision、）、召回率（recall）以及两者的平均数F1。
+在此项研究中，Google此项研究中使用了minimax损失函数和用non-saturating损失函数的GAN，分别简称为MM GAN和NS GAN，对比了WGAN、WGAN GP、LS GAN、DRAGAN、BEGAN，另外还对比的有VAE（变分自编码器）。为了很好的说明问题，研究者们两个指标来对比了实验结果，分别是FID和精度（precision、）、召回率（recall）以及两者的平均数F1。
 
 其中FID（Fréchet distance(弗雷歇距离) ）是法国数学家Maurice René Fréchet在1906年提出的一种路径空间相似形描述，直观来说是狗绳距离：主人走路径A，狗走路径B，各自走完这两条路径过程中所需要的最短狗绳长度，所以说，FID与生成图像的质量呈负相关。
 
@@ -248,6 +248,7 @@ https://github.com/openai/InfoGAN
 |Beginner	|LSGAN : Least Squares Generative Adversarial Networks	|Mao & et al.|	ICCV 2017|[link](https://ieeexplore.ieee.org/document/8237566)|	
 |Advanced	|Improved Techniques for Training GANs	|Salimans & et al.|	NeurIPS (NIPS) 2016	|[link](https://ceit.aut.ac.ir/http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf)|	
 |Advanced	|WGAN : Wasserstein GAN	|Arjovsky & et al.|	ICML 2017|[link](http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf)|
+|Advanced	|WGAN-GP : improved Training of Wasserstein GANs|	 2017|[link](https://arxiv.org/pdf/1704.00028v3.pdf)|
 |Advanced	|Certifying Some Distributional Robustness with Principled Adversarial Training	|Sinha & et al.|ICML 2018|[link](https://arxiv.org/pdf/1710.10571.pdf) [code](https://github.com/duchi-lab/certifiable-distributional-robustness)|
 
 Loss Functions:
@@ -294,15 +295,13 @@ WGAN-GP：
 
 WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
 
-[1704.00028] Gulrajani et al., 2017,mproved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
+[1704.00028] Gulrajani et al., 2017,improved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
 
 Tensorflow实现：https://github.com/igul222/improved_wgan_training
 
 pytorch https://github.com/caogang/wgan-gp
 
 
-## DRAGAN
-结合了WGAN和LSGAN两部分，引入博弈论中的无后悔算法，改造其 loss 以解决 mode collapse 问题。
 
 参考 ：
 
@@ -804,12 +803,12 @@ https://nvlabs.github.io/SPADE/
 ## 3.4 图像融合、图像修补
 
 ## GP-GAN
-GP-GAN[25]，目标是将直接复制粘贴过来的图片，更好地融合进原始图片中，做一个 blending 的事情。
 
-
+GP-GAN，目标是将直接复制粘贴过来的图片，更好地融合进原始图片中，做一个 blending 的事情。
 
 这个过程非常像 iGAN，也用到了类似 iGAN 中的一些约束，比如 color constraint。另一方面，这个工作也有点像 pix2pix，因为它是一种有监督训练模型，在 blending 的学习过程中，会有一个有监督目标和有监督的损失函数。
 
+2017 https://arxiv.org/pdf/1703.07195.pdf
  
 Deep image prior
 去除弹幕
@@ -941,7 +940,7 @@ Demo 和代码链接：https://richzhang.github.io/ideepcolor/
 
 
 
-
+DeOldify: Colorizing and Restoring Old Images and Videos with Deep Learning
 
 
 其他：
@@ -1157,6 +1156,11 @@ http://hi.cs.waseda.ac.jp/~esimo/en/research/sketch/
 预训练模型地址：https://drive.google.com/open?id=1byrmn6wp0r27lSXcT9MC4j-RQ2R04P1Z
 
 
+GAN秒变肖像画！清华刘永进提出APDrawingGAN
+https://baijiahao.baidu.com/s?id=1636212645611494666&wfr=spider&for=pc
+
+
+
 其他：
 
 https://make.girls.moe/
@@ -1168,6 +1172,8 @@ https://paintschainer.preferred.tech/index_zh.html
 http://mangacraft.net/
 
 https://github.com/lllyasviel/MangaCraft
+
+https://cs.nju.edu.cn/rl/WebCaricature.htm
 
 
 玩点别的：
@@ -1562,8 +1568,9 @@ https://github.com/DmitryUlyanov/online-neural-doodle
 
 在基于语义合成图像这个领域里，这可是目前效果最强的方法。
 
+![gaugan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gaugan.jpg)
 
-在正在举行的英伟达GTC 19大会上，GauGAN已表态了。美国时候周三周五Ting-Chun Wang和Ming-Yu Liu还将举行相干演讲。
+![gaugan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gaugan.png)
 
 论文地点：https://arxiv.org/abs/1903.07291
 
