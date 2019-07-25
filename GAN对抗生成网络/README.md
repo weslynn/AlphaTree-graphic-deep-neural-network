@@ -804,12 +804,36 @@ https://github.com/msracver/Deep-Image-Analogy
 Github 地址：https://github.com/pavelgonchar/colornet
 
 
-### GauGAN（SPADE）
-基于 Pix2PixHD， Nvidia开发了GauGAN
-Semantic Image Synthesis with Spatially-Adaptive Normalization.
+### GauGAN（SPADE） Nvidia
+
+
+你画一幅涂鸦，用颜色区分每一块对应着什么物体，它就能照着你的大作，合成以假乱真的真实世界效果图。
+通过语义布局进行图像的生成 Segmentation mask，算法是源于Pix2PixHD，生成自然的图像。
+
+数据来源是成对的，通过自然场景的图像进行分割，就可以得到分割图像的布局，组成了对应的图像对。
+但是区别在于，之前的Pix2PixHD，场景都很规律，如室内，街景，可以使用BN，但是后来发现Pix2PixHD在COCO这些无限制的数据集训练结果很差。如果整张天空或者整张的草地，则计算通过BN后，结果很相似，这样合成会出现问题。于是修改了BN，这种方法称为空间自适应归一化合成法SPADE。将原来的label信息代入到原来BN公式中的γ和β
+
+Semantic Image Synthesis with Spatially-Adaptive Normalization--CVPR 2019。
+
+这篇论文的一作，照例还是实习生。另外几位作者来自英伟达和MIT，CycleGAN的创造者朱俊彦是四作。
+
+在基于语义合成图像这个领域里，这可是目前效果最强的方法。
+
+![gaugan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gaugan.jpg)
+
+
+paper：https://arxiv.org/abs/1903.07291
+
+GitHub：https://github.com/NVlabs/SPADE
+
+项目地点：https://nvlabs.github.io/SPADE/
 
 https://nvlabs.github.io/SPADE/demo.html
 https://nvlabs.github.io/SPADE/
+
+https://36kr.com/p/5187136
+
+
 
 --------------------------
 
@@ -1569,35 +1593,6 @@ Faster
 https://github.com/DmitryUlyanov/fast-neural-doodle
 实时
 https://github.com/DmitryUlyanov/online-neural-doodle
-
-
-#### GauGAN Nvidia
-
-你画一幅涂鸦，用颜色区分每一块对应着什么物体，它就能照着你的大作，合成以假乱真的真实世界效果图。
-通过语义布局进行图像的生成 Segmentation mask，算法是源于Pix2PixHD，生成自然的图像。
-
-数据来源是成对的，通过自然场景的图像进行分割，就可以得到分割图像的布局，组成了对应的图像对。
-但是区别在于，之前的Pix2PixHD，场景都很规律，如室内，街景，可以使用BN，但是后来发现Pix2PixHD在COCO这些无限制的数据集训练结果很差。如果整张天空或者整张的草地，则计算通过BN后，结果很相似，这样合成会出现问题。于是修改了BN，这种方法称为空间自适应归一化合成法SPADE。将原来的label信息代入到原来BN公式中的γ和β
-
-Semantic Image Synthesis with Spatially-Adaptive Normalization--CVPR 2019。
-
-这篇论文的一作，照例还是实习生。另外几位作者来自英伟达和MIT，CycleGAN的创造者朱俊彦是四作。
-
-在基于语义合成图像这个领域里，这可是目前效果最强的方法。
-
-![gaugan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gaugan.jpg)
-
-![gaugan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gaugan.png)
-
-论文地点：https://arxiv.org/abs/1903.07291
-
-GitHub：https://github.com/NVlabs/SPADE
-
-项目地点：https://nvlabs.github.io/SPADE/
-
-https://36kr.com/p/5187136
-
-
 
 
 
