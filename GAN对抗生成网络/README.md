@@ -118,8 +118,19 @@ TensorFlow Hub：http://www.tensorflow.org/hub
 
 翻译 参见 http://www.sohu.com/a/241299306_129720
 
+--------------------------------------------------------------
+
+GAN的很多研究，都是对Generative modeling生成模型的一种研究，主要有两种重要的工作：
+1 Density Estimation 对原有数据进行密度估计，建模，然后使用模型进行估计
+2 Sampling 取样，用对数据分布建模，并进行取样，生成符合原有数据分布的新数据。
+
+
+![gang](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gang.jpg)
+
 
 ----------------------------------------------
+
+
 参考Mohammad KHalooei的教程，我也将GAN分为4个level，第四个level将按照应用层面进行拓展。 
 
 
@@ -137,16 +148,13 @@ TensorFlow Hub：http://www.tensorflow.org/hub
 
 模型结构的发展：
 
+在标准的GAN中，生成数据的来源一般是一段连续单一的噪声z, 在半监督式学习CGAN中，会加入c的class 分类。InfoGan 找到了Gan的latent code 使得Gan的数据生成具有了可解释性。
+
 ![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
 
-首先看基本结构上的改进。
 
-在标准的GAN中，生成数据的来源一般是一段连续单一的噪声z, 在半监督式学习中，会加入c的class 分类。
 
-InfoGan 找到了Gan的latent code 使得Gan的数据生成具有了可解释性
 
-半监督式学习： 
-一个生成器与一个判别器：
 
 ## CGAN
 
@@ -443,6 +451,9 @@ Github：https://github.com/AaronLeong/BigGAN-pytorch
 此外 https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247495491&idx=1&sn=978f0afeb0b38affe54fc9e6d6086e3c&chksm=96ea30c3a19db9d52b735bdfee3f535ce68bcc6ace230b452b2ef8d389e66d32bba38e1574e3&scene=21#wechat_redirect
 
 
+ Spectral Normalization 出自 《Spectral Norm Regularization for Improving the Generalizability of Deep Learning》 和 《Spectral Normalization for Generative Adversarial Networks》，是为了解决GAN训练不稳定的问题，从“层参数”的角度用spectral normalization 的方式施加regularization，从而使判别器D具备Lipschitz连续条件。
+
+
 ## StyleGAN  NVIDIA
 
 A Style-Based Generator Architecture for Generative Adversarial Networks
@@ -601,6 +612,8 @@ pix2pix的核心是有了对应关系，这种网络的应用范围还是比较�
 ## CycleGan /DiscoGan /DualGan
 
 CycleGan: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
+
+朱俊彦
 
 https://arxiv.org/abs/1703.10593
 
@@ -1558,13 +1571,17 @@ https://github.com/DmitryUlyanov/fast-neural-doodle
 https://github.com/DmitryUlyanov/online-neural-doodle
 
 
-#### GauGAN
+#### GauGAN Nvidia
 
-英伟达出品的GauGAN：你画一幅涂鸦，用颜色区分每一块对应着什么物体，它就能照着你的大作，合成以假乱真的真实世界效果图。在AI界，你的涂鸦有个学名，叫“语义布局”。
+你画一幅涂鸦，用颜色区分每一块对应着什么物体，它就能照着你的大作，合成以假乱真的真实世界效果图。
+通过语义布局进行图像的生成 Segmentation mask，算法是源于Pix2PixHD，生成自然的图像。
 
-要实现这种能力，GauGAN靠的是空间自适应归一化合成法SPADE架构。这种算法的论文Semantic Image Synthesis with Spatially-Adaptive Normalization已经被CVPR 2019接收，而且还是口头报告（oral）。
+数据来源是成对的，通过自然场景的图像进行分割，就可以得到分割图像的布局，组成了对应的图像对。
+但是区别在于，之前的Pix2PixHD，场景都很规律，如室内，街景，可以使用BN，但是后来发现Pix2PixHD在COCO这些无限制的数据集训练结果很差。如果整张天空或者整张的草地，则计算通过BN后，结果很相似，这样合成会出现问题。于是修改了BN，这种方法称为空间自适应归一化合成法SPADE。将原来的label信息代入到原来BN公式中的γ和β
 
-这篇论文的一作，照例还是实习生。另外几位作者来自英伟达和MIT，CycleGAN的创造者华人小哥哥朱俊彦也在其中。
+Semantic Image Synthesis with Spatially-Adaptive Normalization--CVPR 2019。
+
+这篇论文的一作，照例还是实习生。另外几位作者来自英伟达和MIT，CycleGAN的创造者朱俊彦是四作。
 
 在基于语义合成图像这个领域里，这可是目前效果最强的方法。
 
@@ -1574,7 +1591,7 @@ https://github.com/DmitryUlyanov/online-neural-doodle
 
 论文地点：https://arxiv.org/abs/1903.07291
 
-GitHub地点（代码行将上线）：https://github.com/NVlabs/SPADE
+GitHub：https://github.com/NVlabs/SPADE
 
 项目地点：https://nvlabs.github.io/SPADE/
 
