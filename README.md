@@ -1622,6 +1622,95 @@ MS R-CNN对Mask R-CNN进行了修正,在结构中添加了Mask-IoU。Mask R-CNN�
 ![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
 
 
+
+## CGAN
+
+[1411.1784]Mirza M, Osindero S,Conditional Generative Adversarial Nets [pdf](https://arxiv.org/pdf/1411.1784.pdf) 
+
+通过GAN可以生成想要的样本，以MNIST手写数字集为例，可以任意生成0-9的数字。
+
+但是如果我们想指定生成的样本呢？譬如指定生成1，或者2，就可以通过指定C condition来完成。
+
+条件BN首先出现在文章 Modulating early visual processing by language 中，后来又先后被用在 cGANs With Projection Discriminator 中，目前已经成为了做条件 GAN（cGAN）的标准方案，包括 SAGAN、BigGAN 都用到了它。
+
+
+https://github.com/znxlwm/tensorflow-MNIST-cGAN-cDCGAN
+![cgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/cgan.png)
+
+应用方向 数字生成， 图像自动标注等
+
+## LAPGAN 
+Emily Denton & Soumith Chintala, arxiv: 1506.05751
+
+是第一篇将层次化或者迭代生成的思想运用到 GAN 中的工作。在原始 GAN和后来的 CGAN中，GAN 还只能生成32X32 这种低像素小尺寸的图片。而这篇工作[16] 是首次成功实现 64X64 的图像生成。思想就是，与其一下子生成这么大的（包含信息量这么多），不如一步步由小转大，这样每一步生成的时候，可以基于上一步的结果，而且还只需要“填充”和“补全”新大小所需要的那些信息。这样信息量就会少很多，而为了进一步减少信息量，他们甚至让 G 每次只生成“残差”图片，生成后的插值图片与上一步放大后的图片做加法，就得到了这一步生成的图片。
+
+
+## IcGAN
+Invertible Conditional GANs for image editing
+
+通常GAN的生成网络输入为一个噪声向量z,IcGAN是对cGAN的z的解释。
+
+利用一个encoder网络,对输入图像提取得到一个特征向量z,将特征向量z,以及需要转换的目标attribute向量y串联输入生成网络,得到生成图像,网络结构如下,
+
+![icgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/icgan.png)
+
+
+https://arxiv.org/pdf/1611.06355.pdf
+https://github.com/Guim3/IcGAN
+
+
+## ACGAN
+
+为了提供更多的辅助信息并允许半监督学习，可以向判别器添加额外的辅助分类器，以便在原始任务以及附加任务上优化模型。
+
+和CGAN不同的是，C不直接输入D。D不仅需要判断每个样本的真假，还需要完成一个分类任务即预测C
+
+
+添加辅助分类器允许我们使用预先训练的模型（例如，在ImageNet上训练的图像分类器），并且在ACGAN中的实验证明这种方法可以帮助生成更清晰的图像以及减轻模式崩溃问题。 使用辅助分类器还可以应用在文本到图像合成和图像到图像的转换。
+
+![acgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/acgan.png)
+
+
+## SemiGan /SSGAN  Goodfellow
+
+Salimans, Tim, et al. “Improved techniques for training gans.” Advances in Neural Information Processing Systems. 2016.
+
+
+![ssgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/semi.png)
+
+
+
+Theano+Lasagne https://github.com/openai/improved-gan
+
+tf: https://github.com/gitlimlab/SSGAN-Tensorflow
+
+https://blog.csdn.net/shenxiaolu1984/article/details/75736407
+
+
+----------------------
+## InfoGan OpenAI
+
+InfoGAN - Xi Chen, arxiv: 1606.03657
+
+提出了latent code。
+
+单一的噪声z，使得人们无法通过控制z的某些维度来控制生成数据的语义特征，也就是说，z是不可解释的。
+
+以MNIST手写数字集为例，每个数字可以分解成多个维度特征：数字的类别、倾斜度、粗细度等等，在标准GAN的框架下，是无法在维度上具体指定生成什么样的数字。但是Info Gan 通过latent code的设定成功让网络学习到了可解释的特征表示（interpretable representation）
+
+把原来的噪声z分解成两部分：一是原来的z；二是由若干个latent variables拼接而成的latent code c，这些latent variables会有一个先验的概率分布，且可以是离散的或连续的，用于代表生成数据的不同特征维度，如数字类别（离散），倾斜度（连续），粗细度（连续）等。通过找到对信息影响最大的c，来得到数据中最重要的特征。
+
+
+InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets，NIPS 2016。
+
+![info](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/infogan.png)
+
+
+https://arxiv.org/abs/1606.03657
+
+https://github.com/openai/InfoGAN
+
+
 ----------------------
 
 
@@ -1634,8 +1723,59 @@ MS R-CNN对Mask R-CNN进行了修正,在结构中添加了Mask-IoU。Mask R-CNN�
 |Beginner |LSGAN : Least Squares Generative Adversarial Networks  |Mao & et al.|  ICCV 2017|[link](https://ieeexplore.ieee.org/document/8237566)| 
 |Advanced |Improved Techniques for Training GANs  |Salimans & et al.| NeurIPS (NIPS) 2016 |[link](https://ceit.aut.ac.ir/http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf)| 
 |Advanced |WGAN : Wasserstein GAN |Arjovsky & et al.| ICML 2017|[link](http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf)|
+|Advanced |WGAN-GP : improved Training of Wasserstein GANs|  2017|[link](https://arxiv.org/pdf/1704.00028v3.pdf)|
 |Advanced |Certifying Some Distributional Robustness with Principled Adversarial Training |Sinha & et al.|ICML 2018|[link](https://arxiv.org/pdf/1710.10571.pdf) [code](https://github.com/duchi-lab/certifiable-distributional-robustness)|
 
+
+Loss Functions:
+
+## LSGAN(Least Squares Generative Adversarial Networks)
+
+LS-GAN - Guo-Jun Qi, arxiv: 1701.06264
+
+   [2] Mao et al., 2017.4 [pdf](https://arxiv.org/pdf/1611.04076.pdf)
+
+ https://github.com/hwalsuklee/tensorflow-generative-model-collections
+ https://github.com/guojunq/lsgan
+
+用了最小二乘损失函数代替了GAN的损失函数,缓解了GAN训练不稳定和生成图像质量差多样性不足的问题。
+
+但缺点也是明显的, LSGAN对离离群点的过度惩罚, 可能导致样本生成的'多样性'降低, 生成样本很可能只是对真实样本的简单模仿和细微改动.
+
+## WGAN
+WGAN - Martin Arjovsky, arXiv:1701.07875v1
+
+WGAN：
+在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
+
+为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
+原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
+
+https://zhuanlan.zhihu.com/p/25071913
+
+WGAN 针对loss改进 只改了4点：
+1.判别器最后一层去掉sigmoid
+2.生成器和判别器的loss不取log
+3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
+4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
+
+https://github.com/martinarjovsky/WassersteinGAN
+
+
+## WGAN-GP
+Regularization and Normalization of the Discriminator:
+
+![wgangp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/wgangp.png)
+
+WGAN-GP：
+
+WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
+
+[1704.00028] Gulrajani et al., 2017,improved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
+
+Tensorflow实现：https://github.com/igul222/improved_wgan_training
+
+pytorch https://github.com/caogang/wgan-gp
 
 
 ----------------------
@@ -1665,6 +1805,7 @@ FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者
 
 物体的数据在Imagenet数据库上比较，人脸的 progan 和stylegan 在CelebA-HQ和FFHQ上比较。上表列的为FFHQ指标。
 
+具体可以参见 [GAN 对抗生成网络发展总览](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C)
 
 -------------------------------------------------------------------------------------------
 
