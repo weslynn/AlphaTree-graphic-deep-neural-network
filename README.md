@@ -115,6 +115,7 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 版权申明：CC-BY-NC-SA 知识共享-署名-非商业性-相同方式共享
 ---------------------------------------------------------------------------------------------------
+
 ## Object Classification 物体分类
 
 深度学习在解决分类问题上非常厉害。让它声名大噪的也是对于图像分类问题的解决。也产生了很多很经典的模型。其他方向的模型发展很多都是源于这各部分，它是很多模型的基础工作。因此我们首先了解一下它们。
@@ -582,13 +583,11 @@ MorphNet 通过收缩和扩展阶段的循环来优化神经网络。在收缩�
 pytorch pretrained-model https://github.com/Cadene/pretrained-models.pytorch
 
 
-
+人脸检测与识别
 --------------------------------------------------------------------------------------------------------------------------
 
 
-人脸识别概述：
-
-https://arxiv.org/pdf/1804.06655.pdf
+概述 ：https://arxiv.org/pdf/1804.06655.pdf
 
 ![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facerecognition.png)
 
@@ -855,10 +854,11 @@ Transform the face for the neural network. This repository uses dlib's real-time
 
 github：https://github.com/TadasBaltrusaitis/OpenFace
 
---------------------------------------
+
+------------
 
 轻量级人脸识别模型
-
+--------------------------------------
 这个研究得比较少，主要是分两个方面：
 
 一种是设计一个小型网络，从头开始训。这种包括LmobileNetE（112M），lightCNN (A light cnn for deep face representation with noisy labels. arXiv preprint)， ShiftFaceNet（性能能有点差 LFW 96%）,MobileFaceNet等
@@ -1011,7 +1011,7 @@ other
 
 
 
-
+文字识别
 -------------------------------------------------------------------------------
 ![OCR](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/OCR.png)
 
@@ -1305,6 +1305,8 @@ https://github.com/MichalBusta/DeepTextSpotter
 DocUNet: Document Image Unwarping via A Stacked U-Net  face++
 
 [好贴](https://zhuanlan.zhihu.com/p/37306349)
+
+物体检测与分割
 -----------------------------------------------------------------------------
 ![ObjectDetection&Seg](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectDetection&Seg.png)
 
