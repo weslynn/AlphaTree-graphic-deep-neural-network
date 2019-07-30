@@ -858,7 +858,7 @@ https://36kr.com/p/5187136
 |Deep image prior |2017.12|[code](https://dmitryulyanov.github.io/deep_image_prior)|
 |Image Inpainting for Irregular Holes Using Partial Convolutions​| ICLR 2018| [code](https://github.com/deeppomf/DeepCreamPy) [paper](https://arxiv.org/pdf/1804.07723.pdf)|
 |Deepfill v1:Generative Image Inpainting with Contextual Attention|CVPR 2018| [code](https://github.com/JiahuiYu/generative_inpainting​)|
-|Deepfill v2:Free-Form Image Inpainting with Gated Convolution|||
+|Deepfill v2:Free-Form Image Inpainting with Gated Convolution||[paper](https://arxiv.org/abs/1806.03589)|
 |Shift-Net: Image Inpainting via Deep Feature Rearrangement |||
 |Contextual-based Image Inpainting|ECCV 2018|[paper](https://arxiv.org/abs/1711.08590v3)|
 |Image Inpainting via Generative Multi-column Convolutional Neural Networks| NIPS 2018| [code](https://github.com/shepnerd/inpainting_gmcnn​)|
@@ -900,7 +900,12 @@ https://github.com/NVIDIA/partialconv
 deeppomf 开源了 Image Inpainting for Irregular Holes Using Partial Convolutions 的修复实现DeepCreamPy
 
 
+预构建模型下载地址：https://github.com/deeppomf/DeepCreamPy/releases
+
+预训练模型地址：https://drive.google.com/open?id=1byrmn6wp0r27lSXcT9MC4j-RQ2R04P1Z
+
 https://github.com/deeppomf/DeepCreamPy
+
 
 
 拓展：走红网络的一键生成裸照软件DeepNude，原站已关，延伸： https://github.com/yuanxiaosc/DeepNude-an-Image-to-Image-technology
@@ -1278,14 +1283,7 @@ http://hi.cs.waseda.ac.jp/~esimo/en/research/sketch/
 
 
 
-## DeepCreamPy 图像修复项目
 
-最近 deeppomf 开源了 Image Inpainting for Irregular Holes Using Partial Convolutions 的修复实现，它主要使用深度全卷积网络修复漫画图像。DeepCreamPy 能将遮挡的漫画图像重构为可信的画像，并且与通常的图像修复不一样，它使用的是不规则的 Mask。
-
-用户需要事先使用绿色指定被遮住的区域，这一过程可以用简单的图画工具或 Photoshop 等。如下展示了加上绿色 Mask 的「损坏图像」和通过 DeepCreamPy 重构的图像
-预构建模型下载地址：https://github.com/deeppomf/DeepCreamPy/releases
-
-预训练模型地址：https://drive.google.com/open?id=1byrmn6wp0r27lSXcT9MC4j-RQ2R04P1Z
 
 
 GAN秒变肖像画！清华刘永进提出APDrawingGAN
