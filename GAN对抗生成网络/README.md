@@ -1,7 +1,14 @@
 # GAN 生成式对抗网络
 
+
 ![GAN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
 
+-----------------------------------
+
+“在机器学习过去的10年里，GAN是最有趣的一个想法。”
+                                         ——Yann LeCun
+
+----------------------------------
 ## GAN
 
 2019年，是很重要的一年。在这一年里，GAN有了重大的进展，出现了 BigGan，StyleGan 这样生成高清大图的GAN，也出现了很多对GAN的可解释性方法，包括 苏剑林的OGAN。 还有GAN都被拿来烤Pizza了……(CVPR2019还有个PizzaGAN,[demo](http://pizzagan.csail.mit.edu/) [paper](https://arxiv.org/abs/1906.02839))
@@ -516,6 +523,9 @@ Arxiv链接：https://arxiv.org/abs/1903.01931
 
 https://kexue.fm/archives/6409
 
+TL-GAN ： 找到隐藏空间中的特征轴（如BigGAN PGGAN等，然后在特征轴上调节） [zhihu](https://zhuanlan.zhihu.com/p/48053933) [zhihu](https://zhuanlan.zhihu.com/p/47835790)
+
+
 -------------------------------------------------------
 
 # Level 3: GANs Applications in CV
@@ -696,7 +706,8 @@ https://github.com/NVlabs/FUNIT
 
 超分辨率的问题研究由来已久，其目标是将低分辨率图像恢复或重建为高分辨率图像，随着GAN的发展，使得这个问题有了惊人的进展。这项技术得以广泛应用于卫星和航天图像分析、医疗图像处理、压缩图像/视频增强及手机摄像领域，有着明确商业用途。SR技术存在一个有趣的“悖论”，即还原或重建后的高分辨率图像与原图相似度越高，则肉眼观察清晰度越差；反之，若肉眼观察清晰度越好，则图像的失真度越高。导致这一现象的原因在于畸变（Distortion）参数和感知（Perception）参数之间侧重点选择的不同。
 
-传统方法有Google发布的 RAISR: Rapid and Accurate Image Super Resolution(2016 [paper](https://arxiv.org/pdf/1606.01299.pdf) )国内也同期都发布了自己的算法，如腾讯发布的TSR(Tencent Super Resolution），华为的HiSR等。
+传统方法有Google发布的 RAISR: Rapid and Accurate Image Super Resolution(2016 [paper](https://arxiv.org/pdf/1606.01299.pdf) )
+国内也同期都发布了自己的算法，如腾讯发布的TSR(Tencent Super Resolution），华为的HiSR等。
 
 超分辨率的比赛 为 NTIRE
 
@@ -760,6 +771,10 @@ Keras 版本：https://github.com/titu1994/Super-Resolution-using-Generative-Adv
 ECCV 2018收录，赢得了PIRM2018-SR挑战赛的第一名。
 
 
+其他应用 ：
+Google 马赛克去除 ( Pixel Recursive Super Resolution https://arxiv.org/abs/1702.00783)
+
+
 -------------------------
 ## 3.3 交互式图像生成
 ## iGAN
@@ -781,29 +796,16 @@ ECCV 2018收录，赢得了PIRM2018-SR挑战赛的第一名。
 Theano 版本：https://github.com/junyanz/iGAN
 
 
-
 [24] Jun-Yan Zhu, Philipp Krähenbühl, Eli Shechtman and Alexei A. Efros. “Generative Visual Manipulation on the Natural Image Manifold”, ECCV 2016.
 
 ## GANpaint
 
-### Interactive Deep Colorization
-https://github.com/junyanz/interactive-deep-colorization
+GAN dissection
 
+MIT、香港中文大学、IBM等学校/机构的David Bau、朱俊彦、Joshua B.Tenenbaum、周博磊
 
-
-
-
-
-
-### Visual Attribute Transfer through Deep Image Analogy SIGGRAPH 2017 paper
-https://github.com/msracver/Deep-Image-Analogy
-### 
-
-### Colornet
-
-
-
-Github 地址：https://github.com/pavelgonchar/colornet
+http://gandissect.res.ibm.com/ganpaint.html?project=churchoutdoor&layer=layer4
+ 
 
 
 ### GauGAN（SPADE） Nvidia
@@ -839,8 +841,118 @@ https://36kr.com/p/5187136
 
 --------------------------
 
-## 3.4 图像融合、图像修补
+## 3.4  Image Inpainting(图像修复)/Image Outpainting(图像拓展)/图像融合
 
+图像修复传统算法：PatchMatch  PatchMatch: A Randomized Correspondence Algorithm for Structural Image Editing 、
+ Space-Time completion of Image，据说Adobe ps cs5 中使用作为图像填充。
+
+ 深度学习时代有不一样的发展：
+
+| Paper | Source | Code/Project Link  |
+| --- | --- | --- |
+|Context-Encoders:Feature Learning by Inpainting|CVPR 2016|[code](https://github.com/pathak22/context-encoder​)|
+|High-Resolution Image Inpainting using Multi-Scale Neural Patch Synthesis|CVPR 2017|[code](https://github.com/leehomyc/Faster-High-Res-Neural-Inpainting​) [paper](https://arxiv.org/pdf/1611.09969.pdf)|
+|Semantic Image Inpainting with Perceptual and Contextual Losses| CVPR2017|[code](https://github.com/bamos/dcgan-completion.tensorflow)|
+|On-Demand Learning for Deep Image Restoration| ICCV 2017|[code](https://github.com/rhgao/on-demand-learning​)|
+|Globally and Locally Consistent Image Completion | SIGGRAPH 2017 |[code](https://github.com/satoshiiizuka/siggraph2017_inpainting) [code](https://github.com/shinseung428/GlobalLocalImageCompletion_TF)|
+|Deep image prior |2017.12|[code](https://dmitryulyanov.github.io/deep_image_prior)|
+|Image Inpainting for Irregular Holes Using Partial Convolutions​| ICLR 2018| [code](https://github.com/deeppomf/DeepCreamPy) [paper](https://arxiv.org/pdf/1804.07723.pdf)|
+|Deepfill v1:Generative Image Inpainting with Contextual Attention|CVPR 2018| [code](https://github.com/JiahuiYu/generative_inpainting​)|
+|Deepfill v2:Free-Form Image Inpainting with Gated Convolution|||
+|Shift-Net: Image Inpainting via Deep Feature Rearrangement |||
+|Contextual-based Image Inpainting|ECCV 2018|[paper](https://arxiv.org/abs/1711.08590v3)|
+|Image Inpainting via Generative Multi-column Convolutional Neural Networks| NIPS 2018| [code](https://github.com/shepnerd/inpainting_gmcnn​)|
+|PGN：Semantic Image Inpainting with Progressive Generative Networks| ACM MM 2018|[code](https://github.com/crashmoon/Progressive-Generative-Networks​)|
+|EdgeConnect|2019|[code](https://github.com/knazeri/edge-connect)|
+|MUSICAL: Multi-Scale Image Contextual Attention Learning for Inpainting|IJCAI 2019|[link](sigma.whu.edu.cn)|
+|Coherent Semantic Attention for Image Inpainting|2019|[code](https://github.com/KumapowerLIU)|
+|Foreground-aware Image Inpainting|CVPR 2019|[pdf](https://arxiv.org/abs/1901.05945v1)|
+|Pluralistic Image Completion|CVPR2019|[code](https://github.com/lyndonzheng/Pluralistic-Inpainting) [paper](https://arxiv.org/abs/1903.04227​)|
+
+
+## Deep image prior
+
+项目主页：https://dmitryulyanov.github.io/deep_image_prior
+
+github链接：https://github.com/DmitryUlyanov/deep-image-prior 
+
+## Partial Conv：IMAGE INPAINTING Nvidia
+
+Partial Convolution based Padding 
+Guilin Liu, Kevin J. Shih, Ting-Chun Wang, Fitsum A. Reda, Karan Sapra, Zhiding Yu, Andrew Tao, Bryan Catanzaro 
+NVIDIA Corporation 
+Technical Report (Technical Report) 2018
+
+Image Inpainting for Irregular Holes Using Partial Convolutions 
+Guilin Liu, Fitsum A. Reda, Kevin J. Shih, Ting-Chun Wang, Andrew Tao, Bryan Catanzaro 
+NVIDIA Corporation 
+In The European Conference on Computer Vision (ECCV) 2018 
+
+号称秒杀PS的AI图像修复神器，来自于Nvidia 研究团队。引入了局部卷积，能够修复任意非中心、不规则区域）
+
+https://arxiv.org/pdf/1804.07723.pdf
+
+https://www.nvidia.com/en-us/research/ai-playground/?ncid=so-twi-nz-92489DeepCreamPy
+
+Partial Convolution based Padding.
+https://github.com/NVIDIA/partialconv
+
+deeppomf 开源了 Image Inpainting for Irregular Holes Using Partial Convolutions 的修复实现DeepCreamPy
+
+
+https://github.com/deeppomf/DeepCreamPy
+
+
+拓展：走红网络的一键生成裸照软件DeepNude，原站已关，延伸： https://github.com/yuanxiaosc/DeepNude-an-Image-to-Image-technology
+
+
+## DeepFill
+ 
+论文链接：https://arxiv.org/abs/1801.07892
+
+github链接：https://github.com/JiahuiYu/generative_inpainting    
+
+V2:《Free-Form Image Inpainting with Gated Convolution》
+
+论文链接：https://arxiv.org/abs/1806.03589
+
+
+## EdgeConnect：使用对抗边缘学习进行生成图像修复
+
+
+https://github.com/knazeri/edge-connect
+
+https://github.com/youyuge34/Anime-InPainting
+
+## Foreground-aware Image Inpainting Adobe 
+
+https://arxiv.org/abs/1901.05945v1
+
+[Adobe放出P图新研究：就算丢了半个头，也能逼真复原](https://tech.sina.com.cn/csj/2019-01-22/doc-ihrfqziz9984559.shtml)
+
+
+## Noise2Noise ：医学
+
+2018年ICML 
+将此项技术应用于含有大量噪声的图像，比如天体摄影、核磁共振成像（MRI）以及大脑扫描图像等。
+
+使用来自IXI数据集近5000张图像来训练Noise2Noise的MRI图像去噪能力。在没有人工噪声的情况下，结果可能比原始图像稍微模糊一些，但仍然很好地还原了清晰度。
+
+
+论文链接：https://arxiv.org/pdf/1803.04189.pdf
+
+----------------------------------------------------------------------------------------
+
+
+## Painting Outside the Box: Image Outpainting 
+
+https://cs230.stanford.edu/projects_spring_2018/posters/8265861.pdf
+
+https://github.com/bendangnuksung/Image-OutPainting
+
+
+
+---------------------------------------------------
 ## GP-GAN
 
 GP-GAN，目标是将直接复制粘贴过来的图片，更好地融合进原始图片中，做一个 blending 的事情。
@@ -849,25 +961,14 @@ GP-GAN，目标是将直接复制粘贴过来的图片，更好地融合进原�
 
 2017 https://arxiv.org/pdf/1703.07195.pdf
  
-Deep image prior
-去除弹幕
-
-EdgeConnect  https://github.com/knazeri/edge-connect
-TL-GAN
+## Deep Painterly Harmonization
+https://github.com/luanfujun/deep-painterly-harmonization
+这个算法将你选择的外部物体添加到了任意一张图像上，并成功让它看上去好像本来就应该在那里一样。你不妨查看这个代码，然后尝试亲自到一系列不同的图像上去操作这项技术。
 
 
-DeepCreamPy自动去码
-
-Deepfake甚至有了升级版，走红网络的一键生成裸照软件DeepNude
+------------------------------------------------------------------------
 
 
-## IMAGE INPAINTING Nvidia
-Image Inpainting for Irregular Holes Using Partial Convolutions
-https://arxiv.org/pdf/1804.07723.pdf
-
-https://www.nvidia.com/en-us/research/ai-playground/?ncid=so-twi-nz-92489
-
-------------------------
 
 ## 3.5 图像上色  Colourful Image Colorization
 在计算机图形学领域中，一直存在两种为图片上色的方向：数据驱动的自动上色和用户交互的引导上色。
@@ -905,6 +1006,10 @@ https://www.nvidia.com/en-us/research/ai-playground/?ncid=so-twi-nz-92489
 #### Colourful Image Colourization 
 2016 ECCV 里加州大学伯克利分校的一篇文章介绍的方法。这个方法与之前方法的不同之处在于，它把照片上色看成是一个分类问题——预测三百多种颜色在图片每一个像素点上的概率分布。这种方法tackle了这个任务本身的不确定性，例如，当你看到一个黑白的苹果时，你可能会觉得它是红色的，但如果这个苹果是青色的，其实也并没有多少违和感。大家也可以到作者的网站网站来试用他们的demo。 
 https://richzhang.github.io/colorization/
+
+#### Colornet
+
+Github 地址：https://github.com/pavelgonchar/colornet
 
 ###  2. User Guided Image Colorization
 
@@ -981,15 +1086,8 @@ Demo 和代码链接：https://richzhang.github.io/ideepcolor/
 
 DeOldify: Colorizing and Restoring Old Images and Videos with Deep Learning
 
+老照片上色：“你我当年”
 
-其他：
-
-#### Image Outpainting
-开源地址：https://github.com/bendangnuksung/Image-OutPainting
-
-如果我给你一张图像，并让你通过想象图像在图中完整场景呈现时的样子，来扩展它的画面边界，你会怎么办？正常来说，你可能会把这个图导入到某个图像编辑软件里进行操作。但是现在有了一个非常棒的新软件——你可以用几行代码就实现这项操作。
-这个项目是斯坦福大学「Image Outpainting」论文（论文地址：https://cs230.stanford.edu/projects_spring_2018/posters/8265861.pdf ，
-这是一篇无比惊艳并配有示例说明的论文——这就是大多数研究论文所应有的样子！）的 Keras 实现。你或者可以从头开始创建模型，或者也可以使用这个开源项目作者所提供的模型。深度学习从来不会停止给人们带来惊喜。
 
 
 
@@ -1005,7 +1103,7 @@ DeOldify: Colorizing and Restoring Old Images and Videos with Deep Learning
 
 http://k.sina.com.cn/article_6462307252_1812efbb4001009quq.html
 
-表情也和年龄类似，可用模型有 GANimation
+表情也和年龄类似，可用模型有 GANimation 它将自己定义为“从一张图像中提取具有解剖学意义的面部动画”。
 
 https://github.com/albertpumarola/GANimation
 
@@ -1060,11 +1158,6 @@ HeadOn技术的图示HeadOn技术的图示
 
 
 　　例如，将普通人的脸换成奥巴马的脸。Deep Video Portraits 可以通过一段目标人物的视频（在这里就是奥巴马），来学习构成脸部、眉毛、嘴角和背景等的要素以及它们的运动形式。 
-
-
-
-
-
 
 
 
@@ -1198,7 +1291,9 @@ http://hi.cs.waseda.ac.jp/~esimo/en/research/sketch/
 GAN秒变肖像画！清华刘永进提出APDrawingGAN
 https://baijiahao.baidu.com/s?id=1636212645611494666&wfr=spider&for=pc
 
+http://dy.163.com/v2/article/detail/EHPRSNRT05313FBM.html
 
+GAN生成油画效果： AI Portraits Ars https://aiportraits.com/
 
 其他：
 
@@ -1272,6 +1367,7 @@ http://ostagram.ru/
 https://colourise.sg/
 
 http://demos.algorithmia.com/colorize-photos/
+
 ------------------------
 
 ## 3.8 字体合成
@@ -1468,6 +1564,9 @@ https://www.microsoft.com/en-us/research/uploads/prod/2019/06/1902.10740.pdf
 其他：
 textGAN MailGAN
 
+MaskGAN
+
+
 ## 4.2 语音方向
 
 ### 4.2.1 音乐生成
@@ -1527,6 +1626,14 @@ Google DeepMind 与牛津大学合作的一篇论文《Lip Reading Sentences in 
 
 ------------------------------------
 ## Neural Style 风格迁移
+
+Neural Style Transfer: A Review 
+
+https://github.com/ycjing/Neural-Style-Transfer-Papers 
+
+包含图像风格化综述论文对应论文、源码和预训练模型。 [中文](https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247489172&idx=1&sn=42f567fb57d2886da71a07dd16388022&chksm=96e9c914a19e40025bf88e89514d5c6f575ee94545bd5d854c01de2ca333d4738b433d37d1f5#rd)
+
+![neuralstyle](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/overview.jpg)
 
 ### 风格迁移 Neural Style
 
@@ -1598,9 +1705,7 @@ https://github.com/DmitryUlyanov/online-neural-doodle
 
 
 
-### Deep Painterly Harmonization
-https://github.com/luanfujun/deep-painterly-harmonization
-这个算法将你选择的外部物体添加到了任意一张图像上，并成功让它看上去好像本来就应该在那里一样。你不妨查看这个代码，然后尝试亲自到一系列不同的图像上去操作这项技术。
+
 
 ###  Controlling Perceptual Factors in Neural Style Transfer
 颜色控制颜色控制
@@ -1619,6 +1724,8 @@ https://github.com/luanfujun/deep-painterly-harmonization
 
 
 
+### Visual Attribute Transfer through Deep Image Analogy SIGGRAPH 2017 paper
+https://github.com/msracver/Deep-Image-Analogy
 
 
 
