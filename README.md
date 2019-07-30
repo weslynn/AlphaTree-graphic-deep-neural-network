@@ -469,16 +469,17 @@ https://ai.googleblog.com/2018/08/mnasnet-towards-automating-design-of.html
 
 <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mallmodel.jpeg" width="700">
 
-|网络名称|最早公开日期|发表情况|作者团队|
-|:---:|:---:|:---:|:---:|
-|SqueezeNet|2016.02|ICLR2017|Berkeley&Stanford|
-|MobileNet|2016.04|CVPR2017|Google|
-|ShuffleNet|2016.06|CVPR2017|Face++|
+|网络名称|最早公开日期|发表情况|作者团队|链接|
+|:---:|:---:|:---:|:---:|:---:|
+|SqueezeNet|2016.02|ICLR2017|Berkeley&Stanford|[code](https://github.com/DeepScale/SqueezeNet)[pdf](https://arxiv.org/pdf/1602.07360.pdf)|
+|MobileNet|2016.04|CVPR2017|Google|[code](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.py) [code](https://github.com/pby5/MobileNet_Caffe)|
+|ShuffleNet|2016.06|CVPR2017|Face++|[code](https://github.com/camel007/Caffe-ShuffleNet)|
 |Xception|2016.10|----|Google|
-|MobileNetV2|2018.01|----|Google|
-|ShuffleNet V2|2018.07|ECCV2018|Face++|
-|MorphNet|2018.04|----|Google|
-|MnasNet|2018.07|----|Google|
+|MobileNetV2|2018.01|----|Google|[code](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mobilenet_v2.py)|
+|ShuffleNet V2|2018.07|ECCV2018|Face++|[pdf](https://arxiv.org/pdf/1807.11164.pdf)|
+|MorphNet|2018.04|----|Google|[code](https://github.com/google-research/morph-net)|
+|MnasNet|2018.07|----|Google|[pdf](https://arxiv.org/pdf/1807.11626.pdf)|
+|EfficientNet|2019.06|ICML2019|Google|[code](https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet)|
 
 ShuffleNet 论文中引用了 SqueezeNet；Xception 论文中引用了 MobileNet
 
@@ -577,6 +578,10 @@ MorphNet 通过收缩和扩展阶段的循环来优化神经网络。在收缩�
 ### MnasNet
 
   [5]MnasNet: Platform-Aware Neural Architecture Search for Mobile[pdf](https://arxiv.org/pdf/1807.11626.pdf)
+
+### EfficientNet google
+使用一个简单而高效的复合系数来以更结构化的方式放大 CNNs。 不像传统的方法那样任意缩放网络维度，如宽度，深度和分辨率，该论文的方法用一系列固定的尺度缩放系数来统一缩放网络维度。 通过使用这种新颖的缩放方法和 AutoML技术，最高达10倍的效率(更小、更快)。
+https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet
 
 ### other
 

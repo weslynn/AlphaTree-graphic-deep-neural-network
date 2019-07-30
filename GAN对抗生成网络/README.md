@@ -576,6 +576,8 @@ Pix2Pix对传统的CGAN做了个小改动，它不再输入随机噪声，而是
 
 第三方的tensorflow版本：https://github.com/yenchenlin/pix2pix-tensorflow
 
+https://github.com/affinelayer/pix2pix-tensorflow
+
 
 demo: https://affinelayer.com/pixsrv/
 
@@ -850,7 +852,7 @@ GP-GAN，目标是将直接复制粘贴过来的图片，更好地融合进原�
 Deep image prior
 去除弹幕
 
-EdgeConnect
+EdgeConnect  https://github.com/knazeri/edge-connect
 TL-GAN
 
 
