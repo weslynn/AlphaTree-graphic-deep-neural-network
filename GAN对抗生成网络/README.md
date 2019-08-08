@@ -1294,8 +1294,8 @@ http://hi.cs.waseda.ac.jp/~esimo/en/research/sketch/
 
 
 
-
-
+GAN变二次元 UGATIT
+https://github.com/znxlwm/UGATIT-pytorch
 
 GAN秒变肖像画！清华刘永进提出APDrawingGAN
 https://baijiahao.baidu.com/s?id=1636212645611494666&wfr=spider&for=pc

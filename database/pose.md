@@ -9,19 +9,36 @@ VGG Human Pose Estimation 姿势图像标注数据
 
 人类动作视频
 Microsoft Research Action 人类动作视频数据
-UCF50 Action Recognition 动作识别数据
-UCF101 Action Recognition 动作识别数据
+
 UT-Interaction 人类动作视频数据
-UCF iPhone 运动中传感器数据
-UCF YouTube 人类动作视频数据
-UCF Sport 人类动作视频数据
-UCF-ARG 人类动作视频数据
+
 HMDB 人类动作视频
 HOLLYWOOD2 人类行为动作视频数据
 Recognition of human actions 动作视频数据
 Motion Capture 动作捕捉视频数据
 SBU Kinect Interaction 肢体动作视频数据
-
+Human Actions 动作识别数据
+     UCF101 https://www.crcv.ucf.edu/data/UCF101.php
+     UCF50  https://www.crcv.ucf.edu/data/UCF50.php
+     UCF11(YouTube Action)  https://www.crcv.ucf.edu/data/UCF_YouTube_Action.php
+     UCF Sports Action https://www.crcv.ucf.edu/data/UCF_Sports_Action.php
+     UCF Aerial Action https://www.crcv.ucf.edu/data/UCF_Aerial_Action.php
+     UCF-ARG
+     UCF-iPhone https://www.crcv.ucf.edu/data/UCF-iPhone.php
+     THUMOS Contest
+Crowd Counting
+     UCF-CC-50 https://www.crcv.ucf.edu/data/ucf-cc-50/
+     UCF-QNRF https://www.crcv.ucf.edu/data/ucf-qnrf/
+Crowd Segmentation https://www.crcv.ucf.edu/data/crowd.php
+CLIF Data Set Ground Truth https://www.crcv.ucf.edu/data/CLIF.php
+Tracking in High Density Crowds https://www.crcv.ucf.edu/data/tracking.php
+PNNL Parking Lot https://www.crcv.ucf.edu/data/ParkingLOT
+Fire Detection in Video Sequences https://www.crcv.ucf.edu/data/fire.php
+VIRAT https://www.crcv.ucf.edu/data/VIRAT.php
+Motion Capture https://www.crcv.ucf.edu/data/mocap.php
+ALOV++ https://www.crcv.ucf.edu/data/ALOV++
+Google Street View https://www.crcv.ucf.edu/data/GMCP_Geolocalization
+Selfie https://www.crcv.ucf.edu/data/Selfie
 
 1. Weizmann 人体行为库
 
@@ -66,8 +83,6 @@ SBU Kinect Interaction 肢体动作视频数据
 6. Olympic sports dataset
 
 该数据库有16种行为，783段视频。现在的正确率大约在75%左右。下载地址：http://vision.stanford.edu/Datasets/OlympicSports/
-
-
 
 
 
