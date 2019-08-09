@@ -959,6 +959,25 @@ https://arxiv.org/abs/1901.05945v1
 
 ----------------------------------------------------------------------------------------
 
+## Deep Flow-Guided 视频修复/视频内容消除
+
+
+原文链接
+
+https://nbei.github.io/video-inpainting.html
+
+论文地址
+
+https://arxiv.org/abs/1905.02884?context=cs
+
+Github 开源地址
+
+https://github.com/nbei/Deep-Flow-Guided-Video-Inpainting
+
+[zhihu -量子位](https://zhuanlan.zhihu.com/p/73645545)
+
+
+--------------------------------------------------------------------------------------------
 
 ## Painting Outside the Box: Image Outpainting 
 
@@ -1188,7 +1207,28 @@ https://github.com/iperov/DeepFaceLab
 
 ## 3.7 动漫二次元相关
 
-动漫的头像生成，目前最好的是StyleGan。
+### 3.7.1 动漫的头像生成
+
+### makegirlsmoe
+
+作者采取了和原始的GAN不同的结构和训练方法。总的训练框架来自于DRAGAN
+arxiv：https://arxiv.org/pdf/1705.07215.pdf
+
+经过实验发现这种训练方法收敛更快并且能产生更稳定的结果。生成器G的结构类似于SRResNet
+
+arxiv：https://arxiv.org/pdf/1609.04802.pdf
+
+https://make.girls.moe/
+《Create Anime Characters with A.I. !》
+
+https://makegirlsmoe.github.io/assets/pdf/technical_report.pdf
+
+用了Getchu
+
+[jieshao](http://www.sohu.com/a/168828469_633698)
+
+
+目前最好的是StyleGan。
 
 从真人照片到动漫头像，之前有twin—gan做了尝试，然后很多手机应用上做了一些，包括国内美图，但是多样化很差，国外google，facebook，做的emoji效果。
 
@@ -1306,7 +1346,6 @@ GAN生成油画效果： AI Portraits Ars https://aiportraits.com/
 
 其他：
 
-https://make.girls.moe/
 
 https://crypko.ai/#/
 
