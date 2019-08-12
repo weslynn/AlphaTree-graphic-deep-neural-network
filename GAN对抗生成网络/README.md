@@ -850,6 +850,13 @@ demo:
 https://nvlabs.github.io/SPADE/demo.html
 http://nvidia-research-mingyuliu.com/gaugan
 
+
+---------------------------
+
+## AutoDraw
+
+AutoDraw能将机器学习与你信手涂鸦创建的图形配对，帮助你绘制完整而比较漂亮的图形。
+
 --------------------------
 
 ## 3.4  Image Inpainting(图像修复)/Image Outpainting(图像拓展)/图像融合
@@ -1207,6 +1214,9 @@ https://github.com/iperov/DeepFaceLab
 
 ## 3.7 动漫二次元相关
 
+动漫常用的数据库有  Danbooru 和 Safebooru Getchu
+
+
 ### 3.7.1 动漫的头像生成
 
 ### makegirlsmoe
@@ -1230,7 +1240,9 @@ https://makegirlsmoe.github.io/assets/pdf/technical_report.pdf
 
 目前最好的是StyleGan。
 
-从真人照片到动漫头像，之前有twin—gan做了尝试，然后很多手机应用上做了一些，包括国内美图，但是多样化很差，国外google，facebook，做的emoji效果。
+
+
+从真人照片到动漫头像，之前有twin—gan做了尝试，然后很多手机应用上做了一些，包括国内美图，但是多样化很差，国外google，facebook，做的emoji效果。效果不够好，
 
 因此我们这里主要介绍动漫的图像上色。
 
@@ -1243,6 +1255,10 @@ https://makegirlsmoe.github.io/assets/pdf/technical_report.pdf
 | Line art | PaintsTensorFlow | Github Repo | [[Code]](https://github.com/rapidrabbit76/PaintsTensorFlow) |
 | Manga | MangaCraft | Online Demo | [[Demo]](https://github.com/lllyasviel/MangaCraft) |
 |Line art|[Comicolorization: Semi-automatic Manga Colorization](https://arxiv.org/pdf/1706.06759.pdf) |1706.06759  (DwangoMediaVillage) | [[code]](https://github.com/DwangoMediaVillage/Comicolorization)|
+
+### Paints Chainer 
+
+P站在“pixiv Sketch”上线过一项黑科技新功能——自动上色。早在P站此次发布自动上色前，已经有不少工具具有“自动描线”等功能。而今年1月份，日本就已经测试用AI来提供自动上色服务的“Paints Chainer”。而P站的自动上色服务也是基于前者的技术框架，升级改造后的成果。它们的背后是也是人工智能观察60万张上色插图，学习人类上色方法，经过一连串运算得出的成果。
 
 
 ### style2paints 
@@ -1332,7 +1348,7 @@ https://github.com/bobbens/sketch_simplification/
 
 http://hi.cs.waseda.ac.jp/~esimo/en/research/sketch/
 
-
+data： getchu head https://github.com/ANIME305/Anime-GAN-tensorflow
 
 GAN变二次元 UGATIT
 https://github.com/znxlwm/UGATIT-pytorch
