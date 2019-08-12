@@ -325,7 +325,14 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 ----------------------
 
+
 # Level 2: Implementation skill
+
+
+
+![face](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/face.jpg)
+
+
 
 GAN的实现
 
