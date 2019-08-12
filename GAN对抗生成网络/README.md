@@ -1214,8 +1214,34 @@ https://github.com/iperov/DeepFaceLab
 
 ## 3.7 动漫二次元相关
 
-动漫常用的数据库有  Danbooru 和 Safebooru Getchu
+动漫常用的数据库有如下几个：
+- niconico上仅限于学术目的的图。需要科研机构申请才可以下载。
+nico-opendata
+At Niconico, we are providing a wide variety of data from our services,
+to be used for academic purposes.  仅限用于学术目的。
+包含：
+Nico-Illust    超过40万张图像（插图）
+This dataset contains over 400,000 images (illustraions) from Niconico Seiga and Niconico Shunga.
+Niconico Seiga is a community for posting illustrations.  一个发布插图的社区。
+Niconico Shunga is a community for posting illustrations, where submission of explicit content is allowed. Viewers under age 18 are prohibited in this website.  本网站禁止18岁以下观众观看。2018.10.31，动漫图像数据集
 
+
+- Danbooru 
+
+https://www.gwern.net/Danbooru2018
+
+- safebooru
+
+A LARGE-SCALE CROWDSOURCED AND TAGGED ANIME ILLUSTRATION DATASET
+一个大规模的众包和标记动画插图数据集
+https://safebooru.donmai.us/
+
+
+- getchu 
+https://www.getchu.com/
+
+ONE_SIX_MIX 写了爬虫 
+github 仓库：https://github.com/One-sixth/getchu_character_picture_grabber
 
 ### 3.7.1 动漫的头像生成
 
@@ -1238,7 +1264,24 @@ https://makegirlsmoe.github.io/assets/pdf/technical_report.pdf
 [jieshao](http://www.sohu.com/a/168828469_633698)
 
 
-目前最好的是StyleGan。
+
+### BigGAN
+
+BigGan生成效果非常惊艳。
+
+
+ANIME305用BigGAN达到不错的效果
+
+![ANIME](https://github.com/weslynn/graphic-deep-neural-network/blob/master/2dpic/fake_steps_12600.jpg)
+
+https://github.com/ANIME305/Anime-GAN-tensorflow#open-sourced-dataset
+
+gwern 用BigGan生成的256x256的效果
+
+![ANIME](https://github.com/weslynn/graphic-deep-neural-network/blob/master/2dpic/samples7.jpg)
+
+
+### StyleGan
 
 
 
