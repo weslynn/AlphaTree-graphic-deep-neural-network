@@ -1222,33 +1222,64 @@ https://github.com/iperov/DeepFaceLab
 ## 3.7 动漫二次元相关
 
 动漫常用的数据库有如下几个：
-- niconico上仅限于学术目的的图。需要科研机构申请才可以下载。
-nico-opendata
+- nico-opendata
+nico-opendata https://nico-opendata.jp/en/index.html
 At Niconico, we are providing a wide variety of data from our services,
 to be used for academic purposes.  仅限用于学术目的。
-包含：
-Nico-Illust    超过40万张图像（插图）
-This dataset contains over 400,000 images (illustraions) from Niconico Seiga and Niconico Shunga.
-Niconico Seiga is a community for posting illustrations.  一个发布插图的社区。
-Niconico Shunga is a community for posting illustrations, where submission of explicit content is allowed. Viewers under age 18 are prohibited in this website.  本网站禁止18岁以下观众观看。2018.10.31，动漫图像数据集
 
+- Nico-Illust    超过40万张图像（插图） https://nico-opendata.jp/en/seigadata/index.html
+This dataset contains over 400,000 images (illustraions) from Niconico Seiga and Niconico Shunga.
+Niconico Seiga is a community for posting illustrations.  一个发布插图的社区。http://seiga.nicovideo.jp/
+Niconico Shunga is a community for posting illustrations, where submission of explicit content is allowed. Viewers under age 18 are prohibited in this website.  本网站禁止18岁以下观众观看。  http://seiga.nicovideo.jp/shunga/
 
 - Danbooru 
 
+Danbooru2018 is a large-scale anime image database with 3.33m+ images annotated with 99.7m+ tags; it can be useful for machine learning purposes such as image recognition and generation.
+
 https://www.gwern.net/Danbooru2018
+
+http://www.gwern.net/Danbooru2017
+
+大神 gwern 的工作，数据来自 danbooru。
+
+G站（gelbooru）、D站（danbooru）、S站（safebooru）
+
+danbooru / 最老的恶魔，各系列的图片都很齐备
+
+gelbooru / danbooru以外最大的备份
+
+3dbooru / cosplay与写真收集
+
+yandere / 高清扫图，曾经的萌妹
+
+konachan / 高质量二次元壁纸
+
+iqdb / 图片逆向搜索
+
+saucenao / 图片逆向搜索
+
+whatanime / 动画截图逆向搜索
 
 - safebooru
 
 A LARGE-SCALE CROWDSOURCED AND TAGGED ANIME ILLUSTRATION DATASET
 一个大规模的众包和标记动画插图数据集
-https://safebooru.donmai.us/
 
+https://safebooru.donmai.us/
+https://safebooru.org/
 
 - getchu 
+
+游戏人设网站
+
 https://www.getchu.com/
 
 ONE_SIX_MIX 写了爬虫 
 github 仓库：https://github.com/One-sixth/getchu_character_picture_grabber
+
+
+- 
+
 
 ### 3.7.1 动漫的头像生成
 
