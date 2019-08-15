@@ -541,6 +541,21 @@ TL-GAN ： 找到隐藏空间中的特征轴（如BigGAN PGGAN等，然后在特
 
 [日本的开源GAN插件，局部定制毫无压力 | Demo](https://zhuanlan.zhihu.com/p/62569491)
 
+
+
+-------------------------------------------------------------
+在现有的BigGan基础上，发展方向有了一个新的分支，就是减少标注数据，加入无监督学习。
+
+## S³GAN（CompareGAN）
+
+
+High-Fidelity Image Generation With Fewer Labels
+https://arxiv.org/abs/1903.02271
+
+Github ：https://github.com/google/compare_gan
+
+
+
 -------------------------------------------------------
 
 # Level 3: GANs Applications in CV
