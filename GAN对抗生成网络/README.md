@@ -490,6 +490,9 @@ StyleGAN首先重点关注了ProGAN的生成器网络，它发现，渐进层的
 ![styleganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/styleganr.jpg)
 
 
+![stylegan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/stylegan.png)
+
+
 tf： https://github.com/NVlabs/stylegan
 
 不存在系列：
