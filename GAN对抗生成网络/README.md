@@ -568,19 +568,42 @@ Github ：https://github.com/google/compare_gan
 图像翻译，指从一副（源域）输入的图像到另一副（目标域）对应的输出图像的转换。它代表了图像处理的很多问题，比如灰度图、梯度图、彩色图之间的转换等。可以类比机器翻译，一种语言转换为另一种语言。翻译过程中会保持源域图像内容不变，但是风格或者一些其他属性变成目标域。
 
 有标注数据的，被称为Paired Image-to-Image Translation，没有标注数据的，被称为 Unpaired Image-to-Image Translation。
+一张图可以同时进行多领域转换的，称为Multiple Domain
 
 - [ Paired two domain data](#1-Paired-Image-to-Image-Translation)
 - [ Unpaired two domain data](#2-Unpaired-Image-to-Image-Translation)
 
+![compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/compare.png)
 
 
 |Title|	Co-authors|	Publication|Links|
 |:---:|:---:|:---:|:---:|
 |Pix2Pix |	Zhu & Park & et al.|CVPR 2017|[demo](https://affinelayer.com/pixsrv/) [code](https://phillipi.github.io/pix2pix/) [paper](https://arxiv.org/pdf/1611.07004v1.pdf)|
-|Pix2Pix HD|UC Berkeley | CVPR 2018|[paper](https://arxiv.org/pdf/1711.11585v2.pdf) [code](https://github.com/NVIDIA/pix2pixHD)|
-|CycleGan| ||[code](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) [paper](https://arxiv.org/pdf/1703.10593.pdf)|
-|StarGan|| ||
-|FUNIT|| ||
+|Pix2Pix HD|NVIDIA UC Berkeley | CVPR 2018|[paper](https://arxiv.org/pdf/1711.11585v2.pdf) [code](https://github.com/NVIDIA/pix2pixHD)|
+|SPADE|Nvidia|2019|[paper](https://arxiv.org/abs/1903.07291) [code](https://github.com/NVlabs/SPADE)|
+
+
+|Title|	Co-authors|	Publication|Links|
+|:---:|:---:|:---:|:---:|
+|CoupledGan||2016|[paper](https://arxiv.org/abs/1606.07536) [code](https://github.com/mingyuliutw/CoGAN)|
+|DTN||2017||
+|CycleGan| |2017|[code](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) [paper](https://arxiv.org/pdf/1703.10593.pdf)|
+|DiscoGan ||2017|[paper](https://arxiv.org/abs/1703.05192)|
+|DualGan||2017|[paper](https://arxiv.org/abs/1704.02510)|
+|UNIT||2017||
+|XGAN||2018||
+|OST||2018||
+|FUNIT||ICCV 2019|[paper](https://arxiv.org/pdf/1905.01723.pdf) [code](https://github.com/NVlabs/FUNIT) [demo](http://nvidia-research-mingyuliu.com/petswap)|
+
+Multiple Domain
+
+|Title|	Co-authors|	Publication|Links|
+|:---:|:---:|:---:|:---:|
+|Domain-Bank||2017||
+|ComboGAN||2017||
+|StarGan|| 2018||
+
+
 ## 1. Paired two domain data
 
 成对图像翻译典型的例子就是 pix2pix，pix2pix 使用成对数据训练了一个条件 GAN，Loss 包括 GAN 的 loss 和逐像素差 loss。而 PAN 则使用特征图上的逐像素差作为感知损失替代图片上的逐像素差，以生成人眼感知上更加接近源域的图像。
@@ -653,44 +676,6 @@ pix2pix的核心是有了对应关系，这种网络的应用范围还是比较�
 
 对于无成对训练数据的图像翻译问题，一个典型的例子是 CycleGAN。CycleGAN 使用两对 GAN，将源域数据通过一个 GAN 网络转换到目标域之后，再使用另一个 GAN 网络将目标域数据转换回源域，转换回来的数据和源域数据正好是成对的，构成监督信息。
 
-
-## CycleGan /DiscoGan /DualGan
-
-CycleGan: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
-
-朱俊彦
-
-https://arxiv.org/abs/1703.10593
-
-同一时期还有两篇非常类似的文章，同样的idea，同样的结构，同样的功能：DualGAN( https://arxiv.org/abs/1704.02510 ) 和 DiscoGAN( Learning to Discover Cross-Domain Relations with Generative Adversarial Networks ： https://arxiv.org/abs/1703.05192)
-
-CycleGan是让两个domain的图片互相转化。传统的GAN是单向生成，而CycleGAN是互相生成，一个A→B单向GAN加上一个B→A单向GAN，网络是个环形，所以命名为Cycle。理念就是，如果从A生成的B是对的，那么从B再生成A也应该是对的。CycleGAN输入的两张图片可以是任意的两张图片，也就是unpaired。
-
-![CycleGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/cyclegan.png)
-
-![CycleGanr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/cyclegan.jpg)
-
-官方pytorch代码（CycleGAN、pix2pix）：https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
-
-有趣的应用：
-地图转换
-风格转换
-游戏画风转换：Chintan Trivedi的实现：用CycleGAN把《堡垒之夜》转成《绝地求生》写实风。
-
-
-## StarGan
-
-StarGAN的引入是为了解决多领域间的转换问题的，之前的CycleGAN等只能解决两个领域之间的转换，那么对于含有C个领域转换而言，需要学习Cx(C-1)个模型，但StarGAN仅需要学习一个
-
-![starGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stargan.png)
-
-
-
-https://arxiv.org/pdf/1711.09020.pdf
-
-pytorch 原版github地址：https://github.com/yunjey/StarGAN 
-tf版github地址：https://github.com/taki0112/StarGAN-Tensorflow 
-
 ## CoGAN (CoupledGAN)
 
 CoGAN:Coupled Generative Adversarial Networks
@@ -721,6 +706,30 @@ https://wiseodd.github.io/techblog/2017/02/18/coupled_gan/
 
 
 
+## CycleGan /DiscoGan /DualGan
+
+CycleGan: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks
+
+朱俊彦
+
+https://arxiv.org/abs/1703.10593
+
+同一时期还有两篇非常类似的文章，同样的idea，同样的结构，同样的功能：DualGAN( https://arxiv.org/abs/1704.02510 ) 和 DiscoGAN( Learning to Discover Cross-Domain Relations with Generative Adversarial Networks ： https://arxiv.org/abs/1703.05192)
+
+CycleGan是让两个domain的图片互相转化。传统的GAN是单向生成，而CycleGAN是互相生成，一个A→B单向GAN加上一个B→A单向GAN，网络是个环形，所以命名为Cycle。理念就是，如果从A生成的B是对的，那么从B再生成A也应该是对的。CycleGAN输入的两张图片可以是任意的两张图片，也就是unpaired。
+
+![CycleGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/cyclegan.png)
+
+![CycleGanr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/cyclegan.jpg)
+
+官方pytorch代码（CycleGAN、pix2pix）：https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+
+有趣的应用：
+地图转换
+风格转换
+游戏画风转换：Chintan Trivedi的实现：用CycleGAN把《堡垒之夜》转成《绝地求生》写实风。
+
+
 ## FUNIT
 
 Few-Shot Unsupervised Image-to-Image Translation
@@ -730,6 +739,29 @@ https://arxiv.org/pdf/1905.01723.pdf
 小样本(few-shot)非监督图像到图像转换。
 
 https://github.com/NVlabs/FUNIT
+
+主要解决两个问题，小样本Few-shot和没见过的领域转换Unseen Domains。
+人能针对一个新物种，看少量样本，也能进行想象和推算 。关键就是 一个大类型的物种中，信息可以相互转换。
+
+![FUNIT](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/FUNIT.png)
+
+![FUNITr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/FUNITr.png)
+
+demo http://nvidia-research-mingyuliu.com/petswap
+
+
+## StarGan
+
+StarGAN的引入是为了解决多领域间的转换问题的，之前的CycleGAN等只能解决两个领域之间的转换，那么对于含有C个领域转换而言，需要学习Cx(C-1)个模型，但StarGAN仅需要学习一个
+
+![starGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stargan.png)
+
+
+
+https://arxiv.org/pdf/1711.09020.pdf
+
+pytorch 原版github地址：https://github.com/yunjey/StarGAN 
+tf版github地址：https://github.com/taki0112/StarGAN-Tensorflow 
 
 
 
@@ -1452,6 +1484,9 @@ http://hi.cs.waseda.ac.jp/~esimo/en/research/sketch/
 
 data： getchu head https://github.com/ANIME305/Anime-GAN-tensorflow
 
+二次元线稿 Anime-Girl-lineart-Generator
+keevs https://www.deviantart.com/keevs/art/Anime-Girl-lineart-Generator-88708558
+
 GAN变二次元 UGATIT
 https://github.com/znxlwm/UGATIT-pytorch
 
@@ -1461,6 +1496,8 @@ https://baijiahao.baidu.com/s?id=1636212645611494666&wfr=spider&for=pc
 http://dy.163.com/v2/article/detail/EHPRSNRT05313FBM.html
 
 GAN生成油画效果： AI Portraits Ars https://aiportraits.com/
+
+
 
 其他：
 
