@@ -1418,12 +1418,15 @@ https://github.com/youyuge34/PI-REC
 pradeeplam/Anime-Sketch-Coloring-with-Swish-Gated-Residual-UNet。
 
 
-其他 
-waifu2x, 属于是Image scaling领域的内容.
+### Image scaling /超分辨率
 
 waifu2x
 Github: nagadomi/waifu2x · GitHub
 http://bigjpg.com/
+
+
+Anime4k
+https://github.com/bloc97/Anime4K
 
 Single-Image Super-Resolution for anime/fan-art using Deep Convolutional Neural Networks.
 使用卷积神经网络(Convolutional Neural Network, CNN)针对漫画风格的图片进行放大. 

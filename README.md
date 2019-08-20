@@ -1013,8 +1013,26 @@ github: https://github.com/1adrianb/2D-and-3D-face-alignment
 other
 
 
+POSE
+------------------------------------------------------
+[综述A 2019 guide to Human Pose Estimation with Deep Learning](https://blog.nanonets.com/human-pose-estimation-2d-guide/?utm_source=reddit&utm_medium=social&utm_campaign=pose&utm_content=GROUP_NAME)
+
+## 2D Pose estimation
 
 
+
+
+
+## 3D Pose estimation
+
+## 2Dpose -> 3D 
+
+### OpenMMD
+https://github.com/peterljq/OpenMMD
+
+### PIFu
+
+https://shunsukesaito.github.io/PIFu/
 
 文字识别
 -------------------------------------------------------------------------------
