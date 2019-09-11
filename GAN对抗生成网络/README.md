@@ -505,6 +505,10 @@ https://www.obormot.net/demos/these-waifus-do-not-exist-alt
 
 猫： http://thesecatsdonotexist.com/
 
+换衣服： Generating High-Resolution Fashion Model Images Wearing Custom Outﬁts 1908.08847.pdf
+
+
+
 
 Estimated StyleGAN wallclock training times for various resolutions & GPU-clusters (source: StyleGAN repo)
 
@@ -907,6 +911,7 @@ demo:
 https://nvlabs.github.io/SPADE/demo.html
 http://nvidia-research-mingyuliu.com/gaugan
 
+https://www.nvidia.com/en-us/research/ai-playground/
 
 ---------------------------
 
