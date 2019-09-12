@@ -590,7 +590,7 @@ Github ：https://github.com/google/compare_gan
 |Title|	Co-authors|	Publication|Links|
 |:---:|:---:|:---:|:---:|
 |CoupledGan||2016|[paper](https://arxiv.org/abs/1606.07536) [code](https://github.com/mingyuliutw/CoGAN)|
-|DTN||2017||
+|DTN||2017|[paper](https://arxiv.org/abs/1611.02200v1) [code](https://github.com/yunjey/domain-transfer-network)|
 |CycleGan| |2017|[code](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) [paper](https://arxiv.org/pdf/1703.10593.pdf)|
 |DiscoGan ||2017|[paper](https://arxiv.org/abs/1703.05192)|
 |DualGan||2017|[paper](https://arxiv.org/abs/1704.02510)|
@@ -1190,7 +1190,7 @@ Demo 和代码链接：https://richzhang.github.io/ideepcolor/
 
 DeOldify: Colorizing and Restoring Old Images and Videos with Deep Learning
 
-老照片上色：“你我当年”
+老照片上色, 人脸处理，港星老照片：“你我当年”
 
 
 
@@ -1225,8 +1225,6 @@ Glow: Generative Flow with Invertible 1x1 Convolutions
 
 ### 3.6.3 换脸
 　
-从Deepfake到HeadOn：换脸技术发展简史
-
 　　DAPAR的担忧并非空穴来风，如今的变脸技术已经达到威胁安全的地步。最先，可能是把特朗普和普京弄来表达政治观点；但后来，出现了比如DeepFake，令普通人也可以利用这样的技术制造虚假色情视频和假新闻。技术越来越先进，让AI安全也产生隐患。
 
 　　1、Deepfake
@@ -1263,7 +1261,7 @@ HeadOn技术的图示HeadOn技术的图示
 
 　　例如，将普通人的脸换成奥巴马的脸。Deep Video Portraits 可以通过一段目标人物的视频（在这里就是奥巴马），来学习构成脸部、眉毛、嘴角和背景等的要素以及它们的运动形式。 
 
-
+  5、 ZAO
 
 
 工具 ：
@@ -1290,50 +1288,23 @@ Niconico Shunga is a community for posting illustrations, where submission of ex
 - Danbooru 
 
 Danbooru2018 is a large-scale anime image database with 3.33m+ images annotated with 99.7m+ tags; it can be useful for machine learning purposes such as image recognition and generation.
-
-https://www.gwern.net/Danbooru2018
-
-http://www.gwern.net/Danbooru2017
+[2018](https://www.gwern.net/Danbooru2018) [2017](http://www.gwern.net/Danbooru2017)
 
 大神 gwern 的工作，数据来自 danbooru。
 
-G站（gelbooru）、D站（danbooru）、S站（safebooru）
+| Site | Intro  |Link|
+| --- | --- | ---|
+|danbooru:D站 |最老的恶魔，各系列的图片都很齐备||
+|gelbooru :G站| danbooru以外最大的备份||
+|3dbooru | cosplay与写真收集||
+|yandere | 高清扫图，曾经的萌妹||
+|konachan | 高质量二次元壁纸||
+|iqdb | 图片逆向搜索||
+|saucenao | 图片逆向搜索||
+|whatanime | 动画截图逆向搜索||
+|safebooru:S站 |A LARGE-SCALE CROWDSOURCED AND TAGGED ANIME ILLUSTRATION DATASET 一个大规模的众包和标记动画插图数据集|[link](https://safebooru.donmai.us/) [link](https://safebooru.org/)|
+|getchu |游戏人设网站|[link](https://www.getchu.com/) [爬虫](https://github.com/One-sixth/getchu_character_picture_grabber)|
 
-danbooru / 最老的恶魔，各系列的图片都很齐备
-
-gelbooru / danbooru以外最大的备份
-
-3dbooru / cosplay与写真收集
-
-yandere / 高清扫图，曾经的萌妹
-
-konachan / 高质量二次元壁纸
-
-iqdb / 图片逆向搜索
-
-saucenao / 图片逆向搜索
-
-whatanime / 动画截图逆向搜索
-
-- safebooru
-
-A LARGE-SCALE CROWDSOURCED AND TAGGED ANIME ILLUSTRATION DATASET
-一个大规模的众包和标记动画插图数据集
-
-https://safebooru.donmai.us/
-https://safebooru.org/
-
-- getchu 
-
-游戏人设网站
-
-https://www.getchu.com/
-
-ONE_SIX_MIX 写了爬虫 
-github 仓库：https://github.com/One-sixth/getchu_character_picture_grabber
-
-
-- 
 
 
 ### 3.7.1 动漫的头像生成
@@ -1376,11 +1347,16 @@ gwern 用BigGan生成的256x256的效果
 
 ### StyleGan
 
+Gwern 用StyleGan 跑出如下效果
+
+![ANIME](https://github.com/weslynn/graphic-deep-neural-network/blob/master/2dpic/thiswaifudoesnotexist-100samples.jpg)
 
 
 从真人照片到动漫头像，之前有twin—gan做了尝试，然后很多手机应用上做了一些，包括国内美图，但是多样化很差，国外google，facebook，做的emoji效果。效果不够好，
 
-因此我们这里主要介绍动漫的图像上色。
+emoji：DTN-- Unsupervised Cross-domain Image Generation https://arxiv.org/abs/1611.02200
+
+### 3.7.2 动漫的图像上色
 
 
 | Image Type | Paper | Source | Code/Project Link  |
@@ -1401,51 +1377,41 @@ P站在“pixiv Sketch”上线过一项黑科技新功能——自动上色。�
 
 Style2paints会根据用户的颜色提示和选择的图片风格完成对图片的上色。目前共以下迭代了4个版本。
 
-Style2paints V1
-（信息暂未公开）
-Style Transfer for Anime Sketches with Enhanced Residual U-net and Auxiliary Classifier GAN
-https://arxiv.org/pdf/1706.03319.pdf
-使用的是Unet
+- Style2paints V1
+	（信息暂未公开）
+	Style Transfer for Anime Sketches with Enhanced Residual U-net and Auxiliary Classifier GAN
+	https://arxiv.org/pdf/1706.03319.pdf
+	使用的是Unet
+- Style2paints V2
+	于2017年12月发布，使用3×3 像素点的高精度提示和风格迁移给线稿或草图上色。已下线。
+	作者在Reddit上回答说，和上一版相比，style2paints 2.0大部分训练都是纯粹无监督，甚至无条件的。
+	也就是说，在这个模型的训练过程中，除了对抗规则之外没有添加其他的人工定义规则，没有规则来强迫生成器神经网络照着线稿画画，而是靠神经网络自己发现，如果遵照线稿，会更容易骗过鉴别器。
+	pix2pix、CycleGAN等同类模型为了确保收敛，会对学习对象添加l1 loss，鉴别器接收到的数据是成对的[input, training data]和[input, fake output]。而style2paints 2.0模型的学习目标和经典DCGAN完全相同，没有添加其他规则，鉴别器收到的也不是成对的输出。
+	作者说，让这样一个模型收敛其实是很难的，何况神经网络这么深。
+
+	https://zhuanlan.zhihu.com/p/32461125
 
 
-Style2paints V2
-于2017年12月发布，使用3×3 像素点的高精度提示和风格迁移给线稿或草图上色。已下线。
-作者在Reddit上回答说，和上一版相比，style2paints 2.0大部分训练都是纯粹无监督，甚至无条件的。
-也就是说，在这个模型的训练过程中，除了对抗规则之外没有添加其他的人工定义规则，没有规则来强迫生成器神经网络照着线稿画画，而是靠神经网络自己发现，如果遵照线稿，会更容易骗过鉴别器。
-pix2pix、CycleGAN等同类模型为了确保收敛，会对学习对象添加l1 loss，鉴别器接收到的数据是成对的[input, training data]和[input, fake output]。而style2paints 2.0模型的学习目标和经典DCGAN完全相同，没有添加其他规则，鉴别器收到的也不是成对的输出。
-作者说，让这样一个模型收敛其实是很难的，何况神经网络这么深。
+- Style2paints V3/PaintsTransfer-Euclid
 
-https://zhuanlan.zhihu.com/p/32461125
+	Style2paints V3较V2版本拥有更高的精准度，是V4版本的雏形。同样已下线，但能在github的开发页面下载源码以部署到本地。
 
+- Style2paints V4/PaintsTransfer
 
-Style2paints V3/PaintsTransfer-Euclid
+	于2018年11月发布，并做出以下更新：
 
-Style2paints V3的工作界面
-较V2版本拥有更高的精准度，是V4版本的雏形。同样已下线，但能在github的开发页面下载源码以部署到本地[1]。
-
-Style2paints V4/PaintsTransfer
-
-Style2paints V4的工作界面
-于2018年11月发布，并做出以下更新：
-
-1) 取消了V3版本中的颜色稳定器
-2) 引入了光渲染模式和固有色模式
-3) 加入提示保存和上传功能
+	1) 取消了V3版本中的颜色稳定器
+	2) 引入了光渲染模式和固有色模式
+	3) 加入提示保存和上传功能
 
 
-填充颜色>>添加颜色渐变>>添加阴影
+	填充颜色>>添加颜色渐变>>添加阴影
+
+- Style2paints和Mangacraft的关系
+	Style2paints和Mangacraft由一秒一喵/lllyasviel 开发完成的上色软件。但S2P是线稿纯上色软件，MC是黑白漫画上色软件，后台运作方式完全相同
 
 
-目前因作者经费不足而暂时关闭了服务器，但同时也宣布V4版本开源，并正在积极开发V4线下版以及V5版
-
-Style2paints和Mangacraft的关系
-Style2paints和Mangacraft都是由一秒一喵/lllyasviel和不存在的S2P项目组开发完成的上色软件。但有以下区别
-
-S2P是线稿纯上色软件，MC是黑白漫画上色软件
-S2P更面向于画师，MC更面向于普通看本子的群众（虽然官方这么说，实际上不会画画也是能用好S2P的）
-S2P V4早期使用了MC相同的前端和UI设计，其实后台运作方式万全相同，内测时服务器各种Bug所以被改得面目全非罢了
-
-
+### PI-REC
  PI-REC: Progressive Image Reconstruction Network With Edge and Color Domain.  https://arxiv.org/abs/1903.10146
 
 https://github.com/youyuge34/PI-REC
@@ -1454,10 +1420,9 @@ https://github.com/youyuge34/PI-REC
 《Anime Sketch Coloring with Swish-Gated Residual U-Net》
 pradeeplam/Anime-Sketch-Coloring-with-Swish-Gated-Residual-UNet。
 
+### 3.7.3 动漫的超分辨率/Image scaling 
 
-### Image scaling /超分辨率
-
-waifu2x
+### waifu2x
 Github: nagadomi/waifu2x · GitHub
 http://bigjpg.com/
 
@@ -1480,7 +1445,8 @@ paGAN：用单幅照片实时生成超逼真动画人物头像
 
 　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
 
-线稿提取：
+### 3.7.4 线稿提取
+
 Simplifying Rough Sketches using Deep Learning，作者为 Ashish Sinha。
 利用LSGAN 和CRF进行线稿简化
 https://github.com/bobbens/sketch_simplification/

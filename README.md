@@ -1067,6 +1067,10 @@ https://shunsukesaito.github.io/PIFu/
 
    https://github.com/skaae/recurrent-spatial-transformer-code
 
+google 的表格检测 tabel detection in heterogeneous documents
+
+常用的开源 tesseract   https://github.com/tesseract-ocr/tesseract  Combined Script and Page Orientation Estimation using the Tesseract OCR engine An Overview of the Tesseract OCR Engine
+后来加上lstm之后，效果有了更好的改善
 
 ### Text Detection (文字定位)
 
@@ -1339,6 +1343,7 @@ DocUNet: Document Image Unwarping via A Stacked U-Net  face++
 
 ![pic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/detail.jpg)
 
+
 ## Object Detection 物体检测
 
 这里借用一张图，展示Object Detection 基础算法的发展
@@ -1525,6 +1530,8 @@ ICCV 2017的最佳论文，在Mask R-CNN的工作中，它主要完成了三件�
 ---------------------------------------------------------------------------------
 ## Object Segmentation 物体分割
 目标识别网络（分类网络）尽管表面上来看可以接受任意尺寸的图片作为输入，但是由于网络结构最后全连接层的存在，使其丢失了输入的空间信息，因此，这些网络并没有办法直接用于解决诸如分割等稠密估计的问题。于是FCN用卷积层和池化层替代了分类网络中的全连接层，从而使得网络结构可以适应像素级的稠密估计任务。该工作被视为里程碑式的进步，因为它阐释了CNN如何可以在语义分割问题上被端对端的训练，而且高效的学习了如何基于任意大小的输入来为语义分割问题产生像素级别的标签预测。
+
+在深度学习统治计算机视觉领域之前，有Texton Forests和Random Forest based classifiers等方法来进行语义分割。
 
 ### FCN
 
