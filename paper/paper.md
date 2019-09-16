@@ -77,6 +77,19 @@ https://arxiv.org/pdf/1801.01615
 [李艳宾](https://blog.csdn.net/linghugoolge/article/details/87942340)
 
 
+美颜：
+很多拍照软件，会帮忙调整人的五官，可能参考了siggraph2008这一篇：
+Data-Driven Enhancement of Facial Attractiveness
 
 
+图像检索：
+综述 ： SIFT Meets CNN: A Decade Survey of Instance  Retrieval 2015 [pdf](https://arxiv.org/abs/1608.01807)
+看了一下有翻译版，顺便链接上： [上](https://mp.weixin.qq.com/s?__biz=MzUyMjE2MTE0Mw==&mid=2247486346&idx=1&sn=139309de32ae1b72fc3ce5e81fd7811a&chksm=f9d15512cea6dc0449ba0ba223ab5b8fb790b8892d7dc755766475e7877b5dcf88e2cfe74863&scene=21#wechat_redirect) [下](https://www.imooc.com/article/33964)
 
+
+videosearch - Large-scale video retrieval using image queries [link](https://ieeexplore.ieee.org/document/7851077/citations#citations)
+https://github.com/andrefaraujo/videosearch
+
+
+分布式训练：
+A Hitchhiker's Guid on Distributed Training of Deep Neural Networks
