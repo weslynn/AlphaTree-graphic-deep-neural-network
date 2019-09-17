@@ -1379,6 +1379,7 @@ Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 
 ![obj](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/obj.png)
 
+[link](https://handong1587.github.io/deep_learning/2015/10/09/object-detection.html#non-maximum-suppression-nms)
 
 ### RCNN  Ross B. Girshick(RBG) [link](https://people.eecs.berkeley.edu/~rbg/index.html) / UC-Berkeley
 
@@ -1411,6 +1412,11 @@ github: https://github.com/rbgirshick/rcnn
 
 这样打破了之前大家认为需要先提出检测框，然后resize到一个固定尺寸再通过CNN的模式，而可以图片先通过CNN获取到特征后，在特征图上使用不同的检测框提取特征。之后pooling到同样尺寸进行后续步骤。这样可以提高物体检测速度。
 
+-intro: ECCV 2014 / TPAMI 2015
+-keywords: SPP-Net
+-arxiv: http://arxiv.org/abs/1406.4729
+-github: https://github.com/ShaoqingRen/SPP_net
+-notes: http://zhangliliang.com/2014/09/13/paper-note-sppnet/
 
 ### Fast RCNN Ross B. Girshick
 * Fast RCNN
@@ -1516,7 +1522,17 @@ R-FCN是对faster rcnn的改进。因为Faster RCNN的roi pooling中的全连接
 
 [介绍](https://blog.csdn.net/App_12062011/article/details/79737363)
 
+-arxiv: http://arxiv.org/abs/1605.06409
+-github: https://github.com/daijifeng001/R-FCN
+-github(MXNet): https://github.com/msracver/Deformable-ConvNets/tree/master/rfcn
+-github: https://github.com/Orpine/py-R-FCN
+-github: https://github.com/PureDiors/pytorch_RFCN
+-github: https://github.com/bharatsingh430/py-R-FCN-multiGPU
+-github: https://github.com/xdever/RFCN-tensorflow
 
+R-FCN-3000 at 30fps: Decoupling Detection and Classification
+
+https://arxiv.org/abs/1712.01802
 
 ### Mask R-CNN
 * Mask R-CNN
