@@ -66,7 +66,7 @@ Manga FaceNet: Face Detection in Manga based on Deep Neural Network
 
 Facial Landmark Detection for Manga Images
 
-用的Manga109的数据，需要邮件申请。模型不开源，开源了manga109识别出的人脸标注点数据
+用的Manga109的数据，需要邮件申请。想做一个和 300 faces in-the-wild challenge一样的ibug模型，模型不开源，开源了部分识别出的人脸标注点数据，需要配合Manga109数据使用。
 <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/2dpic/mangaface.jpg" width="600">
 
 - arxiv:https://arxiv.org/pdf/1811.03214
