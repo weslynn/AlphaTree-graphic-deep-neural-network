@@ -46,9 +46,15 @@ iCartoonFace： 爱奇艺
 ## 动漫人脸检测
 
 ### LBP
-目前常用的动漫人脸检测方法为LBP,主要是因为识别出来的人脸，准确率较高，但是检出率相对较低。如果希望拥有较高检出率，可以使用一些tiny face 的检测方法。
+目前常用的动漫人脸检测方法为LBP,主要是因为识别出来的人脸，准确率较高，但是检出率相对较低。如果希望拥有较高检出率，可以使用一些DNN的检测方法。
 
 https://github.com/nagadomi/lbpcascade_animeface
+
+### AnimeHeadDetector
+用yolo v3
+
+https://github.com/grapeot/AnimeHeadDetector
+
 
 ## 动漫人脸特征点检测
 
@@ -67,7 +73,7 @@ Manga FaceNet: Face Detection in Manga based on Deep Neural Network
 Facial Landmark Detection for Manga Images
 
 用的Manga109的数据，需要邮件申请。想做一个和 300 faces in-the-wild challenge一样的ibug模型，模型不开源，开源了部分识别出的人脸标注点数据，需要配合Manga109数据使用。
-<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/2dpic/mangaface.jpg" width="600">
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/2dpic/mangaface.jpg" width="400">
 
 - arxiv:https://arxiv.org/pdf/1811.03214
 - github:https://github.com/oaugereau/FacialLandmarkManga
