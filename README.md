@@ -1412,11 +1412,11 @@ github: https://github.com/rbgirshick/rcnn
 
 这样打破了之前大家认为需要先提出检测框，然后resize到一个固定尺寸再通过CNN的模式，而可以图片先通过CNN获取到特征后，在特征图上使用不同的检测框提取特征。之后pooling到同样尺寸进行后续步骤。这样可以提高物体检测速度。
 
--intro: ECCV 2014 / TPAMI 2015
--keywords: SPP-Net
--arxiv: http://arxiv.org/abs/1406.4729
--github: https://github.com/ShaoqingRen/SPP_net
--notes: http://zhangliliang.com/2014/09/13/paper-note-sppnet/
+- intro: ECCV 2014 / TPAMI 2015
+- keywords: SPP-Net
+- arxiv: http://arxiv.org/abs/1406.4729
+- github: https://github.com/ShaoqingRen/SPP_net
+- notes: http://zhangliliang.com/2014/09/13/paper-note-sppnet/
 
 ### Fast RCNN Ross B. Girshick
 * Fast RCNN
