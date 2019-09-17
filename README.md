@@ -645,21 +645,6 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
 
 
 
-
-
-
-此外我们可以了解一下商用的一些算法：
-
-
-
-### DenseBox Baidu
-
-DenseBox: Unifying Landmark Localization with End to End Object Detection
-
-arxiv: http://arxiv.org/abs/1509.04874
-demo: http://pan.baidu.com/s/1mgoWWsS
-KITTI result: http://www.cvlibs.net/datasets/kitti/eval_object.php
-
 -------------------------------------------------------------
 ### Landmark Localization 68 points
 -------------------------------------------------------------
@@ -687,10 +672,6 @@ Deformable part models (DPMs)
 
 ## face++  DCNN
 2013 香港中文大学汤晓欧，SunYi等人作品，首次将CNN用于人脸关键点检测。总体思想是由粗到细，实现5个人脸关键点的精确定位。网络结构分为3层：level 1、level 2、level 3。每层都包含多个独立的CNN模型，负责预测部分或全部关键点位置，在此基础上平均来得到该层最终的预测结果。
-
-
-
-
 
 
 
