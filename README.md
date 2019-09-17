@@ -643,27 +643,9 @@ MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务�
 
    tensorflow 源码 : https://github.com/davidsandberg/facenet/tree/master/src/align 
 
-### TinyFace
-
-### DSFD: Dual Shot Face Detector
-
-[介绍](https://blog.csdn.net/wwwhp/article/details/83757286)
-### FaceBoxes
-
-
-文章链接： 《FaceBoxes: A CPU Real-time Face Detector with High Accuracy》
-
-非官方实现 https://github.com/zeusees/FaceBoxes
-
-
-### PCN 
-
-
-https://arxiv.org/pdf/1804.06039.pdf.
 
 
 
-https://github.com/Jack-CV/PCN
 
 
 此外我们可以了解一下商用的一些算法：
