@@ -1344,6 +1344,9 @@ DocUNet: Document Image Unwarping via A Stacked U-Net  face++
 ![pic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/detail.jpg)
 
 
+
+
+
 ## Object Detection 物体检测
 
 这里借用一张图，展示Object Detection 基础算法的发展
@@ -1372,6 +1375,9 @@ Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 
 评价标准: IoU(Intersection over Union)； mAP(Mean Average Precision) 速度：帧率FPS
 ![iou](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/iou.png)
+
+
+![obj](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/obj.png)
 
 
 ### RCNN  Ross B. Girshick(RBG) [link](https://people.eecs.berkeley.edu/~rbg/index.html) / UC-Berkeley
