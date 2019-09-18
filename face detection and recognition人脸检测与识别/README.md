@@ -350,12 +350,24 @@ VanillaCNN
 
 ## DAN Deep-Alignment-Network
 
+Kowalski, M.; Naruniec, J.; Trzcinski, T.: "Deep Alignment Network: A convolutional neural network for robust face alignment", CVPRW 2017
+
 https://github.com/MarekKowalski/DeepAlignmentNetwork
 
 
-##LAB (LAB-Look at Boundary A Boundary-Aware Face Alignment Algorithm )
+tensorflow实现
+
+zjjMaiMai's implementatation：https://github.com/zjjMaiMai/Deep-Alignment-Network-A-convolutional-neural-network-for-robust-face-alignment
+mariolew's implementatation：https://github.com/mariolew/Deep-Alignment-Network-tensorflow
+
+## LAB (LAB-Look at Boundary A Boundary-Aware Face Alignment Algorithm )
 2018cvpr 清华&商汤作品。借鉴人体姿态估计，将边界信息引入关键点回归上。网络包含3个部分：边界热度图估计模块（Boundary heatmap estimator），基于边界的关键点定位模块（ Boundary-aware landmarks regressor ）和边界有效性判别模块（Boundary effectiveness discriminator）
 
+![lab](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/lab.png)
+
+- 边界热度图估计模块：采用stacked hourglass network 和 message passing layers。输入人脸图像，输出人脸边界热度图来表示面部的几何结构。人脸面部的各个器官边界共构成K个边界。每个stack结束时，特征图被分成K个分支，分别送给各个对应类型的边界热度图估计。最终生成的热度图与输入原始图像进行融合，作为关键点定位模块的输入。
+- 基于边界的关键点定位模块，利用边界信息，通过4阶res-18网络来定位关键点
+- 边界有效性判别模块，由于边界热度图在关键点定位中起着非常重要的作用，因此需要对生成的边界信息的准确性进行评判。该模块采用对抗网络，评判边界热度图的有效性。
 
 -----------------------------------------------------------------------------------------------------------
 
@@ -505,7 +517,7 @@ github：https://github.com/TadasBaltrusaitis/OpenFace
 这个模型主要就是用类MobileNet V2的结构，加上ArcFace的loss进行训练。
 
 --------------------------------------
-## 3d face
+## 3D Face
 3D人脸重建主要有两种方式，一种是通过多摄像头或者多帧图像的关键点匹配(Stereo matching)，重建人脸的深度信息，或者深度相机，从而得到模型,另一种是通过预先训练好的人脸模型(3d morphable model)，拟合单帧或多帧RGB图像或深度图像，从而得到3d人脸模型的个性化参数。
 
 深度学习在3d face的研究着重在第二个。
@@ -549,16 +561,22 @@ http://www.cbsr.ia.ac.cn/users/xiangyuzhu/projects/3DDFA/main.htm
 此外，作者提出两种pose-invariant的特征Piecewise Affine-Warpped Feature (PAWF)和Direct 3D Projected Feature (D3PF)，可以进一步提升特征点定位的精度
 
 
-End to end 的方法，将输入图片转换为3DMM参数
+
+
+
+
+## 密集人脸对齐
+
+用cnn学习2d图像与3d图像之间的密集对应关系 然后使用预测的密集约束计算3DMM参数。
+
+
 ### 3dmm_cnn 
+
+End to end 的方法，将输入图片转换为3DMM参数
 
 Regressing Robust and Discriminative 3D Morphable Models with a very Deep Neural Network 2016
 https://github.com/anhttran/3dmm_cnn
 
-
-
-
- 密集人脸对齐 用cnn学习2d图像与3d图像之间的密集对应关系 然后使用预测的密集约束计算3DMM参数。
 
 ### DeFA： Dense Face Alignment /Pose-Invariant Face Alignment (PIFA) ICCV 2017 
 http://cvlab.cse.msu.edu/project-pifa.html 
@@ -573,9 +591,16 @@ http://cvlab.cse.msu.edu/project-pifa.html
 原文： CVPR 2017 https://github.com/ralpguler/DenseReg
 摘要： 在本文中，我们提出通过完全卷积网络学习从图像像素到密集模板网格的映射。我们将此任务作为一个回归问题，并利用手动注释的面部标注来训练我们的网络。我们使用这样的标注，在三维对象模板和输入图像之间，建立密集的对应领域，然后作为训练我们的回归系统的基础。我们表明，我们可以将来自语义分割的想法与回归网络相结合，产生高精度的“量化回归”架构。我们的系统叫DenseReg，可以让我们以全卷积的方式估计密集的图像到模板的对应关系。因此，我们的网络可以提供有用的对应信息，而当用作统计可变形模型的初始化时，我们获得了标志性的本地化结果，远远超过当前最具挑战性的300W基准的最新技术。我们对大量面部分析任务的方法进行了全面评估，并且还展示了其用于其他估计任务的用途，如人耳建模。
 
+http://alpguler.com/DenseReg.html
 
+### FAN
 
-### vrn
+How far are we from solving the 2D & 3D Face Alignment problem?)
+
+ICCV 2017 诺丁汉大学作品。在现存2D和3D人脸对齐数据集上，本文研究的这个非常深的神经网络达到接近饱和性能的程度。本文主要做了5个贡献：（1）结合最先进的人脸特征点定位（landmark localization）架构和最先进的残差模块（residual block），首次构建了一个非常强大的基准，在一个超大2D人脸特征点数据集（facial landmark dataset）上训练，并在所有其他人脸特征点数据集上进行评估。（2）我们构建一个将2D特征点标注转换为3D标注，并所有现存数据集进行统一，构建迄今最大、最具有挑战性的3D人脸特征点数据集LS3D-W（约230000张图像）。（3）然后，训练一个神经网络来进行3D人脸对齐（face alignment），并在新的LS3D-W数据集上进行评估。（4）本文进一步研究影响人脸对齐性能的所有“传统”因素，例如大姿态( large pose)，初始化和分辨率，并引入一个“新的”因素，即网络的大小。（5）本文的测试结果显示2D和3D人脸对齐网络都实现了非常高的性能，足以证明非常可能接近所使用的数据集的饱和性能。训练和测试代码以及数据集可以从 https://www.adrianbulat.com/face-alignment/%20下载
+
+### VRN
+
 诺丁汉大学和金斯顿大学 用CNN Regression的方法解决大姿态下的三维人脸重建问题。 
 ICCV论文：《Large Pose 3D Face Reconstruction from a Single Image via Direct Volumetric CNN Regression》
 
@@ -599,6 +624,10 @@ PRNet 简单来说，就是以前的一张图片三通道是RGB，表达的是�
 简单有效。
 
 PS： 个人用CAS-PEAL-R1数据集测试了作者给的模型，人脸角度偏差在5°以内，胜过其他二维图片68个特征点很多算法的效果。
+
+[翻译](https://blog.csdn.net/u011681952/article/details/82383518)
+[jianshu](https://www.jianshu.com/p/b460e99e03b0)
+
 
 HPEN High-Fidelity Pose and Expression Normalization for Face Recognition in the Wild
 
@@ -641,3 +670,8 @@ github: https://github.com/1adrianb/2D-and-3D-face-alignment
 
 
 other
+
+
+参考
+
+https://www.jianshu.com/p/e4b9317a817f

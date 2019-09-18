@@ -41,7 +41,13 @@ iCartoonFace： 爱奇艺
 - link:https://www.arxiv-vanity.com/papers/1907.13394/
 ![ANIMEface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/2dpic/intro_icartoonface.jpg)
 
-新出的数据集，需要邮件申请，不过申请似乎没有回应。
+
+
+非日式漫画的漫画数据库：
+
+https://cvit.iiit.ac.in/research/projects/cvit-projects/cartoonfaces
+
+webCaricature https://cs.nju.edu.cn/rl/WebCaricature.htm 该数据集包含了252个名人的6042幅漫画图像以及5974幅人脸图像
 
 ## 动漫人脸检测
 
@@ -73,6 +79,7 @@ Manga FaceNet: Face Detection in Manga based on Deep Neural Network
 Facial Landmark Detection for Manga Images
 
 用的Manga109的数据，需要邮件申请。想做一个和 300 faces in-the-wild challenge一样的ibug模型，模型不开源，开源了部分识别出的人脸标注点数据，需要配合Manga109数据使用。
+
 <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/2dpic/mangaface.jpg" width="400">
 
 - arxiv:https://arxiv.org/pdf/1811.03214

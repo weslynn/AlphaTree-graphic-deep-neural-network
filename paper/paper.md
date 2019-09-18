@@ -93,3 +93,8 @@ https://github.com/andrefaraujo/videosearch
 
 分布式训练：
 A Hitchhiker's Guid on Distributed Training of Deep Neural Networks
+
+2D->3D  景深变换
+
+3D Ken Burns Effect from a Single Image
+https://arxiv.org/abs/1909.05483
