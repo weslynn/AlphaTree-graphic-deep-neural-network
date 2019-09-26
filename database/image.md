@@ -103,7 +103,8 @@ Nature Conservancy Fisheries Monitoring 过度捕捞监控图像数据【Kaggle�
 Stanford Dogs Dataset 数据集
 辛普森一家卡通形象图像【Kaggle竞赛】
 Fashion-MNIST 时尚服饰图像数据
-
+Deep Fashion http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/FashionSynthesis.html
+Deep Fashion2 https://arxiv.org/pdf/1901.07973.pdf https://sites.google.com/view/cvcreative/home?authuser=0
 
 
 材质纹理图像

@@ -507,7 +507,7 @@ https://www.obormot.net/demos/these-waifus-do-not-exist-alt
 
 换衣服： Generating High-Resolution Fashion Model Images Wearing Custom Outﬁts 1908.08847.pdf
 
-
+other change clothers: https://arxiv.org/pdf/1710.07346.pdf
 
 
 Estimated StyleGAN wallclock training times for various resolutions & GPU-clusters (source: StyleGAN repo)
@@ -924,9 +924,13 @@ AutoDraw能将机器学习与你信手涂鸦创建的图形配对，帮助你绘
 ## 3.4  Image Inpainting(图像修复)/Image Outpainting(图像拓展)/图像融合
 
 图像修复传统算法：PatchMatch  PatchMatch: A Randomized Correspondence Algorithm for Structural Image Editing 、
- Space-Time completion of Image，据说Adobe ps cs5 中使用作为图像填充。
+ Space-Time completion of Image，据说Adobe ps cs5 中使用作为图像填充。不断迭代的用相似的非孔区域图片块来替换孔区域图片块。 优点是一张图片就行。缺点：慢，非语义
 
- 深度学习时代有不一样的发展：
+
+ Fast Marching (OpenCV)
+
+深度学习有了不一样的发展:
+
 
 | Paper | Source | Code/Project Link  |
 | --- | --- | --- |
@@ -968,7 +972,12 @@ Guilin Liu, Fitsum A. Reda, Kevin J. Shih, Ting-Chun Wang, Andrew Tao, Bryan Cat
 NVIDIA Corporation 
 In The European Conference on Computer Vision (ECCV) 2018 
 
-号称秒杀PS的AI图像修复神器，来自于Nvidia 研究团队。引入了局部卷积，能够修复任意非中心、不规则区域）
+号称秒杀PS的AI图像修复神器，来自于Nvidia 研究团队。引入了局部卷积，只对部分区域做卷积，而破损区域置0,`能够修复任意非中心、不规则区域
+
+在此之前基于深度学习的方法缺点： 
+- 有孔区域需要设置初始值，深度学习网络会混淆那些初始值，以为是非孔区域数据。
+- 需要后期要处理
+- 只能处理规则孔
 
 https://arxiv.org/pdf/1804.07723.pdf
 

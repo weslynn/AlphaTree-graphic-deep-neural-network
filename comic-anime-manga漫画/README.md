@@ -221,6 +221,15 @@ https://github.com/youyuge34/PI-REC
 《Anime Sketch Coloring with Swish-Gated Residual U-Net》
 pradeeplam/Anime-Sketch-Coloring-with-Swish-Gated-Residual-UNet。
 
+
+
+other: 
+
+### LearningToPaint
+
+ https://github.com/hzwer/ICCV2019-LearningToPaint
+
+
 ### 3.7.3 动漫的超分辨率/Image scaling 
 
 ### waifu2x
