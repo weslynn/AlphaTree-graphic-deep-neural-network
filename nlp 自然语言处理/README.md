@@ -6,6 +6,32 @@ NLP 是计算机科学领域与人工智能领域中的一个重要方向。它�
 
 自然语言理解方向，主要目标是帮助机器更好理解人的语言，包括基础的词法、句法等语义理解，以及需求、篇章、情感层面的高层理解。
 
+自然语言理解按照功能分：
+- 分类（Classification）:
+
+	·文本分类、情感分析
+
+	·应用：文档分类、信息过滤、标签生成…
+
+- 匹配（Matching）：
+
+	·语义相似计算、同义词/近义词
+
+	·应用：检索、排序、过滤、聚类、基础特征
+
+- 结构化预测（Structured Prediction）：
+
+	·NER、PoS Tagging、Semantic Role Labeling、Parsing
+
+	·应用：分词、语法分析、信息提取
+
+- 转换/翻译（Transform/Translate):
+
+	·机器翻译、语音识别、摘要
+
+	·应用：机器翻译、语音助手
+
+
 自然语言生成方向，主要目标是帮助机器生成人能够理解的语言，比如文本生成、自动文摘等。
 
 
@@ -22,16 +48,17 @@ NLP 是计算机科学领域与人工智能领域中的一个重要方向。它�
 
 神经网络自然语言处理的技术体系分为如下几个部分：
 
-- Word Embedding 词的编码 2014
-	词编码的目的是用多维向量来表征词的语义。
-    One-Hot(bag of word)
 
-    fast-text 
+## Word Embedding 词的编码 2014
+	词编码的目的是用多维向量来表征词的语义。
+### One-Hot(bag of word)
+
+### fast-text 
 
     https://github.com/facebookresearch/fastText
 
 
-	word2vec
+### word2vec
 	- CBOW（(Continuous Bag-of-Words），用周围的词预测当前的词
 	- Skip-gram，用当前的词预测周围的词。
 	通过大规模的学习训练，就可以得到每个词稳定的多维向量，作为它的语义表示。
@@ -42,7 +69,7 @@ NLP 是计算机科学领域与人工智能领域中的一个重要方向。它�
 句子中每个单词以Onehot形式作为输入，然后乘以学好的Word Embedding矩阵Q，就直接取出单词对应的Word Embedding了
 
 
-- 句子的编码
+## 句子的编码
 	一般通过RNN（循环神经网络）或者CNN（卷积神经网络）来做。
 	- RNN从左到右对句子进行建模，每个词对应一个隐状态，该引状态代表了从句首到当前词的语义信息，句尾的状态就代表了全句的信息。
 	- CNN从理论上分别进行词嵌入+位置嵌入+卷积，加上一个向量表示，对应句子的语义。
@@ -52,30 +79,31 @@ NLP 是计算机科学领域与人工智能领域中的一个重要方向。它�
 ![sentence](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/sentence.JPG)
 
 
-- 注意力模型Attention Model
+## 注意力模型Attention Model
 
-		https://arxiv.org/abs/1706.03762
+	https://arxiv.org/abs/1706.03762
 
-		它综合考量了在当前状态下对应的编码的每一个隐状态，加权平均，来体现当前的动态输入。这类技术引入之后，神经网络机器翻译就得到了飞速的发展。
-		后面又引入了Transformer。Transformer引入了自编码，一个词跟周围的词建立相似，引入多头，可以引入多种特征表达，所以编码效果或者编码的信息更加丰富。
+	它综合考量了在当前状态下对应的编码的每一个隐状态，加权平均，来体现当前的动态输入。这类技术引入之后，神经网络机器翻译就得到了飞速的发展。
+	后面又引入了Transformer。Transformer引入了自编码，一个词跟周围的词建立相似，引入多头，可以引入多种特征表达，所以编码效果或者编码的信息更加丰富。
 
-		Transformer是个叠加的“自注意力机制（Self Attention）”构成的深度网络，是目前NLP里最强的特征提取器
+### Transformer
+	Transformer是个叠加的“自注意力机制（Self Attention）”构成的深度网络，是目前NLP里最强的特征提取器
 
-		http://nlp.seas.harvard.edu/2018/04/03/attention.html
+	http://nlp.seas.harvard.edu/2018/04/03/attention.html
 
-		https://jalammar.github.io/illustrated-transformer/
+	https://jalammar.github.io/illustrated-transformer/
 
-Transformer利用self-attention和position embedding克服了RNN中的长距离依赖、无法并行计算的缺点，也解决了CNN中远距离特征捕获难的问题，并在机器翻译领域大有取代RNN的之势。然而，在语言建模中，Transformer 目前使用固定长度的上下文来实现，即将一个长文本序列截成多个包含数百个字符的长度固定的句段，然后单独处理每个句段。
-这引入了两个关键限制：
+	Transformer利用self-attention和position embedding克服了RNN中的长距离依赖、无法并行计算的缺点，也解决了CNN中远距离特征捕获难的问题，并在机器翻译领域大有取代RNN的之势。然而，在语言建模中，Transformer 目前使用固定长度的上下文来实现，即将一个长文本序列截成多个包含数百个字符的长度固定的句段，然后单独处理每个句段。
+	这引入了两个关键限制：
 
-1 算法无法对超过固定长度的依赖关系建模
-2 句段通常不遵循句子边界，从而造成上下文碎片化，导致优化效率低下。在长程依赖性不成其为问题的短序列中，这种做法尤其令人烦扰
-为了解决这些限制，我们推出了 Transformer-XL，
+	1 算法无法对超过固定长度的依赖关系建模
+	2 句段通常不遵循句子边界，从而造成上下文碎片化，导致优化效率低下。在长程依赖性不成其为问题的短序列中，这种做法尤其令人烦扰
+	为了解决这些限制，我们推出了 Transformer-XL，
  
-Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context
+### Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context
 
 
-- 预训练模型
+## 预训练模型 pretrain model
 
 预训练模型引起了很多人的关注。
 多义词问题：
@@ -83,6 +111,7 @@ Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context
 多义词是自然语言中经常出现的现象，也是语言灵活性和高效性的一种体现。多义词对Word Embedding来说有什么负面影响？
 多义词Bank，有两个常用含义，但是Word Embedding在对bank这个单词进行编码的时候，是区分不开这两个含义的，因为它们尽管上下文环境中出现的单词不同，但是在用语言模型训练的时候，不论什么上下文的句子经过word2vec，都是预测相同的单词bank，而同一个单词占的是同一行的参数空间，这导致两种不同的上下文信息都会编码到相同的word embedding空间里去。所以word embedding无法区分多义词的不同语义，这就是它的一个比较严重的问题。
 
+### ELMo
 
 ELMo可以根据上下文体现它唯一的表征。
 
@@ -107,14 +136,14 @@ ELMO有什么值得改进的缺点呢？首先，一个非常明显的缺点在�
 https://blog.csdn.net/malefactor/article/details/83961886
 
 
-GPT “Generative Pre-Training”
+### GPT “Generative Pre-Training”
 如果把ELMO这种预训练方法和图像领域的预训练方法对比，发现两者模式看上去还是有很大差异的。除了以ELMO为代表的这种基于特征融合的预训练方法外，NLP里还有一种典型做法，这种做法和图像领域的方式就是看上去一致的了，一般将这种方法称为“基于Fine-tuning的模式”，而GPT就是这一模式的典型开创者。
 
 GPT也采用两阶段过程，第一个阶段是利用语言模型进行预训练，第二阶段通过Fine-tuning的模式解决下游任务。
 
 ![gpt](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/gpt.png)
 
-BERT
+### BERT
 Bert采用和GPT完全相同的两阶段模型，首先是语言模型预训练；其次是使用Fine-Tuning模式解决下游任务。和GPT的最主要不同在于在预训练阶段采用了类似ELMO的双向语言模型，当然另外一点是语言模型的数据规模要比GPT大。
 
 它用左边、右边的信息来预测最外部的词的信息，同时它也可以判断下一句是真的下一句还是伪造的下一句，用两种方式对句子每一个词进行编码，得到的训练结果就表征了这个词在上下文中的语义表示。基于这样的语义表示，就可以判断两个句子的关系，比如说是不是附属关系，判断一个句子的分类（例如Q&A中，判断回答对应的边界是不是对应提问），以及对输入的每一个词做一个标注，结果就得到一个词性标注。
@@ -125,7 +154,7 @@ Bert采用和GPT完全相同的两阶段模型，首先是语言模型预训练�
 
 
 
-GPT2  
+### GPT2  
 
 Language Models are Unsupervised Multitask Learners
 数据集 WebText
@@ -154,30 +183,6 @@ XLNET，以及UNILM、MASS、MT-DNN、XLM，都是基于这种思路的扩充，
 
 [自然语言处理的未来之路](https://www.leiphone.com/news/201907/djMxwOkOO5u4sf6O.html)
 
-自然语言理解按照功能分：
-- 分类（Classification）:
-
-	·文本分类、情感分析
-
-	·应用：文档分类、信息过滤、标签生成…
-
-- 匹配（Matching）：
-
-	·语义相似计算、同义词/近义词
-
-	·应用：检索、排序、过滤、聚类、基础特征
-
-- 结构化预测（Structured Prediction）：
-
-	·NER、PoS Tagging、Semantic Role Labeling、Parsing
-
-	·应用：分词、语法分析、信息提取
-
-- 转换/翻译（Transform/Translate):
-
-	·机器翻译、语音识别、摘要
-
-	·应用：机器翻译、语音助手、自动摘要
 
 
 标签系统
