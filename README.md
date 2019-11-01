@@ -1562,9 +1562,43 @@ tf ： https://github.com/shekkizh/FCN.tensorflow
 [参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)
 
 ### U-NET
-http://www.arxiv.org/pdf/1505.04597.pdf
+
+UNET 2005
+UNet 思想来源于图像压缩和去噪的一个思想：将图像编码成一个小图，之后再解码回实际大图。
+
+Unet的主要结构：
+下采样
+上采样
+skip connection
+
+降采样的理论意义:增加对输入图像的一些小扰动的鲁棒性，比如图像平移，旋转等，减少过拟合的风险，降低运算量，和增加感受野的大小。
+
+![unet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/unet.png)
+
+paper: http://www.arxiv.org/pdf/1505.04597.pdf
  
-SegNet
+
+UNet++ 2017
+
+就像Densnet 对Resnet的改进一样，Unet++ 通过将Unet中长连接拆成 短连接和长连接的组合，提升了效果
+
+UNet++: A Nested U-Net Architecture for Medical Image Segmentation
+
+paper: http://www.http://arxiv.org/abs/1807.10165
+
+Zongwei Zhou | 周纵苇
+![unet++](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/unet++.jpg)
+
+Github：https://github.com/MrGiovanni/Nested-UNet
+
+[zhihu](https://zhuanlan.zhihu.com/p/44958351)
+
+
+### SegNet
+
+### DeconvNet
+
+### Deeplab 
 
 
 
@@ -1588,11 +1622,6 @@ DeepLab v3
 
 
 
-### SegNet
-
-### DeconvNet
-
-### Deeplab 
 
 ### RefineNet
 

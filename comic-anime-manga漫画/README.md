@@ -279,6 +279,11 @@ http://dy.163.com/v2/article/detail/EHPRSNRT05313FBM.html
 GAN生成油画效果： AI Portraits Ars https://aiportraits.com/
 
 
+## CV & NLP
+
+### StoryGAN
+
+https://arxiv.org/pdf/1812.02784v2.pdf
 
 其他：
 
