@@ -9,7 +9,7 @@ NLP 是计算机科学领域与人工智能领域中的一个重要方向。它�
 自然语言生成方向，主要目标是帮助机器生成人能够理解的语言，比如文本生成、自动文摘等。
 
 
-![history](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/nlp/history.png)
+![history](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/history.png)
 
 历史：自然语言处理随着计算机的出现而出现，最早是做规则的系统：rules-Based，后面做统计的系统language modeling
 ，现在做神经网络的系统。
@@ -36,7 +36,7 @@ NLP 是计算机科学领域与人工智能领域中的一个重要方向。它�
 	- Skip-gram，用当前的词预测周围的词。
 	通过大规模的学习训练，就可以得到每个词稳定的多维向量，作为它的语义表示。
 
-![word2vec](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/nlp/word2vec.jpg)
+![word2vec](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/word2vec.jpg)
 
 
 句子中每个单词以Onehot形式作为输入，然后乘以学好的Word Embedding矩阵Q，就直接取出单词对应的Word Embedding了
@@ -49,7 +49,7 @@ NLP 是计算机科学领域与人工智能领域中的一个重要方向。它�
 
 基于这样的表征，我们就可以做编码、解码机制。比如说我们可以用图上的红点，它代表全句的语义信息，来进行解码，可以从一种语言翻译成另一种语言，凡是从一个序列串变成另外一个序列串都可以通过编码、解码机制来运行。
 
-![sentence](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/nlp/sentence.JPG)
+![sentence](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/sentence.JPG)
 
 
 - 注意力模型Attention Model
@@ -112,7 +112,7 @@ GPT “Generative Pre-Training”
 
 GPT也采用两阶段过程，第一个阶段是利用语言模型进行预训练，第二阶段通过Fine-tuning的模式解决下游任务。
 
-![gpt](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/nlp/gpt.png)
+![gpt](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/gpt.png)
 
 BERT
 Bert采用和GPT完全相同的两阶段模型，首先是语言模型预训练；其次是使用Fine-Tuning模式解决下游任务。和GPT的最主要不同在于在预训练阶段采用了类似ELMO的双向语言模型，当然另外一点是语言模型的数据规模要比GPT大。
@@ -138,14 +138,14 @@ GPT-2 共有四个型号，如下图所示。「小号」的 GPT-2 模型堆叠�
 
 这就是GPT-2的主要改进点，总结一下，多任务预训练+超大数据集+超大规模模型，
 
-![gpt2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/nlp/gpt2.png)
+![gpt2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/gpt2.png)
 
-![vs](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/nlp/vs.png)
+![vs](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/vs.png)
 https://blog.csdn.net/weixin_38937984/article/details/101759331
 
 XLNET，以及UNILM、MASS、MT-DNN、XLM，都是基于这种思路的扩充，解决相应的任务各有所长。其中微软研究院的UNILM可同时训练得到类似BERT和GPT的模型，而微软MASS采用encoder-decoder训练在机器翻译上效果比较好。还有MT-DNN强调用多任务学习预训练模型，而XLM学习多语言BERT模型，在跨语言迁移学习方面应用效果显著。
 
-![pretrain](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/nlp/pretrain.png)
+![pretrain](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/pretrain.png)
 
 
 现在由于这种预训练模型大行其道，人们在思考，自然语言处理是不是应该改换一种新的模态。过去我们都说用基于知识的方法来充实当前的输入，但是过去都没有做到特别好，而这种新的预训练模型给我们带来一个新的启发：
@@ -195,4 +195,4 @@ https://github.com/google-research-datasets/paws
 
 原文链接：
 
-https://ai.googleblog.com/2019/10/releasing-paws-and-paws-x-two-new.html
+https://ai.googleblog.com/2019/10/releasing-paws-and-paws-x-two-new.htm
