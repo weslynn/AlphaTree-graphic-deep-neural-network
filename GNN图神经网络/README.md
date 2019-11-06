@@ -15,6 +15,7 @@ Graph Neural Networks: A Review of Methods and Applications  [pdf](https://arxiv
 Representation Learning on Networks [link](http://snap.stanford.edu/proj/embeddings-www/)
 
 
+
 A Comprehensive Survey of Graph Embedding: Problems, Techniques and Applications
 (https://arxiv.org/pdf/1709.07604.pdf)
 
@@ -53,7 +54,15 @@ DeepWalk方法受到word2vec的启发，首先选择某一特定点为起始点�
 
 DeepWalk: https://github.com/phanein/deepwalk
 
-LINE: https://github.com/tangjianpku/LINE
+LINE: Large-scale information network embedding
+
+http://dl.acm.org/citation.cfm?id=2741093
+
+https://github.com/snowkylin/line 
+
+https://github.com/VahidooX/LINE
+
+https://github.com/tangjianpku/LINE c++
 
 简介：
 
@@ -62,6 +71,20 @@ LINE: https://github.com/tangjianpku/LINE
 ### 2.2. node2vec
 
 与DeepWalk相似，node2vec通过最大化随机游走得到的序列中的节点出现的概率来保持节点之间的高阶邻近性。与DeepWalk的最大区别在于，node2vec采用有偏随机游走，在广度优先（bfs）和深度优先（dfs）图搜索之间进行权衡，从而产生比DeepWalk更高质量和更多信息量的嵌入。
+
+node2vec: Scalable Feature Learning for Networks, KDD’16
+
+http://dl.acm.org/citation.cfm?id=2939672.2939754
+
+https://arxiv.org/abs/1607.00653
+
+https://github.com/aditya-grover/node2vec
+
+https://github.com/apple2373/node2vec
+
+https://github.com/eliorc/node2vec
+
+https://github.com/xgfs/node2vec-c
 
 ### 2.3. Hierarchical representation learning for networks (HARP)
 
@@ -82,19 +105,49 @@ DeepWalk和node2vec通过随机游走生成的序列，隐式地保持节点之�
 ### 3.基于深度学习的方法
 
 从结构来分析，可以分为
+- 图自编码器（ Graph Autoencoders）
 - 图卷积网络（Graph Convolution Networks，GCN）
 - 图注意力网络（Graph Attention Networks)
-- 图自编码器（ Graph Autoencoders）
 - 图生成网络（ Graph Generative Networks） 
 - 图时空网络（Graph Spatial-temporal Networks）
 
 
 ![notDeepwalk](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/notDeepwalk.jpg)
 
+### 3.1. Graph Auto-Encoders
 
-### 3.1. Graph convolutional networks (GCN)
+
+#### Structural deep network embedding (SDNE)
+
+SDNE建议使用深度自动编码器来保持一阶和二阶网络邻近度。它通过联合优化这两个近似值来实现这一点。该方法利用高度非线性函数来获得嵌入。模型由两部分组成：无监督和监督。前者包括一个自动编码器，目的是寻找一个可以重构其邻域的节点的嵌入。后者基于拉普拉斯特征映射，当相似顶点在嵌入空间中彼此映射得很远时，该特征映射会受到惩罚。
+
+[KDD 2016](http://www.kdd.org/kdd2016/papers/files/rfp0191-wangAemb.pdf)
+
+https://github.com/xiaohan2012/sdne-keras
+
+#### Deep neural networks for learning graph representations (DNGR)
+
+DNGR结合了随机游走和深度自动编码器。该模型由3部分组成：随机游走、正点互信息（PPMI）计算和叠加去噪自编码器。在输入图上使用随机游走模型生成概率共现矩阵，类似于HOPE中的相似矩阵。将该矩阵转化为PPMI矩阵，输入到叠加去噪自动编码器中得到嵌入。输入PPMI矩阵保证了自动编码器模型能够捕获更高阶的近似度。此外，使用叠加去噪自动编码器有助于模型在图中存在噪声时的鲁棒性，以及捕获任务（如链路预测和节点分类）所需的底层结构。
+
+
+#### Variational graph auto-encoders (VGAE)
+
+VGAE采用了图形卷积网络（GCN）编码器和内积译码器。输入是邻接矩阵，它们依赖于GCN来学习节点之间的高阶依赖关系。他们的经验表明，与非概率自编码器相比，使用变分自编码器可以提高性能。
+
+https://arxiv.org/abs/1611.07308
+
+https://github.com/tkipf/gae
+
+
+https://zhuanlan.zhihu.com/p/62629465
+
+基于深度神经网络的方法，即SDNE和DNGR，以每个节点的全局邻域（一行DNGR的PPMI和SDNE的邻接矩阵）作为输入。对于大型稀疏图来说，这可能是一种计算代价很高且不适用的方法。
+
+
+### 3.2. Graph convolutional networks (GCN)
+
 GCN的概念首次提出于ICLR2017（成文于2016年）
-上面讨论的基于深度神经网络的方法，即SDNE和DNGR，以每个节点的全局邻域（一行DNGR的PPMI和SDNE的邻接矩阵）作为输入。对于大型稀疏图来说，这可能是一种计算代价很高且不适用的方法。图卷积网络（GCN）通过在图上定义卷积算子来解决这个问题。该模型迭代地聚合了节点的邻域嵌入，并使用在前一次迭代中获得的嵌入及其嵌入的函数来获得新的嵌入。仅局部邻域的聚合嵌入使其具有可扩展性，并且多次迭代允许学习嵌入一个节点来描述全局邻域。最近几篇论文提出了利用图上的卷积来获得半监督嵌入的方法，这种方法可以通过为每个节点定义唯一的标签来获得无监督嵌入。这些方法在卷积滤波器的构造上各不相同，卷积滤波器可大致分为空间滤波器和谱滤波器。空间滤波器直接作用于原始图和邻接矩阵，而谱滤波器作用于拉普拉斯图的谱。
+图卷积网络（GCN）通过在图上定义卷积算子来解决这个问题。该模型迭代地聚合了节点的邻域嵌入，并使用在前一次迭代中获得的嵌入及其嵌入的函数来获得新的嵌入。仅局部邻域的聚合嵌入使其具有可扩展性，并且多次迭代允许学习嵌入一个节点来描述全局邻域。最近几篇论文提出了利用图上的卷积来获得半监督嵌入的方法，这种方法可以通过为每个节点定义唯一的标签来获得无监督嵌入。这些方法在卷积滤波器的构造上各不相同，卷积滤波器可大致分为空间滤波器和谱滤波器。空间滤波器直接作用于原始图和邻接矩阵，而谱滤波器作用于拉普拉斯图的谱。
 
 TensorFlow: https://github.com/tkipf/gcn
 
@@ -103,25 +156,30 @@ PyTorch: https://github.com/tkipf/pygcn
 GCN 论文作者提供的源码，该源码提供了大量关于稀疏矩阵的代码。例如如何构建稀疏的变换矩阵（这部分代码被其他许多项目复用）、如何将稀疏 CSR 矩阵变换为 TensorFlow/PyTorch 的稀疏 Tensor，以及如何构建兼容稀疏和非稀疏的全连接层等，几乎是图神经网络必读的源码之一了。
 
 
-- 快速图卷积网络 FastGCN TensorFlow 版
+- 快速图卷积网络 FastGCN 
 
-链接：
+FastGCN: Fast Learning with Graph Convolutional Networks via Importance Sampling
+
+
+
+https://arxiv.org/abs/1801.10247
 
 https://github.com/matenure/FastGCN
+
+https://openreview.net/forum?id=rytstxWAW
 
 FastGCN 作者提供的源码，基于采样的方式构建 mini-match 来训练 GCN，解决了 GCN 不能处理大规模数据的问题。
 
 
-### 3.2.Graph Attention Networks(GAT) 图注意力网络 
+### 3.3.Graph Attention Networks(GAT) 图注意力网络 
 
-	论文地址：https://arxiv.org/abs/1710.10903
-
-	Github：https://github.com/PetarV-/GAT
-
-
-简介：
+论文地址：https://arxiv.org/abs/1710.10903
 
 GAT 论文作者提供的源码。源码中关于 mask 的实现、以及稀疏版 GAT 的实现值得借鉴。
+
+Github：https://github.com/PetarV-/GAT
+
+
 
 
 #### DeepInf 
@@ -134,26 +192,12 @@ https://github.com/xptree/DeepInf
 
 DeepInf 论文其实是 GAT 的一个应用，但其基于 Random Walk 采样子图构建 mini-batch 的方法解决了 GAT 在大规模网络上应用的问题。
 
-### 3.3. Graph Autoencoders
-
-#### Structural deep network embedding (SDNE)
-
-SDNE建议使用深度自动编码器来保持一阶和二阶网络邻近度。它通过联合优化这两个近似值来实现这一点。该方法利用高度非线性函数来获得嵌入。模型由两部分组成：无监督和监督。前者包括一个自动编码器，目的是寻找一个可以重构其邻域的节点的嵌入。后者基于拉普拉斯特征映射，当相似顶点在嵌入空间中彼此映射得很远时，该特征映射会受到惩罚。
-
-#### Deep neural networks for learning graph representations (DNGR)
-
-DNGR结合了随机游走和深度自动编码器。该模型由3部分组成：随机游走、正点互信息（PPMI）计算和叠加去噪自编码器。在输入图上使用随机游走模型生成概率共现矩阵，类似于HOPE中的相似矩阵。将该矩阵转化为PPMI矩阵，输入到叠加去噪自动编码器中得到嵌入。输入PPMI矩阵保证了自动编码器模型能够捕获更高阶的近似度。此外，使用叠加去噪自动编码器有助于模型在图中存在噪声时的鲁棒性，以及捕获任务（如链路预测和节点分类）所需的底层结构。
 
 
 
-#### Variational graph auto-encoders (VGAE)
+其他：
 
-VGAE采用了图形卷积网络（GCN）编码器和内积译码器。输入是邻接矩阵，它们依赖于GCN来学习节点之间的高阶依赖关系。他们的经验表明，与非概率自编码器相比，使用变分自编码器可以提高性能。
-
-
-https://zhuanlan.zhihu.com/p/62629465
-
-
+Graph Embedding Techniques, Applications, and Performance: A Survey : https://github.com/palash1992/GEM
 
 
 ## 库
