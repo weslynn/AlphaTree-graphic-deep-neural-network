@@ -5,13 +5,6 @@ CNN只适用于张量数据，例如二维图像或一维文本序列。然而�
 
 我们需要从图里得出特征，得到图的嵌入表示（graph embedding），然后进行进行节点分类（node classification）、图分类（graph classification）、边预测（link prediction）
 
-从结构来分析，可以分为
-- 图卷积网络（Graph Convolution Networks，GCN）
-- 图注意力网络（Graph Attention Networks)
-	论文地址：https://arxiv.org/abs/1710.10903
-	Github：https://github.com/PetarV-/GAT
-- 图自编码器（ Graph Autoencoders）
-- 图生成网络（ Graph Generative Networks） 和图时空网络（Graph Spatial-temporal Networks）
 
 综述：
 
@@ -47,6 +40,14 @@ graphembedingpaper.jpg
 
 DeepWalk方法受到word2vec的启发，首先选择某一特定点为起始点，做随机游走得到点的序列，然后将这个得到的序列视为句子，用word2vec来学习，得到该点的表示向量。DeepWalk通过随机游走去可以获图中点的局部上下文信息，因此学到的表示向量反映的是该点在图中的局部结构，两个点在图中共有的邻近点（或者高阶邻近点）越多，则对应的两个向量之间的距离就越短。
 
+DeepWalk: https://github.com/phanein/deepwalk
+
+LINE: https://github.com/tangjianpku/LINE
+
+简介：
+
+虽然 DeepWalk 和 LINE 属于网络表示学习中的算法，与现在端到端的图神经网络有一定的区别，但目前一些图神经网络应用（如社交网络、引用网络节点分类）依然使用 DeepWalk/LINE 来作为预训练算法，无监督地为节点获得初始特征表示。另外，DeepWalk 项目中的 Random Walk 也可以被直接拿来用作图神经网络的数据采样操作。
+
 ### 2.2. node2vec
 
 与DeepWalk相似，node2vec通过最大化随机游走得到的序列中的节点出现的概率来保持节点之间的高阶邻近性。与DeepWalk的最大区别在于，node2vec采用有偏随机游走，在广度优先（bfs）和深度优先（dfs）图搜索之间进行权衡，从而产生比DeepWalk更高质量和更多信息量的嵌入。
@@ -61,24 +62,80 @@ DeepWalk和node2vec通过随机游走生成的序列，隐式地保持节点之�
 
 
 ### 3.基于深度学习的方法
-### 3.1. Structural deep network embedding (SDNE)
 
-SDNE建议使用深度自动编码器来保持一阶和二阶网络邻近度。它通过联合优化这两个近似值来实现这一点。该方法利用高度非线性函数来获得嵌入。模型由两部分组成：无监督和监督。前者包括一个自动编码器，目的是寻找一个可以重构其邻域的节点的嵌入。后者基于拉普拉斯特征映射，当相似顶点在嵌入空间中彼此映射得很远时，该特征映射会受到惩罚。
+从结构来分析，可以分为
+- 图卷积网络（Graph Convolution Networks，GCN）
+- 图注意力网络（Graph Attention Networks)
+- 图自编码器（ Graph Autoencoders）
+- 图生成网络（ Graph Generative Networks） 
+- 图时空网络（Graph Spatial-temporal Networks）
 
-### 3.2. Deep neural networks for learning graph representations (DNGR)
 
-DNGR结合了随机游走和深度自动编码器。该模型由3部分组成：随机游走、正点互信息（PPMI）计算和叠加去噪自编码器。在输入图上使用随机游走模型生成概率共现矩阵，类似于HOPE中的相似矩阵。将该矩阵转化为PPMI矩阵，输入到叠加去噪自动编码器中得到嵌入。输入PPMI矩阵保证了自动编码器模型能够捕获更高阶的近似度。此外，使用叠加去噪自动编码器有助于模型在图中存在噪声时的鲁棒性，以及捕获任务（如链路预测和节点分类）所需的底层结构。
 
-### 3.3. Graph convolutional networks (GCN)
+
+### 3.1. Graph convolutional networks (GCN)
 GCN的概念首次提出于ICLR2017（成文于2016年）
 上面讨论的基于深度神经网络的方法，即SDNE和DNGR，以每个节点的全局邻域（一行DNGR的PPMI和SDNE的邻接矩阵）作为输入。对于大型稀疏图来说，这可能是一种计算代价很高且不适用的方法。图卷积网络（GCN）通过在图上定义卷积算子来解决这个问题。该模型迭代地聚合了节点的邻域嵌入，并使用在前一次迭代中获得的嵌入及其嵌入的函数来获得新的嵌入。仅局部邻域的聚合嵌入使其具有可扩展性，并且多次迭代允许学习嵌入一个节点来描述全局邻域。最近几篇论文提出了利用图上的卷积来获得半监督嵌入的方法，这种方法可以通过为每个节点定义唯一的标签来获得无监督嵌入。这些方法在卷积滤波器的构造上各不相同，卷积滤波器可大致分为空间滤波器和谱滤波器。空间滤波器直接作用于原始图和邻接矩阵，而谱滤波器作用于拉普拉斯图的谱。
 
-### 3.4. Variational graph auto-encoders (VGAE)
+TensorFlow: https://github.com/tkipf/gcn
+
+PyTorch: https://github.com/tkipf/pygcn
+
+GCN 论文作者提供的源码，该源码提供了大量关于稀疏矩阵的代码。例如如何构建稀疏的变换矩阵（这部分代码被其他许多项目复用）、如何将稀疏 CSR 矩阵变换为 TensorFlow/PyTorch 的稀疏 Tensor，以及如何构建兼容稀疏和非稀疏的全连接层等，几乎是图神经网络必读的源码之一了。
+
+
+- 快速图卷积网络 FastGCN TensorFlow 版
+
+链接：
+
+https://github.com/matenure/FastGCN
+
+FastGCN 作者提供的源码，基于采样的方式构建 mini-match 来训练 GCN，解决了 GCN 不能处理大规模数据的问题。
+
+
+### 3.2.Graph Attention Networks(GAT) 图注意力网络 
+
+	论文地址：https://arxiv.org/abs/1710.10903
+
+	Github：https://github.com/PetarV-/GAT
+
+
+简介：
+
+GAT 论文作者提供的源码。源码中关于 mask 的实现、以及稀疏版 GAT 的实现值得借鉴。
+
+
+#### DeepInf 
+
+Mini-batch版 图注意力网络 
+
+https://github.com/xptree/DeepInf
+
+简介：
+
+DeepInf 论文其实是 GAT 的一个应用，但其基于 Random Walk 采样子图构建 mini-batch 的方法解决了 GAT 在大规模网络上应用的问题。
+
+### 3.3. 
+
+#### Structural deep network embedding (SDNE)
+
+SDNE建议使用深度自动编码器来保持一阶和二阶网络邻近度。它通过联合优化这两个近似值来实现这一点。该方法利用高度非线性函数来获得嵌入。模型由两部分组成：无监督和监督。前者包括一个自动编码器，目的是寻找一个可以重构其邻域的节点的嵌入。后者基于拉普拉斯特征映射，当相似顶点在嵌入空间中彼此映射得很远时，该特征映射会受到惩罚。
+
+#### Deep neural networks for learning graph representations (DNGR)
+
+DNGR结合了随机游走和深度自动编码器。该模型由3部分组成：随机游走、正点互信息（PPMI）计算和叠加去噪自编码器。在输入图上使用随机游走模型生成概率共现矩阵，类似于HOPE中的相似矩阵。将该矩阵转化为PPMI矩阵，输入到叠加去噪自动编码器中得到嵌入。输入PPMI矩阵保证了自动编码器模型能够捕获更高阶的近似度。此外，使用叠加去噪自动编码器有助于模型在图中存在噪声时的鲁棒性，以及捕获任务（如链路预测和节点分类）所需的底层结构。
+
+
+
+#### Variational graph auto-encoders (VGAE)
 
 VGAE采用了图形卷积网络（GCN）编码器和内积译码器。输入是邻接矩阵，它们依赖于GCN来学习节点之间的高阶依赖关系。他们的经验表明，与非概率自编码器相比，使用变分自编码器可以提高性能。
 
 
 https://zhuanlan.zhihu.com/p/62629465
+
+
+
 
 ## 库
 
@@ -90,6 +147,33 @@ https://github.com/rusty1s/pytorch_geometric
 
 [知乎](https://zhuanlan.zhihu.com/p/58987454)
 
+
+###  Graph Nets
+DeepMind 开源的图神经网络框架 Graph Nets
+
+链接：
+
+https://github.com/deepmind/graph_nets
+
+简介：
+
+基于 TensorFlow 和 Sonnet。上面的项目更侧重于节点特征的计算，而 graph_nets 同时包含节点和边的计算，可用于一些高级任务，如最短路径、物理场景模拟等。
+
+
+### Euler
+
+工业级分布式图神经网络框架 Euler
+
+链接：
+
+https://github.com/alibaba/euler
+
+简介：
+
+Euler 是阿里巴巴开源的大规模分布式的图学习框架，配合 TensorFlow 或者阿里开源的 XDL 等深度学习工具，它支持用户在数十亿点数百亿边的复杂异构图上进行模型训练。
+
+
+参考 http://www.qianjia.com/html/2019-03/19_329563.html
 
 ## 应用
 
