@@ -14,21 +14,32 @@ Graph Neural Networks: A Review of Methods and Applications  [pdf](https://arxiv
 
 Representation Learning on Networks [link](http://snap.stanford.edu/proj/embeddings-www/)
 
+
+A Comprehensive Survey of Graph Embedding: Problems, Techniques and Applications
+(https://arxiv.org/pdf/1709.07604.pdf)
+
  HOW POWERFUL ARE GRAPH NEURAL NETWORKS?[link](https://link.zhihu.com/?target=https%3A//cs.stanford.edu/people/jure/pubs/gin-iclr19.pdf)
 
 要想对图进行学习，首先需要对图的顶点数据、边数据和子图数据进行降维，这就是图嵌入（graph embedding）。
 
-graphembeding.jpg
+
+![graphembeding](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/graphembeding.jpg)
+
 
 如图1所示：一幅图（image）所抽取的特征图（features map）里每个元素，可以理解为图（image）上的对应点的像素及周边点的像素的加权和（还需要再激活一下）。
 
 同样可以设想：一个图（graph）所抽取的特征图（也就是特征向量）里的每个元素，也可以理解为图（graph）上对应节点的向量与周边节点的向量的加权和。
 
-image-graphhd.jpg
+
+
+![image-graphhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/image-graphhd.jpg)
+
 
 ## Graph Embedding
 
-graphembedingpaper.jpg
+![graphembedingpaper](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/graphembedingpaper.jpg)
+
+
 
 ### 1.基于因子分解的方法
 
@@ -61,6 +72,13 @@ DeepWalk和node2vec随机初始化节点嵌入以训练模型。由于它们的�
 DeepWalk和node2vec通过随机游走生成的序列，隐式地保持节点之间的高阶邻近性，由于其随机性，这些随机游走会得到不同距离的连接节点。另一方面，基于因子分解的方法，如GF和HOPE，通过在目标函数中对节点进行建模，明确地保留了节点之间的距离。Walklets将显式建模与随机游走的思想结合起来。该模型通过跳过图中的某些节点来修改DeepWalk中使用的随机游走策略。这是针对多个尺度的跳跃长度执行的，类似于在GraRep中分解，并且随机行走获得的一组点的序列用于训练类似于DeepWalk的模型。
 
 
+![DeepWalkmore](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/DeepWalkmore.jpg)
+
+
+
+
+
+
 ### 3.基于深度学习的方法
 
 从结构来分析，可以分为
@@ -71,6 +89,7 @@ DeepWalk和node2vec通过随机游走生成的序列，隐式地保持节点之�
 - 图时空网络（Graph Spatial-temporal Networks）
 
 
+![notDeepwalk](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/notDeepwalk.jpg)
 
 
 ### 3.1. Graph convolutional networks (GCN)
@@ -115,7 +134,7 @@ https://github.com/xptree/DeepInf
 
 DeepInf 论文其实是 GAT 的一个应用，但其基于 Random Walk 采样子图构建 mini-batch 的方法解决了 GAT 在大规模网络上应用的问题。
 
-### 3.3. 
+### 3.3. Graph Autoencoders
 
 #### Structural deep network embedding (SDNE)
 
