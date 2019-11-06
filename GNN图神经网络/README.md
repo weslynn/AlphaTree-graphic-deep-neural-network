@@ -145,6 +145,10 @@ https://zhuanlan.zhihu.com/p/62629465
 
 https://github.com/rusty1s/pytorch_geometric
 
+https://rusty1s.github.io/pytorch_geometric/build/html/index.html
+
+https://arxiv.org/pdf/1903.02428.pdf
+
 [知乎](https://zhuanlan.zhihu.com/p/58987454)
 
 
