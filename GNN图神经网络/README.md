@@ -14,7 +14,7 @@ Graph Neural Networks: A Review of Methods and Applications  [pdf](https://arxiv
 
 Representation Learning on Networks [link](http://snap.stanford.edu/proj/embeddings-www/)
 
-
+A Comprehensive Survey on Graph Neural Networks (https://arxiv.org/abs/1901.00596.pdf)
 
 A Comprehensive Survey of Graph Embedding: Problems, Techniques and Applications
 (https://arxiv.org/pdf/1709.07604.pdf)
@@ -144,9 +144,30 @@ https://zhuanlan.zhihu.com/p/62629465
 基于深度神经网络的方法，即SDNE和DNGR，以每个节点的全局邻域（一行DNGR的PPMI和SDNE的邻接矩阵）作为输入。对于大型稀疏图来说，这可能是一种计算代价很高且不适用的方法。
 
 
+
+
+
 ### 3.2. Graph convolutional networks (GCN)
 
+
+Bruna等人(2013)首次提出了对GCNs的突出研究，该研究基于频谱图理论开发了一种图形卷积的变体。
+由于频谱方法通常同时处理整个图，且难以并行或缩放到大型图，因此基于空间的图卷积网络近年来发展迅速。这些方法通过聚集相邻节点的信息，直接在图域中进行卷积。结合采样策略，可以在一批节点中进行计算，而不是整个图，具有提高效率的潜力。
+
+使用图结构和节点内容信息作为输入, GCN的输出使用以下不同的机制, 可以关注于不同的图分析任务.
+
+- 节点级输出与节点回归和分类任务相关. 图卷积模块直接给出节点潜在的表达, 多层感知机或者softmax层被用作最终的GCN层.
+- 边级输出与边分类和连接预测任务相关. 为了预测边的标记和连接强度, 一个附加函数将会把来自图卷积模块的两个节点的潜在表达作为输入.
+- 图级输出与图分类任务有关. 为了获取一个图级的紧凑表达, 池化模块被用来粗化图到子图, 或用来加和/平均节点表达.
+
+![gcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/gcn.png)
+
+
 GCN的概念首次提出于ICLR2017（成文于2016年）
+
+Thomas Kipf, Graph Convolutional Networks (2016)
+
+http://tkipf.github.io/graph-convolutional-networks/
+
 图卷积网络（GCN）通过在图上定义卷积算子来解决这个问题。该模型迭代地聚合了节点的邻域嵌入，并使用在前一次迭代中获得的嵌入及其嵌入的函数来获得新的嵌入。仅局部邻域的聚合嵌入使其具有可扩展性，并且多次迭代允许学习嵌入一个节点来描述全局邻域。最近几篇论文提出了利用图上的卷积来获得半监督嵌入的方法，这种方法可以通过为每个节点定义唯一的标签来获得无监督嵌入。这些方法在卷积滤波器的构造上各不相同，卷积滤波器可大致分为空间滤波器和谱滤波器。空间滤波器直接作用于原始图和邻接矩阵，而谱滤波器作用于拉普拉斯图的谱。
 
 TensorFlow: https://github.com/tkipf/gcn
@@ -283,5 +304,165 @@ GCN以及后续很多paper的实验setting用的是杨植麟学长去CMU的第�
 ### 医药
 
 癌症药物发现 Veselkov等人,Nature,2019
+
+
+
+
+
+## Databases:
+
+### 引文网络（Cora、PubMed、Citeseer）
+引文网络，顾名思义就是由论文和他们的关系构成的网络，这些关系包括例如引用关系、共同的作者等，具有天然的图结构，数据集的任务一般是论文的分类和连接的预测，比较流行的数据集有三个，分别是Cora、PubMed、Citeseer，它们的组成情况如图1所示，Nodes也就是数据集的论文数量，features是每篇论文的特征，数据集中有一个包含多个单词的词汇表，去除了出现频率小于10的词，但是不进行编码，论文的属性是由一串二进制码构成，只用0和1表示该论文有无这个词汇。
+
+样本特征，标签，邻接矩阵
+
+文件构成
+以cora数据集为例，数据集包含两个文件，cora.cites和cora.content，cora.cites文件中的数据如下：
+
+<ID of cited paper> <ID of citing paper>
+
+即原论文和引用的论文，刚好构成了一条天然的边，cora.content文件的数据如下：
+
+<paper id> <word attributes> + <class label>
+
+有论文id、上面说到的二进制码和论文对应的类别组成。
+
+该数据集共2708个样本点，每个样本点都是一篇科学论文，所有样本点被分为8个类别，类别分别是1）基于案例；2）遗传算法；3）神经网络；4）概率方法；5）强化学习；6）规则学习；7）理论
+
+每篇论文都由一个1433维的词向量表示，所以，每个样本点具有1433个特征。词向量的每个元素都对应一个词，且该元素只有0或1两个取值。取0表示该元素对应的词不在论文中，取1表示在论文中。所有的词来源于一个具有1433个词的字典。
+
+每篇论文都至少引用了一篇其他论文，或者被其他论文引用，也就是样本点之间存在联系，没有任何一个样本点与其他样本点完全没联系。如果将样本点看做图中的点，则这是一个连通的图，不存在孤立点。
+
+文件格式
+
+下载的压缩包中有三个文件，分别是cora.cites，cora.content，README。
+
+README是对数据集的介绍；cora.content是所有论文的独自的信息；cora.cites是论文之间的引用记录。
+
+cora.content共有2708行，每一行代表一个样本点，即一篇论文。如下所示，每一行由三部分组成，分别是论文的编号，如31336；论文的词向量，一个有1433位的二进制；论文的类别，如Neural_Networks。
+
+	31336	0	0.....	0	0	0	0	0	0	0	0	0	0	0	0	Neural_Networks
+	1061127	0	0.....	0	0	0	0	0	0	0	0	0	0	0	0	Rule_Learning
+	1106406	0	0.....	0	0	0	0	0	0	0	0	0	0	0	Reinforcement_Learning
+
+cora.cites共5429行， 每一行有两个论文编号，表示第一个编号的论文先写，第二个编号的论文引用第一个编号的论文。如下所示：
+
+	35	1033
+	35	103482
+	35	103515
+
+如果将论文看做图中的点，那么这5429行便是点之间的5429条边。
+
+Cora：https://s3.us-east-2.amazonaws.com/dgl.ai/dataset/cora_raw.zip
+
+https://linqs-data.soe.ucsc.edu/public/lbc/cora.tgz
+
+Pubmed：https://s3.us-east-2.amazonaws.com/dgl.ai/dataset/pubmed.zip
+
+Citeseer：https://s3.us-east-2.amazonaws.com/dgl.ai/dataset/citeseer.zip
+
+### 社交网络（BlogCatalog、Reddit、Epinions）
+
+
+BlogCatalog数据集是一个社会关系网络，图是由博主和他（她）的社会关系（比如好友）组成，labels是博主的兴趣爱好。Reddit数据集是由来自Reddit论坛的帖子组成，如果两个帖子被同一人评论，那么在构图的时候，就认为这两个帖子是相关联的，labels就是每个帖子对应的社区分类。Epinions是一个从一个在线商品评论网站收集的多图数据集，里面包含了多种关系，比如评论者对于另一个评论者的态度（信任/不信任），以及评论者对商品的评级。
+
+文件构成
+BlogCatalog数据集的结点数为10312，边条数为333983，label维度为39，数据集包含两个文件：
+
+Nodes.csv：以字典的形式存储用户的信息，但是只包含节点id。
+
+Edges.csv：存储博主的社交网络（好友等），以此来构图。
+
+Epinions数据集包含文件如下：
+
+Ratings_data.txt：包含用户对于一件物品的评级，文件中每一行的结构为user_id
+
+item_id rating_value。
+
+Trust_data.txt：存储了用户对其他用户的信任状态，存储方式为source_user_id
+
+target_user_id trust_statement_value，其中信任状态只有信任和不信任（1、0）。
+
+
+
+BlogCatalog：http://socialcomputing.asu.edu/datasets/BlogCatalog
+
+Reddit：https://github.com/linanqiu/reddit-dataset
+
+Epinions：http://www.trustlet.org/downloaded_epinions.html
+
+
+### 生物化学结构（PPI、NCI-1、NCI-109、MUTAG、QM9、Tox21）
+
+PPI是蛋白质互作网络，数据集中共有24张图，其中20张作为训练，2张作为验证，2张作为测试，每张图对应不同的人体组织，实例如图3，该数据是为了从系统的角度研究疾病分子机制、发现新药靶点等等。
+
+
+平均每张图有2372个结点，每个结点特征长度为50，其中包含位置基因集，基序集和免疫学特征。基因本体集作为labels（总共121个），labels不是one-hot编码。
+
+NCI-1、NCI-109和MUTAG是关于化学分子和化合物的数据集，原子代表结点，化学键代表边。NCI-1和NCI-109数据集分别包含4100和4127个化合物，labels是判断化合物是否有阻碍癌细胞增长得性质。MUTAG数据集包含188个硝基化合物，labels是判断化合物是芳香族还是杂芳族。
+
+ QM9数据集包括了13万有机分子的构成,空间信息及其对应的属性. 它被广泛应用于各类数据驱动的分子属性预测方法的实验和对比。
+
+Toxicology in the 21st Century 简称tox21，任务是使用化学结构数据预测化合物对生物化学途径的干扰，研究、开发、评估和翻译创新的测试方法，以更好地预测物质如何影响人类和环境。数据集有12707张图，12个labels。
+
+文件构成
+PPI数据集的构成：
+
+train/test/valid_graph.json：保存了训练、验证、测试的图结构数据。
+
+train/test/valid_feats.npy ：保存结点的特征，以numpy.ndarry的形式存储，shape为[n, v]，n是结点的个数，v是特征的长度。
+
+train/test/valid_labels.npy：保存结点的label，也是以numpy.ndarry的形式存储，形为nxh，h为label的长度。
+
+train/test/valid/_ graph_id.npy ：表示这个结点属于哪张图，形式为numpy.ndarry，例如[1, 1, 2, 1...20].。
+
+NCI-1、NCI-109和MUTAG数据集的文件构成如下：（用DS代替数据集名称）
+
+n表示结点数，m表示边的个数，N表示图的个数
+
+DS_A.txt (m lines)：图的邻接矩阵，每一行的结构为(row, col)，即一条边。
+
+DS_graph_indicator.txt (n lines)：表明结点属于哪一个图的文件。
+
+DS_graph_labels.txt (N lines)：图的labels。
+
+DS_node_labels.txt (n lines)：结点的labels。
+
+DS_edge_labels.txt (m lines)：边labels。
+
+DS_edge_attributes.txt (m lines)：边特征。
+
+DS_node_attributes.txt (n lines)：结点的特征。
+
+DS_graph_attributes.txt (N lines)：图的特征，可以理解为全局变量。
+
+QM9的文件结构如下：
+
+QM9_nano.npz：该文件需要用numpy读取,其中包含三个字段：
+
+'ID' 分子的id，如:qm9:000001；
+
+'Atom' 分子的原子构成，为一个由原子序数的列表构成,如[6,1,1,1,1]表示该分子由一个碳(C)原子和4个氢(H)原子构成.；
+
+'Distance' 分子中原子的距离矩阵,以上面[6,1,1,1,1]分子为例,它的距离矩阵即为一个5x5的矩阵,其中行列的顺序和上述列表一致,即矩阵的第N行/列对应的是列表的第N个原子信息.
+
+'U0' 分子的能量属性(温度为0K时),也是我们需要预测的值（分类的种类为13）
+
+Tox21文件夹中包含13个文件，其中12个文件夹就是化合物的分类
+
+
+PPI：http://snap.stanford.edu/graphsage/ppi.zip
+
+NCI-1：https://ls11-www.cs.uni-dortmund.de/people/morris/graphkerneldatasets/NCI1.zip
+
+NCI-109：https://ls11-www.cs.uni-dortmund.de/people/morris/graphkerneldatasets/NCI109.zip
+
+MUTAG：https://ls11-www.cs.uni-dortmund.de/people/morris/graphkerneldatasets/MUTAG.zip
+
+QM9：https://github.com/geekinglcq/QM9nano4USTC
+
+Tox21：https://tripod.nih.gov/tox21/challenge/data.jsp
+
+
 
 
