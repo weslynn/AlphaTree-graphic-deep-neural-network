@@ -172,6 +172,23 @@ GPT-2 共有四个型号，如下图所示。「小号」的 GPT-2 模型堆叠�
 ![vs](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/vs.png)
 https://blog.csdn.net/weixin_38937984/article/details/101759331
 
+
+中文预训练 GPT-2 项目，它开源了预训练结果与 Colab Demo 演示，只需要单击三次，我们就能生成定制的中文故事。
+
+该 15 亿参数量的 GPT-2 中文预训练模型在 15GB 的纯文本上进行训练，一共迭代了 10 万步。这 15GB 的纯文本主要选自 THUCNews 与 nlp_chinese_corpus，它们会做一系列的数据清理。
+
+THUCNews：http://thuctc.thunlp.org/#中文文本分类数据集THUCNews
+
+nlp_chinese_corpus：https://github.com/brightmart/nlp_chinese_corpus
+
+项目地址：https://github.com/imcaspar/gpt2-ml
+
+Colab 演示地址：https://colab.research.google.com/github/imcaspar/gpt2-ml/blob/master/pretrained_model_demo.ipynb
+
+项目作者开放的预训练模型是在 TPU Pod v3-256 上复现的 15 亿参数 GPT2，这也是 GitHub 上第一个支持大规模 TPU 训练的中文 GPT-2 项目。
+
+本项目的训练脚本：https://github.com/imcaspar/gpt2-ml/tree/master/train
+
 XLNET，以及UNILM、MASS、MT-DNN、XLM，都是基于这种思路的扩充，解决相应的任务各有所长。其中微软研究院的UNILM可同时训练得到类似BERT和GPT的模型，而微软MASS采用encoder-decoder训练在机器翻译上效果比较好。还有MT-DNN强调用多任务学习预训练模型，而XLM学习多语言BERT模型，在跨语言迁移学习方面应用效果显著。
 
 ![pretrain](https://github.com/weslynn/graphic-deep-neural-network/blob/master/nlppic/pretrain.png)
@@ -183,6 +200,16 @@ XLNET，以及UNILM、MASS、MT-DNN、XLM，都是基于这种思路的扩充，
 
 [自然语言处理的未来之路](https://www.leiphone.com/news/201907/djMxwOkOO5u4sf6O.html)
 
+
+
+### T5 Google
+
+T5（Text-to-Text Transfer Transformer）
+
+《Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer》中，谷歌提出预训练模型 T5，参数量达到了 110 亿，再次刷新 Glue 榜单，成为全新的 NLP SOTA 预训练模型。
+
+论文链接：https://arxiv.org/abs/1910.10683
+Github 链接：https://github.com/google-research/text-to-text-transfer-transformer
 
 
 标签系统
@@ -202,7 +229,7 @@ https://github.com/google-research-datasets/paws
 
 https://ai.googleblog.com/2019/10/releasing-paws-and-paws-x-two-new.htm
 
-
+「Colossal Clean Crawled Corpus」（或简称 C4 语料库）
 
 
 movielens 
