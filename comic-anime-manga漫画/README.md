@@ -246,7 +246,10 @@ Single-Image Super-Resolution for anime/fan-art using Deep Convolutional Neural 
 https://raw.githubusercontent.com/nagadomi/waifu2x/master/images/slide.png
 
 
-其他：
+### 3.7.4 人脸转二次元
+
+### paGAN
+
 paGAN：用单幅照片实时生成超逼真动画人物头像
 
 　　最新引起很大反响的“换脸”技术来自华裔教授黎颢的团队，他们开发了一种新的机器学习技术paGAN，能够以每秒1000帧的速度对对人脸进行跟踪，用单幅照片实时生成超逼真动画人像，论文已被SIGGRAPH 2018接收。具体技术细节请看新智元昨天的头条报道。
@@ -254,6 +257,27 @@ paGAN：用单幅照片实时生成超逼真动画人物头像
 　　Pinscreen拍摄了《洛杉矶时报》记者David Pierson的一张照片作为输入（左），并制作了他的3D头像（右）。 这个生成的3D人脸通过黎颢的动作（中）生成表情。这个视频是6个月前制作的，Pinscreen团队称其内部早就超越了上述结果。
 
 　https://tech.sina.com.cn/csj/2018-08-08/doc-ihhkuskt7977099.shtml
+
+### APDrawingGAN
+
+GAN秒变肖像画！清华刘永进提出APDrawingGAN
+https://baijiahao.baidu.com/s?id=1636212645611494666&wfr=spider&for=pc
+
+http://dy.163.com/v2/article/detail/EHPRSNRT05313FBM.html
+
+### CycleGAN
+
+Landmark Assisted CycleGAN for Cartoon Face Generation
+
+https://arxiv.org/pdf/1907.01424.pdf
+
+
+### U-GAT-IT
+
+https://github.com/znxlwm/UGATIT-pytorch
+
+
+
 
 ### 3.7.4 线稿提取
 
@@ -268,13 +292,7 @@ data： getchu head https://github.com/ANIME305/Anime-GAN-tensorflow
 二次元线稿 Anime-Girl-lineart-Generator
 keevs https://www.deviantart.com/keevs/art/Anime-Girl-lineart-Generator-88708558
 
-GAN变二次元 UGATIT
-https://github.com/znxlwm/UGATIT-pytorch
 
-GAN秒变肖像画！清华刘永进提出APDrawingGAN
-https://baijiahao.baidu.com/s?id=1636212645611494666&wfr=spider&for=pc
-
-http://dy.163.com/v2/article/detail/EHPRSNRT05313FBM.html
 
 GAN生成油画效果： AI Portraits Ars https://aiportraits.com/
 
