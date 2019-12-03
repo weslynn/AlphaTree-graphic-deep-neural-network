@@ -510,6 +510,13 @@ https://www.obormot.net/demos/these-waifus-do-not-exist-alt
 other change clothers: https://arxiv.org/pdf/1710.07346.pdf
 
 
+INSTAGAN: INSTANCE-AWARE IMAGE-TO-IMAGE TRANSLATION
+
+加入实例 裤子换裙子  https://github.com/sangwoomo/instagan
+
+论文链接：https://arxiv.org/pdf/1812.10889.pdf
+
+
 Estimated StyleGAN wallclock training times for various resolutions & GPU-clusters (source: StyleGAN repo)
 
 |GPUs |1024x2 |512x2| 256x2| [March 2019 AWS Costs19] |
