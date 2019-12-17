@@ -1288,26 +1288,45 @@ https://github.com/iperov/DeepFaceLab
 
 
 ## 3.8 字体合成
-英文 ：
-Handwriting Synthesis（手写体合成）
 
 
-1
+### 英文手写体 Handwriting Synthesis
+
+### Generating Sequences with Recurrent Neural Networks
 这个项目来自亚历克斯 · 格雷夫斯（Alex Graves）撰写的论文（Generating Sequences with Recurrent Neural Networks）《用 RNN 生成序列》，正如存储库的名称所示，您可以生成不同风格的手写，是其中手写体合成实验的实现，它可以生成不同风格的手写字迹。模型包括初始化和偏置两个部分，其中初始化控制样例的风格，偏置控制样例的整洁度。
 作者在 GitHub 页面上呈现的样本的多样性真的很吸引人。他正在寻找贡献者来加强存储库，所以如果您有兴趣，可以研究去看看。
 
+https://github.com/sherjilozair/char-rnn-tensorflow
 
-2
-论文：Multi-Content GAN for Few-Shot Font Style Transfer
+https://github.com/karpathy/char-rnn
 
-论文链接：https://arxiv.org/abs/1712.00516
+https://github.com/hardmaru/write-rnn-tensorflow
+
+### 艺术字体 
+
+### Multi-Content GAN for Few-Shot Font Style Transfer
+
+cvpr2018，伯克利的BAIR实验室和adobe合作的论文
+
+本文首次提出用端到端的方案来解决从少量相同风格的字体中合成其他艺术字体，例如 A-Z 26 个相同风格的艺术字母，已知其中 A-D 的艺术字母，生成剩余 E-Z 的艺术字母。
+
+本文研究的问题看上去没啥亮点，但在实际应用中，很多设计师在设计海报或者电影标题的字体时，只会创作用到的字母，但想将风格迁移到其他设计上时，其他的一些没设计字母需要自己转化，造成了不必要的麻烦。
+
+如何从少量（5 个左右）的任意类型的艺术字中泛化至全部 26 个字母是本文的难点。本文通过对传统 Condition GAN 做扩展，提出了 Stack GAN 的两段式架构，首先通过 Conditional GAN #1 根据已知的字体生成出所有 A-Z 的字体，之后通过 Conditional GAN #2 加上颜色和艺术点缀。
+
+作者：黄亢，卡耐基梅隆大学硕士，研究方向为信息抽取和手写识别，现为波音公司数据科学家。
+
+论文链接： https://arxiv.org/abs/1712.00516  https://www.paperweekly.site/papers/1781
+
 GitHub 链接：https://github.com/azadis/MC-GAN
+
 原文链接：http://bair.berkeley.edu/blog/2018/03/13/mcgan/
 
-论文为cvpr2018，伯克利的BAIR实验室和adobe合作的论文。
 
 
-3 汉字
+
+### 汉字
+
 Github 用户 kaonashi-tyc 将 字体设计 的过程转化为一个“风格迁移”（style transfer）的问题，使用条件 GAN 自动将输入的汉字转化为另一种字体（风格）的汉字，效果相当不错。
 
 
@@ -1321,29 +1340,7 @@ Github 用户 kaonashi-tyc 将 字体设计 的过程转化为一个“风格迁
 
 作者使用风格迁移解决中文字体生成的问题，同时加上了条件生成对抗网络（GAN）的力量。
 
-项目地址：kaonashi-tyc/zi2zi
-
-
-
-
-
-
-艺术字 
-本文首次提出用端到端的方案来解决从少量相同风格的字体中合成其他艺术字体，例如 A-Z 26 个相同风格的艺术字母，已知其中 A-D 的艺术字母，生成剩余 E-Z 的艺术字母。
-
-本文研究的问题看上去没啥亮点，但在实际应用中，很多设计师在设计海报或者电影标题的字体时，只会创作用到的字母，但想将风格迁移到其他设计上时，其他的一些没设计字母需要自己转化，造成了不必要的麻烦。
-
-如何从少量（5 个左右）的任意类型的艺术字中泛化至全部 26 个字母是本文的难点。本文通过对传统 Condition GAN 做扩展，提出了 Stack GAN 的两段式架构，首先通过 Conditional GAN #1 根据已知的字体生成出所有 A-Z 的字体，之后通过 Conditional GAN #2 加上颜色和艺术点缀。
-
-关于作者：黄亢，卡耐基梅隆大学硕士，研究方向为信息抽取和手写识别，现为波音公司数据科学家。
-
-■ 论文 | Multi-Content GAN for Few-Shot Font Style Transfer
-
-■ 链接 | https://www.paperweekly.site/papers/1781
-
-■ 源码 | https://github.com/azadis/MC-GAN
-
-
+项目地址：https://github.com/kaonashi-tyc/zi2zi
 
 
 ----------------
@@ -1352,76 +1349,44 @@ Github 用户 kaonashi-tyc 将 字体设计 的过程转化为一个“风格迁
 
 通常来说，视频有相对静止的背景和运动的前景组成。VideoGAN 使用一个两阶段的生成器，3D CNN 生成器生成运动前景，2D CNN 生成器生成静止的背景。Pose GAN 则使用 VAE 和 GAN 生成视频，首先，VAE 结合当前帧的姿态和过去的姿态特征预测下一帧的运动信息，然后 3D CNN 使用运动信息生成后续视频帧。Motion and Content GAN(MoCoGAN) 则提出在隐空间对运动部分和内容部分进行分离，使用 RNN 去建模运动部分。
 
-## vid2vid
+### vid2vid
 
 视频到视频的合成 ： Video-to-Video Synthesis
 作者：Ting-Chun Wang, Ming-Yu Liu, Jun-Yan Zhu, Guilin Liu, Andrew Tao, Jan Kautz, Bryan Catanzaro
-https://arxiv.org/abs/1808.06601
-论文摘要
-本文研究的问题是视频到视频(Video-to-Video)的合成，其目标是学习一个映射函数从一个输入源视频(例如，语义分割掩码序列)到一个输出逼真的视频，准确地描述了源视频的内容。
-与之对应的图像到图像的合成问题是一个热门话题，而视频到视频的合成问题在文献中研究较少。在不了解时间动态的情况下，直接将现有的图像合成方法应用于输入视频往往会导致视频在时间上不连贯，视觉质量低下。
-本文提出了一种在生成对抗学习框架下的视频合成方法。通过精心设计的生成器和鉴别器架构，再加上时空对抗目标，可以在一组不同的输入格式(包括分割掩码、草图和姿势)上获得高分辨率、逼真的、时间相干的视频结果。
-在多个基准上的实验表明，与强基线相比，本文的方法具有优势。特别是该模型能够合成长达30秒的街道场景的2K分辨率视频，大大提高了视频合成的技术水平。最后，将该方法应用于未来的视频预测，表现优于几个最先进的系统。
-概要总结
-英伟达的研究人员引入了一种新的视频合成方法。该框架基于条件甘斯。具体地说，该方法将精心设计的发生器和鉴别器与时空对抗性目标相结合。实验表明，所提出的vid2vid方法可以在不同的输入格式(包括分割掩码、草图和姿势)上合成高分辨率、逼真、时间相干的视频。它还可以预测下一帧，其结果远远优于基线模型。
 
-市场营销和广告可以从vid2vid方法创造的机会中获益(例如，在视频中替换面部甚至整个身体)。然而，这应该谨慎使用，需要想到道德伦理方面的一些顾虑。
-代码
-英伟达团队提供了本研究论文在GitHub上的原始实现的代码：
+https://arxiv.org/abs/1808.06601
+
+英伟达的研究人员引入了一种新的视频合成方法。该框架基于生成对抗学习框架。实验表明，所提出的vid2vid方法可以在不同的输入格式(包括分割掩码、草图和姿势)上合成高分辨率、逼真、时间相干的视频。它还可以预测下一帧，其结果远远优于基线模型。
+
 https://github.com/NVIDIA/vid2vid
 
 
 
-人人来跳舞
-标题：人人都在跳舞
-作者：Caroline Chan, Shiry Ginosar, Tinghui Zhou, Alexei A. Efros
-https://arxiv.org/abs/1808.07371
-论文摘要
-本文提出了一种简单的“按我做”的动作转移方法：给定一个人跳舞的源视频，我们可以在目标对象执行标准动作几分钟后将该表演转换为一个新的(业余)目标。
-本文提出这个问题作为每帧图像到图像的转换与时空平滑。利用位姿检测作为源和目标之间的中间表示，我们调整这个设置为时间相干视频生成，包括现实的人脸合成。学习了从位姿图像到目标对象外观的映射。视频演示可以在https://youtu.be/PCBTZh41Ris找到。
-概要总结
-加州大学伯克利分校的研究人员提出了一种简单的方法，可以让业余舞蹈演员像专业舞蹈演员一样表演，从而生成视频。如果你想参加这个实验，你所需要做的就是录下你自己表演一些标准动作的几分钟的视频，然后拿起你想要重复的舞蹈的视频。
-神经网络将完成主要工作：它将问题解决为具有时空平滑的每帧图像到图像的转换。通过将每帧上的预测调整为前一时间步长的预测以获得时间平滑度并应用专门的GAN进行逼真的面部合成，该方法实现了非常惊人的结果。
+### 人人来跳舞
 
-核心思想
-“跟我做”动传递被视为每帧图像到图像的平移，姿势棒图作为源和目标之间的中间表示
-预先训练的最先进的姿势检测器根据源视频创建姿势棒图；
-应用全局姿势标准化来解释框架内的体形和位置中的源和目标主体之间的差异；
-标准化的姿势棒图被映射到目标对象。
-为了使视频流畅，研究人员建议在先前生成的帧上调节发生器，然后将两个图像提供给鉴别器。 姿势关键点上的高斯平滑允许进一步减少抖动。
-为了生成更逼真的面部，该方法包括额外的面部特定GAN，其在主生成完成之后刷新面部。
-最重要的成果
-根据定性和定量评估，提出了一种优于强基线(pix2pixHD)的运动传输新方法。
-演示特定于人脸的GAN为输出视频添加了相当多的细节。
-AI社区的评价
-谷歌大脑的技术人员汤姆·布朗(Tom Brown)说：“总的来说，我觉得这真的很有趣，而且执行得很好。期待代码的公布，这样我就可以开始训练我的舞步了。”
-Facebook人工智能研究工程师Soumith Chintala说：“卡洛琳·陈(Caroline Chan)、阿廖沙·埃夫罗斯(Alyosha Efros)和团队将舞蹈动作从一个主题转移到另一个主题。只有这样我才能跳得好。了不起的工作! ! !”
-未来研究方向
-用时间相干的输入和专门为运动传输优化的表示来替换姿态棒图。
-可能的应用
-“跟我做”在制作营销和宣传视频时，可能会应用动作转移来替换主题。
-代码
-本研究论文的PyTorch实现可在GitHub上获得：
+作者：Caroline Chan, Shiry Ginosar, Tinghui Zhou, Alexei A. Efros
+
+https://youtu.be/PCBTZh41Ris
+
+加州大学伯克利分校的研究人员提出了一种简单的方法，可以让业余舞蹈演员像专业舞蹈演员一样表演，从而生成视频。如果你想参加这个实验，你所需要做的就是录下你自己表演一些标准动作的几分钟的视频，然后拿起你想要重复的舞蹈的视频。
+
+神经网络将完成主要工作：它将问题解决为具有时空平滑的每帧图像到图像的转换。利用位姿检测作为源和目标之间的中间表示,通过将每帧上的预测调整为前一时间步长的预测以获得时间平滑度并应用专门的GAN进行逼真的面部合成，该方法实现了非常惊人的结果。
+
 https://github.com/nyoki-mtl/pytorch-EverybodyDanceNow
 
-
 http://www.sohu.com/a/294911565_100024677
-
-
 
 https://ceit.aut.ac.ir/~khalooei/tutorials/gan/
 
 
-## Recycle-GAN
+### Recycle-GAN
 
 -------------------
 
-## 3.10 3D
+### 3.10 3D
 《Visual Object Networks: Image Generation with Disentangled 3D Representation》，描述了一种用GAN生成3D图片的方法。
 
-这篇文章被近期在蒙特利尔举办的
-
-NeurIPS 2018
+这篇文章被近期在蒙特利尔举办的NeurIPS 2018
 
 --------------------------
 
@@ -1508,7 +1473,7 @@ http://www.elecfans.com/d/877752.html
 
 VAW-GAN(Variational autoencoding Wasserstein GAN) 结合 VAE 和 WGAN 实现了一个语音转换系统。编码器编码语音信号的内容，解码器则用于重建音色。由于 VAE 容易导致生成结果过于平滑，所以此处使用 WGAN 来生成更加清晰的语音信号。
 
-	Generative Adversarial Text to Image Synthesis	Reed & et al.	ICML 2016
+Generative Adversarial Text to Image Synthesis	Reed & et al.	ICML 2016
 Conditional Generative Adversarial Networks for Speech Enhancement and Noise-Robust Speaker Verification	Michelsanti & Tan	Interspeech 2017	
 Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network	Ledig & et al.	CVPR 2017	
 SalGAN: Visual Saliency Prediction with Generative Adversarial Networks	Pan & et al.	CVPR 2017	

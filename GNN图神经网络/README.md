@@ -265,6 +265,9 @@ Euler 是阿里巴巴开源的大规模分布式的图学习框架，配合 Tens
 
 ## 应用
 
+
+1.https://github.com/jihoo-kim/awesome-RecSys?fbclid=IwAR1m6OebmqO9mfLV1ta4OTihQc9Phw8WNS4zdr5IeT1X1OLWQvLk0Wz45f4
+
 ### 知识图谱（knowledge graph, KG）
  KG里面节点是entity，边是一些特定的semantic relation，是一个图的结构。早期就有很多在KG上学graph embedding然后做link prediction之类的工作（代表作TransE等），有GNN之后自然可以用来学KG上的embedding，做knowledge base completion。
 

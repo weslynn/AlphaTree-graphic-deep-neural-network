@@ -1,5 +1,6 @@
 
-# Recommendation 推荐系统
+### 推荐系统 (Recommendation)
+
 
 信息是怎样流通的？
 
@@ -48,16 +49,31 @@ Algorithm的核心思想是，部分节点将拥有一些标签，每一次迭�
 [1]Video Suggestion and Discovery for YouTube: Taking Random
 Walks Through the View Graph
 [2] The YouTube Video Recommendation System
-[3] Up Next: Retrieval Methods for Large Scale Related Video
+[3] Up Next: Retrieval Methods for Large Scale Related Video 
 Suggestion
 [4] Deep Neural Networks for YouTube Recommendations
 
 
-作者：王小科 [zhihu](https://www.zhihu.com/question/20829671/answer/205421638)
+[zhihu](https://www.zhihu.com/question/20829671/answer/205421638)
+
+
+推荐系统的指标：
 
 
 基于Tensorflow的推荐系统的开源框架openrec
 基于pytorch的推荐系统的框架Spotlight
+
+阿里 xdeeplearning的推荐系统
+https://github.com/alibaba/x-deeplearning
+
+随着硬件计算能力发展带动深度学习的进步，预估领域的算法也逐渐的从传统的CTR（Click Through-Rate）预估模型迁移到深度CTR预估模型。 这些模型都可以归结为Embedding&MLP的范式：首先通过embedding layer将大规模的稀疏特征投影为低维连续的embedding vector， 然后将这些向量concatate后输入到一个全连接网络中，计算其最终的预估目标。相较于传统的方法， 这样的做法利用了深度学习模型更强的model capacity自动的学习特征之间以及特征与目标的关系， 减少了传统模型需要人工经验和实验验证的特征筛选设计阶段。
+
+### DIN  Deep Interesting Network
+DIN是由阿里妈妈精准定向广告算法团队在KDD2018提出的针对电商场景深入理解用户兴趣的预估模型。
+
+DIN通过一个兴趣激活模块(Activation Unit)，用预估目标Candidate ADs的信息去激活用户的历史点击商品，以此提取用户与当前预估目标相关的兴趣。权重高的历史行为表明这部分兴趣和当前广告相关，权重低的则是和广告无关的”兴趣噪声“。我们通过将激活的商品和激活权重相乘，然后累加起来作为当前预估目标ADs相关的兴趣状态表达。 最后我们将这相关的用户兴趣表达、用户静态特征和上下文相关特征，以及ad相关的特征拼接起来，输入到后续的多层DNN网络，最后预测得到用户对当前目标ADs的点击概率。
+
+
 
 
 
@@ -173,4 +189,3 @@ PapersWithCode (Papers with Code - Recommender System)
 https://github.com/microsoft/recommenders（微软发布的推荐代码）
 shenweichen/DeepCTR （这篇文章涉及到ctr预估的经典方法，也有一些实现，非常适合做推荐的朋友）
 参考：
-1.https://github.com/jihoo-kim/awesome-RecSys?fbclid=IwAR1m6OebmqO9mfLV1ta4OTihQc9Phw8WNS4zdr5IeT1X1OLWQvLk0Wz45f4
