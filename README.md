@@ -13,8 +13,7 @@
 基于这种想法，邀请了几位资深程序员加入这个项目。希望丰富的资源能够帮助到大家。
 
 
-<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.5.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.5.png" width="1200"> </a>
-
+------------------------------------------------------------------------------
 
 ## 趣味历史篇：（coming soon）
 
@@ -29,14 +28,6 @@
       <th><img width="50px" src="pictures/hbase.png"></th>
     </tr>
     <tr>
-      <th><img width="50px" src="pictures/kafka.png"></th>
-      <th><img width="50px" src="pictures/zookeeper.jpg"></th>
-      <th><img width="50px" src="pictures/flume.png"></th>
-      <th><img width="50px" src="pictures/sqoop.png"></th>
-      <th><img width="50px" src="pictures/azkaban.png"></th>
-      <th><img width="50px" src="pictures/scala.jpg"></th>
-    </tr>
-    <tr>
       <td align="center"><a href="">图灵</a></td>
       <td align="center"><a href="">Pitts与“金三角”</a></td>
       <td align="center"><a href="">Frank Rosenblat“两派之争”</a></td>
@@ -44,6 +35,18 @@
       <td align="center"><a href="">John Hopfield与神经网络</a></td>
       <td align="center"><a href="">Geoff Hinton与反向传播</a></td>
     </tr>
+</table>
+
+
+<table>
+    <tr>
+      <th><img width="50px" src="pictures/kafka.png"></th>
+      <th><img width="50px" src="pictures/zookeeper.jpg"></th>
+      <th><img width="50px" src="pictures/flume.png"></th>
+      <th><img width="50px" src="pictures/sqoop.png"></th>
+      <th><img width="50px" src="pictures/azkaban.png"></th>
+      <th><img width="50px" src="pictures/scala.jpg"></th>
+    </tr>    
     <tr>      
       <td align="center"><a href="">Yann Lecun与手写数字识别</a></td>
       <td align="center"><a href="">LI Feifei与ImageNet</a></td>
@@ -55,6 +58,7 @@
 </table>
 
 
+-----------------------------------------------------------------------
 
 ## 深度学习基础：物体分类篇object classification
 
@@ -129,6 +133,10 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
       <td align="center"><a href="">VGG</a></td>
       <td align="center"><a href="">ResNet and ResNeXt</a></td>
     </tr>
+</table>
+
+
+<table>    
     <tr>      
       <td align="center"><a href="">Inception-Resnet-V2</a></td>
       <td align="center"><a href="">DenseNet</a></td>
@@ -140,14 +148,13 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 </table>
 
 
+
+
+
 ## 深度学习应用
 
-![ObjectDetection&Seg](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectDetection&Seg.png)
+<a href="https://raw.githubusercontent.com/weslynn/graphic-deep-neural-network/master/map/mapclean_1.5.png"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/mapclean_1.5.png" width="1200"> </a>
 
-物体分类（物体识别）解决的是这个东西是什么的问题（What）。而物体检测则是要解决这个东西是什么，具体位置在哪里（What and Where）。
-物体分割则将物体和背景进行区分出来，譬如人群，物体分割中的实例分割则将人群中的每个人都分割出来。
-输入:图片   输出:类别标签和bbox(x,y,w,h)
-![pic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/detail.jpg)
 
 
 <table>
@@ -160,6 +167,18 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
       <td align="center"><a href="">OCR</a></td>
     </tr>   
 </table>
+
+
+
+![ObjectDetection&Seg](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectDetection&Seg.png)
+
+物体分类（物体识别）解决的是这个东西是什么的问题（What）。而物体检测则是要解决这个东西是什么，具体位置在哪里（What and Where）。
+物体分割则将物体和背景进行区分出来，譬如人群，物体分割中的实例分割则将人群中的每个人都分割出来。
+输入:图片   输出:类别标签和bbox(x,y,w,h)
+![pic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/detail.jpg)
+
+
+-----------------------------------------------------------------------
 
 
 ## GAN基础
@@ -261,7 +280,7 @@ Tensorflow实现：https://github.com/igul222/improved_wgan_training
 pytorch https://github.com/caogang/wgan-gp
 
 
-----------------------
+
 
 ## GAN的实现 Level 2: Implementation skill
 
@@ -292,12 +311,13 @@ FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者
 
 -------------------------------------------------------------------------------------------
 
-## NLP 
+## NLP (comging soon)
 
 
+-------------------------------------------------------------------------------------------
 
 
-## BIG DATA
+## BIG DATA(comging soon)
 
 
 
