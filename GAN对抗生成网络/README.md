@@ -1,7 +1,7 @@
 # GAN 生成式对抗网络
 
 
-![GAN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png)
+![GAN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&pic/ganpic.png)
 
 -----------------------------------
 
@@ -30,13 +30,13 @@
 
 GAN的目标,就是G生成的数据在D看来，和真实数据误差越小越好，目标函数如下：
 
-![basictarget](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/basictarget.png)
+![basictarget](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/basictarget.png)
 
 从判别器 D 的角度看，它希望自己能尽可能区分真实样本和虚假样本，因此希望 D(x) 尽可能大，D(G(z)) 尽可能小， 即 V(D,G)尽可能大。从生成器 G 的角度看，它希望自己尽可能骗过 D，也就是希望 D(G(z)) 尽可能大，即 V(D,G) 尽可能小。两个模型相对抗，最后达到全局最优。
 
 从数据分布来说，就是开始的噪声noise，在G不断修正后，产生的分布，和目标数据分布达到一致：
 
-![data](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/data.png)
+![data](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/data.png)
 
 
    [1] Ian Goodfellow. "Generative Adversarial Networks." arXiv preprint arXiv:1406.2661v1 (2014). [pdf] (https://arxiv.org/pdf/1406.2661v1.pdf)
@@ -132,7 +132,7 @@ GAN的很多研究，都是对Generative modeling生成模型的一种研究，�
 2 Sampling 取样，用对数据分布建模，并进行取样，生成符合原有数据分布的新数据。
 
 
-![gang](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gang.jpg)
+![gang](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/gang.jpg)
 
 
 ----------------------------------------------
@@ -157,7 +157,7 @@ GAN的很多研究，都是对Generative modeling生成模型的一种研究，�
 
 在标准的GAN中，生成数据的来源一般是一段连续单一的噪声z, 在半监督式学习CGAN中，会加入c的class 分类。InfoGan 找到了Gan的latent code 使得Gan的数据生成具有了可解释性。
 
-![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
+![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/ganmodule.png)
 
 
 
@@ -192,7 +192,7 @@ Invertible Conditional GANs for image editing
 
 利用一个encoder网络,对输入图像提取得到一个特征向量z,将特征向量z,以及需要转换的目标attribute向量y串联输入生成网络,得到生成图像,网络结构如下,
 
-![icgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/icgan.png)
+![icgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/icgan.png)
 
 
 https://arxiv.org/pdf/1611.06355.pdf
@@ -304,7 +304,7 @@ https://github.com/martinarjovsky/WassersteinGAN
 ## WGAN-GP
 Regularization and Normalization of the Discriminator:
 
-![wgangp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/wgangp.png)
+![wgangp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/wgangp.png)
 
 WGAN-GP：
 
@@ -330,7 +330,7 @@ https://www.leiphone.com/news/201704/pQsvH7VN8TiLMDlK.html
 
 
 
-![face](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/face.jpg)
+![face](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/face.jpg)
 
 
 
@@ -369,10 +369,10 @@ Batch Normalization
 
 这是CNN在unsupervised learning领域的一次重要尝试，这个架构能极大地稳定GAN的训练，以至于它在相当长的一段时间内都成为了GAN的标准架构，给后面的探索开启了重要的篇章。
 
-![dcgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/dcgang.jpg)
+![dcgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/dcgang.jpg)
 
 
-![dcganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/dcganr.jpg)
+![dcganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/dcganr.jpg)
 
 
 ## ImprovedDCGAN
@@ -399,7 +399,7 @@ Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen
 顾名思义，PGGAN 通过一种渐进式的结构，实现了从低分辨率到高分辨率的过渡，从而能平滑地训练出高清模型出来。论文还提出了自己对正则化、归一化的一些理解和技巧，值得思考。当然，由于是渐进式的，所以相当于要串联地训练很多个模型，所以 PGGAN 很慢。
 
 
-![progan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/progan.gif)
+![progan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/progan.gif)
 论文地址：https://arxiv.org/pdf/1710.10196.pdf
 代码实现地址：https://github.com/tkarras/progressive_growing_of_gans 
 
@@ -420,13 +420,13 @@ CelebA HQ 数据集
 ## SAGAN Ian Goodfellow
 由于卷积的局部感受野的限制，如果要生成大范围相关（Long-range dependency）的区域会出现问题，用更深的卷积网络参数量太大，于是采用将 Self Attention 引入到了生成器（以及判别器）中，使用来自所有特征位置的信息生成图像细节，同时保证判别器能鉴别距离较远的两个特征之间的一致性，获取全局信息。
 IS从36.8提到了52.52，并把FID（Fréchet Inception Distance）从27.62降到了18.65。
-![sagan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/sagan.jpg)
+![sagan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/sagan.jpg)
 
-![sagan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/sagan.png)
+![sagan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/sagan.png)
 
 SAGAN 使用注意力机制，高亮部位为注意力机制关注的位置。
 
-![saganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/saganr.jpg)
+![saganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/saganr.jpg)
 
 
 
@@ -454,9 +454,9 @@ BigGAN模型是基于ImageNet生成图像质量最高的模型之一。BigGAN作
 
 这篇文章提供了 128、256、512 的自然场景图片的生成结果。 自然场景图片的生成可是比 CelebA 的人脸生成要难上很多
 
-![biggan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/biggan.png)
+![biggan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/biggan.png)
 
-![bigganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/bigganr.png)
+![bigganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/bigganr.png)
 
 Github：https://github.com/AaronLeong/BigGAN-pytorch
 
@@ -484,10 +484,10 @@ StyleGAN首先重点关注了ProGAN的生成器网络，它发现，渐进层的
   3、高质的——分辨率为64^2到1024^2，影响颜色（眼睛、头发和皮肤）和微观特征；
 
 
-![stylegan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stylegan.png)
+![stylegan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/stylegan.png)
 
-![stylegan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stylegan.gif)
-![styleganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/styleganr.jpg)
+![stylegan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/stylegan.gif)
+![styleganr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/styleganr.jpg)
 
 
 ![stylegan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/stylegan.png)
@@ -588,7 +588,7 @@ Github ：https://github.com/google/compare_gan
 - [ Paired two domain data](#1-Paired-Image-to-Image-Translation)
 - [ Unpaired two domain data](#2-Unpaired-Image-to-Image-Translation)
 
-![compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/compare.png)
+![compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/compare.png)
 
 
 |Title|	Co-authors|	Publication|Links|
@@ -640,12 +640,12 @@ https://arxiv.org/pdf/1611.07004v1.pdf
 
 Pix2Pix对传统的CGAN做了个小改动，它不再输入随机噪声，而是输入用户给的图片：
 
-![pix2pix](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/pix2pix.png)
+![pix2pix](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/pix2pix.png)
 
 
 通过pix2pix来完成成对的图像转换(Labels to Street Scene, Aerial to Map,Day to Night等)，可以得到比较清晰的结果。
 
-![pix2pixr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/pix2pixr.png)
+![pix2pixr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/pix2pixr.png)
 
 代码：
 
@@ -679,9 +679,9 @@ Ming-Yu Liu在介入过许多CV圈内耳熟能详的项目,包括vid2vid、pix2p
 2 Loss设计
 3 使用Instance-map的图像进行训练。
 
-![pix2pixhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/pix2pixhd.png)
+![pix2pixhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/pix2pixhd.png)
 
-![pix2pixhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/pix2pixhd.gif)
+![pix2pixhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/pix2pixhd.gif)
 
 官方代码 ：https://github.com/NVIDIA/pix2pixHD
 
@@ -733,9 +733,9 @@ https://arxiv.org/abs/1703.10593
 
 CycleGan是让两个domain的图片互相转化。传统的GAN是单向生成，而CycleGAN是互相生成，一个A→B单向GAN加上一个B→A单向GAN，网络是个环形，所以命名为Cycle。理念就是，如果从A生成的B是对的，那么从B再生成A也应该是对的。CycleGAN输入的两张图片可以是任意的两张图片，也就是unpaired。
 
-![CycleGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/cyclegan.png)
+![CycleGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/cyclegan.png)
 
-![CycleGanr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/cyclegan.jpg)
+![CycleGanr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/cyclegan.jpg)
 
 官方pytorch代码（CycleGAN、pix2pix）：https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 
@@ -758,9 +758,9 @@ https://github.com/NVlabs/FUNIT
 主要解决两个问题，小样本Few-shot和没见过的领域转换Unseen Domains。
 人能针对一个新物种，看少量样本，也能进行想象和推算 。关键就是 一个大类型的物种中，信息可以相互转换。
 
-![FUNIT](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/FUNIT.png)
+![FUNIT](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/FUNIT.png)
 
-![FUNITr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/FUNITr.png)
+![FUNITr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/FUNITr.png)
 
 demo http://nvidia-research-mingyuliu.com/petswap
 
@@ -769,7 +769,7 @@ demo http://nvidia-research-mingyuliu.com/petswap
 
 StarGAN的引入是为了解决多领域间的转换问题的，之前的CycleGAN等只能解决两个领域之间的转换，那么对于含有C个领域转换而言，需要学习Cx(C-1)个模型，但StarGAN仅需要学习一个
 
-![starGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/stargan.png)
+![starGan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/stargan.png)
 
 
 
@@ -903,7 +903,7 @@ Semantic Image Synthesis with Spatially-Adaptive Normalization--CVPR 2019。
 
 在基于语义合成图像这个领域里，这可是目前效果最强的方法。
 
-![gaugan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/gaugan.jpg)
+![gaugan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/gaugan.jpg)
 
 
 paper：https://arxiv.org/abs/1903.07291
@@ -1519,7 +1519,7 @@ https://github.com/ycjing/Neural-Style-Transfer-Papers
 
 包含图像风格化综述论文对应论文、源码和预训练模型。 [中文](https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247489172&idx=1&sn=42f567fb57d2886da71a07dd16388022&chksm=96e9c914a19e40025bf88e89514d5c6f575ee94545bd5d854c01de2ca333d4738b433d37d1f5#rd)
 
-![neuralstyle](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/overview.jpg)
+![neuralstyle](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/overview.jpg)
 
 ### 风格迁移 Neural Style
 

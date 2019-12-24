@@ -24,7 +24,7 @@ A Comprehensive Survey of Graph Embedding: Problems, Techniques and Applications
 要想对图进行学习，首先需要对图的顶点数据、边数据和子图数据进行降维，这就是图嵌入（graph embedding）。
 
 
-![graphembeding](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/graphembeding.jpg)
+![graphembeding](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/gnnpic/graphembeding.jpg)
 
 
 如图1所示：一幅图（image）所抽取的特征图（features map）里每个元素，可以理解为图（image）上的对应点的像素及周边点的像素的加权和（还需要再激活一下）。
@@ -33,12 +33,12 @@ A Comprehensive Survey of Graph Embedding: Problems, Techniques and Applications
 
 
 
-![image-graphhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/image-graphhd.jpg)
+![image-graphhd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/gnnpic/image-graphhd.jpg)
 
 
 ## Graph Embedding
 
-![graphembedingpaper](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/graphembedingpaper.jpg)
+![graphembedingpaper](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/gnnpic/graphembedingpaper.jpg)
 
 
 
@@ -95,7 +95,7 @@ DeepWalk和node2vec随机初始化节点嵌入以训练模型。由于它们的�
 DeepWalk和node2vec通过随机游走生成的序列，隐式地保持节点之间的高阶邻近性，由于其随机性，这些随机游走会得到不同距离的连接节点。另一方面，基于因子分解的方法，如GF和HOPE，通过在目标函数中对节点进行建模，明确地保留了节点之间的距离。Walklets将显式建模与随机游走的思想结合起来。该模型通过跳过图中的某些节点来修改DeepWalk中使用的随机游走策略。这是针对多个尺度的跳跃长度执行的，类似于在GraRep中分解，并且随机行走获得的一组点的序列用于训练类似于DeepWalk的模型。
 
 
-![DeepWalkmore](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/DeepWalkmore.jpg)
+![DeepWalkmore](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/gnnpic/DeepWalkmore.jpg)
 
 
 
@@ -112,7 +112,7 @@ DeepWalk和node2vec通过随机游走生成的序列，隐式地保持节点之�
 - 图时空网络（Graph Spatial-temporal Networks）
 
 
-![notDeepwalk](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/notDeepwalk.jpg)
+![notDeepwalk](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/gnnpic/notDeepwalk.jpg)
 
 ### 3.1. Graph Auto-Encoders
 
@@ -159,7 +159,7 @@ Bruna等人(2013)首次提出了对GCNs的突出研究，该研究基于频谱�
 - 边级输出与边分类和连接预测任务相关. 为了预测边的标记和连接强度, 一个附加函数将会把来自图卷积模块的两个节点的潜在表达作为输入.
 - 图级输出与图分类任务有关. 为了获取一个图级的紧凑表达, 池化模块被用来粗化图到子图, 或用来加和/平均节点表达.
 
-![gcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/gnnpic/gcn.png)
+![gcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/gnnpic/gcn.png)
 
 
 GCN的概念首次提出于ICLR2017（成文于2016年）
