@@ -20,12 +20,12 @@
 
 <table>
     <tr>
-      <th><img width="50px" src="pic/famous/5.png"></th>
-      <th><img width="50px" src="pictures/2.png"></th>
-      <th><img width="50px" src="pictures/3.png"></th>
-      <th><img width="50px" src="pictures/4.png"></th>
-      <th><img width="50px" src="pictures/1.png"></th>
-      <th><img width="50px" src="pictures/6.png"></th>
+      <th><img width="50px" src="pic/icon/5.png"></th>
+      <th><img width="50px" src="pic/icon/2.png"></th>
+      <th><img width="50px" src="pic/icon/3.png"></th>
+      <th><img width="50px" src="pic/icon/4.png"></th>
+      <th><img width="50px" src="pic/icon/1.png"></th>
+      <th><img width="50px" src="pic/icon/6.png"></th>
     </tr>
     <tr>
       <td align="center"><a href="">图灵</a></td>
@@ -36,12 +36,12 @@
       <td align="center"><a href="">Geoff Hinton与反向传播</a></td>
     </tr>
     <tr>
-      <th><img width="50px" src="pictures/7.png"></th>
-      <th><img width="50px" src="pictures/8.png"></th>
-      <th><img width="50px" src="pictures/9.png"></th>
-      <th><img width="50px" src="pictures/10.png"></th>
-      <th><img width="50px" src="pictures/11.png"></th>
-      <th><img width="50px" src="pictures/12.png"></th>
+      <th><img width="50px" src="pic/icon/7.png"></th>
+      <th><img width="50px" src="pic/icon/8.png"></th>
+      <th><img width="50px" src="pic/icon/9.png"></th>
+      <th><img width="50px" src="pic/icon/10.png"></th>
+      <th><img width="50px" src="pic/icon/11.png"></th>
+      <th><img width="50px" src="pic/icon/12.png"></th>
     <tr>      
       <td align="center"><a href="">Yann Lecun与手写数字识别</a></td>
       <td align="center"><a href="">LI Feifei与ImageNet</a></td>
