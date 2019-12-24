@@ -35,10 +35,6 @@
       <td align="center"><a href="">John Hopfield与神经网络</a></td>
       <td align="center"><a href="">Geoff Hinton与反向传播</a></td>
     </tr>
-</table>
-
-
-<table>
     <tr>
       <th><img width="50px" src="pictures/kafka.png"></th>
       <th><img width="50px" src="pictures/zookeeper.jpg"></th>
@@ -132,11 +128,7 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
       <td align="center"><a href="">Inception V3</a></td>
       <td align="center"><a href="">VGG</a></td>
       <td align="center"><a href="">ResNet and ResNeXt</a></td>
-    </tr>
-</table>
-
-
-<table>    
+    </tr>    
     <tr>      
       <td align="center"><a href="">Inception-Resnet-V2</a></td>
       <td align="center"><a href="">DenseNet</a></td>
