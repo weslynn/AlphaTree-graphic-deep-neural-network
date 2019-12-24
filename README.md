@@ -20,12 +20,12 @@
 
 <table>
     <tr>
-      <th><img width="50px" src="pic/famous/tuling.jpg"></th>
-      <th><img width="50px" src="pictures/hive.jpg"></th>
-      <th><img width="50px" src="pictures/spark.jpg"></th>
-      <th><img width="50px" src="pictures/storm.png"></th>
-      <th><img width="50px" src="pictures/flink.png"></th>
-      <th><img width="50px" src="pictures/hbase.png"></th>
+      <th><img width="50px" src="pic/famous/5.png"></th>
+      <th><img width="50px" src="pictures/2.png"></th>
+      <th><img width="50px" src="pictures/3.png"></th>
+      <th><img width="50px" src="pictures/4.png"></th>
+      <th><img width="50px" src="pictures/1.png"></th>
+      <th><img width="50px" src="pictures/6.png"></th>
     </tr>
     <tr>
       <td align="center"><a href="">图灵</a></td>
@@ -36,13 +36,12 @@
       <td align="center"><a href="">Geoff Hinton与反向传播</a></td>
     </tr>
     <tr>
-      <th><img width="50px" src="pictures/kafka.png"></th>
-      <th><img width="50px" src="pictures/zookeeper.jpg"></th>
-      <th><img width="50px" src="pictures/flume.png"></th>
-      <th><img width="50px" src="pictures/sqoop.png"></th>
-      <th><img width="50px" src="pictures/azkaban.png"></th>
-      <th><img width="50px" src="pictures/scala.jpg"></th>
-    </tr>    
+      <th><img width="50px" src="pictures/7.png"></th>
+      <th><img width="50px" src="pictures/8.png"></th>
+      <th><img width="50px" src="pictures/9.png"></th>
+      <th><img width="50px" src="pictures/10.png"></th>
+      <th><img width="50px" src="pictures/11.png"></th>
+      <th><img width="50px" src="pictures/12.png"></th>
     <tr>      
       <td align="center"><a href="">Yann Lecun与手写数字识别</a></td>
       <td align="center"><a href="">LI Feifei与ImageNet</a></td>
@@ -154,10 +153,13 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
       <td align="center"><a href="">轻量级模型 & 剪枝</a></td>
       <td align="center"><a href="">物体检测Object Detection </a></td>
       <td align="center"><a href="">物体分割Object Segmentation</a></td>
-      <td align="center"><a href="">人脸检测Face Detection</a></td>
-      <td align="center"><a href="">人脸识别Face Recognition</a></td>
       <td align="center"><a href="">OCR</a></td>
     </tr>   
+    <tr>
+      <td align="center"><a href="">人脸检测Face Detection</a></td>
+      <td align="center"><a href="">人脸识别Face Recognition</a></td>
+      <td align="center"><a href="">肢体检测Pose Detection</a></td>
+      <td align="center"><a href="">3D</a></td>      
 </table>
 
 
