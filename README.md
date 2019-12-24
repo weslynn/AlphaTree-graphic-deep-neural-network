@@ -122,7 +122,7 @@ ILSVRC 2017
 Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classification 任务的冠军， 2.251% Top-5 错误率
 
 
-[模型总览](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)
+[模型总览](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C) <- 之前展示所有模型的主页挪到这里来了。点这里 点这里
 
 模型索引： 
 
