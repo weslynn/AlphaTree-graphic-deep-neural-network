@@ -1,11 +1,10 @@
 ![title](https://github.com/weslynn/graphic-deep-neural-network/blob/master/qr/map_title_.png)
 
-# AlphaTree : Graphic Deep Neural Network && GAN     深度神经网络(DNN)与生成式对抗网络(GAN)模型总览
+# AlphaTree : Graphic Deep Neural Network && GAN     深度神经网络(DNN)模型总览
 
 
 在AI学习的漫漫长路上，理解不同文章中的模型与方法是每个人的必经之路，偶尔见到Fjodor van Veen所作的[A mostly complete chart of Neural Networks](http://www.asimovinstitute.org/wp-content/uploads/2016/09/neuralnetworks.png) 和 FeiFei Li AI课程中对模型的[画法](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/feifei.png)，大为触动。决定将深度神经网络中的一些模型 进行统一的图示，便于大家对模型的理解。
 
-从AI研究的角度来说，AI的学习和跟进是有偏向性的，更多的精英是擅长相关的一到两个领域，在这个领域做到更好。而从AI应用工程师的角度来说，每一个工程都可能涉及很多个AI的方向，而他们需要了解掌握不同的方向才能更好的开发和设计。但是AI中每一个领域都在日新月异的成长。而每一位研究人员写paper的风格都不一样，相似的模型，为了突出不同的改进点，他们对模型的描述和图示都可能大不相同。为了帮助更多的人在不同领域能够快速跟进前沿技术，我们构建了“AlphaTree计划”，每一篇文章都会对应文章，代码，然后进行图示输出。
 
 图示工作主要完成了object classification部分，部分还使用PlotNeuralNet [link](https://github.com/HarisIqbal88/PlotNeuralNet)进行了更精美的绘制。 而其他的很多任务是基于object classification 去迁移的，因此不是每一个都需要模型绘制。
 
@@ -81,22 +80,22 @@ https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN
 一个常用的神经网络结构可以进行如下的等价变换。每个圆圈上的数字代表这一层有多少个神经元。
 
 
-<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/simplelize.png" width="600">
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/simplelize.png" width="600">
 
 图像的深度卷积网络 每一层的卷积核大小也是大家感兴趣的，因此会在简化结构中，加上卷积核大小。这个可以写在圆圈中，也可以写在圆圈下方。
 
 如 [LeNet网络](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md) 
 
-![Lenet_short](https://github.com/weslynn/graphic-deep-neural-network/raw/master/modelpic/lenet-short.png)
+![Lenet_short](https://github.com/weslynn/graphic-deep-neural-network/raw/master/pic/modelpic/lenet-short.png)
 
 
 
 模型中用到的图标规定如下：
-![图标](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/cellsreadme.png)
+![图标](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/cellsreadme.png)
 
 当大家描述网络结构时，常常会将卷积层和maxpooling层画在一起，我们也提供了这样的简化方法
 
-  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/equal.png" width="205">
+  <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/equal.png" width="205">
 
 一个具体的问题是否能用人工智能，或者更进一步说用深度学习某个算法解决，首先需要人对问题进行分解，提炼成可以用机器解决的问题，譬如说分类问题，回归问题，聚类问题等。
 
@@ -113,71 +112,9 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 
 论文查询网址 ：https://www.semanticscholar.org/
 
-版权申明：CC-BY-NC-SA 知识共享-署名-非商业性-相同方式共享
----------------------------------------------------------------------------------------------------
+
 
 ## Object Classification 物体分类
-
-深度学习在解决分类问题上非常厉害。让它声名大噪的也是对于图像分类问题的解决。也产生了很多很经典的模型。其他方向的模型发展很多都是源于这各部分，它是很多模型的基础工作。因此我们首先了解一下它们。
-
-
-![object classification](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/ObjectClassification.png)
-
-
-从模型的发展过程中，随着准确率的提高，网络结构也在不断的进行改进，现在主要是两个方向，一是深度，二是复杂度。此外还有卷积核的变换等等。
-
-深度神经网络的发展要从经典的LeNet模型说起，那是1998年提出的一个模型，在手写数字识别上达到商用标准。之后神经网络的发展就由于硬件和数据的限制，调参的难度等各种因素进入沉寂期。
-
-到了2012年，Alex Krizhevsky 设计了一个使用ReLu做激活函数的AlexNet 在当年的ImageNet图像分类竞赛中(ILSVRC 2012)，以top-5错误率15.3%拿下第一。 他的top-5错误率比上一年的冠军下降了十个百分点，而且远远超过当年的第二名。而且网络针对多GPU训练进行了优化设计。从此开始了深度学习的黄金时代。
-
-大家发表的paper一般可以分为两大类，一类是网络结构的改进，一类是训练过程的改进，如droppath，loss改进等。
-
-之后网络结构设计发展主要有两条主线，一条是Inception系列（即上面说的复杂度），从GoogLeNet 到Inception V2 V3 V4，Inception ResNet。 Inception module模块在不断变化，一条是VGG系列（即深度），用简单的结构，尽可能的使得网络变得更深。从VGG 发展到ResNet ，再到DenseNet ，DPN等。 
-
-最终Google Brain用500块GPU训练出了比人类设计的网络结构更优的网络NASNet,最近训出了mNasNet。
-
-此外，应用方面更注重的是，如何将模型设计得更小，这中间就涉及到很多卷积核的变换。这条路线则包括 SqueezeNet，MobileNet V1 V2 Xception shuffleNet等。
-
-ResNet的变种ResNeXt 和SENet 都是从小模型的设计思路发展而来。
-
-输入:图片   输出:类别标签
-
-![allmodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/allmodel.png)
-
-
-
-
-|模型名 |AlexNet |ZFNet|VGG |GoogLeNet |ResNet|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|初入江湖  |2012 |2013 |2014  |2014  |2015|
-|层数  |8 |8 |19 |22  |152|
-|Top-5错误 |16.4% |11.2%|7.3%  |6.7%  |3.57%|
-|Data Augmentation |+ |+ |+ |+ |+|
-|Inception(NIN)  |– |– |– |+ |–|
-|卷积层数  |5 |5 |16  |21  |151|
-|卷积核大小 |11,5,3 | 7,5,3| 3 |7,1,3,5 |7,1,3|
-|全连接层数 |3 |3 |3 |1 |1|
-|全连接层大小  |4096,4096,1000|4096,4096,1000|4096,4096,1000  |1000  |1000|
-|Dropout |+|+|+ |+ |+|
-|Local Response Normalization  |+|+|– |+ |–|
-|Batch Normalization |–|–|– |– |+|
-
-ILSVRC2016
-2016 年的 ILSVRC，来自中国的团队大放异彩：
-
-CUImage（商汤和港中文），Trimps-Soushen（公安部三所），CUvideo（商汤和港中文），HikVision（海康威视），SenseCUSceneParsing（商汤和香港城市大学），NUIST（南京信息工程大学）包揽了各个项目的冠军。
-
-CUImage（商汤科技和港中文）：目标检测第一；
-Trimps-Soushen（公安部三所）：目标定位第一；
-CUvideo（商汤和港中文）：视频中物体检测子项目第一；
-NUIST（南京信息工程大学）：视频中的物体探测两个子项目第一；
-HikVision（海康威视）：场景分类第一；
-SenseCUSceneParsing（商汤和港中文）：场景分析第一。
-
-其中，Trimps-Soushen 以 2.99% 的 Top-5 分类误差率和 7.71% 的定位误差率赢得了 ImageNet 分类任务的胜利。该团队使用了分类模型的集成（即 Inception、Inception-ResNet、ResNet 和宽度残差网络模块的平均结果）和基于标注的定位模型 Faster R-CNN 来完成任务。训练数据集有 1000 个类别共计 120 万的图像数据，分割的测试集还包括训练未见过的 10 万张测试图像。
-
-ILSVRC 2017
-Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classification 任务的冠军， 2.251% Top-5 错误率
 
 
 ### LeNet  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)  Yann LeCun
@@ -186,10 +123,10 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet-org.jpg" width="705"> </a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet.png" width="600"> </a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/lenet.png" width="600"> </a>
 
    
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/lenet_data2.png" width="705"> </a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/lenet_data2.png" width="705"> </a>
 
    [1] LeCun, Yann; Léon Bottou; Yoshua Bengio; Patrick Haffner (1998). "Gradient-based learning applied to document recognition" [pdf](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
 
@@ -214,9 +151,9 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 
   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/alexnet-org.jpg" width="805"></a>
 
-  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet.png" width="700"></a>
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/alexnet.png" width="700"></a>
 
-  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/alexnet_data.png"></a>
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/alexnet_data.png"></a>
 
    [2] Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems. 2012. [pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
@@ -233,7 +170,7 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 
   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet_th.jpeg" width="805"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/googlenet.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/googlenet.png" width="805"></a>
 
    [3] Szegedy, Christian, et al. "Going deeper with convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2015.[pdf](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf)
 
@@ -247,9 +184,9 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 ### Inception V3  [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md) Christian Szegedy / Google
 * Inception V3，GoogLeNet的改进版本,采用InceptionModule和全局平均池化层，v3一个最重要的改进是分解（Factorization），将7x7分解成两个一维的卷积（1x7,7x1），3x3也是一样（1x3,3x1），ILSVRC 2012 Top-5错误率降到3.58% test error 
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/inceptionv3.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/inceptionv3.png" width="805"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/v3-tf.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/v3-tf.png" width="805"></a>
 
    [4] Szegedy, Christian, et al. “Rethinking the inception architecture for computer vision.” arXiv preprint arXiv:1512.00567 (2015). [pdf](http://arxiv.org/abs/1512.00567)
 
@@ -266,15 +203,15 @@ GoogLeNet名字将L大写，是为了向开山鼻祖的LeNet网络致敬.
 VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC localization 第一名。VGG-Net的所有 convolutional layer 使用同样大小的 convolutional filter，大小为 3 x 3
 
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/vgg.png" width="505"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/vgg.png" width="505"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/vgg.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/vgg.png" width="805"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/vgg16_data.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/vgg16_data.png" width="805"></a>
 
 单独看VGG19的模型：
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/vgg19.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/vgg19.png" width="805"></a>
 
 
    [5] Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks for large-scale image recognition." arXiv preprint arXiv:1409.1556 (2014). [pdf](https://arxiv.org/pdf/1409.1556.pdf)
@@ -296,11 +233,11 @@ VGG-Net是2014年ILSVRC classification第二名(第一名是GoogLeNet)，ILSVRC 
 ResNet,深度残差网络，通过shortcut( skip connection )的设计，打破了深度神经网络深度的限制，使得网络深度可以多达到1001层。
 它构建的152层深的神经网络，在ILSVRC2015获得在ImageNet的classification、detection、localization以及COCO的detection和segmentation上均斩获了第一名的成绩，其中classificaiton 取得3.57%的top-5错误率，
  
-  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnet.png" width="805"></a>
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/resnet.png" width="805"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnet3.png" width="1005"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/resnet3.png" width="1005"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/resnet.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/resnet.png" width="805"></a>
 	[6] He, Kaiming, et al. "Deep residual learning for image recognition." arXiv preprint arXiv:1512.03385 (2015). [pdf](https://arxiv.org/pdf/1512.03385.pdf) (ResNet,Very very deep networks, CVPR best paper) 
 
 
@@ -316,9 +253,9 @@ ResNet,深度残差网络，通过shortcut( skip connection )的设计，打破�
 
 结构采用grouped convolutions，减少了超参数的数量（子模块的拓扑结构一样），不增加参数复杂度，提高准确率。
 
-  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/resnext.png" width="605"></a>
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/resnext.png" width="605"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/resnext.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/resnext.png" width="805"></a>
 
 	[7] He, Kaiming, et al. "Aggregated Residual Transformations for Deep Neural Networks." arXiv preprint arXiv:1611.05431 . [pdf](https://arxiv.org/pdf/1611.05431.pdf) (ResNet,Very very deep networks, CVPR best paper) 
 
@@ -330,9 +267,9 @@ ResNet,深度残差网络，通过shortcut( skip connection )的设计，打破�
 
 Inception Resnet V2是基于Inception V3 和 ResNet结构发展而来的一个网络。在这篇paper中，还同期给出了Inception V4. 
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionResnetV2.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/inception_resnet_v2.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionResnetV2.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/inception_resnet_v2.png" width="805"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionResnetV2.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/inceptionresnet_v2_tf.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionResnetV2.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/inceptionresnet_v2_tf.png" width="805"></a>
 
   [8] Christian Szegedy, et al. “Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning” arXiv preprint arXiv:1602.07261 (2015). [pdf](http://arxiv.org/abs/1602.07261)
 
@@ -348,11 +285,11 @@ DenseNet 将ResNet的residual connection 发挥到了极致，它做了两个重
 
 DenseNet很容易训练,但是它有很多数据需要重复使用，因此显存占用很大。不过现在的更新版本，已经通过用时间换空间的方法，将DenseLayer(Contact-BN-Relu_Conv)中部分数据使用完就释放，而在需要的时候重新计算。这样增加少部分计算量，节约大量内存空间。
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/densenet.png" width="605"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/densenet.png" width="605"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/densenet_structure.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/densenet_structure.png" width="805"></a>
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/densenet.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/densenet.png" width="805"></a>
   [9] Gao Huang,Zhuang Liu, et al. DenseNet：2016，Densely Connected Convolutional Networks arXiv preprint arXiv:1608.06993 . [pdf](https://arxiv.org/pdf/1608.06993.pdf)  CVPR 2017 Best Paper
   [10]Geoff Pleiss, Danlu Chen, Gao Huang, et al.Memory-Efficient Implementation of DenseNets. [pdf](https://arxiv.org/pdf/1707.06990.pdf)
 
@@ -372,12 +309,12 @@ DPN把DenseNet和ResNet联系到了一起，该神经网络结合ResNet和DenseN
 
  它在在图像分类、目标检测还是语义分割领域都有极大的优势，可以去看2017 ImageNet NUS-Qihoo_DPNs 的表现。
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/dpn_org1.jpg" width="605"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/dpn_org1.jpg" width="605"></a>
 
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/dpn_struct.png" width="805"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/dpn_struct.png" width="805"></a>
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/dpn.png" width="805"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/dpn.png" width="805"></a>
   [11]Yunpeng Chen, Jianan Li, Huaxin Xiao, Xiaojie Jin, Shuicheng Yan, Jiashi Feng.Dual Path Networks  [pdf](https://arxiv.org/pdf/1707.01629.pdf)
 
 github链接：
@@ -393,7 +330,7 @@ caffe:https://github.com/soeaver/caffe-model
 
 这个模型在Inception_ResNet_v2 的基础上，替换了之前的Inception module，改用 PolyInception module 作为基础模块，然后通过数学多项式来组合设计每一层网络结构。因此结构非常复杂。
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/PolyNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/polynet_th.jpg" width="605"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/PolyNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/polynet_th.jpg" width="605"></a>
 
 
 
@@ -415,15 +352,15 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 它在结构中增加了一个se模块，通过Squeeze 和 Excitation 的操作，学习自动获取每个特征通道的重要程度，然后依照这个重要程度去提升有用的特征并抑制对当前任务用处不大的特征。
 
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/semodule.jpg" width="605"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/semodule.jpg" width="605"></a>
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/senet.jpg" width="805"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/senet.jpg" width="805"></a>
 
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/senet.png" width="805"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/senet.png" width="805"></a>
  
 
-  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/senet.png" width="805"></a>
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/senet.png" width="805"></a>
  
   [13] Squeeze-and-Excitation Networks  [pdf](https://arxiv.org/pdf/1709.01507.pdf)
 
@@ -436,7 +373,7 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 ）设计的网络。性能各种战胜人类设计。
 
 
-<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/NasNet_cell.jpeg">
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/NasNet_cell.jpeg">
 
 
   [14]Learning Transferable Architectures for Scalable Image Recognition[pdf](https://arxiv.org/pdf/1707.07012.pdf)
@@ -467,7 +404,7 @@ https://ai.googleblog.com/2018/08/mnasnet-towards-automating-design-of.html
 
 
 
-<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mallmodel.jpeg" width="700">
+<img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/mallmodel.jpeg" width="700">
 
 |网络名称|最早公开日期|发表情况|作者团队|链接|
 |:---:|:---:|:---:|:---:|:---:|
@@ -508,9 +445,9 @@ ShuffleNet_V1与MobileNet_V2上的时间消耗分析
 
 SqueezeNet 的核心在于 Fire module，Fire module 由两层构成，分别是 squeeze 层+expand 层，squeeze 层是一个 1×1 卷积核的卷积层，对上一层 feature map 进行卷积，主要目的是减少 feature map 的维数，expand 层是 1×1 和 3×3 卷积核的卷积层，expand 层中，把 1×1 和 3×3 得到的 feature map 进行 concat。
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SqueezeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/squeeze.png" width="405"></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SqueezeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/squeeze.png" width="405"></a>
 
- <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SqueezeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/squeezenet.png" ></a>
+ <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SqueezeNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/squeezenet.png" ></a>
 
 
   [1]AlexNet-level accuracy with 50x fewer parameters and <0.5MB[pdf](https://arxiv.org/pdf/1602.07360.pdf)
@@ -524,22 +461,22 @@ github链接：
 
 MobileNet 顾名思义，可以用在移动设备上的网络，性能和效率取得了很好平衡。它发展了两个版本，第一个版本基本结构和VGG类似，主要通过 depthwise separable convolution 来减少参数和提升计算速度。 第二代结合了ResNet的特性，提出了一种新的 Inverted Residuals and Linear Bottleneck。性能优于对应的NasNet。
 
-![mobilenetv2_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2_compare.jpg)
+![mobilenetv2_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/mobilenetv2_compare.jpg)
 
 
 MobileNet v1：2017，MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
   
-![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv1.jpg)
+![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/mobilenetv1.jpg)
 
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilenet.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/mobilenet.png" width="805"></a>
 
 MobileNet v2：2018，Inverted Residuals and Linear Bottlenecks: Mobile Networks for Classification, Detection and Segmentation
 
-![mobilenetv2_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2.jpg)
+![mobilenetv2_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/baicpic/mobilenetv2.jpg)
 
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilenetv2.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/MobileNet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/mobilenetv2.png" width="805"></a>
 
 
 
@@ -594,7 +531,7 @@ pytorch pretrained-model https://github.com/Cadene/pretrained-models.pytorch
 
 概述 ：https://arxiv.org/pdf/1804.06655.pdf
 
-![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facerecognition.png)
+![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facerecognition.png)
 
 
 ![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/FaceDetection.png)
@@ -620,10 +557,10 @@ H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork 
 
 对比传统人脸检测方法，CascadeCNN将Cascade级联结构中每个stage中CNN的分类器代替了传统的分类器；2. 每个分类stage之后应用了一个矫正网络使得人脸框的位置更为精确。该论文是当时基于CNN的人脸检测方法中速度最快的
 
-![cascade](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/cascadestruct.png)
+![cascade](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/cascadestruct.png)
 
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/CascadeCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadeCNN.png" width="400"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/CascadeCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/face/cascadeCNN.png" width="400"></a>
 
 
 
@@ -632,8 +569,8 @@ H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork 
 * MTCNN 
 MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务分解后让三个子网络来完成。每个网络都很浅，使用多个小网络级联，较好的完成任务。
 
-![mtcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/mtcnn_struct.png)
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/mtcnn.png" width="400"></a>
+![mtcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/mtcnn_struct.png)
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/face/mtcnn.png" width="400"></a>
 
 
    [1] [ECCV2016] Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks [pdf](https://kpzhang93.github.io/MTCNN_face_detection_alignment/paper/spl.pdf)
@@ -664,7 +601,7 @@ Deformable part models (DPMs)
      ERT(Ensemble of Regression Trees)  dlib： One Millisecond Face Alignment with an Ensemble of Regression Trees.  http://www.csc.kth.se/~vahidk/papers/KazemiCVPR14.pdf        https://github.com/davisking/dlib
      Face Alignment at 3000 FPS cvpr2013, https://github.com/yulequan/face-alignment-in-3000fps
 
-![FacePoint](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facepoint.png)
+![FacePoint](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facepoint.png)
 
 
 深度学习：
@@ -714,7 +651,7 @@ estimation with energy-based models." The Journal of Machine Learning Research 8
 重点已转向基于深度学习的方法。 
 
 
-![FaceDetection1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facerecognition1.png)
+![FaceDetection1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facerecognition1.png)
 
 
 
@@ -736,11 +673,11 @@ DeepFace 在算法上并没有什么特别的创新，它的改进在于对前�
 
 DeepFace: Closing the Gap to Human-Level Performance in Face Verification 
 
-![DeepFace1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/deepface.jpg)
+![DeepFace1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/deepface.jpg)
 
-![DeepFace2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/deepface.png)
+![DeepFace2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/deepface.png)
 
-![DeepFacemodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/deepface.png)
+![DeepFacemodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/face/deepface.png)
 
 
 ### DeepID
@@ -750,7 +687,7 @@ DeepID 还是将人脸作为一个分类问题来解决，而从facenet开始，
 
 ### VGGFace
 
-![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/faceloss.png)
+![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/faceloss.png)
 
 
 ### Facenet [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md) 
@@ -765,7 +702,7 @@ Model name          LFW accuracy  Training dataset  Architecture
 
 [20170512-110547](https://drive.google.com/file/d/0B5MzpY9kBtDVZ2RpVDYwWmxoSUk)        0.992       MS-Celeb-1M     Inception ResNet v1
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facenet_struct.png"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facenet_struct.png"></a>
 
 它使用现有的模型结构，然后将卷积神经网络去掉sofmax后，经过L2的归一化，然后得到特征表示，之后基于这个特征表示计算Loss。文章中使用的结构是[ZFNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)，[GoogLeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)，tf代码是改用了Inception_resnet_v1。
 
@@ -773,9 +710,9 @@ Loss的发展：
 文中使用的Loss 是 triplet loss。后来相应的改进有ECCV2016的 center loss，SphereFace，2018年的AMSoftmax和ArchFace（InsightFace），现在效果最好的是ArchFace（InsightFace）。
 
 
-![loss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/arcface.png)
+![loss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/arcface.png)
 
-![loss2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface.png)
+![loss2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/insightface.png)
 
 https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py
 
@@ -1081,12 +1018,12 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 * CTPN 使用CNN + RNN 进行文本检测与定位。
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/ctpn.png" width="905"> </a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/ocr/ctpn.png" width="905"> </a>
 
 
 作者caffe中模型结构如图：
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md"><img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/ctpn_caffe.png" width="905"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CTPN.md"><img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/ocr/ctpn_caffe.png" width="905"></a>
 
 
    [1] [ECCV2016] Detecting Text in Natural Image with Connectionist Text Proposal Network [pdf](https://arxiv.org/pdf/1609.03605.pdf) 
@@ -1100,15 +1037,15 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 * TextBoxes，一个端到端的场景文本检测模型。这个算法是基于SSD来实现的,解决水平文字检测问题，将原来3×3的kernel改成了更适应文字的long conv kernels 3×3 -> 1×5。default boxes 也做了修改。
    
-![textboxes](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/textboxes.png)
+![textboxes](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ocrpic/textboxes.png)
 
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes.png" width="905"> </a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/TextBoxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/ocr/textboxes.png" width="905"> </a>
 
 
 作者caffe中模型结构如图：
 
-  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes_caffe.png" width="905"> </a>
+  <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/ocr/textboxes_caffe.png" width="905"> </a>
 
 
    [2]  M. Liao et al. TextBoxes: A Fast Text Detector with a Single Deep Neural Network. AAAI, 2017. [pdf](https://arxiv.org/pdf/1611.06779.pdf) 
@@ -1124,8 +1061,8 @@ Gupta A, et al. Synthetic data for text localisation in natural images. CVPR, 20
 
 * TextBoxes++ 这个算法也是基于SSD来实现的，实现了对多方向文字的检测。boundingbox的输出从4维的水平的boundingbox扩展到4+8=12维的输出。long conv kernels 从 1×5 改成了 3×5。default boxes 也做了修改。
 
-   ![textboxesplus](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/ocrpic/textboxes++.png)
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes++.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/textboxes++.png" width="905"> </a>
+   ![textboxesplus](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ocrpic/textboxes++.png)
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/Textboxes++.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/ocr/textboxes++.png" width="905"> </a>
 
 
 
@@ -1234,7 +1171,7 @@ He et al. Reading Scene Text in Deep Convolutional Sequences. AAAI, 2016.
 * CRNN 将特征提取CNN，序列建模 RNN 和转录 CTC 整合到统一框架，完成端对端的识别任务.
    
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/CRNN.md">
-   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/ocr/crnn.png" width="805"></a>
+   <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/ocr/crnn.png" width="805"></a>
 
    [1] [2015-CoRR] An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition  [pdf](http://arxiv.org/pdf/1507.05717v1.pdf) 
 
@@ -1304,7 +1241,7 @@ DocUNet: Document Image Unwarping via A Stacked U-Net  face++
 物体分割则将物体和背景进行区分出来，譬如人群，物体分割中的实例分割则将人群中的每个人都分割出来。
 输入:图片   输出:类别标签和bbox(x,y,w,h)
 
-![pic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/detail.jpg)
+![pic1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/detail.jpg)
 
 
 
@@ -1314,7 +1251,7 @@ DocUNet: Document Image Unwarping via A Stacked U-Net  face++
 
 这里借用一张图，展示Object Detection 基础算法的发展
 
-![total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/total.png)
+![total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/total.png)
 
 其中RCNN FastRCNN FasterRCNN为一脉相承。另外两个方向为Yolo 和SSD。Yolo迭代到Yolo V3，SSD的设计也让它后来在很多方向都有应用。
 
@@ -1330,17 +1267,17 @@ Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 第一步：将图片转换成不同大小的框，
 第二步：对框内的数据进行特征提取，然后通过分类器判定，选区分最高的框作为物体定位框。
 
-![old](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/old.png)
+![old](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/old.png)
 
 
-![scorecompare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/compare.png)
+![scorecompare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/compare.png)
 
 
 评价标准: IoU(Intersection over Union)； mAP(Mean Average Precision) 速度：帧率FPS
-![iou](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/iou.png)
+![iou](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/iou.png)
 
 
-![obj](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/obj.png)
+![obj](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/obj.png)
 
 [link](https://handong1587.github.io/deep_learning/2015/10/09/object-detection.html#non-maximum-suppression-nms)
 
@@ -1357,7 +1294,7 @@ Traditional region proposal methods + CNN classifier
 
 R-CNN在PASCAL VOC2007上的检测结果提升到66%(mAP)
 
-![rcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rcnn.png)
+![rcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/rcnn.png)
 
 
 
@@ -1371,7 +1308,7 @@ github: https://github.com/rbgirshick/rcnn
 
 一般CNN后接全连接层或者分类器，他们都需要固定的输入尺寸，因此不得不对输入数据进行crop或者warp，这些预处理会造成数据的丢失或几何的失真。SPP Net的提出，将金字塔思想加入到CNN，实现了数据的多尺度输入。此时网络的输入可以是任意尺度的，在SPP layer中每一个pooling的filter会根据输入调整大小，而SPP的输出尺度始终是固定的。
 
-![spp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/spp.png)
+![spp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/spp.png)
 
 这样打破了之前大家认为需要先提出检测框，然后resize到一个固定尺寸再通过CNN的模式，而可以图片先通过CNN获取到特征后，在特征图上使用不同的检测框提取特征。之后pooling到同样尺寸进行后续步骤。这样可以提高物体检测速度。
 
@@ -1394,7 +1331,7 @@ Ross Girshick将SPPNet的方法应用到RCNN中，提出了一个可以看做单
 3.然后通过之前proposal的方法提取ROI，在所有的感兴趣的区域上应用RoI池化层，并调整区域的尺寸。然后，每个区域被传递到全连接层的网络中；
 4.softmax层用于全连接网以输出类别。与softmax层一起，也并行使用线性回归层，以输出预测类的边界框坐标。
       
-![fastrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fastrcnn.png)
+![fastrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fastrcnn.png)
 
 github:  https://github.com/rbgirshick/fast-rcnn
 
@@ -1404,23 +1341,23 @@ Fast RCNN的区域提取还是使用的传统方法，而Faster RCNN将Region Pr
 
 Faster R-CNN = Region Proposal Network +Fast R-CNN
 
-![fasterrcnn1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn1.png)
+![fasterrcnn1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fasterrcnn1.png)
 
 
-![fasterrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn.png)
+![fasterrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fasterrcnn.png)
 
 
-![fasterrcnn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn2.png)
+![fasterrcnn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fasterrcnn2.png)
 
 将区域提取通过一个CNN完成。这个CNN叫做Region Proposal Network，RPN的运用使得region proposal的额外开销就只有一个两层网络。关于RPN可以参考[link](https://cloud.tencent.com/developer/article/1347839)
 
 
-![rpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rpn.png)
+![rpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/rpn.png)
 
 
 Faster R-CNN设计了提取候选区域的网络RPN，代替了费时的Selective Search（选择性搜索），使得检测速度大幅提升，下表对比了R-CNN、Fast R-CNN、Faster R-CNN的检测速度：
 
-![speed](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/speed.png)
+![speed](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/speed.png)
 
 
    [5] Ren, Shaoqing, et al. "Faster R-CNN: Towards real-time object detection with region proposal networks." Advances in neural information processing systems. 2015.
@@ -1433,9 +1370,9 @@ github: caffe https://github.com/rbgirshick/py-faster-rcnn/
 
    YOLO的检测思想不同于R-CNN系列的思想，它将目标检测作为回归任务来解决。YOLO 的核心思想就是利用整张图作为网络的输入，直接在输出层回归 bounding box（边界框） 的位置及其所属的类别。
 
-   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/yolo.jpg)
+   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/yolo.jpg)
 
-   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/yolo.png)
+   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/yolo.png)
 
    [6] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." arXiv preprint arXiv:1506.02640 (2015). [pdf](https://arxiv.org/pdf/1506.02640.pdf)YOLO,Oustanding Work, really practical
   [PPT](https://docs.google.com/presentation/d/1aeRvtKG21KHdD5lg6Hgyhx5rPq_ZOsGjG5rJ1HP7BbA/pub?start=false&loop=false&delayms=3000&slide=id.g137784ab86_4_1822)
@@ -1453,9 +1390,9 @@ yolo 介绍 可以参考[介绍](https://blog.csdn.net/App_12062011/article/deta
 * SSD SSD是一种直接预测bounding box的坐标和类别的object detection算法，没有生成proposal的过程。它使用object classification的模型作为base network，如VGG16网络，
 
 
-   ![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/ssd.jpg)
+   ![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/ssd.jpg)
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20detection%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B/SSD.md"><img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/objdetection/ssd.png" width="805"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20detection%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B/SSD.md"><img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/objdetection/ssd.png" width="805"></a>
 
    [7] Liu, Wei, et al. "SSD: Single Shot MultiBox Detector." arXiv preprint arXiv:1512.02325 (2015). [pdf](https://arxiv.org/pdf/1512.02325.pdf)  
 
@@ -1468,7 +1405,7 @@ yolo 介绍 可以参考[介绍](https://blog.csdn.net/App_12062011/article/deta
 FPN（feature pyramid networks）特征金字塔，是一种融合了多层特征信息的特征提取方法，可以结合各种深度神经网络使用。
 SSD的多尺度特征融合的方式，没有上采样过程，没有用到足够低层的特征（在SSD中，最低层的特征是VGG网络的conv4_3）
 
-   ![fpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fpn.JPG)
+   ![fpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fpn.JPG)
 
 
 Feature Pyramid Networks for Object Detection [pdf](https://arxiv.org/pdf/1612.03144.pdf)
@@ -1479,7 +1416,7 @@ Feature Pyramid Networks for Object Detection [pdf](https://arxiv.org/pdf/1612.0
 * R-FCN
 R-FCN是对faster rcnn的改进。因为Faster RCNN的roi pooling中的全连接层计算量大，但是丢弃全连接层（起到了融合特征和特征映射的作用），直接将roi pooling的生成的feature map 连接到最后的分类和回归层检测结果又很差，《Deep residual learning for image recognition》认为：图像分类具有图像移动不敏感性；而目标检测领域是图像移动敏感的，因此在roi pooling中加入位置相关性设计。
 
-   ![rfcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rfcn.png)
+   ![rfcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/rfcn.png)
 
    [8] Dai, Jifeng, et al. "R-FCN: Object Detection via Region-based Fully Convolutional Networks." arXiv preprint arXiv:1605.06409 (2016). [pdf](https://arxiv.org/abs/1605.06409)
 
@@ -1503,7 +1440,7 @@ https://arxiv.org/abs/1712.01802
 
 ICCV 2017的最佳论文，在Mask R-CNN的工作中，它主要完成了三件事情：目标检测，目标分类，像素级分割。它在Faster R-CNN的结构基础上加上了Mask预测分支，并且改良了ROI Pooling，提出了ROI Align。这是第一次将目标检测和目标分割任务统一起来。
 
-   ![maskrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/maskrcnn.png)
+   ![maskrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/maskrcnn.png)
 
    [9] He, Gkioxari, et al. "Mask R-CNN" arXiv preprint arXiv:1703.06870 (2017). [pdf] 
 
@@ -1524,9 +1461,9 @@ FCN(Fully Convolutional Networks for Semantic Segmentation)成为了深度学习
 
 它利用了现存的CNN网络作为其模块之一来产生层次化的特征。作者将现存的知名的分类模型包括AlexNet、VGG-16、GoogLeNet和ResNet等转化为全卷积模型：将其全连接层均替换为卷积层，输出空间映射而不是分类分数。这些映射由小步幅卷积上采样（又称反卷积）得到，来产生密集的像素级别的标签。
 
-![fcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn.png)
+![fcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn.png)
 
-![fcn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn2.png)
+![fcn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn2.png)
 
 输入：整幅图像。
 输出：空间尺寸与输入图像相同，通道数等于全部类别个数。
@@ -1534,10 +1471,10 @@ FCN(Fully Convolutional Networks for Semantic Segmentation)成为了深度学习
 
  [1]  J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation.” in CVPR, 2015. pp. 3431-3440 [pdf](https://arxiv.org/pdf/1605.06211v1.pdf) CVPR 2015 Best paper
 
-   ![fcn8s](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn8s.png)
+   ![fcn8s](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn8s.png)
 
 
-   ![fcn8sdata](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/seg/fcn8.png)
+   ![fcn8sdata](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/modelpic/seg/fcn8.png)
 
 caffe https://github.com/shelhamer/fcn.berkeleyvision.org 官方
 
@@ -1555,9 +1492,9 @@ tf ： https://github.com/shekkizh/FCN.tensorflow
 
  [参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)给出了这个综述的总结，他们所基于的架构、主要的贡献、以及基于其任务目标的分级：准确率、效率、训练难度、序列数据处理、多模式输入以及3D数据处理能力等。每个目标分为3个等级，依赖于对应工作对该目标的专注程度，叉号则代表该目标问题并没有被该工作考虑进来。
 
-   ![fcn35](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn35.png)
+   ![fcn35](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn35.png)
 
-   ![fcn3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn3.png)
+   ![fcn3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn3.png)
 
 [参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)
 
@@ -1573,7 +1510,7 @@ skip connection
 
 降采样的理论意义:增加对输入图像的一些小扰动的鲁棒性，比如图像平移，旋转等，减少过拟合的风险，降低运算量，和增加感受野的大小。
 
-![unet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/unet.png)
+![unet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/unet.png)
 
 paper: http://www.arxiv.org/pdf/1505.04597.pdf
  
@@ -1587,7 +1524,7 @@ UNet++: A Nested U-Net Architecture for Medical Image Segmentation
 paper: http://www.http://arxiv.org/abs/1807.10165
 
 Zongwei Zhou | 周纵苇
-![unet++](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/unet++.jpg)
+![unet++](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/unet++.jpg)
 
 Github：https://github.com/MrGiovanni/Nested-UNet
 
@@ -1637,221 +1574,11 @@ https://github.com/facebookresearch/deepmask
 ### Mask Scoring R-CNN
 MS R-CNN对Mask R-CNN进行了修正,在结构中添加了Mask-IoU。Mask R-CNN的评价函数只对目标检测的候选框进行打分，而不是分割模板打分，所以会出现分割模板效果很差但是打分很高的情况。所以增加了对模板进行打分的Mask-IoU Head
 
-   ![msrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/msrcnn.png)
+   ![msrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/msrcnn.png)
 
 
 
 
-----------------------------------------------------------------------------------
-## GAN 生成式对抗网络
-
-
-  <a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/Art&Ganpic.png"></a>
-
-参考Mohammad KHalooei的教程，我也将GAN分为4个level，第四个level将按照应用层面进行拓展。 这里先列出0,1,2，具体可以参见 [GAN 对抗生成网络发展总览](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C)
-
-
-### Level 0: Definition of GANs
-
-
-
-|Level| Title|  Co-authors| Publication|  Links|
-|:---:|:---:|:---:|:---:|:---:|
-|Beginner|  GAN : Generative Adversarial Nets|  Goodfellow & et al.|  NeurIPS (NIPS) 2014 |[link](https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf) |
-|Beginner|  GAN : Generative Adversarial Nets (Tutorial)| Goodfellow & et al.|  NeurIPS (NIPS) 2016 Tutorial| [link](https://arxiv.org/pdf/1701.00160.pdf)|
-|Beginner|  CGAN : Conditional Generative Adversarial Nets| Mirza & et al.| -- 2014 |[link](https://gist.github.com/shagunsodhani/5d726334de3014defeeb701099a3b4b3) |
-|Beginner|  InfoGAN : Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets|  Chen & et al.|  NeuroIPS (NIPS) 2016  ||
-
-
-模型结构的发展：
-
-![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/ganmodule.png)
-
-
-
-## CGAN
-
-[1411.1784]Mirza M, Osindero S,Conditional Generative Adversarial Nets [pdf](https://arxiv.org/pdf/1411.1784.pdf) 
-
-通过GAN可以生成想要的样本，以MNIST手写数字集为例，可以任意生成0-9的数字。
-
-但是如果我们想指定生成的样本呢？譬如指定生成1，或者2，就可以通过指定C condition来完成。
-
-条件BN首先出现在文章 Modulating early visual processing by language 中，后来又先后被用在 cGANs With Projection Discriminator 中，目前已经成为了做条件 GAN（cGAN）的标准方案，包括 SAGAN、BigGAN 都用到了它。
-
-
-https://github.com/znxlwm/tensorflow-MNIST-cGAN-cDCGAN
-![cgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/cgan.png)
-
-应用方向 数字生成， 图像自动标注等
-
-## LAPGAN 
-Emily Denton & Soumith Chintala, arxiv: 1506.05751
-
-是第一篇将层次化或者迭代生成的思想运用到 GAN 中的工作。在原始 GAN和后来的 CGAN中，GAN 还只能生成32X32 这种低像素小尺寸的图片。而这篇工作[16] 是首次成功实现 64X64 的图像生成。思想就是，与其一下子生成这么大的（包含信息量这么多），不如一步步由小转大，这样每一步生成的时候，可以基于上一步的结果，而且还只需要“填充”和“补全”新大小所需要的那些信息。这样信息量就会少很多，而为了进一步减少信息量，他们甚至让 G 每次只生成“残差”图片，生成后的插值图片与上一步放大后的图片做加法，就得到了这一步生成的图片。
-
-
-## IcGAN
-Invertible Conditional GANs for image editing
-
-通常GAN的生成网络输入为一个噪声向量z,IcGAN是对cGAN的z的解释。
-
-利用一个encoder网络,对输入图像提取得到一个特征向量z,将特征向量z,以及需要转换的目标attribute向量y串联输入生成网络,得到生成图像,网络结构如下,
-
-![icgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/icgan.png)
-
-
-https://arxiv.org/pdf/1611.06355.pdf
-https://github.com/Guim3/IcGAN
-
-
-## ACGAN
-
-为了提供更多的辅助信息并允许半监督学习，可以向判别器添加额外的辅助分类器，以便在原始任务以及附加任务上优化模型。
-
-和CGAN不同的是，C不直接输入D。D不仅需要判断每个样本的真假，还需要完成一个分类任务即预测C
-
-
-添加辅助分类器允许我们使用预先训练的模型（例如，在ImageNet上训练的图像分类器），并且在ACGAN中的实验证明这种方法可以帮助生成更清晰的图像以及减轻模式崩溃问题。 使用辅助分类器还可以应用在文本到图像合成和图像到图像的转换。
-
-![acgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/acgan.png)
-
-
-## SemiGan /SSGAN  Goodfellow
-
-Salimans, Tim, et al. “Improved techniques for training gans.” Advances in Neural Information Processing Systems. 2016.
-
-
-![ssgan](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/semi.png)
-
-
-
-Theano+Lasagne https://github.com/openai/improved-gan
-
-tf: https://github.com/gitlimlab/SSGAN-Tensorflow
-
-https://blog.csdn.net/shenxiaolu1984/article/details/75736407
-
-
-----------------------
-## InfoGan OpenAI
-
-InfoGAN - Xi Chen, arxiv: 1606.03657
-
-提出了latent code。
-
-单一的噪声z，使得人们无法通过控制z的某些维度来控制生成数据的语义特征，也就是说，z是不可解释的。
-
-以MNIST手写数字集为例，每个数字可以分解成多个维度特征：数字的类别、倾斜度、粗细度等等，在标准GAN的框架下，是无法在维度上具体指定生成什么样的数字。但是Info Gan 通过latent code的设定成功让网络学习到了可解释的特征表示（interpretable representation）
-
-把原来的噪声z分解成两部分：一是原来的z；二是由若干个latent variables拼接而成的latent code c，这些latent variables会有一个先验的概率分布，且可以是离散的或连续的，用于代表生成数据的不同特征维度，如数字类别（离散），倾斜度（连续），粗细度（连续）等。通过找到对信息影响最大的c，来得到数据中最重要的特征。
-
-
-InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets，NIPS 2016。
-
-![info](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/gan/infogan.png)
-
-
-https://arxiv.org/abs/1606.03657
-
-https://github.com/openai/InfoGAN
-
-
-----------------------
-
-
-### Level 1: Improvements of GANs training
-
-然后看看 loss、参数、权重的改进：
-
-|Level| Title|  Co-authors| Publication|  Links|
-|:---:|:---:|:---:|:---:|:---:|
-|Beginner |LSGAN : Least Squares Generative Adversarial Networks  |Mao & et al.|  ICCV 2017|[link](https://ieeexplore.ieee.org/document/8237566)| 
-|Advanced |Improved Techniques for Training GANs  |Salimans & et al.| NeurIPS (NIPS) 2016 |[link](https://ceit.aut.ac.ir/http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf)| 
-|Advanced |WGAN : Wasserstein GAN |Arjovsky & et al.| ICML 2017|[link](http://proceedings.mlr.press/v70/arjovsky17a/arjovsky17a.pdf)|
-|Advanced |WGAN-GP : improved Training of Wasserstein GANs|  2017|[link](https://arxiv.org/pdf/1704.00028v3.pdf)|
-|Advanced |Certifying Some Distributional Robustness with Principled Adversarial Training |Sinha & et al.|ICML 2018|[link](https://arxiv.org/pdf/1710.10571.pdf) [code](https://github.com/duchi-lab/certifiable-distributional-robustness)|
-
-
-Loss Functions:
-
-## LSGAN(Least Squares Generative Adversarial Networks)
-
-LS-GAN - Guo-Jun Qi, arxiv: 1701.06264
-
-   [2] Mao et al., 2017.4 [pdf](https://arxiv.org/pdf/1611.04076.pdf)
-
- https://github.com/hwalsuklee/tensorflow-generative-model-collections
- https://github.com/guojunq/lsgan
-
-用了最小二乘损失函数代替了GAN的损失函数,缓解了GAN训练不稳定和生成图像质量差多样性不足的问题。
-
-但缺点也是明显的, LSGAN对离离群点的过度惩罚, 可能导致样本生成的'多样性'降低, 生成样本很可能只是对真实样本的简单模仿和细微改动.
-
-## WGAN
-WGAN - Martin Arjovsky, arXiv:1701.07875v1
-
-WGAN：
-在初期一个优秀的GAN应用需要有良好的训练方法，否则可能由于神经网络模型的自由性而导致输出不理想。 
-
-为啥难训练？  令人拍案叫绝的Wasserstein GAN 中做了如下解释 ：
-原始GAN不稳定的原因就彻底清楚了：判别器训练得太好，生成器梯度消失，生成器loss降不下去；判别器训练得不好，生成器梯度不准，四处乱跑。只有判别器训练得不好不坏才行，但是这个火候又很难把握，甚至在同一轮训练的前后不同阶段这个火候都可能不一样，所以GAN才那么难训练。
-
-https://zhuanlan.zhihu.com/p/25071913
-
-WGAN 针对loss改进 只改了4点：
-1.判别器最后一层去掉sigmoid
-2.生成器和判别器的loss不取log
-3.每次更新判别器的参数之后把它们的绝对值截断到不超过一个固定常数c
-4.不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
-
-https://github.com/martinarjovsky/WassersteinGAN
-
-
-## WGAN-GP
-Regularization and Normalization of the Discriminator:
-
-![wgangp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/ganpic/wgangp.png)
-
-WGAN-GP：
-
-WGAN的作者Martin Arjovsky不久后就在reddit上表示他也意识到没能完全解决GAN训练稳定性，认为关键在于原设计中Lipschitz限制的施加方式不对，并在新论文中提出了相应的改进方案--WGAN-GP ,从weight clipping到gradient penalty,提出具有梯度惩罚的WGAN（WGAN with gradient penalty）替代WGAN判别器中权重剪枝的方法(Lipschitz限制)：
-
-[1704.00028] Gulrajani et al., 2017,improved Training of Wasserstein GANs[pdf](https://arxiv.org/pdf/1704.00028v3.pdf)
-
-Tensorflow实现：https://github.com/igul222/improved_wgan_training
-
-pytorch https://github.com/caogang/wgan-gp
-
-
-----------------------
-
-## Level 2: Implementation skill
-
-GAN的实现
-
-|Title| Co-authors| Publication|Links| size |FID/IS|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|Keras Implementation of GANs|  Linder-Norén| Github  |[link](https://github.com/eriklindernoren/Keras-GAN)|||
-|GAN implementation hacks|  Salimans paper & Chintala|  World research  |[link](https://github.com/soumith/ganhacks) [paper](https://ceit.aut.ac.ir/~khalooei/tutorials/gan/#gan-hack-paper-2016)|||
-|DCGAN : Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks|  Radford & et al.|ICLR 2016  |[link](https://github.com/carpedm20/DCGAN-tensorflow) [paper](https://arxiv.org/pdf/1511.06434.pdf)| 64x64 human||
-|ProGAN:Progressive Growing of GANs for Improved Quality, Stability, and Variation|Tero Karras|2017|[paper](https://arxiv.org/pdf/1710.10196.pdf) [link](https://github.com/tkarras/progressive_growing_of_gans)|1024x1024 human|8.04|
-|SAGAN：Self-Attention Generative Adversarial Networks| Han Zhang & Ian Goodfellow|2018.05|[paper](https://arxiv.org/pdf/1805.08318.pdf) [link](https://github.com/taki0112/Self-Attention-GAN-Tensorflow)|128x128 obj|18.65/52.52|
-|BigGAN:Large Scale GAN Training for High Fidelity Natural Image Synthesis|Brock et al.|ICLR 2019|[demo](https://tfhub.dev/deepmind/biggan-256) [paper](https://arxiv.org/pdf/1809.11096.pdf) [link](https://github.com/AaronLeong/BigGAN-pytorch)|512x512 obj|9.6/166.3|
-|StyleGAN:A Style-Based Generator Architecture for Generative Adversarial Networks|Tero Karras|2018|[paper](https://arxiv.org/pdf/1812.04948.pdf) [link]( https://github.com/NVlabs/stylegan)|1024x1024 human|4.04|
-
-
-指标：
-
-1 Inception Score (IS，越大越好) IS用来衡量GAN网络的两个指标：1. 生成图片的质量 和2. 多样性
-
-2 Fréchet Inception Distance (FID，越小越好) 在FID中我们用相同的inception network来提取中间层的特征。然后我们使用一个均值为 μμ 方差为 ΣΣ 的正态分布去模拟这些特征的分布。较低的FID意味着较高图片的质量和多样性。FID对模型坍塌更加敏感。
-
-FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者不出现。但是他们都无法描述这些特征的空间关系。
-
-物体的数据在Imagenet数据库上比较，人脸的 progan 和stylegan 在CelebA-HQ和FFHQ上比较。上表列的为FFHQ指标。
-
-具体可以参见 [GAN 对抗生成网络发展总览](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C)
 
 -------------------------------------------------------------------------------------------
 
