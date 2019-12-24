@@ -2,7 +2,7 @@
 
 这里借用一张图，展示Object Detection 基础算法的发展
 
-![total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/total.png)
+![total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/total.png)
 
 其中RCNN FastRCNN FasterRCNN为一脉相承。另外两个方向为Yolo 和SSD。Yolo迭代到Yolo V3，SSD的设计也让它后来在很多方向都有应用。
 
@@ -18,17 +18,17 @@ Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 第一步：将图片转换成不同大小的框，
 第二步：对框内的数据进行特征提取，然后通过分类器判定，选区分最高的框作为物体定位框。
 
-![old](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/old.png)
+![old](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/old.png)
 
 
-![scorecompare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/compare.png)
+![scorecompare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/compare.png)
 
 
 评价标准: IoU(Intersection over Union)； mAP(Mean Average Precision) 速度：帧率FPS
-![iou](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/iou.png)
+![iou](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/iou.png)
 
 
-![obj](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/obj.png)
+![obj](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/obj.png)
 
 [link](https://handong1587.github.io/deep_learning/2015/10/09/object-detection.html#non-maximum-suppression-nms)
 
@@ -60,7 +60,7 @@ Christian Szegedy / Google 用AlexNet也做过物体检测的尝试。
 
 一般CNN后接全连接层或者分类器，他们都需要固定的输入尺寸，因此不得不对输入数据进行crop或者warp，这些预处理会造成数据的丢失或几何的失真。SPP Net的提出，将金字塔思想加入到CNN，实现了数据的多尺度输入。此时网络的输入可以是任意尺度的，在SPP layer中每一个pooling的filter会根据输入调整大小，而SPP的输出尺度始终是固定的。
 
-![spp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/spp.png)
+![spp](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/spp.png)
 
 这样打破了之前大家认为需要先提出检测框，然后resize到一个固定尺寸再通过CNN的模式，而可以图片先通过CNN获取到特征后，在特征图上使用不同的检测框提取特征。之后pooling到同样尺寸进行后续步骤。这样可以提高物体检测速度。
 
@@ -86,7 +86,7 @@ Traditional region proposal methods + CNN classifier
 
 R-CNN在PASCAL VOC2007上的检测结果提升到66%(mAP)
 
-![rcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rcnn.png)
+![rcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/rcnn.png)
 
 
    [2] SGirshick, Ross, et al. "Rich feature hierarchies for accurate object detection and semantic segmentation." Proceedings of the IEEE conference on computer vision and pattern recognition. 2014. [pdf](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf)
@@ -116,7 +116,7 @@ Ross Girshick将SPPNet的方法应用到RCNN中，提出了一个可以看做单
 3.然后通过之前proposal的方法提取ROI，在所有的感兴趣的区域上应用RoI池化层，并调整区域的尺寸。然后，每个区域被传递到全连接层的网络中；
 4.softmax层用于全连接网以输出类别。与softmax层一起，也并行使用线性回归层，以输出预测类的边界框坐标。
       
-![fastrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fastrcnn.png)
+![fastrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fastrcnn.png)
 
 
 Fast R-CNN
@@ -146,23 +146,23 @@ Fast RCNN的区域提取还是使用的传统方法，而Faster RCNN将Region Pr
 
 Faster R-CNN = Region Proposal Network +Fast R-CNN
 
-![fasterrcnn1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn1.png)
+![fasterrcnn1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fasterrcnn1.png)
 
 
-![fasterrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn.png)
+![fasterrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fasterrcnn.png)
 
 
-![fasterrcnn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fasterrcnn2.png)
+![fasterrcnn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fasterrcnn2.png)
 
 将区域提取通过一个CNN完成。这个CNN叫做Region Proposal Network，RPN的运用使得region proposal的额外开销就只有一个两层网络。关于RPN可以参考[link](https://cloud.tencent.com/developer/article/1347839)
 
 
-![rpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rpn.png)
+![rpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/rpn.png)
 
 
 Faster R-CNN设计了提取候选区域的网络RPN，代替了费时的Selective Search（选择性搜索），使得检测速度大幅提升，下表对比了R-CNN、Fast R-CNN、Faster R-CNN的检测速度：
 
-![speed](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/speed.png)
+![speed](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/speed.png)
 
 
    [5] Ren, Shaoqing, et al. "Faster R-CNN: Towards real-time object detection with region proposal networks." Advances in neural information processing systems. 2015.
@@ -279,13 +279,13 @@ Reprojection R-CNN: A Fast and Accurate Object Detector for 360° Images
 ### Yolo
 * Yolo(You only look once)
 
-   ![yolologo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/yolologo.png)
+   ![yolologo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/yolologo.png)
 
    YOLO的检测思想不同于R-CNN系列的思想，它将目标检测作为回归任务来解决。YOLO 的核心思想就是利用整张图作为网络的输入，直接在输出层回归 bounding box（边界框） 的位置及其所属的类别。
 
-   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/yolo.jpg)
+   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/yolo.jpg)
 
-   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/yolo.png)
+   ![yolo](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/yolo.png)
 
    [6] Redmon, Joseph, et al. "You only look once: Unified, real-time object detection." arXiv preprint arXiv:1506.02640 (2015). [pdf](https://arxiv.org/pdf/1506.02640.pdf)YOLO,Oustanding Work, really practical
   [PPT](https://docs.google.com/presentation/d/1aeRvtKG21KHdD5lg6Hgyhx5rPq_ZOsGjG5rJ1HP7BbA/pub?start=false&loop=false&delayms=3000&slide=id.g137784ab86_4_1822)
@@ -388,7 +388,7 @@ Spiking-YOLO: Spiking Neural Network for Real-time Object Detection
 * SSD SSD是一种直接预测bounding box的坐标和类别的object detection算法，没有生成proposal的过程。它使用object classification的模型作为base network，如VGG16网络，
 
 
-   ![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/ssd.jpg)
+   ![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/ssd.jpg)
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20detection%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B/SSD.md"><img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/objdetection/ssd.png" width="805"></a>
 
@@ -466,7 +466,7 @@ Residual Features and Unified Prediction Network for Single Stage Detection
 FPN（feature pyramid networks）特征金字塔，是一种融合了多层特征信息的特征提取方法，可以结合各种深度神经网络使用。
 SSD的多尺度特征融合的方式，没有上采样过程，没有用到足够低层的特征（在SSD中，最低层的特征是VGG网络的conv4_3）
 
-   ![fpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/fpn.JPG)
+   ![fpn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/fpn.JPG)
 
 
 Feature Pyramid Networks for Object Detection [pdf](https://arxiv.org/pdf/1612.03144.pdf)
@@ -1095,7 +1095,7 @@ Self-Training and Adversarial Background Regularization for Unsupervised Domain 
 * R-FCN
 R-FCN是对faster rcnn的改进。因为Faster RCNN的roi pooling中的全连接层计算量大，但是丢弃全连接层（起到了融合特征和特征映射的作用），直接将roi pooling的生成的feature map 连接到最后的分类和回归层检测结果又很差，《Deep residual learning for image recognition》认为：图像分类具有图像移动不敏感性；而目标检测领域是图像移动敏感的，因此在roi pooling中加入位置相关性设计。
 
-   ![rfcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/rfcn.png)
+   ![rfcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/rfcn.png)
 
    [8] Dai, Jifeng, et al. "R-FCN: Object Detection via Region-based Fully Convolutional Networks." arXiv preprint arXiv:1605.06409 (2016). [pdf](https://arxiv.org/abs/1605.06409)
 
@@ -1119,7 +1119,7 @@ https://arxiv.org/abs/1712.01802
 
 ICCV 2017的最佳论文，在Mask R-CNN的工作中，它主要完成了三件事情：目标检测，目标分类，像素级分割。它在Faster R-CNN的结构基础上加上了Mask预测分支，并且改良了ROI Pooling，提出了ROI Align。这是第一次将目标检测和目标分割任务统一起来。
 
-   ![maskrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/maskrcnn.png)
+   ![maskrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/maskrcnn.png)
 
    [9] He, Gkioxari, et al. "Mask R-CNN" arXiv preprint arXiv:1703.06870 (2017). [pdf] 
 
@@ -1473,9 +1473,9 @@ FCN(Fully Convolutional Networks for Semantic Segmentation)成为了深度学习
 
 它利用了现存的CNN网络作为其模块之一来产生层次化的特征。作者将现存的知名的分类模型包括AlexNet、VGG-16、GoogLeNet和ResNet等转化为全卷积模型：将其全连接层均替换为卷积层，输出空间映射而不是分类分数。这些映射由小步幅卷积上采样（又称反卷积）得到，来产生密集的像素级别的标签。
 
-![fcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn.png)
+![fcn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn.png)
 
-![fcn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn2.png)
+![fcn2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn2.png)
 
 输入：整幅图像。
 输出：空间尺寸与输入图像相同，通道数等于全部类别个数。
@@ -1483,7 +1483,7 @@ FCN(Fully Convolutional Networks for Semantic Segmentation)成为了深度学习
 
  [1]  J. Long, E. Shelhamer, and T. Darrell, “Fully convolutional networks for semantic segmentation.” in CVPR, 2015. pp. 3431-3440 [pdf](https://arxiv.org/pdf/1605.06211v1.pdf) CVPR 2015 Best paper
 
-   ![fcn8s](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn8s.png)
+   ![fcn8s](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn8s.png)
 
 
    ![fcn8sdata](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/seg/fcn8.png)
@@ -1504,9 +1504,9 @@ tf ： https://github.com/shekkizh/FCN.tensorflow
 
  [参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)给出了这个综述的总结，他们所基于的架构、主要的贡献、以及基于其任务目标的分级：准确率、效率、训练难度、序列数据处理、多模式输入以及3D数据处理能力等。每个目标分为3个等级，依赖于对应工作对该目标的专注程度，叉号则代表该目标问题并没有被该工作考虑进来。
 
-   ![fcn35](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn35.png)
+   ![fcn35](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn35.png)
 
-   ![fcn3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/fcn3.png)
+   ![fcn3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/fcn3.png)
 
 [参考](https://blog.csdn.net/mieleizhi0522/article/details/82902359)
 
@@ -1557,7 +1557,7 @@ https://github.com/facebookresearch/deepmask
 ### Mask Scoring R-CNN
 MS R-CNN对Mask R-CNN进行了修正,在结构中添加了Mask-IoU。Mask R-CNN的评价函数只对目标检测的候选框进行打分，而不是分割模板打分，所以会出现分割模板效果很差但是打分很高的情况。所以增加了对模板进行打分的Mask-IoU Head
 
-   ![msrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/segpic/msrcnn.png)
+   ![msrcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/segpic/msrcnn.png)
 
 
 

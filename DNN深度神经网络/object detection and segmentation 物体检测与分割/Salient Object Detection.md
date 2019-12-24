@@ -4,7 +4,7 @@ Salient Object Detection: A Surve (http://mmcheng.net/zh/paperreading/)
 
 这里借用一张图，展示Salient Object Detection 算法的发展
 
-![total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/salientobjectdetection.jpg)
+![total](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/salientobjectdetection.jpg)
 
 
 1) 1998 Itti等人提出的最早、经典的的显著模型。掀起了跨认知心理学、神经科学和计算机视觉等多个学科的第一波热潮。

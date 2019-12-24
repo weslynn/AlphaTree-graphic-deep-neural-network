@@ -165,7 +165,7 @@ paper： Wei Liu, et al. “SSD: Single Shot MultiBox Detector.” . [pdf](https
 
 SSD 结构如图：
 
-![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/detectpic/ssd.jpg)
+![ssd](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/detectpic/ssd.jpg)
 
 
 
