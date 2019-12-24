@@ -4,22 +4,22 @@
 Inception Resnet V2是基于Inception V3 和 ResNet结构发展而来的一个网络。在这篇paper中，还同期给出了Inception V4.
 
 准确率和模型对比如下图：
-![inceptionresult](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/inceptionresnet_result.png)
+![inceptionresult](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/inceptionresnet_result.png)
 
 paper：“Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning” arXiv preprint arXiv:1602.07261 (2015). [pdf](http://arxiv.org/abs/1602.07261)
 
 Inception ResNet V2 抽象结构如图（来自googleblog）
 
-![inceptionresnetv2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/inception_resnet_v2.png)
+![inceptionresnetv2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/inception_resnet_v2.png)
 
 
 Inception ResNet V2 原始结构如图 [大图来源](http://yeephycho.github.io/2016/08/31/A-reminder-of-algorithms-in-Convolutional-Neural-Networks-and-their-influences-III/):
 
-![Inception ResNet V2 model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/Inception_ResNet_v2_raw.jpg)
+![Inception ResNet V2 model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/Inception_ResNet_v2_raw.jpg)
 
 对比Inception V4 ，V4结构如下：
 
-![InceptionV4 model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/Inception_v4.jpg)
+![InceptionV4 model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/Inception_v4.jpg)
 
 
 用不同节点表示如图(按照tensorflow代码重画)
@@ -51,8 +51,3 @@ tensorflow 源码 https://github.com/tensorflow/models/blob/master/research/slim
 
 
 # [返回首页](https://github.com/weslynn/graphic-deep-neural-network/) 
-# [LeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/LeNet.md)   
-# [AlexNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)                  
-# [GoogLeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)
-# [Inception V3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md)
-# [VGG](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md)

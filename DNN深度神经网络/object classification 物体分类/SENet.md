@@ -12,15 +12,15 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 
 SE 模块详细如图：
 
-![senetmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/semodule.jpg)
+![senetmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/semodule.jpg)
 
 
 对比不同网络结构增加了SE模块之后：
 
-![senet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/senet.jpg)
+![senet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/senet.jpg)
 
 SENet 网络结构如下：
-![senet1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/senet.png)
+![senet1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/senet.png)
 
 
 

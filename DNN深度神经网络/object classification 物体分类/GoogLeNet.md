@@ -10,18 +10,18 @@ paper：Szegedy, Christian, et al. "Going deeper with convolutions." Proceedings
 
 GoogLeNet 原始结构如图
 
-![googlenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet_org.png)
+![googlenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/googlenet_org.png)
 
-大图参见[link](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet-nologo.png)
+大图参见[link](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/googlenet-nologo.png)
 
 GoogLeNet的网络结构设计很大程度上借鉴了2014年 ICLR 的paper：Network In Network([NIN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/NIN.md))。
 
 它打破了常规的卷积层串联的模式，精心设计了InceptionModule，提高了参数的利用效率。此外，它去除了最后的全连接层，用全局平均池化层来取代。
 
-![inceptionmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/inceptionmodule.png)
+![inceptionmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/inceptionmodule.png)
 
 
-![googlenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/googlenet_th.jpeg)
+![googlenet model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/googlenet_th.jpeg)
 
 用不同节点表示如图，在这里，我们将重复的结构进行了合并，而将不同的参数列在每个inception module下面。
 

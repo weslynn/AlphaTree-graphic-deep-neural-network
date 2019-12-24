@@ -12,6 +12,9 @@
 
 基于这种想法，邀请了几位资深程序员加入这个项目。希望丰富的资源能够帮助到大家。
 
+版权申明：CC-BY-NC-SA 知识共享-署名-非商业性-相同方式共享
+---------------------------------------------------------------------------------------------------
+
 
 ------------------------------------------------------------------------------
 
@@ -55,7 +58,8 @@
 
 -----------------------------------------------------------------------
 
-## 深度学习基础：物体分类篇object classification
+## 深度学习基础：物体分类篇object classification [详解 detail](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)
+
 
 深度学习在解决分类问题上非常厉害。让它声名大噪的也是对于图像分类问题的解决。也产生了很多很经典的模型。其他方向的模型发展很多都是源于这各部分，它是很多模型的基础工作。因此我们首先了解一下它们。
 
@@ -118,23 +122,26 @@ ILSVRC 2017
 Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classification 任务的冠军， 2.251% Top-5 错误率
 
 
+[模型总览](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)
+
+模型索引： 
 
 <table>
     <tr>
-      <td align="center"><a href="">LeNet</a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md">LeNet</a></td>
       <td align="center"><a href="">AlexNet</a></td>
-      <td align="center"><a href="">GoogLeNet</a></td>
-      <td align="center"><a href="">Inception V3</a></td>
-      <td align="center"><a href="">VGG</a></td>
-      <td align="center"><a href="">ResNet and ResNeXt</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md">GoogLeNet</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionV3.md">Inception V3</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/VGG.md">VGG</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/ResNet.md">ResNet and ResNeXt</a></td>
     </tr>    
     <tr>      
-      <td align="center"><a href="">Inception-Resnet-V2</a></td>
-      <td align="center"><a href="">DenseNet</a></td>
-      <td align="center"><a href="">DPN</a></td>
-      <td align="center"><a href="">Google 与GoogleNet</a></td>
-      <td align="center"><a href="">PolyNet</a></td>
-      <td align="center"><a href="">SENet</a></td>      
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/InceptionResnetV2.md">Inception-Resnet-V2</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DenseNet.md">DenseNet</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/DPN.md">DPN</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/PolyNet.md">PolyNet</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/SENet.md">SENet</a></td>
+      <td align="center"><a href="">NasNet</a></td>      
     </tr>    
 </table>
 
@@ -151,15 +158,15 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 <table>
     <tr>
       <td align="center"><a href="">轻量级模型 & 剪枝</a></td>
-      <td align="center"><a href="">物体检测Object Detection </a></td>
-      <td align="center"><a href="">物体分割Object Segmentation</a></td>
-      <td align="center"><a href="">OCR</a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20detection%20and%20segmentation%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%86%E5%89%B2">物体检测Object Detection </a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/object%20detection%20and%20segmentation%20%E7%89%A9%E4%BD%93%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%86%E5%89%B2">物体分割Object Segmentation</a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/OCR%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB">OCR</a></td>
     </tr>   
     <tr>
-      <td align="center"><a href="">人脸检测Face Detection</a></td>
-      <td align="center"><a href="">人脸识别Face Recognition</a></td>
-      <td align="center"><a href="">肢体检测Pose Detection</a></td>
-      <td align="center"><a href="">3D</a></td>      
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB">人脸检测Face Detection</a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB">人脸识别Face Recognition</a></td>
+      <td align="center"><a href="">肢体检测Pose Detection(coming soon)</a></td>
+      <td align="center"><a href="">3D(coming soon)</a></td>      
 </table>
 
 

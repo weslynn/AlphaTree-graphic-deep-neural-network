@@ -10,7 +10,7 @@ http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf
 
 Lenet5 原始结构如，包括卷积层，降采样，卷积层，降采样，卷积层（实现全连接），全连接层，高斯连接层（进行分类）
 
-![lenet org model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/lenet-org.jpg)
+![lenet org model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/lenet-org.jpg)
 
 其中降采样层在后期发展中被maxpooling所取代，分类也被softmax所替代，因此在看tensorflow 或者其他框架下网络实现的时候，可以将模型结构表示如图：
 

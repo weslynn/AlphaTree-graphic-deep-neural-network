@@ -2,7 +2,7 @@
 
 概述 ：https://arxiv.org/pdf/1804.06655.pdf
 
-![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facerecognition.png)
+![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facerecognition.png)
 
 
 ![FaceDetection](https://github.com/weslynn/graphic-deep-neural-network/blob/master/map/FaceDetection.png)
@@ -28,7 +28,7 @@ H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork 
 
 对比传统人脸检测方法，CascadeCNN将Cascade级联结构中每个stage中CNN的分类器代替了传统的分类器；2. 每个分类stage之后应用了一个矫正网络使得人脸框的位置更为精确。该论文是当时基于CNN的人脸检测方法中速度最快的
 
-![cascade](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/cascadestruct.png)
+![cascade](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/cascadestruct.png)
 
 
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/CascadeCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/cascadeCNN.png" width="400"></a>
@@ -40,7 +40,7 @@ H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua, “A convolutional neuralnetwork 
 * MTCNN 
 MTCNN 将人脸检测与关键点检测放到了一起来完成。整个任务分解后让三个子网络来完成。每个网络都很浅，使用多个小网络级联，较好的完成任务。
 
-![mtcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/mtcnn_struct.png)
+![mtcnn](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/mtcnn_struct.png)
    <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/MTCNN.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/mtcnn.png" width="400"></a>
 
 
@@ -328,7 +328,7 @@ Deformable part models (DPMs)
      ERT(Ensemble of Regression Trees)  dlib： One Millisecond Face Alignment with an Ensemble of Regression Trees.  http://www.csc.kth.se/~vahidk/papers/KazemiCVPR14.pdf        https://github.com/davisking/dlib
      Face Alignment at 3000 FPS cvpr2013, https://github.com/yulequan/face-alignment-in-3000fps
 
-![FacePoint](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facepoint.png)
+![FacePoint](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facepoint.png)
 
 
 深度学习：
@@ -363,7 +363,7 @@ mariolew's implementatation：https://github.com/mariolew/Deep-Alignment-Network
 ## LAB (LAB-Look at Boundary A Boundary-Aware Face Alignment Algorithm )
 2018cvpr 清华&商汤作品。借鉴人体姿态估计，将边界信息引入关键点回归上。网络包含3个部分：边界热度图估计模块（Boundary heatmap estimator），基于边界的关键点定位模块（ Boundary-aware landmarks regressor ）和边界有效性判别模块（Boundary effectiveness discriminator）
 
-![lab](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/lab.png)
+![lab](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/lab.png)
 
 - 边界热度图估计模块：采用stacked hourglass network 和 message passing layers。输入人脸图像，输出人脸边界热度图来表示面部的几何结构。人脸面部的各个器官边界共构成K个边界。每个stack结束时，特征图被分成K个分支，分别送给各个对应类型的边界热度图估计。最终生成的热度图与输入原始图像进行融合，作为关键点定位模块的输入。
 - 基于边界的关键点定位模块，利用边界信息，通过4阶res-18网络来定位关键点
@@ -393,7 +393,7 @@ estimation with energy-based models." The Journal of Machine Learning Research 8
 重点已转向基于深度学习的方法。 
 
 
-![FaceDetection1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facerecognition1.png)
+![FaceDetection1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facerecognition1.png)
 
 
 
@@ -415,9 +415,9 @@ DeepFace 在算法上并没有什么特别的创新，它的改进在于对前�
 
 DeepFace: Closing the Gap to Human-Level Performance in Face Verification 
 
-![DeepFace1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/deepface.jpg)
+![DeepFace1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/deepface.jpg)
 
-![DeepFace2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/deepface.png)
+![DeepFace2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/deepface.png)
 
 ![DeepFacemodel](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/face/deepface.png)
 
@@ -429,7 +429,7 @@ DeepID 还是将人脸作为一个分类问题来解决，而从facenet开始，
 
 ### VGGFace
 
-![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/faceloss.png)
+![faceloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/faceloss.png)
 
 
 ### Facenet [详解 detail](https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md) 
@@ -444,7 +444,7 @@ Model name          LFW accuracy  Training dataset  Architecture
 
 [20170512-110547](https://drive.google.com/file/d/0B5MzpY9kBtDVZ2RpVDYwWmxoSUk)        0.992       MS-Celeb-1M     Inception ResNet v1
 
-   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facenet_struct.png"></a>
+   <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/face%20detection%20and%20recognition%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/Facenet.md"> <img src="https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facenet_struct.png"></a>
 
 它使用现有的模型结构，然后将卷积神经网络去掉sofmax后，经过L2的归一化，然后得到特征表示，之后基于这个特征表示计算Loss。文章中使用的结构是[ZFNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)，[GoogLeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)，tf代码是改用了Inception_resnet_v1。
 
@@ -452,9 +452,9 @@ Loss的发展：
 文中使用的Loss 是 triplet loss。后来相应的改进有ECCV2016的 center loss，SphereFace，2018年的AMSoftmax和ArchFace（InsightFace），现在效果最好的是ArchFace（InsightFace）。
 
 
-![loss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/arcface.png)
+![loss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/arcface.png)
 
-![loss2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface.png)
+![loss2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/insightface.png)
 
 https://github.com/davidsandberg/facenet/blob/master/src/models/inception_resnet_v1.py
 

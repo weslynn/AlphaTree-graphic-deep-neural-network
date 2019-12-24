@@ -8,11 +8,11 @@ paper：Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks
 
 VGG-Net 原始结构如图
 
-![vggnet-org](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/vgg_org.png)
+![vggnet-org](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/vgg_org.png)
 
 结构如图
 
-![link](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/vgg.png)
+![link](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/vgg.png)
 
 将卷积层和maxpooling层画在一起
 
@@ -26,7 +26,7 @@ VGG-Net 有五个stage，VGG-11 VGG-13 VGG-16 VGG-19 主要就是每个stage中�
 
 单独看VGG-19：
 
-![vggnet19-org](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/vgg19.png)
+![vggnet19-org](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/vgg19.png)
 
 重新表述如下：
 

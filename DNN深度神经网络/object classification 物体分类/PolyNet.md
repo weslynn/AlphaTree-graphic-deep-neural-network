@@ -10,7 +10,7 @@ PolyNet的基本概念
 
 当模型的深度达到一定程度的时候，深度的增加对模型的提高起到的作用大大降低。因此PolyNet从结构多样性structural diversity的角度去探索模型的结构，它设计了比Inception modules更加复杂的PolyInception modules
 
-![polynet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/polynet.png)
+![polynet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/polynet.png)
 
 
 residual unit: 
@@ -30,13 +30,13 @@ residual unit:
 
 PolyNet 模块详细如图：
 
-![polynetmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/polynet_th.jpg)
+![polynetmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/polynet_th.jpg)
 
 
 
 整个网络建立在Inception-ResNet-v2的整体结构基础上，对其中的Inception模块进行了改进：
 
-![polynet1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/polynetstruct.png)
+![polynet1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/polynetstruct.png)
 
 
 

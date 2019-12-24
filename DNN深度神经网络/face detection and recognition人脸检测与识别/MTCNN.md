@@ -21,7 +21,7 @@ paper ：[ECCV2016] Zhi Tian, Weilin Huang, Tong He, Pan He, Yu Qiao，Detecting
 
 MTCNN 每个网络功能如图：
 
-![MTCNN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/mtcnn.png)
+![MTCNN](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/mtcnn.png)
 
 分为P-Net，R-Net，O-Net：
 
@@ -36,7 +36,7 @@ Output Network (O-Net)：该层比R-Net层又多了一层卷基层，所以处�
 
 MTCNN 详细网络结构如图：
 
-![MTCNNS](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/mtcnn_struct.png)
+![MTCNNS](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/mtcnn_struct.png)
 
 用不同节点表示如图：
 

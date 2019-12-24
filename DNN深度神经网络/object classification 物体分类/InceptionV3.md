@@ -7,19 +7,19 @@ paper：Szegedy, Christian, et al. “Rethinking the inception architecture for 
 
 Inception V3 抽象结构如图（来自[googleblog](https://research.googleblog.com/2016/03/train-your-own-image-classifier-with.html)）
 
-![inceptionv3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/inceptionv3.png)
+![inceptionv3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/inceptionv3.png)
 
 
 
 
 Factorization 如图：
 
-![factorization](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/factor.jpg)
+![factorization](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/factor.jpg)
 
 
 Inception V3 原始结构如图:
 
-![inceptionv3 model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/inception_architecture.jpg)
+![inceptionv3 model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/inception_architecture.jpg)
 
 
 

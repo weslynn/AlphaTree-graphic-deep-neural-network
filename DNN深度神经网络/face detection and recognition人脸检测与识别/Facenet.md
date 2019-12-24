@@ -13,18 +13,18 @@ paper ：[CVPR2015] Schroff F, Kalenichenko D, Philbin J. Facenet: A unified emb
 先验知识：相同个体的人脸的距离，总是小于不同个体的人脸
 
 
-![facenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/facenet_struct.png)
+![facenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/facenet_struct.png)
 
 它使用现有的模型结构，然后将卷积神经网络去掉sofmax后，经过L2的归一化，然后得到特征表示，之后基于这个特征表示计算Loss。文章中使用的结构是[ZFNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/AlexNet.md)，[GoogLeNet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/object%20classification%20%E7%89%A9%E4%BD%93%E5%88%86%E7%B1%BB/GoogLeNet.md)，tf代码是改用了Inception_resnet_v1。
 
 文中使用的Loss 是 triplet loss。后来相应的改进有ECCV2016的 center loss，SphereFace，2018年的AMSoftmax和ArchFace（InsightFace），现在效果最好的是ArchFace（InsightFace）。
 之前的工作有人使用的是二元损失函数，二元损失函数的目标是把相同个体的人脸特征映射到空间中的相同区域，而三元损失函数目标是相同个体的人脸特征映射到相同的区域，而且每个人的特征和其他人的特征能够分开，类内距离小于类间距离。 
 
-![triplet_loss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/tripleloss.png)
+![triplet_loss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/tripleloss.png)
 
 我们可以看到loss公式如下：
 
-![triplet_loss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/tripleloss1.png)
+![triplet_loss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/tripleloss1.png)
 
 ## center Loss 
 
@@ -34,15 +34,15 @@ A Discriminative Feature Learning Approach for Deep Face Recognition  ECCV:2016
 
 损失采用softmax loss，那么最后各个类别学出来的特征（MNIST）分布大概如下图
 
-![softmax](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/softmax.png)
+![softmax](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/softmax.png)
 
 损失采用softmax loss+center loss的损失，那么最后各个类别的特征分布大概如下图，类间距离变大了，类内距离减少了
 
-![centerloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/centerloss.png)
+![centerloss](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/centerloss.png)
 
 公式如下：
 
-![centerloss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/centerloss1.png)
+![centerloss1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/centerloss1.png)
 
 
 ## SphereFace:A-softmax
@@ -55,7 +55,7 @@ SphereFace: Deep Hypersphere Embedding for Face Recognition 2017cvpr
 
 
 
-![sphereface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/sphereface.png)
+![sphereface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/sphereface.png)
 
 在上图中，对于一个二分类的softmax，决策边界是(W1−W2)x+b1−b2=0，假如定义||W1||=||W2||=1,b1=b2=0，那么决策边界的形式变换为||x||(cos(θ1)−cos(θ2))=0，这样设计的损失函数直接关注的是特征的角度可分性，使得训练出的CNN学习到具有角度判别力的特征。
 
@@ -64,12 +64,12 @@ SphereFace: Deep Hypersphere Embedding for Face Recognition 2017cvpr
 
 公式如下：
 
-![sphereface1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/sphereface1.png)
+![sphereface1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/sphereface1.png)
 
 最优化A-Softmax损失本质上是使得学习到的特征在超球面上更加具有可区分性。
 
 
-![sphereface2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/sphereface2.png)
+![sphereface2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/sphereface2.png)
 
 
 ## CosFace :AM-softmax
@@ -85,7 +85,7 @@ AM-Softmax：Additive Margin Softmax for Face Verification
 
 [pdf](https://arxiv.org/pdf/1801.05599.pdf)
 
-![cosface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/cosface.png)
+![cosface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/cosface.png)
 
 ## ArcFace deepinsight
 
@@ -98,16 +98,16 @@ AMSoftmax对sphereface的A-Softmax进行修改，将Cos(mθ)修改为一个新�
 
 ArcFace在AMSoftmax的基础上进行了改进：
 
-![insightface1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface1.png)
+![insightface1](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/insightface1.png)
 
-![insightface0](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/arcface.png)
+![insightface0](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/arcface.png)
 
 
 不同loss对比：
 
-![insightface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface.png)
+![insightface](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/insightface.png)
 
-![insightface2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/otherpic/facepic/insightface2.png)
+![insightface2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/facepic/insightface2.png)
 
 ## 其他loss
 

@@ -17,24 +17,24 @@ https://arxiv.org/pdf/1801.04381.pdf)
 
 MobileNet 微结构对比：
 
-![mobilenetv2_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2_compare.jpg)
+![mobilenetv2_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenetv2_compare.jpg)
 
 
 MobileNet 的根本思想是使用deep-wise方式的卷积在不减少精度的情况下来减少计算量。
 
-![mobilenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet.jpg)
+![mobilenet](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenet.jpg)
 
 其中M为输入的通道数，Dk为卷积核的宽和高，其中DF为输入的宽和高，在某一层如果使用N个卷积核，这一个卷积层的计算量为：
 
-![mobilenetcal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_cal.jpg)
+![mobilenetcal](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenet_cal.jpg)
 
 如果使用deep-wise方式，将会把卷积过程拆成两个步骤，第一步使用一组M个3×3的depth卷积，每次只处理一个输入通道的，之后第二步使用1×1×M×N的卷积核进行计算。
 
-![mobilenetcal2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_cal2.jpg)
+![mobilenetcal2](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenet_cal2.jpg)
 
 从数学上看 矩阵乘法拆解后计算量大大减小。
 
-![mobilenetcal3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_cal3.jpg)
+![mobilenetcal3](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenet_cal3.jpg)
 
 
 
@@ -43,7 +43,7 @@ MobileNet 的根本思想是使用deep-wise方式的卷积在不减少精度的�
 
 在Michael Yuan [zhihu](https://zhuanlan.zhihu.com/p/33075914) 绘制的图中加上节点表示如下：
 
-![mobilenet_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenet_compare.png)
+![mobilenet_compare](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenet_compare.png)
 
 
 两两对比微结构：
@@ -63,7 +63,7 @@ A : 看官方代码 Mobilenet V2选取的是红色框住那一部分，第一步
       net += input_tensor
 
 
-![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2_tip.jpg)
+![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenetv2_tip.jpg)
 
 ![MobileNetcomparepic](https://github.com/weslynn/graphic-deep-neural-network/blob/master/modelpic/mobilentv1_v2.png)
 
@@ -76,7 +76,7 @@ ResNet 是没有用depthwise separable convolution 的结构， 而Mobilenet V2 
 
 MobileNet 结构如图：
 
-![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv1.jpg)
+![mobilenet_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenetv1.jpg)
 
 
 MobileNet用不同节点表示如图：
@@ -90,7 +90,7 @@ MobileNet用不同节点表示如图：
 
 MobileNet V2 结构如图：
 
-![mobilenetv2_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/mobilenetv2.jpg)
+![mobilenetv2_struct](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/mobilenetv2.jpg)
 
 
 

@@ -1,6 +1,6 @@
 # Network In Network
 
-![NIN model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/nin.png)
+![NIN model](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/basicpic/nin.png)
 
 2014年 ICLR 的paper，Network In Network(NIN)，改进了传统的CNN 网络，采用了少量参数进一步提高了 CIFAR-10、CIFAR-100 等数据集上的准确率：
 1 Mlpconv Layer：Conv+MLP
