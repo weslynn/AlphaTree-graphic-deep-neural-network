@@ -526,6 +526,10 @@ Estimated StyleGAN wallclock training times for various resolutions & GPU-cluste
 |4	|11 days 8 hours [1,088]	|7 days 0 hours [672] 	|4 days 21 hours [468]|	[NA]|
 |8	|6 days 14 hours [1,264]	|4 days 10 hours [848]	|3 days 8 hours [640]|	[$2,730, $1,831, $1,382]|
 
+
+## StyleGan2
+
+
 ## BigBiGAN DeepMind
 
 https://arxiv.org/pdf/1907.02544.pdf
