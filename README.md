@@ -31,7 +31,7 @@
       <th><img width="50px" src="pic/icon/6.png"></th>
     </tr>
     <tr>
-      <td align="center"><a href="">图灵</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/1.md">图灵</a></td>
       <td align="center"><a href="">Pitts与“金三角”</a></td>
       <td align="center"><a href="">Frank Rosenblat“两派之争”</a></td>
       <td align="center"><a href="">达特茅斯会议与专家系统</a></td>
