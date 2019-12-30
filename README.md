@@ -23,7 +23,7 @@
 
 <table>
     <tr>
-      <th><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/1.md">图灵</a><img width="50px" src="pic/icon/5.png"></th>
+      <th><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/1.md"><img width="50px" src="pic/icon/5.png"></a></th>
       <th><img width="50px" src="pic/icon/2.png"></th>
       <th><img width="50px" src="pic/icon/3.png"></th>
       <th><img width="50px" src="pic/icon/4.png"></th>
