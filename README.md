@@ -31,7 +31,7 @@
       <th><img width="50px" src="pic/icon/6.png"></th>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/1.md">图灵-上</a>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/1.md">图灵-上</a>     
       <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/2.md">图灵-下</a></td>
       <td align="center"><a href="">Pitts与“金三角”</a></td>
       <td align="center"><a href="">Frank Rosenblat“两派之争”</a></td>
