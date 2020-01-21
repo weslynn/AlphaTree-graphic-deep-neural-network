@@ -33,7 +33,7 @@
     <tr>
       <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/1.md">图灵-上</a>     
       <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/2.md">图灵-下</a></td>
-      <td align="center"><a href="">Pitts与神经元</a></td>
+      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/3.md">Pitts与神经元</a></td>
       <td align="center"><a href="">Frank Rosenblat“两派之争”</a></td>
       <td align="center"><a href="">达特茅斯会议与专家系统</a></td>
       <td align="center"><a href="">John Hopfield与神经网络</a></td>
