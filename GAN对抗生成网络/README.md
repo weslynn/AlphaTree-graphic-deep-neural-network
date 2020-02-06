@@ -136,8 +136,15 @@ GAN的很多研究，都是对Generative modeling生成模型的一种研究，�
 
 
 ----------------------------------------------
+Others' collection:
+
+https://github.com/kozistr/Awesome-GANs
+
+https://github.com/nightrome/really-awesome-gan
 
 
+
+------------------------------------------------
 参考Mohammad KHalooei的教程，我也将GAN分为4个level，第四个level将按照应用层面进行拓展。 
 
 
@@ -584,7 +591,6 @@ Github ：https://github.com/google/compare_gan
 
 有标注数据的，被称为Paired Image-to-Image Translation，没有标注数据的，被称为 Unpaired Image-to-Image Translation。
 一张图可以同时进行多领域转换的，称为Multiple Domain
-
 - [ Paired two domain data](#1-Paired-Image-to-Image-Translation)
 - [ Unpaired two domain data](#2-Unpaired-Image-to-Image-Translation)
 
@@ -794,6 +800,16 @@ tf版github地址：https://github.com/taki0112/StarGAN-Tensorflow
 客观指标：Peak signal-to-noise ratio (PSNR)
 
 主观指标：在纯的超分辨领域，评价性能的指标是 PSNR（和 MSE 直接挂钩），所以如果单纯看 PSNR 值可能还是 L2 要好。如果考虑主观感受的话估计 L1 要好。
+
+Others’ Collection：其他人收集的相关工作：
+
+https://github.com/icpm/super-resolution
+
+https://github.com/YapengTian/Single-Image-Super-Resolution
+
+https://github.com/huangzehao/Super-Resolution.Benckmark
+
+https://github.com/ChaofWang/Awesome-Super-Resolution
 
 SR可分为两类:从多张低分辨率图像重建出高分辨率图像和从单张低分辨率图像重建出高分辨率图像。基于深度学习的SR，主要是基于单张低分辨率的重建方法，即Single Image Super-Resolution (SISR)。
 
@@ -1471,6 +1487,21 @@ wavenet
 GANSynth是一种快速生成高保真音频的新方法
 http://www.elecfans.com/d/877752.html
 
+
+
+audio (currently no meta)   
+
+https://github.com/CorentinJ/Real-Time-Voice-Cloning
+
+https://github.com/andabi/deep-voice-conversion
+
+https://github.com/r9y9/wavenet_vocoder
+
+https://github.com/kuleshov/audio-super-res
+
+https://github.com/francoisgermain/SpeechDenoisingWithDeepFeatureLosses
+
+https://github.com/drethage/speech-denoising-wavenet
 
 ### 4.2.2 语言和语音
 

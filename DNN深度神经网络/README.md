@@ -112,6 +112,12 @@ caffe 模型可视化网址 http://ethereon.github.io/netscope/#/editor
 论文查询网址 ：https://www.semanticscholar.org/
 
 
+Others’Collection 其他人汇总及模型比较
+
+https://github.com/BertMoons/Comparing-CNN-Architectures
+
+https://github.com/CeLuigi/models-comparison.pytorch
+
 
 ## Object Classification 物体分类
 
@@ -381,6 +387,7 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 github链接：
   https://github.com/tensorflow/models/blob/master/research/slim/nets/nasnet/nasnet.py
 
+  https://github.com/yeephycho/nasnet-tensorflow
 
 
 -----------------------------------------------------------------------------------------------------------

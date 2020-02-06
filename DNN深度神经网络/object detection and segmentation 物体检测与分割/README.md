@@ -1467,6 +1467,16 @@ https://arxiv.org/abs/1904.02104
 
 在深度学习统治计算机视觉领域之前，有Texton Forests和Random Forest based classifiers等方法来进行语义分割。
 
+其他人对这部分工作的收集：
+
+https://github.com/mrgloom/awesome-semantic-segmentation
+
+https://github.com/amusi/awesome-object-detection
+
+https://github.com/hoya012/deep_learning_object_detection
+
+
+
 ### FCN
 
 FCN(Fully Convolutional Networks for Semantic Segmentation)成为了深度学习技术应用于语义分割问题的基石：
