@@ -125,6 +125,10 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 
 [模型总览](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C) <- 之前展示所有模型的主页挪到这里来了。点这里 点这里
 
+
+--------------------------------------------------------------------------
+
+
 模型索引： 
 
 <table>
@@ -147,7 +151,7 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 </table>
 
 
-
+--------------------------------------------------------------------------
 
 
 ## 深度学习应用
@@ -205,6 +209,9 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
 
 ![ganmodule](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/ganpic/ganmodule.png)
 
+
+--------------------------------------------------------------------------
+
 <table>
     <tr>
       <td align="center"><a href="">CGAN</a></td>
@@ -216,7 +223,7 @@ Momenta 提出的SENet 获得了最后一届 ImageNet 2017 竞赛 Image Classifi
     </tr>  
 </table>
 
-
+--------------------------------------------------------------------------
 
 ### GAN训练上的改进 Level1：Improvements of GANs training
 
@@ -310,6 +317,25 @@ FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者
 物体的数据在Imagenet数据库上比较，人脸的 progan 和stylegan 在CelebA-HQ和FFHQ上比较。上表列的为FFHQ指标。
 
 具体可以参见 [GAN 对抗生成网络发展总览](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN%E5%AF%B9%E6%8A%97%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C)
+
+
+
+### GAN 在图像上的应用 GANs Applications in CV
+
+
+
+<table>
+    <tr>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN对抗生成网络/Super-Resolution超分辨率">超分辨率 (Super-Resolution)</a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN对抗生成网络/Image-translation图像翻译">图像翻译 (Image Translation)</a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN对抗生成网络/Colourful-Image%20Colorization图像上色%20%20">图像上色 Colourful Image Colorization</a></td>
+    </tr>   
+    <tr>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/GAN对抗生成网络/Image%20Inpainting图像修复/README.md"> 图像修复(Image Inpainting)</a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN对抗生成网络/Image-denoising图像去噪">图像去噪(Image denoising)n</a></td>
+      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN对抗生成网络/交互式图像生成">交互式图像生成</a></td>   
+</table>
+
 
 -------------------------------------------------------------------------------------------
 
