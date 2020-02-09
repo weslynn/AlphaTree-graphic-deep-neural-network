@@ -320,7 +320,7 @@ FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者
 
 
 
-## GAN的应用 Level3： GANs Applications 
+## GAN的应用 Level 3： GANs Applications 
 
 ### 3-1 GANs Applications in CV
 
@@ -339,11 +339,12 @@ FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者
 </table>
 
 
+特殊领域与应用
+
 <table>
     <tr>
       <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN对抗生成网络/comic-anime-manga漫画">漫画 (comic、anime、manga)</a></td>
       <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN对抗生成网络/face-changing换脸">换脸 (face changing)</a></td>
-      <td align="center"><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/GAN对抗生成网络/Neural-Style风格迁移">Neural-Style风格迁移</a></td>
     </tr>  
 </table>
 
