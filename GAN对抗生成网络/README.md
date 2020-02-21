@@ -127,7 +127,10 @@ TensorFlow Hub：http://www.tensorflow.org/hub
 
 --------------------------------------------------------------
 
-GAN的很多研究，都是对Generative modeling生成模型的一种研究，主要有两种重要的工作：
+GAN的很多研究，都是对Generative modeling生成模型的一种研究，主要是为了对原有数据的分布进行模拟
+
+怎么知道原有数据的分布呢？
+
 1 Density Estimation 对原有数据进行密度估计，建模，然后使用模型进行估计
 2 Sampling 取样，用对数据分布建模，并进行取样，生成符合原有数据分布的新数据。
 
