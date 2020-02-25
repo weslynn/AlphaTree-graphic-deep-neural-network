@@ -16,6 +16,9 @@
 ---------------------------------------------------------------------------------------------------
 
 
+QQ交流群 
+![qq](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/qr/AlphaTree%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E7%BE%A4%E4%BA%8C%E7%BB%B4%E7%A0%81.png)
+
 ------------------------------------------------------------------------------
 
 ## 趣味历史篇：（coming soon）
