@@ -415,3 +415,126 @@ https://datahack.analyticsvidhya.com/contest/practice-problem-urban-sound-classi
 记录数： 来自10个城市的8732个声音标注的声音片段（<= 4s）
 
 
+
+CN-Celeb 无约束条件说话人识别的中文语音数据集
+原创海上机械师 最后发布于2020-02-24 22:59:34 阅读数 448  收藏
+展开
+CN-Celeb 无约束条件说话人识别的中文语音数据集
+数据源：http://www.openslr.org/82/
+
+项目源：http://cslt.riit.tsinghua.edu.cn/mediawiki/index.php/CN-Celeb
+
+文献：Fan Y, Kang J, Li L et al. CN-CELEB: a challenging Chinese speaker recognition dataset. arXiv preprint arXiv:1911.01799, 2019.
+
+摘要
+目的：研究无约束条件下的自动说话人识别，换句话说，speaker recognition in the wild。
+数据与方法：建立了CN-Celeb数据集，该数据集包含130,000条语音段，1000位中国名人，11种语音体裁，短时语音段，共计274小时。CN-Celeb在i-vector/PLDA与x-vector/PLDA进行评测，并与VoxCeleb数据对比。
+结果：在i-vector/PLDA与x-vector/PLDA两个算法上，CN-Celeb上EER高于10%，VoxCeleb上EER低于10%。
+结论：CN-Celeb数据与VoxCeleb数据的区别显著；对于现阶段的说话人识别算法来说，CN-Celeb数据集更具挑战。
+
+1. 引言
+数十年的研究极大地提升了说话人识别系统的性能，然而无约束条件的说话人识别仍然难以达到可靠的水平。不确定的因素主要来自两方面，一是外在因素，二是内在因素，具体地，文本无关、多信道、环境噪声、说话人风格、生理健康状态。
+
+传统的因子分析方法与概率线性可区分性分析、最新的深度学习方法在受约束数据集上的说话人识别性能表现良好，然而这些数据集没有充分体现出丰富的声学条件，例如DARPA、SWITCHBOARD、NIST SRE与Voxceleb。
+
+研究无约束条件的说话人识别问题，“In The Wild”数据集是重要的基础。基于VoxCeleb数据集提供的自动化数据采集流程，清华大学收集了一份大规模的中文语音数据集CN-Celeb，该数据集有3个特点：
+
+CN-Celeb专注中国名人，包含130,000+语音段，来自1000位。
+CN-Celeb包含11种语音体裁，例如娱乐，访问，唱歌，戏剧，电影，视频博客，现场直播，演讲，戏剧，朗诵和广告，相比较VoxCeleb只是访问的语音，更具有无约束条件的代表性。
+CN-Celeb涉及人工检测，语音段的准确性更高。
+2. CN-Celeb 数据集
+CN-Celeb数据集具有三个特性：专注中国人、复杂的体裁、质量保证。数据统计结果如下：
+
+表1. 语音体裁分布
+体裁	说话人数量	语音段数量	小时数
+娱乐	483	22,064	33.67
+访问	780	59,317	135.77
+唱歌	318	12,551	28.83
+戏剧	69	4,245	4.95
+电影	62	2,749	2.20
+视频博客	41	1,894	4.15
+现场直播	129	8,747	16.35
+演讲	122	8,401	36.22
+戏剧	160	7,274	6.43
+朗诵	41	2,747	4.98
+广告	17	120	0.18
+共计	1,000	130,109	273.73
+表2. 语音段长度的分布
+长度(秒)	语音段数量	占比
+<2	41,658	32.0%
+2-5	38,629	30.0%
+5-10	23,497	18.0%
+10-15	10,687	8.0%
+15-20	5,334	4.0%
+20-25	3,218	2.5%
+25-30	1,991	1.5%
+>30	5,095	4%
+CN-Celeb与VoxCeleb数据统计的对比结果如下表所示，两者的差别如下：
+
+更多的真实噪声，例如环境噪声、背景babbing、音乐、欢呼声与小声；
+强的、覆盖说话人的背景，特别是戏剧与电影场景；
+多数说话人有不同的说话流派，使得说话风格差异显著；
+不同时间与不同设备记录的语音；
+多数语音是短时的。
+表3. CN-Celeb与VoxCeleb的比较
+CN-Celeb	VocCeleb
+数据源	bilibili.com	youtube.com
+语言	中文	英语为主
+体裁	11	访问为主
+人数	1,000	7,363
+语音数	130,109	1,281,762
+小时数	274	2,794
+人工检查	是	否
+论文提及了获取数据的步骤，是一种两阶段的方式：
+
+自动提取分段，
+
+人工筛选有效分段，其中人工删选的效率为 1 小时内检查 1 小时的语音。
+
+备注：个人知识水平有些，对自动提取部分的人脸检测、追踪、语音对齐等技术不熟悉，故不做介绍。
+
+3. 说话人识别的实验
+实验涉及的数据、方法及其设定如下：
+
+数据：
+评测集：SITW，来自VoxCeleb1；CN-Celeb(E)，共200人。
+训练集：VoxCeleb，由VoxCeleb1与VoxCeleb2组成，除去SITW部分，1,236,567段语音；CN-Celeb(T)，共800人。
+挑选的评测集：SITW(S)，将SITW重新分段，使其时长与CN-Celeb(E)相似。
+挑选的训练集：VoxCeleb(L)，来自VoxCeleb，800人，与CN-Celeb(T)人数上相同。
+方法及其设定：
+i-vector：MFCC + CMN + VAD + UBM + i-vector + LDA + PLDA
+x-vector：TDNN + LDA + PLDA
+前端模型：i-vector与x-vector
+后端模型：LDA与PLDA
+实验结果分为两部分：
+
+基准实验结果，i-vector与x-vector学习VoxCeleb数据集之后，在SITW、SITW(S)、CN-Celeb(E)上的性能评估，见表4所示。
+不同训练数据的评估结果，当训练集为VoxCeleb、VoxCeleb(L)或CN-Celeb(T)，在SITW(S)、CN-Celeb(E)上的性能评估，见表5所示。
+表4. i-vector与x-vector在三个评测数据集上的EER
+训练集	评测集
+系统	前端	后端	SITW	SITW(S)	CN-Celeb(E)
+i-vector	VoxCeleb	VoxCeleb	5.30	7.30	19.05
+x-vector	VoxCeleb	VoxCeleb	3.75	4.78	15.52
+表5. 不同数据设定的EER
+训练集	评测集
+系统	前端	后端	SITW(S)	CN-Celeb(E)
+i-vector	VoxCeleb	VoxCeleb(L)	8.34	17.43
+CN-Celeb(T)	CN-Celeb(T)	14.87	14.24
+VoxCeleb	CN-Celeb(T)	12.96	15.00
+CN-Celeb(T)	VoxCeleb(L)	11.34	15.50
+x-vector	VoxCeleb	VoxCeleb(L)	5.93	13.64
+CN-Celeb(T)	CN-Celeb(T)	15.23	14.78
+VoxCeleb	CN-Celeb(T)	10.72	11.99
+CN-Celeb(T)	VoxCeleb(L)	12.68	15.62
+作者：王瑞 同济大学 计算机系博士研究生
+
+邮箱：rwang@tongji.edu.cn
+
+CSDN：https://blog.csdn.net/i_love_home
+
+Github：https://github.com/mechanicalsea
+
+点赞 1
+————————————————
+版权声明：本文为CSDN博主「海上机械师」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/i_love_home/article/details/104487814
