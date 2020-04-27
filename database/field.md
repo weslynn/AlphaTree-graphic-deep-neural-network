@@ -538,3 +538,255 @@ Github：https://github.com/mechanicalsea
 ————————————————
 版权声明：本文为CSDN博主「海上机械师」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/i_love_home/article/details/104487814
+
+
+国内外深度学习开放数据集下载集合(值得收藏，不断更新)
+ csdnzoutao 2018-05-08 17:43:03  8447  收藏 22
+展开
+国内外深度学习开放数据集下载集合(值得收藏，不断更新)
+一、Image processing data set
+
+1、MNIST ，是最流行的深度学习数据集之一。这是一个手写数字数据集，包含一个有着 60000 样本的训练集和一个有着 10000 样本的测试集。对于在现实世界数据上尝试学习技术和深度识别模式而言，这是一个非常好的数据库，且无需花费过多时间和精力进行数据预处理。
+
+大小：约 50 MB
+
+数量：70000 张图像，共分为 10 个类别。
+
+Identify the Digits：Identify the Digits下载
+
+MNIST handwritten digit database, Yann LeCun, Corinna Cortes and Chris Burges：mnist下载
+
+2、Fashion-MNIST， 包含 60,000 个训练集图像和 10,000 个测试集图像。它是一个类似 MNIST 的时尚产品数据库。开发人员认为 MNIST 的使用次数太多了，因此他们把这个数据集用作 MNIST 的直接替代品。每张图像都以灰度显示，并具备一个标签（10 个类别之一）。
+
+大小：30MB
+
+数量：70,000 张图像，共 10 类
+
+zalandoresearch/fashion-mnist：下载地址
+
+3、PASCAL VOC挑战赛是视觉对象的分类识别和检测的一个基准测试，提供了检测算法和学习性能的标准图像注释数据集和标准的评估系统。PASCAL VOC图片集包括20个目录：人类；动物（鸟、猫、牛、狗、马、羊）；交通工具（飞机、自行车、船、公共汽车、小轿车、摩托车、火车）；室内（瓶子、椅子、餐桌、盆栽植物、沙发、电视）。PASCAL VOC挑战赛在2012年后便不再举办，但其数据集图像质量好，标注完备，非常适合用来测试算法性能。
+
+数据集大小：~2GB
+
+Visual Object Classes Challenge 2012 (VOC2012)：下载地址
+
+4、VQA ，是一个包含图像开放式问题的数据集。这些问题的解答需要视觉和语言的理解。该数据集拥有下列有趣的特征：
+
+大小：25GB（压缩后）
+
+数量：265,016 张图像，每张图像至少 3 个问题，每个问题 10 个正确答案
+
+Announcing the VQA Challenge 2018!：下载地址
+
+5、COCO， 是一个大型数据集，用于目标检测、分割和标题生成。Announcing the VQA Challenge 2018!2、COCO 是一个大型数据集，用于目标检测、分割和标题生成。
+
+大小：约 25 GB（压缩后）
+
+数量：33 万张图像、80 个目标类别、每张图像 5 个标题、25 万张带有关键点的人像
+
+Common Objects in Context：下载地址
+
+6、CIFAR-10，该数据集也用于图像分类。它由 10 个类别共计 60,000 张图像组成（每个类在上图中表示为一行）。该数据集共有 50,000 张训练集图像和 10,000 个测试集图像。数据集分为 6 个部分——5 个训练批和 1 个测试批。每批含有 10,000 张图像。
+
+大小：170MB
+
+数量：60,000 张图像，共 10 类
+
+http://www.cs.toronto.edu/~kriz/cifar.html：下载地址
+
+7、ImageNet ，是根据 WordNet 层次来组织的图像数据集。WordNet 包含大约 10 万个短语，而 ImageNet 为每个短语提供平均约 1000 张描述图像。
+
+大小：约 150 GB
+
+数量：图像的总数约为 1,500,000；每一张图像都具备多个边界框和各自的类别标签。
+
+http://www.image-net.org/：下载地址
+
+ImageNet：下载地址
+
+8、街景门牌号数据集（SVHN），这是一个现实世界数据集，用于开发目标检测算法。它需要最少的数据预处理过程。它与 MNIST 数据集有些类似，但是有着更多的标注数据（超过 600,000 张图像）。这些数据是从谷歌街景中的房屋门牌号中收集而来的。
+
+大小：2.5GB
+
+数量：6,30,420 张图像，共 10 类
+
+The Street View House Numbers (SVHN) Dataset
+：下载地址
+
+9、Open Images ，是一个包含近 900 万个图像 URL 的数据集。这些图像使用包含数千个类别的图像级标签边界框进行了标注。该数据集的训练集包含 9,011,219 张图像，验证集包含 41,260 张图像，测试集包含 125,436 张图像。
+
+大小：500GB（压缩后）~1.5GB（不包括图片）
+
+数量：9,011,219 张图像，带有超过 5000 个标签
+
+openimages/dataset：下载地址
+
+10、机器标注的一个超大规模数据集，包含2亿图像。
+
+We address the problem of large-scale annotation of web images. Our approach is based on the concept of visual synset, which is an organization of images which are visually-similar and semantically-related. Each visual synset represents a single prototypical visual concept, and has an associated set of weighted annotations. Linear SVM’s are utilized to predict the visual synset membership for unseen image examples, and a weighted voting rule is used to construct a ranked list of predicted annotations from a set of visual synsets. We demonstrate that visual synsets lead to better performance than standard methods on a new annotation database containing more than 200 million im- ages and 300 thousand annotations, which is the largest ever reported.
+
+VisualSynset：下载地址
+
+11、包含13万的图像的数据集。Scene categorization is a fundamental problem in computer vision. However, scene understanding research has been constrained by the limited scope of currently-used databases which do not capture the full variety of scene categories. Whereas standard databases for object categorization contain hundreds of different classes of objects, the largest available dataset of scene categories contains only 15 classes. In this paper we propose the extensive Scene UNderstanding (SUN) database that contains 899 categories and 130,519 images. We use 397 well-sampled categories to evaluate numerous state-of-the-art algorithms for scene recognition and establish new bounds of performance. We measure human scene classification performance on the SUN database and compare this with computational methods.
+
+http://vision.princeton.edu/projects/2010/SUN/
+​vision.princeton.edu
+12、包含100万的图像，23000视频；微软亚洲研究院出品，质量应该有保障。
+
+Microsoft Research – Emerging Technology, Computer, and Software Research
+：下载地址
+
+二、Natural Language Processing data setVisualSynset二、Natural Language Processing data setLarge-scale Scene Recognition from Abbey to Zoo
+二、Natural Language Processing data setVisualSynset二、Natural Language Processing data set
+
+1、IMDB 电影评论数据集，该数据集对于电影爱好者而言非常赞。它用于二元情感分类，目前所含数据超过该领域其他数据集。除了训练集评论样本和测试集评论样本之外，还有一些未标注数据可供使用。此外，该数据集还包括原始文本和预处理词袋格式。
+
+大小：80 MB
+
+数量：训练集和测试集各包含 25,000 个高度两极化的电影评论
+
+Sentiment Analysis：下载地址
+
+2、 欧洲语言机器翻译数据集 ，该数据集包含四种欧洲语言的训练数据，旨在改进当前的翻译方法。你可以使用以下任意语言对： 法语 - 英语 西班牙语 - 英语 德语 - 英语 捷克语 - 英语
+
+大小： 约 15 GB
+
+数量：约 30,000,000 个句子及对应的译文
+
+2018 Third Conference on Machine Translation (WMT18)
+​statmt.org：下载地址
+
+3、WordNet，WordNet 是一个大型英语 synset 数据库。Synset 也就是同义词组，每组描述的概念不同。WordNet 的结构让它成为 NLP 中非常有用的工具。
+
+大小：10 MB
+
+数量：117,000 个同义词集
+
+A Lexical Database for English：下载地址
+
+4、Wikipedia Corpus，该数据集是维基百科全文的集合，包含来自超过 400 万篇文章的将近 19 亿单词。你能逐单词、逐短语、逐段地对其进行检索，这使它成为强大的 NLP 数据集。
+
+大小：20 MB
+
+数量：4,400,000 篇文章，包含 19 亿单词
+
+Tagged and Cleaned Wikipedia (TC Wikipedia) and its Ngram：下载地址
+
+5、Yelp 数据集，这是 Yelp 出于学习目的而发布的开放数据集。它包含数百万个用户评论、商业属性（businesses attribute）和来自多个大都市地区的超过 20 万张照片。该数据集是全球范围内非常常用的 NLP 挑战赛数据集。 ，
+
+大小：2.66 GB JSON、2.9 GB SQL 和 7.5 GB 的照片（全部压缩后）
+
+数量：5,200,000 个评论、174,000 份商业属性、200,000 张照片和 11 个大都市地区
+
+Yelp Dataset：下载地址
+
+6、Blog Authorship Corpus，该数据集包含从数千名博主那里收集到的博客文章，这些数据从 blogger.com 中收集而来。每篇博客都以一个单独的文件形式提供。每篇博客至少出现 200 个常用的英语单词。
+
+大小：300 MB
+
+数量：681,288 篇博文，共计超过 1.4 亿单词。
+
+：下载地址
+
+7、Twenty Newsgroups 数据集 ，顾名思义，该数据集涵盖新闻组相关信息，包含从 20 个不同新闻组获取的 20000 篇新闻组文档汇编（每个新闻组选取 1000 篇）。这些文章有着典型的特征，例如标题、导语。
+
+大小：20MB
+
+数量：来自 20 个新闻组的 20,000 篇报道
+
+Twenty Newsgroups Data Set：下载地址
+
+8、Sentiment140，是一个用于情感分析的数据集。这个流行的数据集能让你完美地开启自然语言处理之旅。数据中的情绪已经被预先清空。最终的数据集具备以下六个特征： 推文的情绪极性 推文的 ID 推文的日期 查询 推特的用户名 推文的文本
+
+大小：80MB（压缩后）
+
+数量： 1,60,000 篇推文
+
+For Academics - Sentiment140 - A Twitter Sentiment Analysis Tool：下载地址
+
+三、Audio / voice dataset
+
+1、VoxCeleb， 是一个大型人声识别数据集。它包含来自 YouTube 视频的 1251 位名人的约 10 万段语音。数据基本上是性别平衡的（男性占 55％）。这些名人有不同的口音、职业和年龄。开发集和测试集之间没有重叠。对大明星所说的话进行分类并识别——这是一项有趣的工作。
+
+大小：150 MB
+
+数量：1251 位名人的 100,000 条语音
+
+VoxCeleb dataset
+：下载地址
+
+2、Youtube-8M为谷歌开源的视频数据集，视频来自youtube，共计8百万个视频，总时长50万小时，4800类。为了保证标签视频数据库的稳定性和质量，谷歌只采用浏览量超过1000的公共视频资源。为了让受计算机资源所限的研究者和学生也可以用上这一数据库，谷歌对视频进行了预处理，并提取了帧级别的特征，提取的特征被压缩到可以放到一个硬盘中（小于1.5T）。
+
+大小：~1.5TB
+
+https://research.google.com/youtube8m/
+：下载地址
+
+3、Free Spoken Digit 数据集 ，这是本文又一个受 MNIST 数据集启发而创建的数据集！该数据集旨在解决识别音频样本中口述数字的任务。这是一个公开数据集，所以希望随着人们继续提供数据，它会不断发展。目前，它具备以下特点： 3 种人声 1500 段录音（每个人口述 0- 9 各 50 次） 英语发音
+
+大小： 10 MB
+
+数量： 1500 个音频样本 SOTA：《Raw Waveform-based Audio
+
+Jakobovski/free-spoken-digit-dataset：下载地址
+图标
+
+4、Million Song 数据集，包含一百万首当代流行音乐的音频特征和元数据，可免费获取。其目的是： 鼓励研究商业规模的算法 为评估研究提供参考数据集 作为使用 API 创建大型数据集的捷径（例如 The Echo Nest API） 帮助入门级研究人员在 MIR 领域展开工作 数据集的核心是一百万首歌曲的特征分析和元数据。该数据集不包含任何音频，只包含导出要素。示例音频可通过哥伦比亚大学提供的代码（https://github.com/tb2332/MSongsDB/tree/master/Tasks_Demos/Preview7digital）从 7digital 等服务中获取。
+
+大小：280 GB
+
+数量：一百万首歌曲！
+
+https://labrosa.ee.columbia.edu/millionsong/
+：https://labrosa.ee.columbia.edu/millionsong/
+
+5、FMA 是音乐分析数据集，由整首 HQ 音频、预计算的特征，以及音轨和用户级元数据组成。它是一个公开数据集，用于评估 MIR 中的多项任务。以下是该数据集包含的 csv 文件及其内容： tracks.csv：记录每首歌每个音轨的元数据，例如 ID、歌名、演唱者、流派、标签和播放次数，共计 106,574 首歌。 genres.csv：记录所有 163 种流派的 ID 与名称及上层风格名（用于推断流派层次和上层流派）。 features.csv：记录用 librosa 提取的常见特征。 echonest.csv：由 Echonest（现在的 Spotify）为 13,129 首音轨的子集提供的音频功能。
+
+大小：约 1000 GB
+
+数量：约 100,000 个音轨
+
+：下载地址
+
+6、Ballroom ， 该数据集包含舞厅的舞曲音频文件。它以真实音频格式提供了许多舞蹈风格的一些特征片段。以下是该数据集的一些特点： 实例总数：698 单段时长：约 30 秒 总时长：约 20940 秒 大小：14 GB（压缩后） 数量：约 700 个音频样本
+
+Ballroom：下载地址
+
+7、LibriSpeech，该数据集是一个包含约 1000 小时英语语音的大型语料库。数据来源为 LibriVox 项目的音频书籍。该数据集已经得到了合理地分割和对齐。如果你还在寻找起始点，那么点击 http://www.kaldi-asr.org/downloads/build/6/trunk/egs/查看在该数据集上训练好的声学模型，点击 http://www.openslr.org/11/查看适合评估的语言模型。
+
+大小：约 60 GB
+
+数量：1000 小时的语音
+
+openslr.org
+：http://www.openslr.org/12/
+图标
+四、综合数据集
+
+1、雅虎发布的超大Flickr数据集，包含1亿多张图片。
+
+The data collected so far represents the world largest multimedia metadata collection that is available for research on scalable similarity search techniques. CoPhIR consist of 106 million processed images. CoPhIR is now available to the research community to try and compare different indexing technologies for similarity search, with scalability being the key issue. Our use of the Flickr image content is compliant to the Creative Commons license. CoPhIR Test Collection is compliant to the European Recommendation 29/2001 CE, based on WIPO (World Intellectual Property Organization) Copyright Treaty and Performances and Phonograms Treaty, and to the current Italian law 68/2003. In order to access the CoPhIR distribution, the organizations (universities, research labs, etc.) interested in building experimentations on it will have to sign the enclosed CoPhIR Access Agreement and the CoPhIR Access Registration Form, sending the original signed document to us by mail. Please follow the instruction in the section “How to get CoPhIR Test Collection”. You will then receive Login and Password to download the required files.
+
+CoPhIR - what is
+
+http://cophir.isti.cnr.it/whatis.html
+
+2、包含8000万的32x32图像，CIFAR-10和CIFAR-100便是从中挑选的。
+
+The 79 million images are stored in one giant binary file, 227Gb insize. The metadata accompanying each image is also in a single giantfile, 57Gb in size. To read images/metadata from these files, we haveprovided some Matlab wrapper functions. There are two versions of the functions for reading image data: (i) loadTinyImages.m - plain Matlab function (no MEX), runs under32/64bits. Loads images in by image number. Use this by default. (ii) read_tiny_big_binary.m - Matlab wrapper for 64-bit MEXfunction. A bit faster and more flexible than (i), but requires a 64-bit machine. There are two types of annotation data: (i) Manual annotation data, sorted in annotations.txt, that holds thelabel of images manually inspected to see if image content agrees withnoun used to collect it. Some other information, such as searchengine, is also stored. This data is available for only a very smallportion of images. (ii) Automatic annotation data, stored in tiny_metadata.bin,consisting of information relating the gathering of the image,e.g. search engine, which page, url to thumbnail etc. This data isavailable for all 79 million images.
+
+http://horatio.cs.nyu.edu/mit/tiny/data/index.html
+
+3、The MIRFLICKR-25000 open evaluation project consists of 25000 images downloaded from the social photography site Flickr through its public API coupled with complete manual annotations, pre-computed descriptors and software for bag-of-words based similarity and classification and a matlab-like tool for exploring and classifying imagery.
+
+800谷歌学术引文和3万9000的下载量来自大学（麻省理工学院、剑桥、斯坦福、牛津，哥伦比亚市，美国，新加坡，Tsinghua，东京大学，韩国科学技术院，等）和公司（IBM，微软，谷歌，雅虎！脸谱网、飞利浦、索尼、诺基亚等）
+
+下载地址
+
+以上就是一些国内外深度学习开放数据集下载集合。
+
+更多数据集下载
+参考地址：
+https://zhuanlan.zhihu.com/p/35535460
+https://www.kaggle.com/datasets
+http://www.52ml.net/20458.html
