@@ -23,46 +23,6 @@
 
 
 
-------------------------------------------------------------------------------
-
-## 趣味历史篇：（coming soon）
-
-
-<table>
-    <tr>
-      <th><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/1.md"><img width="50px" src="pic/icon/5.png"></a></th>
-      <th><img width="50px" src="pic/icon/2.png"></th>
-      <th><img width="50px" src="pic/icon/3.png"></th>
-      <th><img width="50px" src="pic/icon/4.png"></th>
-      <th><img width="50px" src="pic/icon/1.png"></th>
-      <th><img width="50px" src="pic/icon/6.png"></th>
-    </tr>
-    <tr>
-      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/1.md">图灵-上</a>     
-      <a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/2.md">图灵-下</a></td>
-      <td align="center"><a href="https://github.com/weslynn/graphic-deep-neural-network/blob/master/storys/3.md">Pitts与神经元</a></td>
-      <td align="center"><a href="">Frank Rosenblat“两派之争”</a></td>
-      <td align="center"><a href="">达特茅斯会议与专家系统</a></td>
-      <td align="center"><a href="">John Hopfield与神经网络</a></td>
-      <td align="center"><a href="">Geoff Hinton与反向传播</a></td>
-    </tr>
-    <tr>
-      <th><img width="50px" src="pic/icon/7.png"></th>
-      <th><img width="50px" src="pic/icon/8.png"></th>
-      <th><img width="50px" src="pic/icon/9.png"></th>
-      <th><img width="50px" src="pic/icon/10.png"></th>
-      <th><img width="50px" src="pic/icon/11.png"></th>
-      <th><img width="50px" src="pic/icon/12.png"></th>
-    <tr>      
-      <td align="center"><a href="">Yann Lecun与手写数字识别</a></td>
-      <td align="center"><a href="">LI Feifei与ImageNet</a></td>
-      <td align="center"><a href="">AlexNet</a></td>
-      <td align="center"><a href="">Google 与GoogleNet</a></td>
-      <td align="center"><a href="">何凯明与ResNet</a></td>
-      <td align="center"><a href="">机器实现NasNet</a></td>      
-    </tr>
-</table>
-
 
 -----------------------------------------------------------------------
 
