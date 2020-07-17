@@ -68,16 +68,159 @@ https://github.com/alibaba/x-deeplearning
 
 随着硬件计算能力发展带动深度学习的进步，预估领域的算法也逐渐的从传统的CTR（Click Through-Rate）预估模型迁移到深度CTR预估模型。 这些模型都可以归结为Embedding&MLP的范式：首先通过embedding layer将大规模的稀疏特征投影为低维连续的embedding vector， 然后将这些向量concatate后输入到一个全连接网络中，计算其最终的预估目标。相较于传统的方法， 这样的做法利用了深度学习模型更强的model capacity自动的学习特征之间以及特征与目标的关系， 减少了传统模型需要人工经验和实验验证的特征筛选设计阶段。
 
-### DIN  Deep Interesting Network
-DIN是由阿里妈妈精准定向广告算法团队在KDD2018提出的针对电商场景深入理解用户兴趣的预估模型。
 
-DIN通过一个兴趣激活模块(Activation Unit)，用预估目标Candidate ADs的信息去激活用户的历史点击商品，以此提取用户与当前预估目标相关的兴趣。权重高的历史行为表明这部分兴趣和当前广告相关，权重低的则是和广告无关的”兴趣噪声“。我们通过将激活的商品和激活权重相乘，然后累加起来作为当前预估目标ADs相关的兴趣状态表达。 最后我们将这相关的用户兴趣表达、用户静态特征和上下文相关特征，以及ad相关的特征拼接起来，输入到后续的多层DNN网络，最后预测得到用户对当前目标ADs的点击概率。
+### DNN
+最经典的范式是Embedding&MLP(代表为Youtube DNN)。这种范式中，user ID、用户历史交互item ID等高维category特征都被映射成为低维的embedding，MLP只能接受固定长度的输入，而用户历史上交互过的item数目是不固定，Embedding&MLP范式的应对方法是把用户交互过的item embedding求均值(进行average pooling操作)，然后把这个固定长度的均值作为user representation的一部分。
+ 图一 
+
+图示为电商场景下Embedding&MLP的范式图示，用户交互过的N个商品，每个商品都可以求得一个embedding，对N个embedding进行pooling后，再与其他固定长度的特征concat，作为MLP的输入。
+当对很多个兴趣(历史交互item)的embedding求均值时，有些长尾兴趣可能被湮没、新求的均值兴趣可能会有不可预知的偏移、原先embedding的维度可能不足以表达分散、多样的兴趣。
+
+
+### DIN && MIND
+1）背景与动机
+为了解决表达用户多样兴趣的问题，阿里分别提出了DIN(Deep Interest Network KDD2018)和MIND(Multi-Interest Network with Dynamic Routing)两种深度网络，针对电商场景分别在推荐的排序阶段和召回阶段建模表达用户的多样兴趣。
+
+•	DIN引入了attention机制，通过一个兴趣激活模块(Activation Unit)，用预估目标Candidate ADs的信息去激活用户的历史点击商品，以此提取用户与当前预估目标相关的兴趣。同一个用户与不同的item进行预测时，DIN会产生不同的用户embedding，具体来说，当预测某个item时，计算出该item与用户历史交互item的“匹配度”，权重高的历史行为表明这部分兴趣和当前广告相关，权重低的则是和广告无关的”兴趣噪声“。用这个匹配度作为权重对用户历史交互item做加权平均得到用户的兴趣embedding,作为当前预估目标ADs相关的兴趣状态表达.之后用这个兴趣embedding与用户静态特征和上下文相关特征以及ad相关的特征拼接起来组成所谓label-aware的用户embedding,输入到后续的多层DNN网络，最后预测得到用户对当前目标ADs的点击概率。
+
+•	而MIND使用另外一种思路，既然使用一个向量表达用户多样兴趣有困难，那么为什么不使用一组向量呢？具体来说，如果我们可以对用户历史行为的embedding进行聚类，聚类后的每个簇代表用户的一组兴趣，不就解决问题了么。 
+•	传统序列化推荐方法只考虑了用户的last behavior，没有使用到完整的session行为序列信息，作者引入RNN-based方法直接解决这个问题
+
+2）模型与特点
+DIN在多值离散型特征的Embedding进入Pooling之前，先引入一个Attention，乘上权重。论文将Attention定义为“Local Activation Unit”，它接受两个输入：广告的Embedding，用户特定兴趣或行为的Embedding。Attention的作用、权重的物理意义是特定的广告对用户的某个或某几个兴趣产生的特定的激活。
+ 
+MIND借鉴了Hiton的胶囊网络(Capsule Network)，提出了Multi-Interest Extractor Layer来对用户历史行为embedding进行软聚类，结构如下图所示：
+  
+（3）数据集
+Amazon Books和TmallData两个电商数据集
+（4）代码地址
+https://github.com/zhougr1993/DeepInterestNetwork
+
+（5）Baselines：
+MIND与Youtube DNN等其他方法做了对比，表现都是最好的。另外还对Label-aware attetion中power操作指数的大小做了实验，结果证明“注意力越集中，效果越好”。
+线上实验的话，表现也是优于YouTube DNN和item-based CF的(注意，item-based CF效果要好于YouTubeDNN，作者在这里给YouTubeDNN找了下场子，说是可能因为item-based CF经过长时间实践优化的原因)。另外，线上实验还表明，用户兴趣分得越细(用户向量数K越大)，效果越好。根据用户历史行为数动态调整兴趣数(K的值)虽然线上指标没有提升，但是模型资源消耗降低了。
+
+
+### 双塔模型 DSSM
+LearningDeep Structured Semantic Models for Web Search using Clickthrough Data
+Sampling-bias-corrected neural modeling for large corpus item recommendations –google
+1）背景与动机
+在大规模的推荐系统中，利用双塔模型对user-item对的交互关系进行建模，从而学习【用户，上下文】向量和【item】向量的关联。针对大规模流数据，提出in-batch softmax损失函数与流数据频率估计方法更好的适应item的多种数据分布。
+2）模型与特点
+利用双塔模型构建Youtube视频推荐系统，对于用户侧的塔根据用户观看视频特征构建user embedding，对于视频侧的塔根据视频特征构建video emebdding。两个塔分别是相互独立的网络。
+ 
+
+https://github.com/InsaneLife/dssm
+
+-----------------------------------
+
+
+如果考虑到用户历史行为的序列化建模，业界研究近期主要集中在Session-Based Recommendation.
+基于会话的推荐，我们可以理解为从进入一个app直到退出这一过程中，根据你的行为变化所发生的推荐；也可以理解为根据你较短时间内的行为序列发生的推荐.
+
+### 2015 GRU4REC：Session-based Recommendations with Recurrent Neural Networks
+1）背景与动机
+传统序列化推荐方法只考虑了用户的last behavior，没有使用到完整的session行为序列信息，作者引入RNN-based方法直接解决这个问题
+2）模型与特点
+ 
+GRU4REC是一个单纯基于GRU的session sequence->next step的序列化预测模型（不同于sequence->target类型的序列化建模），每一个step 的输入经过embedding layer给到GRU，得到next step的预测
+（3）数据集
+RecSys Challenge 2015：网站点击流
+Youtube-like OTT video service platform Collection
+（4）代码地址/评价指标
+recall@20、MRR
+https://github.com/Songweiping/GRU4Rec_TensorFlow
+（5）Baselines：
+POP：推荐训练集中最受欢迎的item；
+S-POP：推荐当前session中最受欢迎的item；
+Item-KNN：推荐与实际item相似的item，相似度被定义为session向量之间的余弦相似度
+BPR-MF：一种矩阵分解法，新会话的特征向量为其内的item的特征向量的平均，把它作为用户特征向量。
+（6）总结
+GRU4Rec算是开创了RNN-based的session行为推荐方法，相比较于未来混合结构的序列模型，单一RNN的结构就比较简单。但是其在工程实践方面的优化以及loss的思考上确实很不错，开阔大家的思路
+
+### 2018 SASRec：Self-Attentive Sequential Recommendation
+1）背景与动机
+传统MC方法仅考虑用户last behavior的影响，模型简单在稀疏数据场景效果更好。RNN-based的方法，能够处理长的用户行为序列，模型复杂在数据丰富并且支持复杂计算的场景更好。SASRec作为Attention-based方法，在两类方法之间做到一定的兼顾和平衡
+2） 模型与特点
+
+ 
+因为self-attention model没有任何关于序列的结构化信息，所以SASRec在embedding layer加入position embedding，给模型引入了结构信息
+“We modify the attention by forbidding all links between Qi and Kj (j > i) ”。整体结构脱胎于Transformer，不同点在于在Self Attention Layer保证了left-to-right unidirectional architectures，进行一层Mask处理就好了
+4）代码地址
+https://github.com/kang205/SASRec
+5）小结
+Transformer在序列化推荐上的应用，对于Self Attention的改造值得学习
+
+### 2018 DIEN: Deep Interest Evolution Network for Click-Through Rate Prediction 阿里
+1）背景与动机
+这篇文章是阿里DIN的升级版，提出一个观点是用户兴趣是随时间而发生变化的
+2）模型与特点
+ 
+Behavior Layer，behavior序列/category特征做embedding
+Interest Extractor Layer，区别于一般的直接用behavior embedding表达兴趣(类似DIN)，这里使用GRU来提取用户的潜在兴趣表达&行为之间的依赖。
+文章提到3种Attention和GRU结合的方式AIGRU/AGRU/AUGRU，AIGRU通过attention score at标量乘法直接弱化hidden state ht的影响，但input 0也能影响到GRU的hidden state；AGRU用attention score替换了GRU的update gate，也是at标量乘法直接弱化hidden state ht的影响，但是失去了分布式表达不同维度差异化的表达；AUGRU能够减弱兴趣漂移的干扰，让相关性高的兴趣能平滑的evolve，最后采用了AUGRU
+•	小结
+DIEN对attention和GRU的结合做了比较多的工作
+https://github.com/mouna99/dien
+
+
+### 2018 Caser：Personalized Top-N Sequential Recommendation via Convolutional Sequence Embedding
+1）背景与动机
+主要还是解决MC类方法，只考虑last behavior而没有考虑序列pattern的问题。虽然RNN-Based和Attention-Based方法一定程度上能够解决这类问题，但文章提出的基于CNN思路很不错值得学习下
+2）模型与特点
+
+ 
+在用户行为序列上滑窗产生样本，前L个行为作为input，接下来T个行为作为target
+L个input行为经过embedding layer得到L*d的矩阵（d是latent dimension size），将其看做一张二维图像，分别用水平和垂直两个convolution kernel来捕捉用户行为序列里面的结构信息
+最后和user representation concat到一起全连接，预测next T-targets
+•	小结
+没有直接作为典型的left-to-right unidirectional 结构来处理，而是整个作为结构化的信息交给CNN来进行特征提取。
+https://github.com/graytowne/caser
+
+E 2019 BERT4Rec：Sequential Recommendation with Bidirectional Encoder Representations from Transformer
+•	1)背景与动机
+•	这是阿里在电商推荐上对大热BERT的一次尝试。文章挑战了left-to-right unidirectional 结构的表达能力，以及其在实际推荐场景的合理性。Introduction中举了一个例子，用户在浏览多个口红时的顺序并没有太多的作用，作者Bidirectional model更为合适
+2)  模型与特点
+
+  
+将用户行为序列看做文本序列，但BERT不能直接用双向信息做序列预测（会造成信息泄露），于是在文章中序列化建模的问题转变成了Cloze task。随机mask掉user behavior sequence中部分item，然后基于sequence中的上下文来预测被mask掉的item。 Cloze Task随机对sequence mask来构成样本的机制，使得BERT4Rec可以产生大量的样本用于training
+为了training task保持一致，预测时在user behavior sequence最后加上special token [mask]，然后进行mask predict即等价于预测next item。为了使得模型更好的match predict task，特意构造出只mask sequence最后一个item这样的样本用于训练
+•	小结
+1.	文章实际上依靠position embedding来产生sequence的信息，bidirectional sequential更多的是基于Transformer的context
+2.	对于序列化建模问题的转换，以及训练样本的处理都很值得借鉴
+
+https://github.com/FeiSun/BERT4Rec
+
+### 2019 DSIN：Deep Session Interest Network for Click-Through Rate Prediction 阿里
+1) 背景与动机
+用户在session内的行为是内聚的，而跨session的行为会出现显著差异。一般的序列化建模，并不会刻意去区分行为序列中不同session之间的差异。DSIN则是构建了一种session层面的序列模型，意图解决这个问题
+2)模型与特点
+DSIN模型的总体框架如下图：
+   
+DSIN在全连接层之前，分成了两部分，左边的那一部分，将用户特征和物品特征转换对应的向量表示，这部分主要是一个embedding层，就不再过多的描述。右边的那一部分主要是对用户行为序列进行处理，从下到上分为四层：
+1）序列切分层session division layer
+2）会话兴趣抽取层session interest extractor layer
+3）会话间兴趣交互层session interest interacting layer
+4）会话兴趣激活层session interest acti- vating layer
+
+Session Division Layer将用户行为序列切到不同的session中(浅粉色)；
+紧接着session序列中每个session做一个sum polling，再加上bias encoding输入到Transformer（浅黄色）；
+Transformer输出的序列，一方面与待预测item通过激活单元做了一个attention的处理（浅紫色），一方面输入到Bi-LSTM（浅蓝色）；
+经过Bi-LSTM，用户行为才得到真正序列化处理（个人认为transformer处理序列数据，仅仅是将sequence的内聚性做了进一步的加强，所以很多应用还要额外再输入position encoding来强调结构化信息），再和item做activation attention
+https://arxiv.org/abs/1905.06482
+
+
+https://github.com/shenweichen/DSIN
+
+
 
 
 
 
 
 https://github.com/NVIDIA/DeepRecommender
+
+-------------------------
 
 
 1. 书籍
