@@ -34,7 +34,7 @@ https://aiqianji.com/blog/topic/18
 
 抽一些基础算法，和大家一起做。 因为很多代码 网上没有现成的，也要自己写。所以速度比较慢。有兴趣的可以一起来玩。
 
-https://aiqianji.com/blog/topic/18
+https://aiqianji.com/blog/topics/node/6
 
 
 另外 攒了大量的资源，但是不太有精力维护社群。大家可以有需求来网站回帖。 https://aiqianji.com/blog/topic/65
