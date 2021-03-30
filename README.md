@@ -19,7 +19,7 @@
 其他：暂时没有精力维护qq群和微信群 ，会定期发布资源到百度网盘，需要资源的可以关注公众号，然后自取
 
 
-![qr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/qrcode_for_gh_2b62f1dd4432_258.jpg)
+![qr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/qr/qrcode_for_gh_2b62f1dd4432_258.jpg)
 
 
 
