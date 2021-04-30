@@ -23,7 +23,7 @@
 
 所以我们做了两件事情：
 
-1 加入 AI千集 以AI应用为目的 的一个社区。 这是专栏  https://aiqianji.com/blog/topics/node/14
+1 加入 AI千集 以AI应用为目的 的一个社区。 这是专栏  https://aiqianji.com/blog/topics/node/6
 
  AI应用能改变世界。 AI千集为学习者提供了一个交流社区，和一些学习工具，包括论文推荐系统，论文一键翻译等等。
 
@@ -34,12 +34,10 @@ https://aiqianji.com/blog/topic/18
 
 抽一些基础算法，和大家一起做。 因为很多代码 网上没有现成的，也要自己写。所以速度比较慢。有兴趣的可以一起来玩。
 
-https://aiqianji.com/blog/topics/node/6
+https://github.com/weslynn/100-Days-Of-AI-Code
 
 
-另外 攒了大量的资源，但是不太有精力维护社群。大家可以有需求来网站回帖。 https://aiqianji.com/blog/topic/65
-
-不知道需要什么资源的也可以关注公众号，有个积分商城 注册就有积分，其他所有参与活动也可以挣积分，包括发帖，看文章等等。 然后自己换取就行。
+另外 攒了大量的资源，有个积分商城 注册就有积分，其他所有参与活动也可以挣积分，包括发帖，看文章等等。 然后自己换取就行。
 会慢慢的上资源
 
 ![qr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/qr/qrcode_for_gh_2b62f1dd4432_258.jpg)
