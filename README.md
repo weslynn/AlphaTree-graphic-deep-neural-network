@@ -24,18 +24,20 @@
 所以我们做了两件事情：
 
 1 加入 AI千集 以AI应用为目的 的一个社区。 这是专栏  https://aiqianji.com/blog/topics/node/6
+欢迎小伙伴一起贡献
 
- AI应用能改变世界。 AI千集为学习者提供了一个交流社区，和一些学习工具，包括论文推荐系统，论文一键翻译等等。
+ AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，顺手也开发了一些学习工具，包括论文推荐系统，论文一键翻译等等。
 
 现在在试运行中。关于你能来做什么，可以看这篇
 https://aiqianji.com/blog/topic/18
 
 2 在筹备AI100天计划
 
-抽一些基础算法，和大家一起做。 因为很多代码 网上没有现成的，也要自己写。所以速度比较慢。有兴趣的可以一起来玩。
+100天，如果想基本具有深度学习视觉方面的能力，该怎么走，我从AlphaTree中抽取了一个主流的 RoadMap  ，带全部论文中英文翻译，对应代码 等。刷完有惊喜
 
-https://github.com/weslynn/100-Days-Of-AI-Code
+https://github.com/weslynn/100-Days-Of-AI-Code 
 
+国内版：   https://aiqianji.com/blog/topics/node/6  
 
 另外 攒了大量的资源，有个积分商城 注册就有积分，其他所有参与活动也可以挣积分，包括发帖，看文章等等。 然后自己换取就行。
 会慢慢的上资源
