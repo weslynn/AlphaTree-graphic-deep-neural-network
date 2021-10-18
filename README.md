@@ -17,30 +17,23 @@
 
 
 其他：
+1 从AlphaTree 拓展到一个社区  AI千集 以AI应用为目的 的一个社区。 这是专栏  https://aiqianji.com/blog/topics/node/6
+欢迎小伙伴一起贡献。（  AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，顺手也开发了一些学习工具，包括论文推荐系统，论文一键翻译 文章分发等等。
+试试让AI 来服务于大家，）
 
-由于github和某些原因，alphatree项目中的图 在这里展示总会出现不稳定的情况。而且能够一起贡献的小伙伴也不多。
-另外alphatree由于资源整合得比较多，所以有的小伙伴不知道如何学习。
 
-所以我们做了两件事情：
 
-1 加入 AI千集 以AI应用为目的 的一个社区。 这是专栏  https://aiqianji.com/blog/topics/node/6
-欢迎小伙伴一起贡献
+2 自适应的学习计划
 
- AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，顺手也开发了一些学习工具，包括论文推荐系统，论文一键翻译等等。
+如果在一个大的知识库里，可以根据你的需求，定制自己的学习计划 是不是靠谱？ 推荐系统 能干好这件事情吗？   先做几个demo大家试试看
 
-现在在试运行中。关于你能来做什么，可以看这篇
-https://aiqianji.com/blog/topic/18
+3 AlphaCreation -之宝贝计划
 
-2 在筹备AI100天计划
+反正国内 很多小学已经开始教AI了。 考虑到 自家娃的功课问题，开始做对应的工作。
 
-100天，如果想基本具有深度学习视觉方面的能力，该怎么走，我从AlphaTree中抽取了一个主流的 RoadMap  ，带全部论文中英文翻译，对应代码 等。刷完有惊喜
 
-https://github.com/weslynn/100-Days-Of-AI-Code 
+定制文章可关注公众号
 
-国内版：   https://aiqianji.com/blog/topics/node/6  
-
-另外 攒了大量的资源，有个积分商城 注册就有积分，其他所有参与活动也可以挣积分，包括发帖，看文章等等。 然后自己换取就行。
-会慢慢的上资源
 
 ![qr](https://github.com/weslynn/graphic-deep-neural-network/blob/master/pic/qr/qrcode_for_gh_2b62f1dd4432_258.jpg)
 
