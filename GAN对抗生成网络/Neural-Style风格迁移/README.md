@@ -99,7 +99,7 @@ https://github.com/DmitryUlyanov/online-neural-doodle
 
 https://github.com/NVIDIA/FastPhotoStyle
 
-
+![neuralstyle](https://raw.githubusercontent.com/NVIDIA/FastPhotoStyle/master/teaser.png)
 
 
 
@@ -110,4 +110,4 @@ https://github.com/msracver/Deep-Image-Analogy
 ### Deep Preset  用照片对视频进行风格转换
 
 Deep Preset: Blending and Retouching Photos with Color Style Transfer (WACV'2021)
-
+![neuralstyle](https://raw.githubusercontent.com/minhmanho/deep_preset/master/docs/images/intro_1.gif)
