@@ -87,13 +87,18 @@ https://github.com/DmitryUlyanov/online-neural-doodle
 
 
 
-
+照片的风格转换
 ###  Deep Photo Style Transfer
 本文在 Neural Style algorithm [5] 的基础上进行改进，主要是在目标函数进行了修改，加了一项 Photorealism regularization，修改了一项损失函数引入 semantic segmentation 信息使其在转换风格时 preserve the image structure
 贡献是将从输入图像到输出图像的变换约束在色彩空间的局部仿射变换中，将这个约束表示成一个完全可微的参数项。我们发现这种方法成功地抑制了图像扭曲，在各种各样的场景中生成了满意的真实图像风格变换，包括一天中时间变换，天气，季节和艺术编辑风格变换。
 
 
 以前都是整幅图stransfer的，然后他们想只对一幅图的单个物体进行stransfer，比如下面这幅图是电视剧Son of Zorn的剧照，设定是一个卡通人物生活在真实世界。他们还说这种技术可能在增强现实起作用，比如Pokemon go. 
+
+### FastPhotoStyle 
+
+https://github.com/NVIDIA/FastPhotoStyle
+
 
 
 
@@ -102,4 +107,7 @@ https://github.com/DmitryUlyanov/online-neural-doodle
 https://github.com/msracver/Deep-Image-Analogy
 
 
+### Deep Preset  用照片对视频进行风格转换
+
+Deep Preset: Blending and Retouching Photos with Color Style Transfer (WACV'2021)
 
