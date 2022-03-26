@@ -44,14 +44,14 @@
 反正国内 很多小学已经开始教AI了。 考虑到 自家娃的功课问题，开始做对应的工作。
 
 
-定制文章可关注公众号 千集技术
+怕找不到我们，可关注公众号 千集技术
 
 
 
 和我联系 ：  5009024@qq.com
 
 
-知乎：[点这里](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/webwxgetmsgimg.jpg)
+知乎：[点这里](https://www.zhihu.com/people/gingo-a)
 
 微信 ： gingo_alphatree
 
