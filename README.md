@@ -41,13 +41,15 @@
 
 
 
-和我联系 ：  5009024@qq.com 
+和我联系 ：  5009024@qq.com
+
+
+知乎：[点这里](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/webwxgetmsgimg.jpg)
 
 微信 ： gingo_alphatree
 
 
-
-
+![](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/webwxgetmsgimg.jpg)
 
 
 -----------------------------------------------------------------------
