@@ -53,10 +53,15 @@
 
 快速有效正确的学好AI ，才是未来的希望。
 
+学习AI 就像是在玩游戏， 之前 给公司做过关于AI技术的职级晋升规范制定，跟过那么多AI项目，听过那么多AI界的故事，有的成了 ，有的没成。不如反思你的团队，配置是否合理，是不是抓着法师去干了战士的活。这个团队是要灵活作战，还是要加大攻击力？
 
+这和学习是一个道理。为啥很多人学不下去，战士 去跟着高级法师学习 自然学习是没意思的。 
 
-和我联系 ：  5009024@qq.com
+![](http://aiqianji.oss-cn-shenzhen.aliyuncs.com/images/2022/03/27/454dda5f59b2d07e891691bbe2a93c71.bmp?x-oss-process=style/detail)
 
+学习有问题，可以去论坛讨论  www.aiqianji.com
+
+有想法可以和我探讨探讨 ：  5009024@qq.com
 
 知乎：[点这里](https://www.zhihu.com/people/gingo-a)
 
