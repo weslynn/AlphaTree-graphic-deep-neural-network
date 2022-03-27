@@ -41,6 +41,7 @@
 
 ![](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/mini_aiqianji.jpg)
 
+公众号 千集技术
 
 
 
@@ -51,10 +52,6 @@
 反正国内 很多小学已经开始教AI了。 考虑到 自家娃的功课问题，开始做对应的工作。世界是我们的，但终归还是你们的。 我们走过了AI发展奠定基础辉煌的几年，而大规模的应用还在路上。
 
 快速有效正确的学好AI ，才是未来的希望。
-
-
-
-怕找不到我们，可关注公众号 千集技术
 
 
 
