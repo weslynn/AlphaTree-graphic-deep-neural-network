@@ -378,7 +378,16 @@ FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者
     </tr>  
 </table>
 
+-------------------------------
+# 语音克隆 Voice Cloning  
+如何训练个性化语音
 
+WaveNet  不是端到端的，输入并不是raw text而是经过处理的特征，代替了传统TTS pipeline的后端  Wavenet:a generative model for raw audio https://github.com/ibab/tensorflow-wavenet
+WaveRNN  一般作为Tacotron的Vocoder来合成音频 Efficient Neural Audio Synthesis  https://arxiv.org/pdf/1802.08435 https://github.com/fatchord/WaveRNN
+Tacotron 第一个端对端的TTS神经网络模型 vocoder 需要改进 https://github.com/keithito/tacotron 
+Tacotron 2 https://github.com/NVIDIA/tacotron2
+中文语音合成 https://github.com/lturing/tacotronv2_wavernn_chinese
+SV2TTS Google https://github.com/CorentinJ/Real-Time-Voice-Cloning Transfer Learning from Speaker Verification to Multispeaker Text-To-Speech Synthesis https://arxiv.org/pdf/1806.04558.pdf
 
 
 -------------------------------------------------------------------------------------------
