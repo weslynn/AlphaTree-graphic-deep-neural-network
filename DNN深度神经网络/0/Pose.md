@@ -1,13 +1,17 @@
 
 ## Pose 姿态识别
 
+<img src="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/map/Pose.png?raw=true">
+
 
 
 ### motion transfer
 
 也有叫video retargeting、video reenactment、human animation等，这些定义不完全等价，是一个比较综合的生成式任务。
 
-早期的研究需要输入一段目标人物的视频，用来学习人物特异的外观encode-decoder，在合成的时候再利用decoder基于目标人体pose来输出整段视频，有点像deepfake的做法（https://github.com/deepfakes/faceswap）。早期代表性工作是
+早期的研究需要输入一段目标人物的视频，用来学习人物特异的外观encode-decoder，在合成的时候再利用decoder基于目标人体pose来输出整段视频，有点像deepfake的做法（https://github.com/deepfakes/faceswap）
+
+早期代表性工作是
 1) Everybody Dance Now
 
 2) vid2vid
@@ -21,6 +25,8 @@
 代表性工作有MonkeyNet、Liquid Warping GAN等等。<img src="https://picx.zhimg.com/50/v2-d0e166409ccd752dd8056ad335885dcc_720w.jpg?source=1940ef5c" data-rawwidth="1826" data-rawheight="690" data-size="normal" data-caption="" data-default-watermark-src="https://pic4.zhimg.com/50/v2-cc99ae0f453448da7a3efddc351c3fac_720w.jpg?source=1940ef5c" class="origin_image zh-lightbox-thumb" width="1826" data-original="https://pic3.zhimg.com/v2-d0e166409ccd752dd8056ad335885dcc_r.jpg?source=1940ef5c"/>
 
 2. NVIDIA沿着vid2vid也做了一个general的few-shot vid2vid工作。和上一类方法不同，他们基于输入的单图去预测视频decoder的一些网络参数，从而将外观特异的信息用到了合成网络中。这也是他们之前一个叫SPADE的工作的延续。<img src="https://pic1.zhimg.com/50/v2-6f791e66e119270f0a4da611612d9013_720w.jpg?source=1940ef5c" data-rawwidth="1318" data-rawheight="1100" data-size="normal" data-caption="" data-default-watermark-src="https://pic1.zhimg.com/50/v2-663a0ee45bc80c67ead6bfbda82cae1b_720w.jpg?source=1940ef5c" class="origin_image zh-lightbox-thumb" width="1318" data-original="https://pic1.zhimg.com/v2-6f791e66e119270f0a4da611612d9013_r.jpg?source=1940ef5c"/>此外，这个领域一般都会用到很多human的prior来强化网络的学习，最简单的是human pose（人体关键点）、human parsing（部件分割），复杂的有dense pose、SMPL、3D pose等。为了让脸部效果更好，很多工作还会单独对脸部进行合成提高质量。
+
+https://nvlabs.github.io/few-shot-vid2vid/
 
 
 
