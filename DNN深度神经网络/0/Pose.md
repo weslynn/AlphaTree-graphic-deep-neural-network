@@ -14,10 +14,34 @@
 早期代表性工作是
 1) Everybody Dance Now
 
+
+https://github.com/carolineec/EverybodyDanceNow
+
+
 2) vid2vid
 
 
+19年同年相关作品还有：
+![image](https://user-images.githubusercontent.com/22336020/192982150-b34cbdd9-e6d8-4b3c-b87a-aa7a33e2cec2.png)
+
+https://motionretargeting2d.github.io/
+
+https://github.com/LONG-9621/Human_motion-Imatation
+
 后面有一些follow-up基于人体prior进一步改进encode和decode的效果（如TransMoMo）。这类工作由于需要输入目标人物的整段视频（而且需要pose覆盖相对充分），且对于每个目标都需要重新训练，限制了这一类方法的应用场景。<img src="https://pic2.zhimg.com/50/v2-e070142b70beaa1ebcdba6f9756621fa_720w.jpg?source=1940ef5c" data-rawwidth="1818" data-rawheight="846" data-size="normal" data-caption="" data-default-watermark-src="https://picx.zhimg.com/50/v2-e43389609d33c565e27fad403db6dc66_720w.jpg?source=1940ef5c" class="origin_image zh-lightbox-thumb" width="1818" data-original="https://pic1.zhimg.com/v2-e070142b70beaa1ebcdba6f9756621fa_r.jpg?source=1940ef5c"/>
+
+
+Z. Yang*, W. Zhu*, W. Wu*, C. Qian, Q. Zhou, B. Zhou, C. C. Loy. "TransMoMo: Invariance-Driven Unsupervised Video Motion Retargeting." IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020. (* indicates equal contribution.)
+
+https://arxiv.org/pdf/2003.14401.pdf
+​
+arxiv.org/pdf/2003.14401.pdf
+
+![image](https://user-images.githubusercontent.com/22336020/192982213-2e92aea9-775e-4e1f-985c-47f987b7ad36.png)
+
+https://github.com/yzhq97/transmomo.pytorch
+
+知乎 https://zhuanlan.zhihu.com/p/145135732
 
 
 后期的工作开始做基于单图输入的motion transfer，是一种single-shot的setting。由于无法对单个用户直接训练一个模型，这块一般有两个思路（近期关注得比较少，欢迎补充其他思路）：由于单图的外观representation不好学，为了降低合成难度，会基于输入的pose和目标的pose去估计一个warp参数，然后将目标人物的图像warp到目标pose，最后可能再加个网络来refine一下合成的结果。至于如何warp，不同文章用了不同的方式，比如2D flow、3D flow等。
@@ -28,6 +52,7 @@
 
 https://nvlabs.github.io/few-shot-vid2vid/
 
+![image](https://user-images.githubusercontent.com/22336020/192982451-f569ce6f-386f-450e-82e5-35390753c37a.png)
 
 
 
