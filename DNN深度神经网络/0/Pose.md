@@ -13,9 +13,11 @@
 
 早期代表性工作是
 1) Everybody Dance Now
-
+直接使用关键点condition 进行驱动.
 
 https://github.com/carolineec/EverybodyDanceNow
+
+Dance Dance Generation: Motion Transfer for Internet Videos
 
 
 2) vid2vid
@@ -57,10 +59,9 @@ https://nvlabs.github.io/few-shot-vid2vid/
 
 
 
-
-
-
-
+2. First Order Motion Model for Image Animation (FOMM)
+-  [github](https://github.com/AliaksandrSiarohin/first-order-model)
+- 使用自监督预测移动点+泰勒级数表示稀疏运动预测稠密运动
 
 
 
@@ -78,7 +79,4 @@ https://nvlabs.github.io/few-shot-vid2vid/
 
 
 部分参考：
-作者：Hengkai Guo
-链接：https://www.zhihu.com/question/481811366/answer/2091067213
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+https://www.zhihu.com/question/481811366 下系列回答
