@@ -19,6 +19,9 @@ https://github.com/carolineec/EverybodyDanceNow
 
 Dance Dance Generation: Motion Transfer for Internet Videos
 
+https://github.com/Kuzphi/EverybodyDanceNow-Temporal-FaceGAN
+
+
 
 2) vid2vid
 
