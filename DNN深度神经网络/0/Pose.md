@@ -46,6 +46,16 @@ https://github.com/yzhq97/transmomo.pytorch
 知乎 https://zhuanlan.zhihu.com/p/145135732
 
 
+其他lstm实现：
+
+
+https://github.com/SuyashSonawane/AI-Dancer
+
+https://github.com/keshavoct98/DANCING-AI
+
+
+
+
 后期的工作开始做基于单图输入的motion transfer，是一种single-shot的setting。由于无法对单个用户直接训练一个模型，这块一般有两个思路（近期关注得比较少，欢迎补充其他思路）：由于单图的外观representation不好学，为了降低合成难度，会基于输入的pose和目标的pose去估计一个warp参数，然后将目标人物的图像warp到目标pose，最后可能再加个网络来refine一下合成的结果。至于如何warp，不同文章用了不同的方式，比如2D flow、3D flow等。
 
 代表性工作有MonkeyNet、Liquid Warping GAN等等。<img src="https://picx.zhimg.com/50/v2-d0e166409ccd752dd8056ad335885dcc_720w.jpg?source=1940ef5c" data-rawwidth="1826" data-rawheight="690" data-size="normal" data-caption="" data-default-watermark-src="https://pic4.zhimg.com/50/v2-cc99ae0f453448da7a3efddc351c3fac_720w.jpg?source=1940ef5c" class="origin_image zh-lightbox-thumb" width="1826" data-original="https://pic3.zhimg.com/v2-d0e166409ccd752dd8056ad335885dcc_r.jpg?source=1940ef5c"/>
