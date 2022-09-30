@@ -18,9 +18,10 @@
 https://github.com/carolineec/EverybodyDanceNow
 
 Dance Dance Generation: Motion Transfer for Internet Videos
+https://arxiv.org/abs/1904.00129
+
 
 https://github.com/Kuzphi/EverybodyDanceNow-Temporal-FaceGAN
-
 
 
 2) vid2vid
@@ -78,18 +79,41 @@ https://nvlabs.github.io/few-shot-vid2vid/
 
 
 
+3 
+ CVPR'2021 paper Motion Representations for Articulated Animation by Aliaksandr Siarohin, Oliver Woodford, Jian Ren, Menglei Chai and Sergey Tulyakov.
+ 
+ 
+https://github.com/snap-research/articulated-animation
+
+
+4
+
+https://github.com/FuxiCV/SSMCT
 
 
 
 
+database
+https://awesome-wflow.github.io/
+
+网易虚拟人舞蹈数据库
+https://github.com/NetEase-GameAI/ChoreoMaster
 
 
 
 
+## AI编舞
+
+https://zhuanlan.zhihu.com/p/409493174
+
+https://www.remenci.cn/88050
 
 
 
+## demo链接
+https://github.com/DWCTOD/CVPR2022-Papers-with-Code-Demo
 
 
 部分参考：
 https://www.zhihu.com/question/481811366 下系列回答
+https://www.zhihu.com/column/c_1389179244803715072
