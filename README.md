@@ -406,6 +406,27 @@ FID和IS都是基于特征提取，也就是依赖于某些特征的出现或者
 
 
 
+## AIGC
+
+### stable diffusion
+
+▶Automatic 1111：目前功能最完善最好用的stable diffusion网页版 [网页链接](https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast_stable_diffusion_AUTOMATIC1111.ipynb?ref=FutureTools.io#scrollTo=PjzwxTkPSPHf)
+
+### DreamBooth
+
+▶DreamBooth：finetune（微调训练）自己的stable diffusion模型 [网页链接](https://dreambooth.github.io/)
+
+
+### 工具类
+
+▶AdCreative.ai：专注于广告平面内容生成的AI [网页链接](https://www.adcreative.ai/)
+
+▶AutoDraw：一个能够将你丑丑的简笔画自动平滑修复的网页工具 [网页链接](https://www.autodraw.com/)
+
+▶Clip Interrogator：text to image的逆向工程——根据你上传的图片给出生成这个图片最可能的prompt引导词 [网页链接](https://huggingface.co/spaces/pharma/CLIP-Interrogator)
+
+
+
 一树一获者，谷也；一树十获者，木也；一树百获者；人也。 希望我们每一个人的努力，能够建立一片森林，为后人投下一片树荫。
 
 每一位加入的作者，都可以选取植物的名称来表示自己，然后logo和名字将会作为自己的署名。
