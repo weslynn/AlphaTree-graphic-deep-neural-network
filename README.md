@@ -17,32 +17,25 @@
 
 
 其他：
-1 从AlphaTree 拓展到一个社区  AI千集  www.aiqianji.com 以AI应用为目的 的一个社区。 这是专栏  https://aiqianji.com/blog/topics/node/6
-欢迎小伙伴一起贡献。（  AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，顺手也开发了一些学习工具，包括论文推荐系统，论文一键翻译 文章分发等等。
+
+2023年10月更新
+
+1 从AlphaTree 拓展到一个社区  AI千集  www.aiqianji.com 以AI应用为目的 的一个社区。 
+（  AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，顺手也开发了一些学习工具，包括论文推荐系统，论文一键翻译 文章分发等等。
 试试让AI 来服务于大家，）
-
-看到有意思的文章 小伙伴们也会发在上面。 随手翻译的论文 也会放上去， 这样方便下次查看。
-
-如果对学习的事情想探讨，优先建议去论坛发布。
-
-
-
-2 用有趣的方法来学会AI
-有很多人想比较好的掌握AI的知识，但是每个人基础不同。
-
-如果在一个大的知识库里，可以根据你的需求，定制自己的学习计划 是不是靠谱？ 推荐系统 能干好这件事情吗？  
-
-有没有更有趣的方法来学习呢？
-我们做了一些尝试。譬如将深度学习 机器学习的题目做成了pk比赛。
-
-来试试和别人pk吧。 每天抽几分钟来对战，没准你轻轻松松 就能搞定下一次的笔试。
-
-这个现在在内测 可以扫码试用，还有添加下面微信号，提出你的想法。定期掉落各种资源大礼包。
-
-![](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/mini_aiqianji.jpg)
 
 公众号 千集技术
 
+智能创作 主要各家gpt模型和接口都已经接入，用AI处理文字日常，已经到来。
+AI绘图我们也做了很久，给to b训了很多独家模型。最近在研究to c一些有趣的玩法。
+
+
+
+
+2 AIGC 导航网站
+2022年被称为AIGC的元年，写作，绘画，音乐，日新月异。 这个由于更新迭代很快，因此将常用的软件做了导航。
+
+https://www.icoderobot.com/
 
 
 
@@ -57,15 +50,45 @@
 
 这和学习是一个道理。为啥很多人学不下去，战士 去跟着高级法师学习 自然学习是没意思的。 
 
-![](http://aiqianji.oss-cn-shenzhen.aliyuncs.com/images/2022/03/27/454dda5f59b2d07e891691bbe2a93c71.bmp?x-oss-process=style/detail)
+之前做过一些笔试题的小程序，然后做的过程中，发现很多大公司开始认为这些应该小学生就能掌握了。了解很多AI知识竞赛，都是各家公司笔试题。
 
-学习有问题，可以去论坛讨论  www.aiqianji.com
+看看我家娃，我觉得那些题对于小学生来说还是太太太难了，
+
+这个十一，针对AI，计算机常识和英语，做了一套做题小程序 ，科普计算机知识，考英语必考单词。
+
+所有的图都是直接用AI生成，目前针对的是三年级的小朋友的水平。
+
+
+
+背单词的时候，还能顺便学习了计算机知识，看了AI作品展览。实在是一举多得。
+
+有空会更新高级别的题目。
+有比赛和语音等功能可以优化，也有计划做定制化知识和单词学习计划。
+毕竟做个性化推荐，那是非常擅长的事情
+
+不过开发小伙伴表示，没人玩就先挂起了。最近都在做AIGC相关的工作。
+
+(⊙﹏⊙) 看来还是得宣传一下，让大家都来玩一玩。
+玩的人多了，这才有挤出来时间做下一步开发呀。
+
+搜索 题灵教学 ，可以使用。
+
+扫码打开：
+
+
+![](https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg)
+
+
+
+
+
+学习有问题，使用有问题，都可以去论坛讨论  www.aiqianji.com
 
 有想法可以和我探讨探讨 ：  5009024@qq.com
 
 知乎：[点这里](https://www.zhihu.com/people/gingo-a)
 
-微信 ： gingo_alphatree
+微信 ： gingo_alphatree 
 
 
 ![](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/webwxgetmsgimg.jpg)
