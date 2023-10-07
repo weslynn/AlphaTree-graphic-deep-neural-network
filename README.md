@@ -25,6 +25,7 @@
 试试让AI 来服务于大家，）
 
 公众号 千集技术
+![](https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg)
 
 智能创作 主要各家gpt模型和接口都已经接入，用AI处理文字日常，已经到来。
 AI绘图我们也做了很久，给to b训了很多独家模型。最近在研究to c一些有趣的玩法。
@@ -35,7 +36,7 @@ AI绘图我们也做了很久，给to b训了很多独家模型。最近在研�
 2 AIGC 导航网站
 2022年被称为AIGC的元年，写作，绘画，音乐，日新月异。 这个由于更新迭代很快，因此将常用的软件做了导航。
 
-https://www.icoderobot.com/
+[https://www.icoderobot.com/](https://www.icoderobot.com/)
 
 
 
@@ -76,10 +77,7 @@ https://www.icoderobot.com/
 扫码打开：
 
 
-![](https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg)
-
-
-
+![](https://cdn.aiqianji.com/web/mini_aiqianji.jpg)
 
 
 学习有问题，使用有问题，都可以去论坛讨论  www.aiqianji.com
