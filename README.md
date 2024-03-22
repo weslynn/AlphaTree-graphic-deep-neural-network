@@ -16,12 +16,8 @@
 ---------------------------------------------------------------------------------------------------
 
 
-其他：
-
-2023年10月更新
-
-1 从AlphaTree 拓展到一个社区  AI千集  www.aiqianji.com 以AI应用为目的 的一个社区。 
-（  AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，顺手也开发了一些学习工具，包括论文推荐系统，论文一键翻译 文章分发等等。
+1 AI千集  www.aiqianji.com 以AI应用为目的 的一个社区。 
+（  AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，现在每天都会更新AI自己筛选的文章等等。
 试试让AI 来服务于大家，）
 
 公众号 千集技术
@@ -32,28 +28,15 @@ AI绘图我们也做了很久，给to b训了很多独家模型。最近在研�
 
 
 
-
 2 AIGC 导航网站
 2022年被称为AIGC的元年，写作，绘画，音乐，日新月异。 这个由于更新迭代很快，因此将常用的软件做了导航。
 
 [https://www.icoderobot.com/](https://www.icoderobot.com/)
 
 
-
-
 3 AlphaCreation -之宝贝计划
 
-反正国内 很多小学已经开始教AI了。 考虑到 自家娃的功课问题，开始做对应的工作。世界是我们的，但终归还是你们的。 我们走过了AI发展奠定基础辉煌的几年，而大规模的应用还在路上。
-
-快速有效正确的学好AI ，才是未来的希望。
-
-学习AI 就像是在玩游戏， 之前 给公司做过关于AI技术的职级晋升规范制定，跟过那么多AI项目，听过那么多AI界的故事，有的成了 ，有的没成。不如反思你的团队，配置是否合理，是不是抓着法师去干了战士的活。这个团队是要灵活作战，还是要加大攻击力？
-
-这和学习是一个道理。为啥很多人学不下去，战士 去跟着高级法师学习 自然学习是没意思的。 
-
-
-
-搜索 题灵教学 ，可以使用。
+小学生 关于AI的题目自用版
 
 扫码打开：
 
@@ -61,21 +44,29 @@ AI绘图我们也做了很久，给to b训了很多独家模型。最近在研�
 ![](https://cdn.aiqianji.com/web/mini_aiqianji.jpg)
 
 
-学习有问题，使用有问题，都可以去论坛讨论  www.aiqianji.com
-
-有想法可以和我探讨探讨 ：  5009024@qq.com
-
 知乎：[点这里](https://www.zhihu.com/people/gingo-a)
 
 微信 ： gingo_alphatree 
-
+邮箱： 5009024@qq.com
 
 ![](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/webwxgetmsgimg.jpg)
 
 
------------------------------------------------------------------------
 
-## 深度学习基础：物体分类篇object classification [详解 detail](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/tree/master/DNN%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)
+
+## Sora 相关
+
+官网 ：https://openai.com/sora
+
+https://github.com/hpcaitech/Open-Sora
+
+https://github.com/lichao-sun/mora
+
+
+
+
+
+
 
 
 深度学习在解决分类问题上非常厉害。让它声名大噪的也是对于图像分类问题的解决。也产生了很多很经典的模型。其他方向的模型发展很多都是源于这各部分，它是很多模型的基础工作。因此我们首先了解一下它们。
