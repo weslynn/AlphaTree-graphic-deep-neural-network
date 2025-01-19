@@ -29,8 +29,8 @@ https://aiqianji.com/blog/ppt/home
 还做了一些学术专用的技能，主要是偏数学和公式的。是目前其他做ppt的没有的。开发小哥哥说，只要有用户了，就给大家上。 欢迎大家来这个地方留言。
 
 公众号 千集技术
-![](https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg)
 
+<a href="https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg"> <img src="https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg" width="600"> </a>
 导航网站 没人维护，已经被开发小哥哥干掉了，做了个飞书云文档 ，自己用的，也分享给大家
 飞书链接：https://dqhl68ssqm.feishu.cn/wiki/EfICwwVc1il4uQkHMUUc0p8dnXb?from=from_copylink   密码：aiqianji.com
 
@@ -40,15 +40,15 @@ https://aiqianji.com/blog/ppt/home
 譬如一些指令大师，长文改写大师， 毕竟工作日常还是很多文档需求的，如专利，软著，报告等。AI真是治脱发神器
 当然如果需要，我们做知识库也用的很多大家流传的 prompt 都可以继续无偿分享给大家，加客服就可以领取。
 
-![1737301971425](https://github.com/user-attachments/assets/8b4b53bd-97ec-4dd7-abd5-7ee3a8a9a39c)
 
+<a href="https://github.com/user-attachments/assets/8b4b53bd-97ec-4dd7-abd5-7ee3a8a9a39c"> <img src="https://github.com/user-attachments/assets/8b4b53bd-97ec-4dd7-abd5-7ee3a8a9a39c" width="600"> </a>
 
 
 AI绘图我们也做了很久，给to b训了很多独家模型。最近AI视频真的很厉害，最近内测了好几家，效果也很杰出了。2025年估计价格能打到非常低的情况。
 
 客服可以加：
 
-![1737302181337](https://github.com/user-attachments/assets/e904f45b-24e7-4881-bbb7-acb23d9109f3)
+<a href="https://github.com/user-attachments/assets/e904f45b-24e7-4881-bbb7-acb23d9109f3"> <img src="https://github.com/user-attachments/assets/e904f45b-24e7-4881-bbb7-acb23d9109f3" width="600"> </a>
 
 
 年底了，这个项目  基本也是年更。每年年底，就会发现技术爆炸。 而当美丽的烟花绚烂之后，就将沉寂下来，托举无数的AI应用。
