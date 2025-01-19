@@ -30,9 +30,14 @@ https://aiqianji.com/blog/ppt/home
 
 公众号 千集技术
 
-<a href="https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg"> <img src="https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg" width="600"> </a>
+<a href="https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg"> <img src="https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg" width="300"> </a>
+
+
+
 导航网站 没人维护，已经被开发小哥哥干掉了，做了个飞书云文档 ，自己用的，也分享给大家
 飞书链接：https://dqhl68ssqm.feishu.cn/wiki/EfICwwVc1il4uQkHMUUc0p8dnXb?from=from_copylink   密码：aiqianji.com
+
+
 
 小程序： 千集助理
 
