@@ -16,45 +16,70 @@
 ---------------------------------------------------------------------------------------------------
 
 
-1 AI千集  www.aiqianji.com 以AI应用为目的 的一个社区。 
+1 AI千集 [aiqianji.com](https://aiqianji.com/blog/articles) 以AI应用为目的 的一个社区。 
 （  AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，现在每天都会更新AI自己筛选的文章等等。
 试试让AI 来服务于大家，）
+
+目前已经开始可以全自动中英文翻译加论文简报。受欢迎的 还会做ppt输出。
+如何服务大家 还在计划中。
+
+PPT生成已经上线。参与社区的活跃分子 每天获取积分 就能免费使用了。
+https://aiqianji.com/blog/ppt/home
+
+还做了一些学术专用的技能，主要是偏数学和公式的。是目前其他做ppt的没有的。开发小哥哥说，只要有用户了，就给大家上。 欢迎大家来这个地方留言。
 
 公众号 千集技术
 ![](https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg)
 
-智能创作 主要各家gpt模型和接口都已经接入，用AI处理文字日常，已经到来。
-AI绘图我们也做了很久，给to b训了很多独家模型。最近在研究to c一些有趣的玩法。
+导航网站 没人维护，已经被开发小哥哥干掉了，做了个飞书云文档 ，自己用的，也分享给大家
+飞书链接：https://dqhl68ssqm.feishu.cn/wiki/EfICwwVc1il4uQkHMUUc0p8dnXb?from=from_copylink   密码：aiqianji.com
+
+小程序： 千集助理
+
+智能创作 以前接了gpt，但是因为管控，改接了其他家gpt模型都已经接入，因为懒得和AI聊太多，希望他尽快干活，所以做了些优化。
+譬如一些指令大师，长文改写大师， 毕竟工作日常还是很多文档需求的，如专利，软著，报告等。AI真是治脱发神器
+当然如果需要，我们做知识库也用的很多大家流传的 prompt 都可以继续无偿分享给大家，加客服就可以领取。
+
+![1737301971425](https://github.com/user-attachments/assets/8b4b53bd-97ec-4dd7-abd5-7ee3a8a9a39c)
 
 
 
-2 AIGC 导航网站
-2022年被称为AIGC的元年，写作，绘画，音乐，日新月异。 这个由于更新迭代很快，因此将常用的软件做了导航。
+AI绘图我们也做了很久，给to b训了很多独家模型。最近AI视频真的很厉害，最近内测了好几家，效果也很杰出了。2025年估计价格能打到非常低的情况。
 
-[https://www.icoderobot.com/](https://www.icoderobot.com/)
+客服可以加：
 
-
-3 AlphaCreation -之宝贝计划
-
-小学生 关于AI的题目自用版
-
-扫码打开：
+![1737302181337](https://github.com/user-attachments/assets/e904f45b-24e7-4881-bbb7-acb23d9109f3)
 
 
-![](https://cdn.aiqianji.com/web/mini_aiqianji.jpg)
+年底了，这个项目  基本也是年更。每年年底，就会发现技术爆炸。 而当美丽的烟花绚烂之后，就将沉寂下来，托举无数的AI应用。
 
+这是个最神奇的年代，希望你们，每一个人，在这个时代，创造奇迹。
 
-知乎：[点这里](https://www.zhihu.com/people/gingo-a)
-
-微信 ： gingo_alphatree 
-邮箱： 5009024@qq.com
-
-![](https://github.com/weslynn/AlphaTree-graphic-deep-neural-network/blob/master/pic/webwxgetmsgimg.jpg)
+也希望更多的人，能够真正的了解AI，了解用户，做出更好的应用。
 
 
 
 
-## Sora 相关
+## AI视频
+
+vidu   www.vidu.cn
+
+|AI视频产品 |标准档月度会员价格|积分/秒 |每秒价格(元)|
+|:---:|:---:|:---:|:---:|
+|Vidu 2.0|69元(800积分)|3积分/秒|0.258|
+|Pika|约等于73元(700积分)|3积分/秒|0.313|
+|海螺|68元(1000积分)|5积分/秒|0.34|
+|luma|约等于73元(3200积分)|16积分/秒|0.365|
+|PixVerse|约等于73元(1200分)|6积分/秒 |0.365|
+|可灵1.5/1.6|66元(660积分)|4积分/秒|0.4|
+|即梦2.0Pro|79元(520积分)|4积分/秒|0.608|
+|Runway (Gen-3 Alpha Turbo)|约等于110元(625积分)|5积分/秒|0.88|
+|Sora (720p)|约等于147元(1000积分)|12积分/秒|1.764|
+
+
+
+
+Sora 相关
 
 官网 ：https://openai.com/sora
 
