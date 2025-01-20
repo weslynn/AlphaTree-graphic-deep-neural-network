@@ -28,9 +28,10 @@ https://aiqianji.com/blog/ppt/home
 
 还做了一些学术专用的技能，主要是偏数学和公式的。是目前其他做ppt的没有的。开发小哥哥说，只要有用户了，就给大家上。 欢迎大家来这个地方留言。
 
-公众号 千集技术
+公众号 千集助理
 
-<a href="https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg"> <img src="https://aiqianji.oss-cn-shenzhen.aliyuncs.com/qianji-ai.jpg" width="300"> </a>
+
+<a href="https://github.com/user-attachments/assets/86d6b45f-4bc7-41a9-949b-200aff5e1468"> <img src="https://github.com/user-attachments/assets/86d6b45f-4bc7-41a9-949b-200aff5e1468" width="300"> </a>
 
 
 
