@@ -33,6 +33,12 @@ https://aiqianji.com/blog/ppt/home
 飞书链接：https://dqhl68ssqm.feishu.cn/wiki/EfICwwVc1il4uQkHMUUc0p8dnXb?from=from_copylink   密码：aiqianji.com
 
 
+-----------------------------------
+
+欢迎来到新项目赛博永生的 awesome-human-skill . 来看看大家都炼了哪些赛博生命
+![awesome-human-skill](https://github.com/weslynn/awesome-human-skill/blob/main/img/20260511-141152.png)
+
+https://github.com/weslynn/awesome-human-skill
 
 这个项目  基本也是年更。每年年底，就会发现技术爆炸。 而当美丽的烟花绚烂之后，就将沉寂下来，托举无数的AI应用。
 
