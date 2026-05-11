@@ -40,24 +40,7 @@ https://aiqianji.com/blog/ppt/home
 
 
 
-小程序： 千集助理
-
-智能创作 以前接了gpt，但是因为管控，改接了其他家gpt模型都已经接入，因为懒得和AI聊太多，希望他尽快干活，所以做了些优化。
-譬如一些指令大师，长文改写大师， 毕竟工作日常还是很多文档需求的，如专利，软著，报告等。AI真是治脱发神器
-当然如果需要，我们做知识库也用的很多大家流传的 prompt 都可以继续无偿分享给大家，加客服就可以领取。
-
-
-<a href="https://github.com/user-attachments/assets/8b4b53bd-97ec-4dd7-abd5-7ee3a8a9a39c"> <img src="https://github.com/user-attachments/assets/8b4b53bd-97ec-4dd7-abd5-7ee3a8a9a39c" width="600"> </a>
-
-
-AI绘图我们也做了很久，给to b训了很多独家模型。最近AI视频真的很厉害，最近内测了好几家，效果也很杰出了。2025年估计价格能打到非常低的情况。
-
-客服可以加：
-
-<a href="https://github.com/user-attachments/assets/e904f45b-24e7-4881-bbb7-acb23d9109f3"> <img src="https://github.com/user-attachments/assets/e904f45b-24e7-4881-bbb7-acb23d9109f3" width="600"> </a>
-
-
-年底了，这个项目  基本也是年更。每年年底，就会发现技术爆炸。 而当美丽的烟花绚烂之后，就将沉寂下来，托举无数的AI应用。
+这个项目  基本也是年更。每年年底，就会发现技术爆炸。 而当美丽的烟花绚烂之后，就将沉寂下来，托举无数的AI应用。
 
 这是个最神奇的年代，希望你们，每一个人，在这个时代，创造奇迹。
 
