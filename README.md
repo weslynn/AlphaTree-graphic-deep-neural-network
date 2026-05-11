@@ -28,12 +28,6 @@ https://aiqianji.com/blog/ppt/home
 
 还做了一些学术专用的技能，主要是偏数学和公式的。是目前其他做ppt的没有的。开发小哥哥说，只要有用户了，就给大家上。 欢迎大家来这个地方留言。
 
-公众号 千集助理
-
-
-<a href="https://github.com/user-attachments/assets/86d6b45f-4bc7-41a9-949b-200aff5e1468"> <img src="https://github.com/user-attachments/assets/86d6b45f-4bc7-41a9-949b-200aff5e1468" width="300"> </a>
-
-
 
 导航网站 没人维护，已经被开发小哥哥干掉了，做了个飞书云文档 ，自己用的，也分享给大家
 飞书链接：https://dqhl68ssqm.feishu.cn/wiki/EfICwwVc1il4uQkHMUUc0p8dnXb?from=from_copylink   密码：aiqianji.com
