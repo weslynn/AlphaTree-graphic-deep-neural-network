@@ -10,35 +10,79 @@
 
 在面试到一些同学的时候，他们总是信誓旦旦的表示要转深度学习，但是存在能推导公式，但是一到深入理念，或者工程项目细节就两眼一抹黑。有没有一个项目，能一个一个项目帮助大家理解深度学习的发展的同时也提高应用能力。
 
-基于这种想法，邀请了几位资深程序员加入这个项目。希望丰富的资源能够帮助到大家。
+基于这种想法，开启了这个项目。希望丰富的资源能够帮助到大家。
 
 版权申明：CC-BY-NC-SA 知识共享-署名-非商业性-相同方式共享
 ---------------------------------------------------------------------------------------------------
 
 
-1 AI千集 [aiqianji.com](https://aiqianji.com/blog/articles) 以AI应用为目的 的一个社区。 
-（  AI+ Creation = Change the world。 AI千集在研究一些智能创作的事情，现在每天都会更新AI自己筛选的文章等等。
-试试让AI 来服务于大家，）
+<p align="center"> <img src="https://img.shields.io/badge/website-alphatree.cn-38e1ff?style=for-the-badge" alt="Website" /> <img src="https://img.shields.io/github/stars/weslynn/AlphaTree-graphic-deep-neural-network?style=for-the-badge" alt="Stars" /> <img src="https://img.shields.io/github/forks/weslynn/AlphaTree-graphic-deep-neural-network?style=for-the-badge" alt="Forks" /> <img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg?style=for-the-badge" alt="License" /> </p>
+<h1 align="center">AlphaTree · 数智星河</h1>
+<p align="center"> <b>数学 · 计算机 · 人工智能，三千年演进，一根时间线</b><br/> <i>Graphic Deep Neural Network → Interactive AI Timeline (1943 → 2026)</i> </p>
 
-目前已经开始可以全自动中英文翻译加论文简报。受欢迎的 还会做ppt输出。
-如何服务大家 还在计划中。
-
-PPT生成已经上线。参与社区的活跃分子 每天获取积分 就能免费使用了。
-https://aiqianji.com/blog/ppt/home
-
-还做了一些学术专用的技能，主要是偏数学和公式的。是目前其他做ppt的没有的。开发小哥哥说，只要有用户了，就给大家上。 欢迎大家来这个地方留言。
+🌐 新版交互站点已上线：alphatree.cn（中文名：数智星河）本仓库是 2019 年的静态图解合集；2026 年我们把它用 AI 重做成了可交互的时间线站点。 148 个里程碑 · 可视化网络结构· 可交互算法动画 · 论文地铁图。 欢迎 Star 收藏新站，并到站点里体验。🌐 The new interactive site is live: alphatree.cn (Chinese name: 数智星河 / "Galaxy of Intelligence"). This repo was a static diagram collection from 2019; in 2026 we rebuilt it into an interactive timeline site with AI assistance.
+✨ 这是什么 / What is this
+AlphaTree 最初是一个把深度学习经典网络结构「统一画一遍」的开源项目——因为论文里的同一张图，画法五花八门，看着头疼。 它曾在 2019 年意外登上 GitHub Trending，攒下 3k+ star，后来因工作繁忙在 2022 年后停更。
+2026 年，我们用 AI 工具把它整个重做了一遍：从「一堆静态图」变成了「一根能走的时间线」——覆盖从数学起源、计算机诞生、到今天大模型的三千年演进。
+AlphaTree started as an open-source project that redrew classic deep-learning architectures in one consistent style. It hit GitHub Trending in 2019 and earned 3k+ stars, then went stale after 2022. In 2026 we rebuilt it from scratch into an interactive timeline spanning ~3,000 years of math → computing → AI.
 
 
-导航网站 没人维护，已经被开发小哥哥干掉了，做了个飞书云文档 ，自己用的，也分享给大家
-飞书链接：https://dqhl68ssqm.feishu.cn/wiki/EfICwwVc1il4uQkHMUUc0p8dnXb?from=from_copylink   密码：aiqianji.com
+
+🖼️ 预览 / Preview
+💡  Suggested shots: ① 时间线全景 
+
+<img width="2120" height="1628" alt="image" src="https://github.com/user-attachments/assets/3ddddd89-ce9a-4db4-bfa7-5754a9b2b9a0" />
 
 
------------------------------------
 
-欢迎来到新项目赛博永生的 awesome-human-skill . 来看看大家都炼了哪些赛博生命
-![awesome-human-skill](https://github.com/weslynn/awesome-human-skill/blob/main/img/20260511-141152.png)
+② ResNet 3D 结构 
 
-https://github.com/weslynn/awesome-human-skill
+<img width="3184" height="1566" alt="image" src="https://github.com/user-attachments/assets/0a49cd06-d766-4746-88d9-280c68e90b0a" />
+
+
+③ 论文地铁图。
+<img width="1978" height="1294" alt="image" src="https://github.com/user-attachments/assets/ee71f462-1711-41e8-aae7-047a93242f2a" />
+
+
+直接体验：打开 alphatree.cn，无需注册，电脑/手机均可。
+
+🚀 快速开始 / Quick start
+# 方式一：直接访问在线站点（推荐）
+# 打开 https://alphatree.cn
+
+# 方式二：本仓库是历史图解源码，可本地查看静态图
+git clone https://github.com/weslynn/AlphaTree-graphic-deep-neural-network.git
+cd AlphaTree-graphic-deep-neural-network
+# 按仓库内原有说明打开对应 HTML / 图片
+
+⚠️ 注意：本仓库保留的是 2019 版静态图解源码；所有最新内容都在 alphatree.cn。 This repo keeps the 2019 static diagrams; the latest content lives at the site.
+🛠️ 技术说明 / Tech notes
+纯前端单页：站点是一个 HTML 文件，无后端、无需登录。
+数据内联：所有数据内联在页面中（首屏约 6MB，gzip 后约 2.6MB），正在拆分为按需加载的 JSON + CDN。
+AI 辅助 + 人工校对：内容由 AI 辅助生成，年份、人名、沿革关系均人工逐条核对。如发现错误，欢迎提 Issue。
+开源许可：内容基于 CC BY-NC-SA 4.0（署名 + 非商业 + 相同方式共享），商用请联系作者。
+Pure front-end single-page site, no backend, no login. Content is AI-assisted with manual fact-checking on dates/names/lineage.
+🗺️ 路线图（第 2 期）/ Roadmap
+[ ] 数据外置 + 懒加载，压低首屏体积
+[ ] 补齐 2023–2026 关键节点（含 DeepSeek、多模态、Agent 等）
+[ ] 详情页独立深链（#/model/resnet 等），支持分享单张图
+[ ] OG / Twitter Card 分享卡片
+[ ] 离线版 / PDF 导出
+[ ] 投稿入口（沿用社区传统：贡献者署「植物名」🌱）
+
+🤝 贡献 / Contributing
+数据纠错、内容补充、翻译都欢迎：
+在 Issues 提错误/建议；
+或提 PR 到本仓库（历史图解部分）；
+站点新内容的反馈请到 alphatree.cn 评论区。
+内容遵循 CC BY-NC-SA 4.0，引用时请署名。
+
+📄 许可 / License
+内容采用 CC BY-NC-SA 4.0。
+
+<p align="center"> AlphaTree · 数智星河　·　5 年前上过 Trending，今年用 AI 重做了一遍　·　<a href="https://alphatree.cn">alphatree.cn</a> </p>
+
+
 
 
 ----------------------
