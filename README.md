@@ -4,6 +4,30 @@
 
 
 
+<p align="center"> <img src="https://img.shields.io/badge/website-alphatree.cn-38e1ff?style=for-the-badge" alt="Website" /> <img src="https://img.shields.io/github/stars/weslynn/AlphaTree-graphic-deep-neural-network?style=for-the-badge" alt="Stars" /> <img src="https://img.shields.io/github/forks/weslynn/AlphaTree-graphic-deep-neural-network?style=for-the-badge" alt="Forks" /> <img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg?style=for-the-badge" alt="License" /> </p>
+
+<h1 align="center">AlphaTree · 数智星河</h1>
+
+<p align="center"> <b>数学 · 计算机 · 人工智能，三千年演进，一根时间线</b><br/> <i>Graphic Deep Neural Network → Interactive AI Timeline (1943 → 2026)</i> </p>
+
+🌐 新版交互站点已上线：[alphatree.cn](https://alphatree.cn)（中文名：数智星河）
+
+本仓库是 2019 年的静态图解合集；2026 年我们把它用 AI 重做成了可交互的时间线站点。 148 个里程碑 · 可视化网络结构· 可交互算法动画 · 论文地铁图。 欢迎 Star 收藏新站，并到站点里体验。
+
+🌐 The new interactive site is live: alphatree.cn (Chinese name: 数智星河 / "Galaxy of Intelligence"). This repo was a static diagram collection from 2019; in 2026 we rebuilt it into an interactive timeline site with AI assistance.
+
+
+✨ 这是什么 / What is this
+
+AlphaTree 最初是一个把深度学习经典网络结构「统一画一遍」的开源项目——因为论文里的同一张图，画法五花八门，看着头疼。后来拓展成了论文发展roadmap， 它曾在 2019 年意外登上 GitHub Trending，攒下 3k+ star，后来因工作繁忙后停更了一段时间。
+
+2026 年，the dream come true，我们用 AI 工具把它整个重做了一遍：从「一堆静态图」变成了 可以交互的网络结构，那一堆文字变成了「一根能走的时间线」——覆盖从数学起源、计算机诞生、到今天大模型的三千年演进。而roadmap ，真的是可以交互的 roadmap了。每个站点都可以点击，查看论文介绍，也开始加入了 arxiv的链接。
+
+AlphaTree started as an open-source project that redrew classic deep-learning architectures in one consistent style. It hit GitHub Trending in 2019 and earned 3k+ stars, then went stale after 2022. In 2026 we rebuilt it from scratch into an interactive timeline spanning ~3,000 years of math → computing → AI.
+
+
+
+
 从AI研究的角度来说，AI的学习和跟进是有偏向性的，更多的精英是擅长相关的一到两个领域，在这个领域做到更好。而从AI应用工程师的角度来说，每一个工程都可能涉及很多个AI的方向，而他们需要了解掌握不同的方向才能更好的开发和设计。
 
 但是AI中每一个领域都在日新月异的成长。而每一位研究人员写paper的风格都不一样，相似的模型，为了突出不同的改进点，他们对模型的描述和图示都可能大不相同。为了帮助更多的人在不同领域能够快速跟进前沿技术，我们构建了“AlphaTree计划”，每一篇文章都会对应文章，代码，然后进行图示输出。
@@ -14,19 +38,6 @@
 
 版权申明：CC-BY-NC-SA 知识共享-署名-非商业性-相同方式共享
 ---------------------------------------------------------------------------------------------------
-
-
-<p align="center"> <img src="https://img.shields.io/badge/website-alphatree.cn-38e1ff?style=for-the-badge" alt="Website" /> <img src="https://img.shields.io/github/stars/weslynn/AlphaTree-graphic-deep-neural-network?style=for-the-badge" alt="Stars" /> <img src="https://img.shields.io/github/forks/weslynn/AlphaTree-graphic-deep-neural-network?style=for-the-badge" alt="Forks" /> <img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg?style=for-the-badge" alt="License" /> </p>
-<h1 align="center">AlphaTree · 数智星河</h1>
-<p align="center"> <b>数学 · 计算机 · 人工智能，三千年演进，一根时间线</b><br/> <i>Graphic Deep Neural Network → Interactive AI Timeline (1943 → 2026)</i> </p>
-
-🌐 新版交互站点已上线：alphatree.cn（中文名：数智星河）本仓库是 2019 年的静态图解合集；2026 年我们把它用 AI 重做成了可交互的时间线站点。 148 个里程碑 · 可视化网络结构· 可交互算法动画 · 论文地铁图。 欢迎 Star 收藏新站，并到站点里体验。🌐 The new interactive site is live: alphatree.cn (Chinese name: 数智星河 / "Galaxy of Intelligence"). This repo was a static diagram collection from 2019; in 2026 we rebuilt it into an interactive timeline site with AI assistance.
-✨ 这是什么 / What is this
-AlphaTree 最初是一个把深度学习经典网络结构「统一画一遍」的开源项目——因为论文里的同一张图，画法五花八门，看着头疼。 它曾在 2019 年意外登上 GitHub Trending，攒下 3k+ star，后来因工作繁忙在 2022 年后停更。
-2026 年，我们用 AI 工具把它整个重做了一遍：从「一堆静态图」变成了「一根能走的时间线」——覆盖从数学起源、计算机诞生、到今天大模型的三千年演进。
-AlphaTree started as an open-source project that redrew classic deep-learning architectures in one consistent style. It hit GitHub Trending in 2019 and earned 3k+ stars, then went stale after 2022. In 2026 we rebuilt it from scratch into an interactive timeline spanning ~3,000 years of math → computing → AI.
-
-
 
 🖼️ 预览 / Preview
 💡  Suggested shots: ① 时间线全景 
