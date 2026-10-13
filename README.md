@@ -10,11 +10,12 @@
 
 <p align="center"> <b>数学 · 计算机 · 人工智能，三千年演进，一根时间线</b><br/> <i>Graphic Deep Neural Network → Interactive AI Timeline (1943 → 2026)</i> </p>
 
-🌐 新版交互站点已上线：[alphatree.cn](https://alphatree.cn)（中文名：数智星河）
+🌐 新版交互站点已上线：[https://alphatree.cn](https://alphatree.cn)
 
 本仓库是 2019 年的静态图解合集；2026 年我们把它用 AI 重做成了可交互的时间线站点。 148 个里程碑 · 可视化网络结构· 可交互算法动画 · 论文地铁图。 欢迎 Star 收藏新站，并到站点里体验。
 
-🌐 The new interactive site is live: alphatree.cn (Chinese name: 数智星河 / "Galaxy of Intelligence"). This repo was a static diagram collection from 2019; in 2026 we rebuilt it into an interactive timeline site with AI assistance.
+🌐 The new interactive site is live:[https://alphatree.cn](https://alphatree.cn) . This repo was a static diagram collection from 2019; in 2026 we rebuilt it into an interactive timeline site with AI assistance.
+
 
 
 ✨ 这是什么 / What is this
