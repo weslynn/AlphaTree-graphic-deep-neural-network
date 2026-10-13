@@ -6,7 +6,7 @@
 
 <p align="center"> <img src="https://img.shields.io/badge/website-alphatree.cn-38e1ff?style=for-the-badge" alt="Website" /> <img src="https://img.shields.io/github/stars/weslynn/AlphaTree-graphic-deep-neural-network?style=for-the-badge" alt="Stars" /> <img src="https://img.shields.io/github/forks/weslynn/AlphaTree-graphic-deep-neural-network?style=for-the-badge" alt="Forks" /> <img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg?style=for-the-badge" alt="License" /> </p>
 
-<h1 align="center">AlphaTree · 数智星河</h1>
+<h1 align="center">AlphaTree</h1>
 
 <p align="center"> <b>数学 · 计算机 · 人工智能，三千年演进，一根时间线</b><br/> <i>Graphic Deep Neural Network → Interactive AI Timeline (1943 → 2026)</i> </p>
 
